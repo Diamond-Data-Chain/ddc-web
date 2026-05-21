@@ -1,0 +1,71 @@
+{
+  "standard": "DDC-EVENT-1.0",
+  "projectId": "bike-factory-line-01",
+  "eventId": "evt-20001",
+  "eventType": "CONSUMED_IN_PRODUCTION",
+  "eventSubType": "BOM_CONSUMPTION",
+  "timestamp": "2026-03-20T08:15:00Z",
+  "chainContext": {
+    "chainType": "offchain",
+    "chainId": 0,
+    "network": "internal",
+    "blockNumber": 0,
+    "txHash": "",
+    "contractAddress": ""
+  },
+  "assetContext": {
+    "assetType": "inventory_item",
+    "assetSymbol": "WH-FR-28",
+    "assetAddress": "",
+    "amount": "100",
+    "decimals": 0
+  },
+  "entityFlow": {
+    "fromEntityType": "production_line",
+    "fromEntityId": "Line-1",
+    "fromAddress": null,
+    "toEntityType": "finished_goods",
+    "toEntityId": "City28",
+    "toAddress": null
+  },
+  "businessContext": {
+    "domain": "industry",
+    "module": "production",
+    "purposeCode": "BOM_CONSUMPTION",
+    "memo": "100 front wheels consumed on Line 1 for City28 production",
+    "referenceId": "order-2026-03-20-A",
+    "relatedEventIds": ["evt-19995", "evt-19996"]
+  },
+  "sourceContext": {
+    "sourceId": "scanner-line-01",
+    "sourceType": "SENSOR",
+    "sourceLabel": "Line 1 scanner",
+    "signatureType": "DEVICE_SIGNATURE",
+    "signatureRef": "sig-line1-20260320-081500"
+  },
+  "validationContext": {
+    "validationStatus": "CONSISTENT",
+    "policyMatched": true,
+    "policyIds": ["BOM_CITY28_V1", "LINE1_RULESET_V1"],
+    "crossConsistencyChecked": true,
+    "crossConsistencyResult": "PASS",
+    "multiSourceConfirmed": true,
+    "confirmationRefs": ["warehouse-issue-evt-19995", "finished-product-evt-19996"]
+  },
+  "truthContext": {
+    "truthScore": 91,
+    "riskLevel": "LOW",
+    "anomalyFlags": []
+  },
+  "integrityContext": {
+    "eventHash": "0xindhash000001abcdef1234567890abcdef1234567890abcdef1234567890ab",
+    "reportHash": "0xindustryreport20260320abcdef1234567890abcdef1234567890abcdef12",
+    "ddcCommitId": "commit-2026-03-20-line1",
+    "immutableRecorded": true
+  },
+  "humanReadable": {
+    "title": "Production consumption recorded",
+    "summary": "100 front wheels consumed on Line 1 for City28 production.",
+    "explanation": "Consumption matched warehouse issue records, line activity, and BOM expectations."
+  }
+}

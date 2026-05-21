@@ -1,0 +1,9 @@
+// app/config/contracts.d.ts
+
+export const DDC_TOKEN_ADDRESS: string;
+export const USDT_MOCK_ADDRESS: string;
+export const PRESALE_VESTING_ADDRESS: string;
+export const VESTING_VAULT_ADDRESS: string;
+
+export const HARDHAT_CHAIN_ID: number;
+export const HARDHAT_RPC_URL: string;

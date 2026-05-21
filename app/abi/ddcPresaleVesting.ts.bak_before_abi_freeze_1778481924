@@ -1,0 +1,4 @@
+import artifact from "./ddcPresaleVesting.json";
+
+// Safe export: ABI array (ethers v6 expects ABI fragments array)
+export const DDC_PRESALE_ABI = ((artifact as any).abi ?? artifact) as any;

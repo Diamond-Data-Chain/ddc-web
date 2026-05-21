@@ -1,0 +1,132 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+{
+  "recorder": "0xa72EfB27DAACCCdcDA5190C22E6998F7A288a7D5",
+  "projectId": "0x1633beaaf661227d5c18cb7576ad3ab1ee1606d5dc6d9f75e3d3a717bd79be1d",
+  "user": "0xd10038af00BfC74f300171F479ccE4B02d263866",
+  "count": "10",
+  "purchases": [
+    {
+      "index": 0,
+      "ddcAmountRaw": "45454545454545454545454",
+      "ddcAmountDDC": "45454.545454545454545454",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "5000000000",
+      "payAmountUSDT": "5000.0",
+      "payMethod": "0",
+      "memoHash": "0xa543a3a5e6ad2de0a7314fe541ff6664fb9fc1e2e52cd7245cba0b6e2ca8a807",
+      "sourceRef": "0xc457531299e70332b424fe8d01cf91800badbcb75674eda3b604923a17e6346c",
+      "ts": "1775658673"
+    },
+    {
+      "index": 1,
+      "ddcAmountRaw": "7662068965517241379310",
+      "ddcAmountDDC": "7662.06896551724137931",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "2222000000",
+      "payAmountUSDT": "2222.0",
+      "payMethod": "0",
+      "memoHash": "0xb7393eb0ac03c0c2941818637b7fdf2753cdbb5dad3cb063d3e754393cd17331",
+      "sourceRef": "0xc1c34b500a98deaa16cb657875d6b263a1c23c8334536e7ff123ac42a3d71eac",
+      "ts": "1775659739"
+    },
+    {
+      "index": 2,
+      "ddcAmountRaw": "9579310344827586206896",
+      "ddcAmountDDC": "9579.310344827586206896",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "2778000000",
+      "payAmountUSDT": "2778.0",
+      "payMethod": "0",
+      "memoHash": "0x2e40af2f8a10597df2f0d88e6cabd7b130a5f418c0a1caecfdbfb066d45621e2",
+      "sourceRef": "0xb9ea2ea1b2f623f7d39f2067b21f1f2ed5987cc4efd83e2948a7b4a18e836dfd",
+      "ts": "1775659764"
+    },
+    {
+      "index": 3,
+      "ddcAmountRaw": "135135135135135135135",
+      "ddcAmountDDC": "135.135135135135135135",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "50000000",
+      "payAmountUSDT": "50.0",
+      "payMethod": "0",
+      "memoHash": "0x275170b79ecbeffb158f3e166d50e6d31b90631c3a1af25c58c0c4be8c41a0b2",
+      "sourceRef": "0x082ab4a2f91b34ddd815d8d3b34c946682876304afb5235a8c99e292446afe5b",
+      "ts": "1775660191"
+    },
+    {
+      "index": 4,
+      "ddcAmountRaw": "2297297297297297297297",
+      "ddcAmountDDC": "2297.297297297297297297",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "850000000",
+      "payAmountUSDT": "850.0",
+      "payMethod": "0",
+      "memoHash": "0x6820ccfd146cdceed14056d91015b9afe8e4fe476de3c944d1584062cabb4619",
+      "sourceRef": "0xc0599bf9b2eeb5090a73d585a79447f86f6b01ca6d691db3f479f2a6dc536017",
+      "ts": "1775660229"
+    },
+    {
+      "index": 5,
+      "ddcAmountRaw": "11081081081081081081081",
+      "ddcAmountDDC": "11081.081081081081081081",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "4100000000",
+      "payAmountUSDT": "4100.0",
+      "payMethod": "0",
+      "memoHash": "0x6b7e222481dd673641d325f192d8b68d6c535c02cae2069d659f330278617cfa",
+      "sourceRef": "0xc64b8e5646db597227ede77e6b4e30e50596d49228127ab1e4f81e35404d40bd",
+      "ts": "1775660251"
+    },
+    {
+      "index": 6,
+      "ddcAmountRaw": "8771929824561403508771",
+      "ddcAmountDDC": "8771.929824561403508771",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "5000000000",
+      "payAmountUSDT": "5000.0",
+      "payMethod": "0",
+      "memoHash": "0x39502f51e5273702d7fcea3ebb0b630ea8affbbd4c9a420f487acfa471789789",
+      "sourceRef": "0xf178edd38bc574b81d0ee709e03a6b9dc284ff40544fdcfab86b8afb10a1199b",
+      "ts": "1775661404"
+    },
+    {
+      "index": 7,
+      "ddcAmountRaw": "7155932203389830508474",
+      "ddcAmountDDC": "7155.932203389830508474",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "4222000000",
+      "payAmountUSDT": "4222.0",
+      "payMethod": "0",
+      "memoHash": "0xc08e3722c8a545e05600abe02ad126fa6ce56364576e5731184d48ef46294236",
+      "sourceRef": "0xe0858b169d70b3e7f78a3ea8eedfdd5620fc54620075890ade677d01a57a6f80",
+      "ts": "1775661567"
+    },
+    {
+      "index": 8,
+      "ddcAmountRaw": "6701587301587301587301",
+      "ddcAmountDDC": "6701.587301587301587301",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "4222000000",
+      "payAmountUSDT": "4222.0",
+      "payMethod": "0",
+      "memoHash": "0x3f3d1ebf0facc9f16bef69bf9dedc11ce3ee0b397d37c8498b7a78f1c469ee66",
+      "sourceRef": "0x453b386e093d6a5859ff592b1cebbc87ca7827a18fe671604a20d0b49f7e1617",
+      "ts": "1775661766"
+    },
+    {
+      "index": 9,
+      "ddcAmountRaw": "1234920634920634920634",
+      "ddcAmountDDC": "1234.920634920634920634",
+      "payAsset": "0x0d1D3A43E6c9AeF9FC983001BE66FcC1973995B9",
+      "payAmountRaw": "778000000",
+      "payAmountUSDT": "778.0",
+      "payMethod": "0",
+      "memoHash": "0xed0e79f30da13b03d2deaa637375548ca76749fbe40187e83949357ae0fb423a",
+      "sourceRef": "0xad6f2885d270ce05a2dc5d5e42f7ebaa805e838a3bf108e90e2482222be01c32",
+      "ts": "1775661816"
+    }
+  ]
+}

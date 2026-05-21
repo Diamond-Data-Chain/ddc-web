@@ -1,0 +1,8 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale   = 0xDfEE47592ce243AeF367b0Dce81672EBc83c7e0b
+rewardPool= 0x3db23abD1Fc153506fFBf55170e1788b1D08A1FC
+setRewardPool tx = 0xeea3c03b8f904f52cdbc53e4a22e94f59db1daf8df4eba1ea148b5ccfa87addd
+done

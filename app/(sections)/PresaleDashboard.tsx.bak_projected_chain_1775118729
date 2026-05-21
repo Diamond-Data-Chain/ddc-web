@@ -1,0 +1,1284 @@
+"use client";
+
+import type { InterfaceAbi } from "ethers";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import RewardPoolStatus from "@/components/presale/RewardPoolStatus";
+import PresaleFinalizeStatus from "@/components/presale/PresaleFinalizeStatus";
+import { BrowserProvider, Contract, formatEther, formatUnits, parseEther, parseUnits } from "ethers";
+import { useWallet } from "../WalletProvider";
+
+import presaleArtifact from "@/app/abi/ddcPresaleVesting.json";
+
+
+// iz JSON artefakta uzimamo samo .abi niz
+const presaleAbi: InterfaceAbi = (presaleArtifact as { abi: InterfaceAbi }).abi;
+
+// Addresses/chain are provided via env (wiring-only). Frontend projects on-chain state.
+const PRESALE_VESTING_ADDRESS = process.env.NEXT_PUBLIC_PRESALE_ADDRESS as
+  | `0x${string}`
+  | undefined;
+
+const DDC_TOKEN_ADDRESS = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS as
+  | `0x${string}`
+  | undefined;
+
+const USDT_MOCK_ADDRESS = process.env.NEXT_PUBLIC_USDT_ADDRESS as
+  | `0x${string}`
+  | undefined;
+
+const EXPECTED_CHAIN_ID = process.env.NEXT_PUBLIC_CHAIN_ID
+  ? Number(process.env.NEXT_PUBLIC_CHAIN_ID)
+  : undefined;
+
+
+const ZERO_TXID: `0x${string}` = `0x${"0".repeat(64)}`;
+
+
+const usdtAbi = [
+  "function approve(address spender, uint256 amount) external returns (bool)",
+  "function allowance(address owner, address spender) external view returns (uint256)",
+  "function balanceOf(address owner) external view returns (uint256)",
+  "function decimals() external view returns (uint8)",
+];
+
+type BatchInfo = {
+  hardCapDDC: bigint;
+  soldDDC: bigint;
+  priceInUSDT: bigint;
+  startTime: bigint;
+  endTime: bigint;
+};
+
+// presale plan: 40 batcheva, svaki 2_560_000 DDC
+const TOTAL_BATCHES = 40;
+const BATCH_SIZE_DDC = 2_560_000;
+
+type BatchPlan = {
+  id: number;
+  priceUSDT: number; // po 1 DDC
+  supplyDDC: number;
+};
+
+const PRESALE_PLAN: BatchPlan[] = Array.from(
+  { length: TOTAL_BATCHES },
+  (_, i) => {
+    const id = i + 1;
+    const priceUSDT = 0.01 + i * 0.02; // 1: 0.01, 2: 0.03, 3: 0.05, ...
+    return {
+      id,
+      priceUSDT,
+      supplyDDC: BATCH_SIZE_DDC,
+    };
+  }
+);
+
+function formatBigInt(value: unknown) {
+  if (value === null || value === undefined) return "0";
+  try {
+    const bi = BigInt(value.toString());
+    const asEth = Number(formatEther(bi));
+    return asEth.toLocaleString("en-US", {
+      maximumFractionDigits: 2,
+    });
+  } catch {
+    return "0";
+  }
+}
+
+function formatPriceUSDT(price: bigint | null | undefined, usdtDecimals?: number) {
+  if (price == null) return "-";
+  const dec = typeof usdtDecimals === "number" && usdtDecimals >= 0 ? usdtDecimals : 6;
+
+  // exact string (e.g. "0.01")
+  const s = formatUnits(price, dec);
+
+  // If it's extremely small, show more precision instead of "0.00"
+  const n = Number(s);
+  if (!Number.isFinite(n)) return s;
+
+  if (n > 0 && n < 0.01) {
+    // show up to 18 decimals for tiny prices
+    return n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 18 });
+  }
+
+  return n.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 6 });
+}
+
+function toFixedNoSci(n: number, decimals = 6) {
+  if (!Number.isFinite(n) || n <= 0) return "0";
+  return n.toFixed(decimals).replace(/\.?0+$/, "");
+}
+
+// koliko ETH treba da se kupi baš remaining DDC (po tvojoj on-chain "priceInUSDT" logici)
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+function calcMaxEthToFillBatch(
+  remainingDDC?: bigint | null,
+  priceInUSDT?: bigint | null
+) {
+  if (!remainingDDC || !priceInUSDT) return "0";
+  if (remainingDDC <= 0n || priceInUSDT <= 0n) return "0";
+
+  const requiredWei = (remainingDDC * priceInUSDT) / 1000000000000000000n;
+  if (requiredWei <= 0n) return "0";
+
+  const eth = Number(formatEther(requiredWei));
+  return toFixedNoSci(eth, 6);
+}
+
+function calcMaxUsdtToFillBatch(
+  remainingDDC?: bigint | null,
+  priceInUSDT?: bigint | null
+) {
+  if (!remainingDDC || !priceInUSDT) return "0";
+  if (remainingDDC <= 0n || priceInUSDT <= 0n) return "0";
+
+  const usdtNeeded = (remainingDDC * priceInUSDT) / 1000000000000000000n;
+  if (usdtNeeded <= 0n) return "0";
+
+  const usdt = Number(formatEther(usdtNeeded));
+  return toFixedNoSci(usdt, 6);
+}
+
+function calcYouWillGetDDC(amountStr: string, priceInUSDT?: bigint | null, remaining?: bigint | null) {
+  try {
+    if (!priceInUSDT || priceInUSDT <= 0n) return { ddc: 0n, isCapped: false };
+    const amt = parseUnits((amountStr || "0").replace(",", "."), 6);
+    if (amt <= 0n) return { ddc: 0n, isCapped: false };
+
+    let ddc = (amt * 1000000000000000000n) / priceInUSDT; // (amount * 1e18) / price
+    let isCapped = false;
+
+    if (remaining != null && remaining > 0n && ddc > remaining) {
+      ddc = remaining;
+      isCapped = true;
+    }
+
+    return { ddc, isCapped };
+  } catch {
+    return { ddc: 0n, isCapped: false };
+  }
+}
+
+function formatDDC(ddc: bigint) {
+  const num = Number(formatEther(ddc));
+  if (!Number.isFinite(num)) return "0";
+  return num.toLocaleString("en-US", { maximumFractionDigits: 6 });
+}
+
+export default function PresaleDashboard() {
+  const {
+    address,
+    isConnected,
+    provider,
+    publicProvider,
+    signer,
+    chainId,
+    connect,
+    addNetwork,
+  } = useWallet();
+
+  const readProvider = publicProvider ?? provider;
+
+  const isWrongNetwork = typeof EXPECTED_CHAIN_ID === "number" ? chainId !== EXPECTED_CHAIN_ID : false;
+
+  const [batchId, setBatchId] = useState<number | null>(null);
+  const [batch, setBatch] = useState<BatchInfo | null>(null);
+  const [claimable, setClaimable] = useState<bigint>(0n);
+  const [totalPurchased, setTotalPurchased] = useState<bigint>(0n);
+  const [claimed, setClaimed] = useState<bigint>(0n);
+  const [locked, setLocked] = useState<bigint>(0n);
+  const [usdtDecimals, setUsdtDecimals] = useState<number>(6);
+  const [amountEth, setAmountEth] = useState<string>("0.1");
+  const [loading, setLoading] = useState<boolean>(false);
+  const [txStatus, setTxStatus] = useState<string | null>(null);
+  const [lastTxHash, setLastTxHash] = useState<string | null>(null);
+  const [lastTxStatus, setLastTxStatus] = useState<string | null>(null);
+  const [lastTxBlock, setLastTxBlock] = useState<number | null>(null);
+  
+  const [payMethod, setPayMethod] = useState<"BNB" | "USDT">("USDT");
+  const [amountUSDT, setAmountUSDT] = useState("100");
+  const [usdtAllowance, setUsdtAllowance] = useState<bigint>(0n);
+
+  
+const [usdtBalance, setUsdtBalance] = useState<bigint>(0n);
+// ⏱️ "sat za praćenje" – trenutni timestamp, ažurira se svake sekunde
+  const [nowTs, setNowTs] = useState<number>(() =>
+    Math.floor(Date.now() / 1000)
+  );
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setNowTs(Math.floor(Date.now() / 1000));
+    }, 1000);
+    return () => clearInterval(id);
+  }, []);
+
+  const presaleRead = useMemo(() => {
+    if (!readProvider) return null;
+    if (!PRESALE_VESTING_ADDRESS) return null;
+    return new Contract(
+      PRESALE_VESTING_ADDRESS,
+      presaleAbi,
+      readProvider as BrowserProvider
+    );
+  }, [readProvider]);
+
+  const presaleWrite = useMemo(() => {
+    if (!signer) return null;
+    if (!PRESALE_VESTING_ADDRESS) return null;
+    return new Contract(PRESALE_VESTING_ADDRESS, presaleAbi, signer);
+  }, [signer]);
+
+  const usdtRead = useMemo(() => {
+    if (!readProvider) return null;
+    if (!USDT_MOCK_ADDRESS) return null;
+    return new Contract(USDT_MOCK_ADDRESS, usdtAbi, provider);
+  }, [readProvider]);
+
+  const usdtWrite = useMemo(() => {
+    if (!signer) return null;
+    if (!USDT_MOCK_ADDRESS) return null;
+    return new Contract(USDT_MOCK_ADDRESS, usdtAbi, signer);
+  }, [signer]);
+
+  const loadUsdtDecimals = useCallback(async () => {
+  setUsdtDecimals(6);
+  return 6;
+}, []);
+const loadUsdtAllowance = useCallback(async () => {
+  try {
+    if (!readProvider || !address || !presaleRead) {
+      setUsdtAllowance(0n);
+      return 0n;
+    }
+
+    const usdtAddr = await (presaleRead as any).usdt();
+    const spender = (presaleRead as any).target;
+
+    const erc20 = new Contract(
+      usdtAddr,
+      ["function allowance(address owner,address spender) view returns (uint256)"],
+      provider
+    );
+
+    const allowance = (await erc20.allowance(address, spender)) as bigint;
+    setUsdtAllowance(allowance);
+    return allowance;
+  } catch (e) {
+    setUsdtAllowance(0n);
+    return 0n;
+  }
+}, [provider, address, presaleRead]);
+
+const loadUsdtBalance = useCallback(async () => {
+  try {
+    if (!readProvider || !address || !presaleRead) {
+      setUsdtBalance(0n);
+      return 0n;
+    }
+
+    const usdtAddr = await (presaleRead as any).usdt();
+
+    const erc20 = new Contract(
+      usdtAddr,
+      ["function balanceOf(address owner) view returns (uint256)"],
+      provider
+    );
+
+    const bal = (await erc20.balanceOf(address)) as bigint;
+    setUsdtBalance(bal);
+    return bal;
+  } catch (e) {
+    setUsdtBalance(0n);
+    return 0n;
+  }
+}, [provider, address, presaleRead]);
+
+const refreshData = useCallback(async () => {
+    try {
+      // (tvoj postojeći kod)
+      if (!presaleRead) return;
+      const currentBatch = await presaleRead.currentBatch();
+const totalBatches = Number(await presaleRead.totalBatches());
+let displayBatchId = Number(currentBatch);
+
+// auto-skip sold-out batches (read-only)
+for (let i = 0; i < totalBatches; i++) {
+  const tmp: any = await presaleRead.batchInfo(BigInt(displayBatchId));
+  const hardCapTmp: bigint =
+    (tmp.hardCapDDC ?? (tmp.length >= 9 ? tmp[3] : tmp[2]) ?? 0n) as bigint;
+  const soldTmp: bigint =
+    (tmp.soldDDC ?? (tmp.length >= 9 ? tmp[4] : tmp[3]) ?? 0n) as bigint;
+
+  if (hardCapTmp > 0n && soldTmp < hardCapTmp) break;
+  if (displayBatchId >= totalBatches) break;
+  displayBatchId += 1;
+}
+
+setBatchId(displayBatchId);
+const info: any = await presaleRead.batchInfo(BigInt(displayBatchId));
+
+      const priceUSDT = info[0] as bigint;
+const hardCapDDC = (info.length >= 9 ? info[3] : info[2]) as bigint;
+const soldDDC = (info.length >= 9 ? info[4] : info[3]) as bigint;
+const startTime = info[5] as bigint;
+const endTime = info[6] as bigint;
+
+const _hardCapDDC = (info.length >= 9 ? info[3] : info[2]) ?? 0n;
+const _soldDDC = (info.length >= 9 ? info[4] : info[3]) ?? 0n;
+const _startTime = (info.length >= 9 ? info[5] : info[3]) ?? 0n;
+const _endTime = (info.length >= 9 ? info[6] : info[4]) ?? 0n;
+
+let effectiveHardCap = (info.hardCapDDC ?? _hardCapDDC ?? 0n) as bigint;
+
+try {
+  if (process.env.NEXT_PUBLIC_PROJECT_KEY === "DDC_FAST_SMOKE" && displayBatchId > 1) {
+    const prevInfo = await presaleRead.batchInfo(BigInt(displayBatchId - 1));
+    const prevHardCap = (prevInfo.hardCapDDC ?? (prevInfo.length >= 9 ? prevInfo[3] : prevInfo[2]) ?? 0n) as bigint;
+    const prevSold = (prevInfo.soldDDC ?? (prevInfo.length >= 9 ? prevInfo[4] : prevInfo[3]) ?? 0n) as bigint;
+    const prevEnd = Number((prevInfo.endTime ?? (prevInfo.length >= 9 ? prevInfo[6] : prevInfo[4]) ?? 0n) as bigint);
+    const prevUnsold = prevHardCap > prevSold ? (prevHardCap - prevSold) : 0n;
+    const baseFastCap = 10000n * 10n ** 18n;
+
+    if (effectiveHardCap == baseFastCap && prevUnsold > 0n && prevEnd > 0 && Math.floor(Date.now() / 1000) >= prevEnd) {
+      effectiveHardCap = effectiveHardCap + prevUnsold;
+    }
+  }
+} catch {}
+
+setBatch({
+  hardCapDDC: effectiveHardCap,
+  soldDDC: (info.soldDDC ?? (info.length >= 9 ? info[4] : info[3]) ?? 0n) as bigint,
+  priceInUSDT: (info.priceUSDT ?? info.priceInUSDT ?? info[0] ?? 0n) as bigint,
+  startTime: (info.startTime ?? (info.length >= 9 ? info[5] : info[3]) ?? 0n) as bigint,
+  endTime: (info.endTime ?? (info.length >= 9 ? info[6] : info[4]) ?? 0n) as bigint,
+});
+if (address) {
+        const [c, cp, cl, l] = await Promise.all([
+          presaleRead.claimable(address),
+          presaleRead.totalPurchased(address),
+          presaleRead.claimed(address),
+          presaleRead.locked(address),
+        ]);
+        setClaimable(c);
+        setTotalPurchased(cp);
+        setClaimed(cl);
+        setLocked(l);
+      } else {
+        setClaimable(0n);
+        setTotalPurchased(0n);
+        setClaimed(0n);
+        setLocked(0n);
+      }
+    } catch (err) {
+      console.error("Greška pri čitanju presale podataka:", err);
+    }
+  }, [presaleRead, address]);
+
+  useEffect(() => {
+    refreshData();
+  }, [refreshData]);
+
+  useEffect(() => {
+    if (!provider || !isConnected) return;
+
+    let alive = true;
+
+    const onBlock = () => {
+      if (!alive) return;
+      refreshData();
+      if (payMethod === "USDT") loadUsdtAllowance();
+    };
+
+    const intervalId = setInterval(onBlock, 12000);
+
+
+
+    return () => {
+      alive = false;
+      clearInterval(intervalId);
+    };
+  }, [provider, isConnected, payMethod, refreshData]);
+
+  
+
+
+
+
+useEffect(() => {
+  if (isConnected) {
+    loadUsdtDecimals();
+  }
+}, [isConnected, loadUsdtDecimals]);
+
+
+  useEffect(() => {
+    if (isConnected && payMethod === "USDT") {
+      loadUsdtAllowance();
+      loadUsdtBalance();
+    }
+  }, [isConnected, payMethod, loadUsdtAllowance, loadUsdtBalance]);
+const handleAddNetwork = async () => {
+    try {
+      setTxStatus("Opening wallet to add/switch network…");
+      await addNetwork();
+      setTxStatus("Network request sent ✅");
+    } catch (e) {
+      console.error(e);
+      setTxStatus("Add/Switch network failed (check console).");
+    }
+  };
+
+  const handleConnect = async () => {
+    if (!isConnected) {
+      await connect(); // MetaMask popup za connect
+    }
+  };
+
+  const handleApproveUSDT = async () => {
+    // DEBUG (možeš posle obrisati)
+    console.log("APPROVE CLICK", {
+      usdtWriteReady: !!usdtWrite,
+      amountUSDT,
+      usdtDecimals,
+      spender: PRESALE_VESTING_ADDRESS,
+    });
+
+    if (!usdtWrite) {
+      console.error("USDT write contract not ready");
+      setTxStatus("USDT contract not ready");
+      setLastTxStatus("Approve failed ❌");
+      return;
+    }
+
+    if (!amountUSDT || Number(amountUSDT) <= 0) {
+      console.error("Invalid amountUSDT for approve:", amountUSDT);
+      setTxStatus("Enter USDT amount");
+      setLastTxStatus("Approve failed ❌");
+      return;
+    }
+
+    try {
+      setTxStatus("Approving USDT…");
+
+      const value = parseUnits(amountUSDT, usdtDecimals);
+      const tx = await usdtWrite.approve(PRESALE_VESTING_ADDRESS, value);
+
+      setLastTxHash((tx as any)?.hash ?? null);
+      setLastTxStatus("Pending…");
+      await tx.wait();
+
+      setLastTxStatus("Approved ✅");
+      await loadUsdtAllowance();
+      await loadUsdtBalance();
+      await refreshData();
+    } catch (e) {
+      console.error("Approve USDT error:", e);
+      setLastTxStatus("Approve failed ❌");
+    }
+  };
+
+  const handleBuyWithUSDT = async () => {
+    if (!isConnected || !address) {
+      setTxStatus("Please connect wallet first.");
+      return;
+    }
+    if (!presaleWrite || !batchId) return;
+
+    try {
+      setLoading(true);
+      setTxStatus("Waiting for MetaMask…");
+
+      const value = parseUnits(amountUSDT || "0", usdtDecimals);
+
+      const MIN_USDT = parseUnits("50", usdtDecimals);
+      const MAX_USDT = parseUnits("5000", usdtDecimals);
+      if (value < MIN_USDT) { setTxStatus("Min buy is 50 USDT"); setLoading(false); return; }
+      if (value > MAX_USDT) { setTxStatus("Max buy is 5000 USDT"); setLoading(false); return; }
+      const tx = await presaleWrite.buyWithUSDT(batchId ?? 1, value);
+
+      setLastTxHash((tx as any)?.hash ?? null);
+      setLastTxStatus("Pending...");
+      setLastTxBlock(null);
+
+      const receipt = await (tx as any).wait();
+      setLastTxStatus("Confirmed ✅");
+      setLastTxBlock(Number((receipt as any)?.blockNumber));
+
+      setTxStatus("USDT buy confirmed ✅");
+
+      // mali delay da chain "stigne" da ažurira state
+      await new Promise((r) => setTimeout(r, 300));
+
+      await refreshData();
+      await loadUsdtAllowance();
+      await loadUsdtBalance();
+    } catch (e: unknown) {
+      console.error("USDT buy error:", e);
+
+      let decoded = "";
+      try {
+        // ethers v6 najčešći putevi do revert data:
+        const data =
+          (e as any)?.data ||
+          (e as any)?.error?.data ||
+          (e as any)?.cause?.data ||
+          (e as any)?.info?.error?.data ||
+          (e as any)?.info?.error?.data?.data;
+
+        if (data && presaleWrite?.interface?.parseError) {
+          const parsed = presaleWrite.interface.parseError(data);
+          decoded = parsed ? `${parsed.name}(${(parsed.args ?? []).join(",")})` : "";
+        }
+      } catch (err) {
+        console.error("Custom error decode failed:", err);
+      }
+
+      const msg =
+        decoded ||
+        (e as any)?.shortMessage ||
+        (e as any)?.reason ||
+        (e as any)?.message ||
+        (e as any)?.cause?.shortMessage ||
+        (e as any)?.cause?.message ||
+        "USDT buy failed";
+
+      setTxStatus(`USDT buy failed ❌ ${msg}`);
+      setLastTxStatus(`Buy failed ❌ ${msg}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleBuy = async () => {
+if (!isConnected || !address) {
+      setTxStatus("Please connect wallet first.");
+      return;
+    }
+
+    if (!presaleWrite || !batchId) {
+      setTxStatus("Wallet/contract not ready.");
+      return;
+    }
+
+    const raw = (amountEth || "").trim();
+    if (!raw || raw === "0" || raw === "0.") {
+      setTxStatus("Enter BNB amount first.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setTxStatus("Waiting for MetaMask…");
+
+      // ETH value (ethers v6 or viem style bigint)
+      const ethValue = parseEther(raw); // mora da postoji import parseEther
+
+      // Pokušaj native buy funkcija koje se najčešće koriste:
+      const c: unknown = presaleWrite;
+
+      let tx: unknown = null;
+
+      if (typeof (c as any).buyWithNative === "function") {
+        tx = await (c as any).buyWithNative(batchId ?? 1, { value: ethValue });
+      } else {
+        setTxStatus("Native buy function not found on presale contract.");
+        setLastTxStatus("Buy failed ❌ no native buy fn");
+        return;
+      }
+
+      setLastTxHash((tx as any)?.hash ?? null);
+      setLastTxStatus("Pending...");
+      setLastTxBlock(null);
+
+      const receipt = await (tx as any).wait();
+      setLastTxStatus("Confirmed ✅");
+      setLastTxBlock(Number((receipt as any)?.blockNumber));
+
+      setTxStatus("BNB buy confirmed ✅");
+      await new Promise((r) => setTimeout(r, 300));
+
+      await refreshData();
+      await loadUsdtAllowance();
+    } catch (e: unknown) {
+      console.error("BNB buy error:", e);
+
+      const msg =
+        (e as any)?.shortMessage ||
+        (e as any)?.reason ||
+        (e as any)?.message ||
+        (e as any)?.cause?.shortMessage ||
+        (e as any)?.cause?.message ||
+        "BNB buy failed";
+
+      setTxStatus(`BNB buy failed ❌ ${msg}`);
+      setLastTxStatus(`Buy failed ❌ ${msg}`);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClaim = async () => {
+    // CLAIM nikad ne radi connect — mora prvo Connect Wallet
+    if (!isConnected || !address) {
+      setTxStatus("Please click Connect Wallet first.");
+      return;
+    }
+
+    if (!presaleWrite) {
+      setTxStatus("Wallet not ready. Try again after connecting.");
+      return;
+    }
+
+    if (claimable === 0n) {
+      setTxStatus("Nema ništa za claim.");
+      return;
+    }
+
+    try {
+      setLoading(true);
+      setTxStatus("Waiting for MetaMask…");
+
+      const tx = await presaleWrite.claim();
+
+      setLastTxHash((tx as any)?.hash ?? null);
+      setLastTxStatus("Pending...");
+      setLastTxBlock(null);
+
+      setTxStatus("Transaction submitted, waiting for confirmation…");
+      const receipt = await (tx as any).wait();
+
+      setLastTxStatus("Confirmed ✅");
+      setLastTxBlock(Number((receipt as any)?.blockNumber));
+
+      setTxStatus("Claim confirmed ✅");
+      await refreshData();
+    } catch (err) {
+      console.error("Greška pri claim-u:", err);
+      setTxStatus("Greška pri claim-u (vidi konzolu).");
+      setLastTxStatus("Failed ❌");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleAddToken = async () => {
+    if (typeof window === "undefined") return;
+    const ethereum = (window as any).ethereum;
+    if (!ethereum) {
+      alert("MetaMask nije pronađen.");
+      return;
+    }
+
+    try {
+      const wasAdded = await ethereum.request({
+        method: "wallet_watchAsset",
+        params: {
+          type: "ERC20",
+          options: {
+            address: DDC_TOKEN_ADDRESS,
+            symbol: "DDC",
+            decimals: 18,
+          },
+        },
+      });
+
+      if (wasAdded) {
+        alert("DDC coin je dodat u wallet.");
+      } else {
+        alert("Dodavanje DDC coina je otkazano.");
+      }
+    } catch (err) {
+      console.error("Greška pri dodavanju DDC tokena:", err);
+      alert("Nešto nije u redu pri dodavanju DDC coina (vidi konzolu).");
+    }
+  };
+
+  const sold = batch?.soldDDC ?? 0n;
+  const hardCap = batch?.hardCapDDC ?? 0n;
+  const remaining = hardCap > sold ? hardCap - sold : 0n;
+  const progress =
+    hardCap > 0n ? Number((sold * 10000n) / hardCap) / 100 : 0;
+
+  const currentPlan =
+    batchId && batchId >= 1 && batchId <= TOTAL_BATCHES
+      ? PRESALE_PLAN[batchId - 1]
+      : null;
+
+  const ENABLE_BNB = false; // TODO(WP): native BNB path hidden on staging until source-of-truth defines a realistic conversion model
+
+  // ⏱️ Izračun brojača: trajanje batch-a i vreme do kraja
+  let batchDurationHours: string = "102.4"; // default ako kontrakt ne vrati ništa
+  let timeLeftLabel: string | null = null;
+
+  if (batch && batch.startTime && batch.endTime) {
+    try {
+      const start = Number(batch.startTime);
+      const end = Number(batch.endTime);
+
+      if (end > start) {
+        const totalSec = end - start;
+        const hours = totalSec / 3600;
+        batchDurationHours = hours.toFixed(1);
+
+        const now = nowTs;
+        if (now < start) {
+          timeLeftLabel = "Batch not started yet";
+        } else if (now >= end) {
+          timeLeftLabel = "Batch ended";
+        } else {
+          const rem = end - now;
+          const days = Math.floor(rem / 86400);
+          const h = Math.floor((rem % 86400) / 3600);
+          const m = Math.floor((rem % 3600) / 60);
+          const s = rem % 60;
+
+          const hh = h.toString().padStart(2, "0");
+          const mm = m.toString().padStart(2, "0");
+          const ss = s.toString().padStart(2, "0");
+
+          if (days > 0) {
+            timeLeftLabel = `${days}d ${hh}:${mm}:${ss}`;
+          } else {
+            timeLeftLabel = `${hh}:${mm}:${ss}`;
+          }
+        }
+      }
+    } catch {
+      // ostavi default 102.4h i "-" za timeLeftLabel
+    }
+  }
+
+  return (
+    <section id="presale" className="relative z-10 mx-auto max-w-5xl space-y-10 rounded-3xl border border-amber-400/40 bg-black/40 p-8 shadow-[0_0_40px_rgba(251,191,36,0.25)] backdrop-blur">
+      {/* Gornji header */}
+      <div className="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+        <div>
+          <h2 className="text-xl font-semibold tracking-wide text-amber-200">
+            DDC Presale – Dashboard
+          </h2>
+          <p className="text-sm text-amber-100/70">
+            Batch #{batchId ?? "-"} / {TOTAL_BATCHES} · DDC Local Testnet
+            (Hardhat)
+          </p>
+          <p className="text-[11px] text-amber-100/60 mt-1">
+            Network:{" "}
+            <span className={isConnected ? "text-emerald-300" : "text-amber-200"}>
+              {isConnected ? "Wallet connected" : "Not connected"}
+            </span>
+          </p>
+          <p className="text-[11px] text-amber-100/60">
+            Chain ID: <span className="font-semibold">{chainId ?? "-"}</span>
+          </p>
+          {currentPlan && (
+            <p className="mt-1 text-xs text-amber-100/70">
+              Planned price for this batch:{" "}
+              <span className="font-semibold">
+                {currentPlan.priceUSDT.toFixed(2)} USDT
+              </span>{" "}
+              per DDC · Batch size (on-chain):{" "}
+              <span className="font-semibold">
+                {hardCap > 0n ? formatBigInt(hardCap) : "-"} DDC
+              </span>
+            </p>
+          )}
+        </div>
+        <div className="flex gap-3">
+          <button
+            onClick={handleConnect}
+            className="rounded-full border border-amber-400/60 bg-amber-500/10 px-4 py-2 text-xs font-medium text-amber-100 hover:bg-amber-500/20"
+          >
+            {isConnected && address
+              ? `Wallet: ${address.slice(0, 6)}…${address.slice(-4)}`
+              : "Connect Wallet"}
+          </button>
+
+          <button
+            onClick={handleAddNetwork}
+            className="rounded-full border border-amber-300/60 bg-amber-300/10 px-4 py-2 text-xs font-medium text-amber-100 hover:bg-amber-300/20"
+          >
+            Add DDC Network
+          </button>
+
+          <button
+            onClick={handleAddToken}
+            className="rounded-full border border-emerald-300/60 bg-emerald-300/10 px-4 py-2 text-xs font-medium text-emerald-100 hover:bg-emerald-300/20"
+          >
+            Add DDC Coin
+          </button>
+        </div>
+      </div>
+
+      {/* ➤ BATCH PROGRESS LINE (sa pulsiranjem na kraju) */}
+      <div className="relative mt-4 h-2 w-full overflow-hidden rounded-full bg-amber-500/20">
+        <div
+          className={`
+            h-full rounded-full transition-all duration-500
+            ${
+              progress >= 95
+                ? "bg-red-500 animate-pulse"
+                : progress >= 80
+                ? "bg-orange-400 animate-pulse"
+                : "bg-amber-400"
+            }
+          `}
+          style={{ width: `${progress}%` }}
+        />
+      </div>
+
+      <p className="text-right text-[11px] text-amber-100/70 mt-1">
+        {progress.toFixed(2)}% of batch sold
+      </p>
+
+      {/* Glavna mreža kartica */}
+      <div className="grid gap-6 md:grid-cols-3">
+        {/* Batch status */}
+        <div className="rounded-2xl border border-amber-500/40 bg-black/40 p-5 shadow-lg transition-transform hover:-translate-y-0.5 hover:shadow-amber-400/40">
+          <h3 className="mb-3 text-sm font-semibold text-amber-200">
+            Current Batch Status
+          </h3>
+          <div className="space-y-1 text-xs text-amber-100/80">
+            <div className="flex justify-between">
+              <span>Batch ID</span>
+              <span>#{batchId ?? "-"}</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Hard cap</span>
+              <span>{formatBigInt(hardCap)} DDC</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Sold</span>
+              <span>{formatBigInt(sold)} DDC</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Remaining</span>
+              <span>{formatBigInt(remaining)} DDC</span>
+            </div>
+
+            {/* ⏱️ Dodati brojači za batch */}
+            <div className="flex justify-between">
+              <span>Batch duration</span>
+              <span>{batchDurationHours} h</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Time left in batch</span>
+              <span>{timeLeftLabel ?? "-"}</span>
+            </div>
+
+            <div className="flex justify-between">
+              <span>Current batch price (USDT per DDC)</span>
+              <span>
+                {batch
+                  ? `${formatPriceUSDT(batch.priceInUSDT, usdtDecimals)} USDT`
+                  : "-"}
+              </span>
+            </div>
+          </div>
+          <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-amber-500/20">
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500"
+              style={{ width: `${progress}%` }}
+            />
+          </div>
+          <p className="mt-1 text-right text-[10px] text-amber-100/70">
+            {progress.toFixed(2)}% sold
+          </p>
+        </div>
+
+        {false && (
+          <div className="mt-3 rounded-2xl border border-amber-400/40 bg-amber-500/10 p-3">
+            <div className="text-sm font-semibold text-amber-100">
+              This batch is SOLD OUT
+            </div>
+            <div className="mt-1 text-xs text-amber-100/70">
+              </div>
+            <button
+              onClick={async () => {
+                await refreshData();
+              }}
+              className="mt-2 rounded-full bg-amber-500/90 px-4 py-2 text-xs font-semibold text-black hover:brightness-110"
+            >
+              Refresh
+            </button>
+          </div>
+        )}
+
+        {/* Tvoja alokacija */}
+        <div className="rounded-2xl border border-amber-500/40 bg-black/40 p-5 shadow-lg transition-transform hover:-translate-y-0.5 hover:shadow-amber-400/40">
+          <h3 className="mb-3 text-sm font-semibold text-amber-200">
+            Your Allocation
+          </h3>
+          <div className="space-y-1 text-xs text-amber-100/80">
+            <div className="flex justify-between">
+              <span>Total purchased</span>
+              <span>{formatBigInt(totalPurchased)} DDC</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Already claimed</span>
+              <span>{formatBigInt(claimed)} DDC</span>
+            </div>
+            <div className="flex justify-between">
+              <span>Still locked</span>
+              <span>{formatBigInt(locked)} DDC</span>
+            </div>
+            <div className="flex justify-between text-emerald-300">
+              <span>Claimable now</span>
+              <span>{formatBigInt(claimable)} DDC</span>
+            </div>
+          </div>
+          <button
+            onClick={handleClaim}
+            disabled={loading || claimable === 0n || !isConnected}
+            className="mt-4 w-full rounded-full bg-emerald-500/90 px-4 py-2 text-xs font-semibold text-black shadow-lg shadow-emerald-500/40 hover:bg-emerald-400 disabled:cursor-not-allowed disabled:bg-emerald-500/40"
+          >
+            Claim DDC
+          </button>
+        </div>
+
+        {/* Buy box */}
+        <div className="rounded-2xl border border-amber-500/40 bg-black/40 p-5 shadow-lg transition-transform hover:-translate-y-0.5 hover:shadow-amber-400/40 md:col-span-1">
+          <h3 className="mb-2 text-sm font-semibold text-amber-200">
+            Buy DDC
+          </h3>
+
+          <select
+            value={payMethod}
+            onChange={(e) => setPayMethod(e.target.value as "ETH" | "USDT")}
+            className="mb-3 w-full rounded-xl border border-amber-500/40 bg-black/60 px-3 py-2 text-sm text-amber-50 outline-none"
+          >
+            {ENABLE_BNB && <option value="BNB">Pay with BNB</option>}
+            <option value="USDT">Pay with USDT</option>
+          </select>
+
+          {!isConnected && (
+            <p className="mb-2 text-[11px] text-amber-100/60">
+              Please connect your wallet first.
+            </p>
+          )}
+
+          {/* ETH MODE */}
+          {ENABLE_BNB && payMethod === "BNB" && (
+            <>
+              <label className="block text-[11px] text-amber-100/70">
+                Amount in BNB
+              </label>
+              <input
+                value={amountEth}
+                onChange={(e) => setAmountEth(e.target.value.replace(",", "."))}
+                className="mt-1 w-full rounded-xl border border-amber-500/40 bg-black/60 px-3 py-2 text-sm text-amber-50 outline-none focus:border-amber-300"
+              />
+              {batch && (
+                (() => {
+                  const out = calcYouWillGetDDC(amountEth, batch.priceInUSDT, remaining);
+
+                  const raw = (amountEth || "").trim();
+                  if (!raw || raw === "0" || raw === "0.") {
+                    return (
+                      <p className="mt-2 text-[11px] text-amber-100/60">
+                        Enter amount to see estimation.
+                      </p>
+                    );
+                  }
+
+                  return (
+                    <div className="mt-2 rounded-lg border border-amber-500/20 bg-black/30 px-3 py-2">
+                      <p className="text-xs text-amber-100/80">
+                        You will get{" "}
+                        <span className="font-semibold text-amber-100">
+                          {formatDDC(out.ddc)} DDC
+                        </span>
+                      </p>
+
+                      <p className="mt-0.5 text-[11px] text-amber-100/60">
+                        at{" "}
+                        <span className="font-medium text-amber-100">
+                          {batch?.priceInUSDT ? formatUnits(batch.priceInUSDT, usdtDecimals) : "-"} USDT / DDC
+                        </span>{" "}
+                        (current batch price)
+                      </p>
+
+                      {out.isCapped && (
+                        <p className="mt-1 text-[11px] text-amber-200/80">
+                          capped to remaining supply
+                        </p>
+                      )}
+                    </div>
+                  );
+                })()
+              )}
+
+              {/* ETH BUY BUTTON — UBACENO OVDE */}
+              <div className="mt-4 grid grid-cols-1 gap-2">
+                <button
+                  onClick={handleBuy}
+                  disabled={
+                    loading ||
+                    !isConnected ||
+                    isWrongNetwork ||
+                    !(parseFloat(amountEth || "0") > 0)
+                  }
+                  className="w-full rounded-full bg-emerald-500/90 px-4 py-3 text-sm font-semibold text-black shadow-xl hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                >
+                  Buy with BNB
+                </button>
+              </div>
+            </>
+          )}
+
+          {/* USDT MODE */}
+          {payMethod === "USDT" && (
+            <>
+              <label className="block text-[11px] text-amber-100/70">
+                Amount in USDT
+              </label>
+              <input
+                value={amountUSDT}
+                onChange={(e) => setAmountUSDT(e.target.value.replace(",", "."))}
+                className="mt-1 w-full rounded-xl border border-amber-500/40 bg-black/60 px-3 py-2 text-sm text-amber-50 outline-none focus:border-amber-300"
+                placeholder="e.g. 100"
+              />
+
+              <div className="mt-2 flex gap-2">
+                <button
+                  type="button"
+                  onClick={async () => {
+                    try {
+                      if (!readProvider || !address) {
+                        setAmountUSDT("0");
+                        return;
+                      }
+
+                      const usdt = new Contract(
+                        USDT_MOCK_ADDRESS,
+                        ["function balanceOf(address owner) view returns (uint256)"],
+                        readProvider as any
+                      );
+
+                      const liveBal = (await usdt.balanceOf(address)) as bigint;
+                      setUsdtBalance(liveBal);
+
+                      const walletMax = Number(formatUnits(liveBal, usdtDecimals));
+
+                      let batchMax = walletMax;
+                      if (
+                        batch &&
+                        batch.priceInUSDT &&
+                        batch.hardCapDDC &&
+                        batch.hardCapDDC > batch.soldDDC
+                      ) {
+                        const remainingDDC = batch.hardCapDDC - batch.soldDDC;
+                        const batchMaxRaw =
+                          (remainingDDC * batch.priceInUSDT) / 1000000000000000000n;
+                        batchMax = Number(formatUnits(batchMaxRaw, usdtDecimals));
+                      }
+
+                      let walletBatchCapMax = 5000;
+
+                      try {
+                        if (presaleRead && batchId) {
+                          const c: any = presaleRead as any;
+                          const b = BigInt(batchId);
+                          let spent = 0n;
+
+                          if (typeof c.paidUSDTInBatch === "function") {
+                            spent = (await c.paidUSDTInBatch(b, address)) as bigint;
+                          } else if (typeof c._paidUSDTInBatch === "function") {
+                            spent = (await c._paidUSDTInBatch(b, address)) as bigint;
+                          } else if (typeof c.paidUsdtInBatch === "function") {
+                            spent = (await c.paidUsdtInBatch(b, address)) as bigint;
+                          }
+
+                          const cap = parseUnits("5000", usdtDecimals);
+                          const left = cap > spent ? cap - spent : 0n;
+                          walletBatchCapMax = Number(formatUnits(left, usdtDecimals));
+                        }
+                      } catch {}
+
+                      console.log("MAX_DEBUG", {
+                        liveBal: liveBal.toString(),
+                        walletMax,
+                        batchMax,
+                        walletBatchCapMax,
+                        batchId,
+                        address
+                      });
+
+                      const finalMax = Math.max(
+                        0,
+                        Math.min(walletMax, batchMax, walletBatchCapMax)
+                      );
+
+                      setAmountUSDT(finalMax > 0 ? finalMax.toString() : "0");
+                    } catch (e) {
+                      console.error("MAX USDT error:", e);
+                      setAmountUSDT("0");
+                    }
+                  }}
+                  className="rounded-full border border-amber-500/40 bg-amber-500/10 px-3 py-1 text-[11px] text-amber-100 hover:bg-amber-500/20"
+                >
+                  MAX
+                </button>
+              </div>
+
+              {batch?.priceInUSDT && (
+                (() => {
+                  const out = calcYouWillGetDDC(amountUSDT, batch.priceInUSDT, remaining);
+                  if (!amountUSDT || amountUSDT === "0" || out.ddc === 0n) return null;
+
+                  return (
+                    <div className="mt-2 rounded-lg border border-amber-500/20 bg-black/30 px-3 py-2">
+                      <p className="text-xs text-amber-100/80">
+                        You will get{" "}
+                        <span className="font-semibold text-amber-100">
+                          {formatDDC(out.ddc)} DDC
+                        </span>
+                      </p>
+                      <p className="mt-0.5 text-[11px] text-amber-100/60">
+                        at{" "}
+                        <span className="font-medium text-amber-100">
+                          {formatUnits(batch.priceInUSDT, usdtDecimals)} USDT / DDC
+                        </span>{" "}
+                        (current batch price)
+                      </p>
+                      {out.isCapped && (
+                        <p className="mt-1 text-[11px] text-amber-200/80">
+                          capped to remaining supply
+                        </p>
+                      )}
+                    </div>
+                  );
+                })()
+              )}
+
+              {(() => {
+                const needed = parseUnits(amountUSDT || "0", usdtDecimals);
+                const canProceed = needed > 0n;
+                const hasAllowance = usdtAllowance >= needed;
+
+                return (
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    <button
+                      onClick={handleApproveUSDT}
+                      disabled={loading || !isConnected || isWrongNetwork || !canProceed}
+                      className="w-full rounded-full bg-blue-500/90 px-4 py-3 text-sm font-semibold text-black shadow-xl hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Approve USDT
+                    </button>
+
+                    <button
+                      onClick={handleBuyWithUSDT}
+                      disabled={
+                        loading ||
+                        !isConnected ||
+                        isWrongNetwork ||
+                        !canProceed ||
+                        !hasAllowance ||
+                        !batchId
+                      }
+                      className="w-full rounded-full bg-emerald-500/90 px-4 py-3 text-sm font-semibold text-black shadow-xl hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
+                    >
+                      Buy with USDT
+                    </button>
+                  </div>
+                );
+              })()}
+            </>
+          )}
+
+          {txStatus && (
+            <p className="mt-3 text-[11px] text-amber-100/80">{txStatus}</p>
+          )}
+        </div>
+      </div>
+
+      {/* TX Log */}
+      {lastTxHash && (
+        <div className="rounded-2xl border border-amber-500/40 bg-black/30 p-4 text-xs text-amber-100/80">
+          <div className="flex flex-col gap-1">
+            <div className="flex items-start justify-between gap-3">
+              <div className="min-w-0">
+                <span className="text-amber-200 font-semibold">Last TX:</span>{" "}
+                <span className="font-mono break-all">{lastTxHash}</span>
+              </div>
+
+              <button
+                className="shrink-0 rounded-lg border border-amber-400/40 bg-amber-500/10 px-2 py-1 text-[11px] text-amber-100 hover:bg-amber-500/20"
+                onClick={() => navigator.clipboard.writeText(lastTxHash)}
+              >
+                Copy
+              </button>
+            </div>
+            <div>
+              <span className="text-amber-200 font-semibold">Status:</span>{" "}
+              {lastTxStatus ?? "-"}
+            </div>
+            <div>
+              <span className="text-amber-200 font-semibold">Block:</span>{" "}
+              {lastTxBlock ?? "-"}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* TABELA: svih 40 batcheva i cene */}
+      <div className="rounded-2xl border border-amber-500/40 bg-black/30 p-5 shadow-inner">
+        <h3 className="mb-3 text-sm font-semibold text-amber-200">
+          Presale Structure – 40 Batches
+        </h3>
+        <p className="mb-3 text-[11px] text-amber-100/80">
+          Svaki batch ima{" "}
+          <span className="font-semibold">
+            {BATCH_SIZE_DDC.toLocaleString("en-US")} DDC
+          </span>
+          . Početna cena je{" "}
+          <span className="font-semibold">0.01 USDT</span> po DDC, a svaki
+          sledeći batch je skuplji za{" "}
+          <span className="font-semibold">0.02 USDT</span>.
+        </p>
+        <div className="overflow-x-auto">
+          <table className="min-w-full text-xs text-left text-amber-50/90">
+            <thead className="border-b border-amber-500/40 text-[10px] uppercase tracking-wide text-amber-200/80">
+              <tr>
+                <th className="py-2 pr-4">Batch</th>
+                <th className="py-2 pr-4">DDC per batch</th>
+                <th className="py-2 pr-4">Price / DDC (USDT)</th>
+                <th className="py-2 pr-4">Total raise (USDT)</th>
+              </tr>
+            </thead>
+            <tbody>
+              {PRESALE_PLAN.map((b) => {
+                const totalRaise = b.priceUSDT * b.supplyDDC;
+                return (
+                  <tr
+                    key={b.id}
+                    className="border-b border-amber-500/10 last:border-0"
+                  >
+                    <td className="py-1.5 pr-4 font-mono text-amber-100">
+                      #{b.id}
+                    </td>
+                    <td className="py-1.5 pr-4">
+                      {b.supplyDDC.toLocaleString("en-US")} DDC
+                    </td>
+                    <td className="py-1.5 pr-4">
+                      {b.priceUSDT.toFixed(2)} USDT
+                    </td>
+                    <td className="py-1.5 pr-4">
+                      {totalRaise.toLocaleString("en-US", {
+                        maximumFractionDigits: 2,
+                      })}{" "}
+                      USDT
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    
+      <RewardPoolStatus />
+
+      <PresaleFinalizeStatus />
+</section>
+  );
+}

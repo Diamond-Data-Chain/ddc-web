@@ -1,0 +1,71 @@
+{
+  "standard": "DDC-EVENT-1.0",
+  "projectId": "ddc-presale-2026",
+  "eventId": "evt-000001",
+  "eventType": "TREASURY_TRANSFER",
+  "eventSubType": "PAYROLL_TRANSFER",
+  "timestamp": "2026-03-20T12:00:00Z",
+  "chainContext": {
+    "chainType": "blockchain",
+    "chainId": 56,
+    "network": "BSC",
+    "blockNumber": 12345678,
+    "txHash": "0xabc123def4567890abc123def4567890abc123def4567890abc123def4567890",
+    "contractAddress": "0xVault1234567890abcdef1234567890ABCDEF12"
+  },
+  "assetContext": {
+    "assetType": "token",
+    "assetSymbol": "USDT",
+    "assetAddress": "0x55d398326f99059fF775485246999027B3197955",
+    "amount": "138000000000",
+    "decimals": 6
+  },
+  "entityFlow": {
+    "fromEntityType": "contract",
+    "fromEntityId": "TreasuryPolicyVault",
+    "fromAddress": "0xVault1234567890abcdef1234567890ABCDEF12",
+    "toEntityType": "organization",
+    "toEntityId": "PayrollFirm",
+    "toAddress": "0xPayroll1234567890abcdef1234567890ABCDEF"
+  },
+  "businessContext": {
+    "domain": "crypto",
+    "module": "treasury",
+    "purposeCode": "PAYROLL_MONTHLY",
+    "memo": "Monthly payroll transfer for March 2026",
+    "referenceId": "payroll-2026-03",
+    "relatedEventIds": ["evt-000000"]
+  },
+  "sourceContext": {
+    "sourceId": "vault-executor-01",
+    "sourceType": "BLOCKCHAIN_NATIVE",
+    "sourceLabel": "TreasuryPolicyVault",
+    "signatureType": "TX_HASH",
+    "signatureRef": "0xabc123def4567890abc123def4567890abc123def4567890abc123def4567890"
+  },
+  "validationContext": {
+    "validationStatus": "CONFIRMED",
+    "policyMatched": true,
+    "policyIds": ["TREASURY_POLICY_V1", "PAYROLL_RULE_V1"],
+    "crossConsistencyChecked": true,
+    "crossConsistencyResult": "PASS",
+    "multiSourceConfirmed": true,
+    "confirmationRefs": ["registry-wallet-payroll", "allocation-rule-payroll", "daily-commit-2026-03-20"]
+  },
+  "truthContext": {
+    "truthScore": 96,
+    "riskLevel": "LOW",
+    "anomalyFlags": []
+  },
+  "integrityContext": {
+    "eventHash": "0xhash000001abcdef1234567890abcdef1234567890abcdef1234567890abcd",
+    "reportHash": "0xreporthash20260320abcdef1234567890abcdef1234567890abcdef1234",
+    "ddcCommitId": "commit-2026-03-20",
+    "immutableRecorded": true
+  },
+  "humanReadable": {
+    "title": "Treasury payroll payment executed",
+    "summary": "138,000 USDT transferred from TreasuryPolicyVault to the registered payroll firm wallet.",
+    "explanation": "Transfer matched payroll policy, registered destination wallet, allocation limits, and daily reconciliation."
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://ddc.network/schemas/ddc-event.schema.json",
+  "title": "DDC Event Schema v1.0",
+  "description": "MVP validation schema for DDC events across crypto and industry.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "standard",
+    "projectId",
+    "eventId",
+    "eventType",
+    "timestamp",
+    "sourceContext",
+    "validationContext",
+    "truthContext",
+    "integrityContext"
+  ],
+  "properties": {
+    "standard": { "type": "string", "const": "DDC-EVENT-1.0" },
+    "projectId": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "eventId": { "type": "string", "minLength": 1, "maxLength": 100 },
+    "eventType": {
+      "type": "string",
+      "enum": [
+        "PRESALE_PURCHASE",
+        "TREASURY_INFLOW",
+        "TREASURY_TRANSFER",
+        "PAYROLL_TRANSFER",
+        "FOUNDER_REWARD",
+        "TOKEN_LOCK",
+        "TOKEN_CLAIM",
+        "GOVERNANCE_CHANGE",
+        "WALLET_REGISTRATION",
+        "ALLOCATION_RULE_SET",
+        "DAILY_COMMIT",
+
+        "INBOUND_STOCK",
+        "ISSUE_TO_LINE",
+        "CONSUMED_IN_PRODUCTION",
+        "FINISHED_PRODUCT",
+        "SHIPMENT_OUT",
+        "WAREHOUSE_ADJUSTMENT",
+        "QUALITY_CHECK",
+        "SENSOR_READING"
+      ]
+    },
+    "eventSubType": { "type": "string", "maxLength": 100 },
+    "timestamp": { "type": "string", "format": "date-time" },
+
+    "chainContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "chainType": { "type": "string", "enum": ["blockchain", "offchain"] },
+        "chainId": { "type": "integer", "minimum": 0 },
+        "network": { "type": "string", "maxLength": 50 },
+        "blockNumber": { "type": "integer", "minimum": 0 },
+        "txHash": { "type": "string", "maxLength": 200 },
+        "contractAddress": { "type": "string", "maxLength": 100 }
+      }
+    },
+
+    "assetContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "assetType": { "type": "string", "enum": ["token", "coin", "inventory_item", "product", "other"] },
+        "assetSymbol": { "type": "string", "maxLength": 50 },
+        "assetAddress": { "type": "string", "maxLength": 100 },
+        "amount": { "type": "string", "maxLength": 100 },
+        "decimals": { "type": "integer", "minimum": 0, "maximum": 30 }
+      }
+    },
+
+    "entityFlow": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "fromEntityType": { "type": "string", "maxLength": 50 },
+        "fromEntityId": { "type": "string", "maxLength": 100 },
+        "fromAddress": { "type": ["string", "null"], "maxLength": 100 },
+        "toEntityType": { "type": "string", "maxLength": 50 },
+        "toEntityId": { "type": "string", "maxLength": 100 },
+        "toAddress": { "type": ["string", "null"], "maxLength": 100 }
+      }
+    },
+
+    "businessContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "domain": { "type": "string", "enum": ["crypto", "industry", "logistics", "finance", "other"] },
+        "module": { "type": "string", "maxLength": 50 },
+        "purposeCode": { "type": "string", "maxLength": 100 },
+        "memo": { "type": "string", "maxLength": 500 },
+        "referenceId": { "type": "string", "maxLength": 100 },
+        "relatedEventIds": { "type": "array", "items": { "type": "string", "maxLength": 100 }, "maxItems": 50 }
+      }
+    },
+
+    "sourceContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["sourceId", "sourceType"],
+      "properties": {
+        "sourceId": { "type": "string", "minLength": 1, "maxLength": 100 },
+        "sourceType": { "type": "string", "enum": ["HUMAN", "SYSTEM", "SENSOR", "BLOCKCHAIN_NATIVE", "VERIFIED_EXTERNAL", "ORACLE"] },
+        "sourceLabel": { "type": "string", "maxLength": 100 },
+        "signatureType": { "type": "string", "enum": ["NONE", "HASH_ONLY", "TX_HASH", "WALLET_SIGNATURE", "DEVICE_SIGNATURE", "SYSTEM_SIGNATURE", "EXTERNAL_PROOF"] },
+        "signatureRef": { "type": "string", "maxLength": 200 }
+      }
+    },
+
+    "validationContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["validationStatus"],
+      "properties": {
+        "validationStatus": { "type": "string", "enum": ["RAW", "SIGNED", "CONSISTENT", "CONFIRMED", "ANOMALY", "REJECTED"] },
+        "policyMatched": { "type": "boolean" },
+        "policyIds": { "type": "array", "items": { "type": "string", "maxLength": 100 }, "maxItems": 20 },
+        "crossConsistencyChecked": { "type": "boolean" },
+        "crossConsistencyResult": { "type": "string", "enum": ["PASS", "FAIL", "NOT_CHECKED"] },
+        "multiSourceConfirmed": { "type": "boolean" },
+        "confirmationRefs": { "type": "array", "items": { "type": "string", "maxLength": 100 }, "maxItems": 50 }
+      }
+    },
+
+    "truthContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["truthScore", "riskLevel"],
+      "properties": {
+        "truthScore": { "type": "integer", "minimum": 0, "maximum": 100 },
+        "riskLevel": { "type": "string", "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL"] },
+        "anomalyFlags": { "type": "array", "items": { "type": "string", "maxLength": 100 }, "maxItems": 50 }
+      }
+    },
+
+    "integrityContext": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["eventHash", "immutableRecorded"],
+      "properties": {
+        "eventHash": { "type": "string", "minLength": 1, "maxLength": 200 },
+        "reportHash": { "type": "string", "maxLength": 200 },
+        "ddcCommitId": { "type": "string", "maxLength": 100 },
+        "immutableRecorded": { "type": "boolean" }
+      }
+    },
+
+    "humanReadable": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "title": { "type": "string", "maxLength": 150 },
+        "summary": { "type": "string", "maxLength": 500 },
+        "explanation": { "type": "string", "maxLength": 1000 }
+      }
+    }
+  }
+}

@@ -1,0 +1,111 @@
+"use client";
+
+import { Contract, formatUnits } from "ethers";
+import { useEffect, useMemo, useState } from "react";
+import { ADDRESSES, getReadonlyProvider } from "@/app/config/contracts";
+import { DDC_REWARDPOOL_ABI } from "@/app/abi/ddcRewardPool";
+
+type State =
+  | { status: "idle" | "loading"; error?: undefined; data?: undefined }
+  | { status: "success"; error?: undefined; data: {
+      burnLocked: bigint;
+      rewardEligible: bigint;
+      presaleBurnAccounted: bigint;
+      remainingPresaleBurnNeed: bigint;
+      presaleBurnTarget: bigint;
+    } }
+  | { status: "error"; error: string; data?: undefined };
+
+export default function RewardPoolStatus() {
+  const [st, setSt] = useState<State>({ status: "idle" });
+
+  const provider = useMemo(() => getReadonlyProvider(), []);
+  const rewardPool = (ADDRESSES as any).rewardPool as string | undefined;
+
+  useEffect(() => {
+    let alive = true;
+
+    const run = async () => {
+      try {
+        if (!rewardPool || rewardPool === "0x0000000000000000000000000000000000000000") {
+          setSt({ status: "error", error: "RewardPool adresa nije podešena (NEXT_PUBLIC_REWARDPOOL_ADDRESS)." });
+          return;
+        }
+        setSt({ status: "loading" });
+
+        const c = new Contract(rewardPool, DDC_REWARDPOOL_ABI, provider);
+        const [
+          burnLocked,
+          rewardEligible,
+          presaleBurnAccounted,
+          remainingPresaleBurnNeed,
+          presaleBurnTarget,
+        ] = await Promise.all([
+          c.burnLocked() as Promise<bigint>,
+          c.rewardEligible() as Promise<bigint>,
+          c.presaleBurnAccounted() as Promise<bigint>,
+          c.remainingPresaleBurnNeed() as Promise<bigint>,
+          c.PRESALE_BURN_TARGET() as Promise<bigint>,
+        ]);
+
+        if (!alive) return;
+        setSt({
+          status: "success",
+          data: { burnLocked, rewardEligible, presaleBurnAccounted, remainingPresaleBurnNeed, presaleBurnTarget },
+        });
+      } catch (e: any) {
+        if (!alive) return;
+        setSt({ status: "error", error: e?.message ?? "RewardPool read error" });
+      }
+    };
+
+    run();
+    const t = setInterval(run, 15000);
+    return () => {
+      alive = false;
+      clearInterval(t);
+    };
+  }, [provider, rewardPool]);
+
+  const fmt = (v: bigint) => formatUnits(v, 18);
+
+  return (
+    <div className="mt-6">
+      <div className="mb-2">
+        <h3 className="text-lg font-semibold">Reward Pool</h3>
+        <div className="text-xs opacity-60">\[RewardPoolStatus mounted\]</div>
+        <p className="text-sm opacity-80">Read-only on-chain status (burn lock / validator rewards).</p>
+      </div>
+
+      <div className="border rounded p-4">
+        {st.status === "idle" && <div className="text-sm opacity-80">—</div>}
+        {st.status === "loading" && <div className="text-sm">Učitavanje…</div>}
+        {st.status === "error" && <div className="text-sm text-red-600">{st.error}</div>}
+        {st.status === "success" && (
+          <div className="text-sm">
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Burn-locked</span>
+              <span className="font-semibold">{fmt(st.data.burnLocked)}</span>
+            </div>
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Validator rewards eligible</span>
+              <span className="font-semibold">{fmt(st.data.rewardEligible)}</span>
+            </div>
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Presale burn accounted</span>
+              <span className="font-semibold">{fmt(st.data.presaleBurnAccounted)}</span>
+            </div>
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Remaining presale burn need</span>
+              <span className="font-semibold">{fmt(st.data.remainingPresaleBurnNeed)}</span>
+            </div>
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Presale burn target</span>
+              <span className="font-semibold">{fmt(st.data.presaleBurnTarget)}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

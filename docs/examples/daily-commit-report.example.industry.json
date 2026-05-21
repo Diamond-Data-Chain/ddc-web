@@ -1,0 +1,27 @@
+{
+  "standard": "DDC-DAILY-COMMIT-1.0",
+  "projectId": "bike-factory-line-01",
+  "commitId": "commit-2026-03-20-line1",
+  "periodStart": "2026-03-20T00:00:00Z",
+  "periodEnd": "2026-03-20T23:59:59Z",
+  "domain": "industry",
+  "module": "production",
+  "eventCount": 5,
+  "eventIds": ["evt-19995", "evt-19996", "evt-20001", "evt-20002", "evt-20003"],
+  "reconciliation": {
+    "formula": "issuedToLine = consumedInProduction AND consumedInProduction matches BOM × finishedProducts",
+    "status": "PASS",
+    "difference": "0"
+  },
+  "truthSummary": {
+    "averageTruthScore": 90,
+    "highestRiskLevel": "LOW",
+    "anomalyFlags": []
+  },
+  "integrity": {
+    "reportHash": "0xindustryreport20260320abcdef1234567890abcdef1234567890abcdef12",
+    "ddcTokenCommitRecorded": true,
+    "ddcTokenCommitRef": "ddc-token-commit-2026-03-20-line1",
+    "recordedAt": "2026-03-21T00:03:10Z"
+  }
+}

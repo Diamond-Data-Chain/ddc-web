@@ -1,0 +1,32 @@
+{
+  "standard": "DDC-DAILY-COMMIT-1.0",
+  "projectId": "ddc-presale-2026",
+  "commitId": "commit-2026-03-20",
+  "periodStart": "2026-03-20T00:00:00Z",
+  "periodEnd": "2026-03-20T23:59:59Z",
+  "domain": "crypto",
+  "module": "treasury",
+  "eventCount": 4,
+  "eventIds": ["evt-000001", "evt-000002", "evt-000003", "evt-000004"],
+  "totals": {
+    "inflow": { "assetSymbol": "USDT", "amount": "4250000000", "decimals": 6 },
+    "outflow": { "assetSymbol": "USDT", "amount": "350000000", "decimals": 6 },
+    "balance": { "assetSymbol": "USDT", "amount": "3900000000", "decimals": 6 }
+  },
+  "reconciliation": {
+    "formula": "inflow = outflow + balance",
+    "status": "PASS",
+    "difference": "0"
+  },
+  "truthSummary": {
+    "averageTruthScore": 94,
+    "highestRiskLevel": "LOW",
+    "anomalyFlags": []
+  },
+  "integrity": {
+    "reportHash": "0xreporthash20260320abcdef1234567890abcdef1234567890abcdef1234",
+    "ddcTokenCommitRecorded": true,
+    "ddcTokenCommitRef": "ddc-token-commit-2026-03-20",
+    "recordedAt": "2026-03-21T00:01:15Z"
+  }
+}

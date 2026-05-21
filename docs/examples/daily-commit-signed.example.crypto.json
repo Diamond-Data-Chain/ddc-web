@@ -1,0 +1,24 @@
+{
+  "standard": "DDC-DAILY-COMMIT-1.0",
+  "engine": {
+    "engineVersion": "DDC-TE-0.1",
+    "engineCodeHash": "0x00b2a5477848dddbd94b0ac0bf50dfac55f3a3f9cc7264b2a51ad21b78016d3b"
+  },
+  "commit": {
+    "eventCount": 2,
+    "eventHashes": [
+      "0xbca0d65368ab79def5e57f02230209a05df92839d74637149a8f5ac67d9e40c7",
+      "0x1a2b704e94ae29e363da42165f00ab1ecb8c4c4236279893114cdbb6e6d8a497"
+    ],
+    "reportHash": "0x500df73bbd7012b0c0c3e61d79f70437a93f48d425ee2d00d5e3dd378b3a01b6"
+  },
+  "proofOfValidation": {
+    "validatorId": "validator-01",
+    "validatorAddress": "0xA94568bF1B50a06efDebc5846A1252410A65CA32",
+    "messageHash": "0x546242cea3b03d8ccc2262fcefce88df443babc3658dd4944a4ce5ac5a1b67ab",
+    "signature": "0xd2a470f9a25181f88f183e2846102b462a67025f5ea0fb0cab22d7878f6aa350033de6cac8ba37beb9c614fc574e2dfe8b22343ec44cfd35b037364124d188de1c",
+    "signatureType": "EIP191"
+  },
+  "submitTxHash": "0xbadf51b82a3a9948c09a253a1c1d3a17ab53a1073f3f3952714dab3709daeb97",
+  "submitChainId": 97
+}

@@ -1,0 +1,68 @@
+/**
+ * LEGACY JS CONFIG (do not delete).
+ * MUST mirror exports from contracts.ts because Next may resolve .js.
+ */
+
+// Hardhat defaults
+export const HARDHAT_CHAIN_ID = 31337;
+export const HARDHAT_RPC_URL = "http://127.0.0.1:8545";
+export const HARDHAT_CHAIN_NAME = "Hardhat";
+
+// Env-first helpers
+const envStr = (k, fb) => {
+  const v = process.env[k];
+  return v && String(v).trim().length ? String(v).trim() : fb;
+};
+const envNum = (k, fb) => {
+  const v = process.env[k];
+  const n = v !== undefined ? Number(v) : NaN;
+  return Number.isFinite(n) ? n : fb;
+};
+
+// Canonical chain config (what WalletProvider imports)
+export const CHAIN_ID = envNum("NEXT_PUBLIC_CHAIN_ID", HARDHAT_CHAIN_ID);
+export const RPC_URL = envStr("NEXT_PUBLIC_RPC_URL", HARDHAT_RPC_URL);
+export const CHAIN_NAME = envStr("NEXT_PUBLIC_CHAIN_NAME", HARDHAT_CHAIN_NAME);
+export const BLOCK_EXPLORER_URL = envStr("NEXT_PUBLIC_BLOCK_EXPLORER_URL", "");
+
+// Addresses
+export const PRESALE_VESTING_ADDRESS = envStr(
+  "NEXT_PUBLIC_PRESALE_ADDRESS",
+  "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0"
+);
+
+export const DDC_TOKEN_ADDRESS = envStr(
+  "NEXT_PUBLIC_DDC_TOKEN_ADDRESS",
+  "0x5FbDB2315678afecb367f032d93F642f64180aa3"
+);
+
+export const USDT_ADDRESS = envStr(
+  "NEXT_PUBLIC_USDT_ADDRESS",
+  "0xe7f1725E7734CE288F8367e1Bb143E90bb3F0512"
+);
+
+// Legacy alias
+export const USDT_MOCK_ADDRESS = USDT_ADDRESS;
+
+export const GOVERNANCE_ADDRESS = envStr(
+  "NEXT_PUBLIC_GOVERNANCE_ADDRESS",
+  "0x0000000000000000000000000000000000000000"
+);
+
+export const REWARDPOOL_ADDRESS = envStr(
+  "NEXT_PUBLIC_REWARDPOOL_ADDRESS",
+  "0x0000000000000000000000000000000000000000"
+);
+
+// Backward-compat alias (ako negde postoji staro ime)
+export const REWARD_POOL_ADDRESS = REWARDPOOL_ADDRESS;
+
+// Bundle (koristi dao_materials i reward UI)
+export const ADDRESSES = {
+  presale: PRESALE_VESTING_ADDRESS,
+  ddc: DDC_TOKEN_ADDRESS,
+  ddcToken: DDC_TOKEN_ADDRESS,
+  usdt: USDT_ADDRESS,
+  governance: GOVERNANCE_ADDRESS,
+  rewardPool: REWARDPOOL_ADDRESS,
+};

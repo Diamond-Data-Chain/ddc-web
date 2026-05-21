@@ -1,0 +1,76 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+network           : bscTestnet
+deployer          : 0xA94568bF1B50a06efDebc5846A1252410A65CA32
+buyer             : 0xd10038af00BfC74f300171F479ccE4B02d263866
+projectKey        : DDC_FAST_SMOKE
+projectId         : 0x1633beaaf661227d5c18cb7576ad3ab1ee1606d5dc6d9f75e3d3a717bd79be1d
+batchSeconds      : 120
+hardCapDDC/batch  : 2560000000000000000000000
+buyer USDT mint   : 1000000000000
+presale DDC fund  : 102400000000000000000000000
+tgeTimestamp      : 0
+✔ DDC Token       : 0x6Ef738e35fA1e0bd21D425e4272790bdf61f17E6
+✔ USDT Mock       : 0x92306C4220F00CEf42e09292787eF90aBFb79479
+✔ Recorder        : 0x83E3056dFD5298907c8980619C21CAaFDe8e2f77
+✔ Presale/Vesting : 0xDfEE47592ce243AeF367b0Dce81672EBc83c7e0b
+✔ RewardPool      : 0x3db23abD1Fc153506fFBf55170e1788b1D08A1FC
+⚙️ setRecorder(...)
+⚙️ Initializing all 40 fast-smoke batches from ts = 1775549113
+  - batch 1: price=10000 start=1775549113 end=1775549233
+  - batch 2: price=30000 start=1775549233 end=1775549353
+  - batch 3: price=50000 start=1775549353 end=1775549473
+  - batch 4: price=70000 start=1775549473 end=1775549593
+  - batch 5: price=90000 start=1775549593 end=1775549713
+  - batch 6: price=110000 start=1775549713 end=1775549833
+  - batch 7: price=130000 start=1775549833 end=1775549953
+  - batch 8: price=150000 start=1775549953 end=1775550073
+  - batch 9: price=170000 start=1775550073 end=1775550193
+  - batch 10: price=190000 start=1775550193 end=1775550313
+  - batch 11: price=210000 start=1775550313 end=1775550433
+  - batch 12: price=230000 start=1775550433 end=1775550553
+  - batch 13: price=250000 start=1775550553 end=1775550673
+  - batch 14: price=270000 start=1775550673 end=1775550793
+  - batch 15: price=290000 start=1775550793 end=1775550913
+  - batch 16: price=310000 start=1775550913 end=1775551033
+  - batch 17: price=330000 start=1775551033 end=1775551153
+  - batch 18: price=350000 start=1775551153 end=1775551273
+  - batch 19: price=370000 start=1775551273 end=1775551393
+  - batch 20: price=390000 start=1775551393 end=1775551513
+  - batch 21: price=410000 start=1775551513 end=1775551633
+  - batch 22: price=430000 start=1775551633 end=1775551753
+  - batch 23: price=450000 start=1775551753 end=1775551873
+  - batch 24: price=470000 start=1775551873 end=1775551993
+  - batch 25: price=490000 start=1775551993 end=1775552113
+  - batch 26: price=510000 start=1775552113 end=1775552233
+  - batch 27: price=530000 start=1775552233 end=1775552353
+  - batch 28: price=550000 start=1775552353 end=1775552473
+  - batch 29: price=570000 start=1775552473 end=1775552593
+  - batch 30: price=590000 start=1775552593 end=1775552713
+  - batch 31: price=610000 start=1775552713 end=1775552833
+  - batch 32: price=630000 start=1775552833 end=1775552953
+  - batch 33: price=650000 start=1775552953 end=1775553073
+  - batch 34: price=670000 start=1775553073 end=1775553193
+  - batch 35: price=690000 start=1775553193 end=1775553313
+  - batch 36: price=710000 start=1775553313 end=1775553433
+  - batch 37: price=730000 start=1775553433 end=1775553553
+  - batch 38: price=750000 start=1775553553 end=1775553673
+  - batch 39: price=770000 start=1775553673 end=1775553793
+  - batch 40: price=790000 start=1775553793 end=1775553913
+⚙️ mint buyer USDT: 1000000000000
+⚙️ fund presale DDC: 102400000000000000000000000
+✔ buyer USDT balance     : 1000000000000
+✔ presale DDC balance    : 102400000000000000000000000
+✔ batch1 price/hardCap   : 10000 0
+✔ batch40 price/hardCap  : 790000 0
+✔ wrote /home/ljubisa/DDC_Web_Concil/DDChain-Web_FIXED_v2/DDChain-Web/.env.fast-smoke.local
+
+=== FAST SMOKE READY ===
+Buyer wallet : 0xd10038af00BfC74f300171F479ccE4B02d263866
+Approve USDT : 0x92306C4220F00CEf42e09292787eF90aBFb79479 -> 0xDfEE47592ce243AeF367b0Dce81672EBc83c7e0b
+Current batch starts around: 1775549113
+Batch duration seconds: 120
+HardCap DDC / batch: 2560000.0
+Minted USDT to buyer: 1000000.0

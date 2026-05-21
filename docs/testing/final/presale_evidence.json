@@ -1,0 +1,64 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+{
+  "ts": "2026-04-09T06:52:34.756Z",
+  "addresses": {
+    "presale": "0x607C762D285Dd7b69A7F9C9fe646081de3faF015",
+    "rewardPool": "0x8610E12C12B6b4a2309667cAa56278436d761112",
+    "recorder": "0xa72EfB27DAACCCdcDA5190C22E6998F7A288a7D5",
+    "user": "0xd10038af00BfC74f300171F479ccE4B02d263866"
+  },
+  "presale": {
+    "currentBatch": "40",
+    "totalBatches": "40",
+    "finalized": true,
+    "finalizedTotalSoldRaw": "100073808242862966170353",
+    "finalizedTotalSoldDDC": "100073.808242862966170353",
+    "finalizedUnsoldToRewardsRaw": "102299926191757137033829647",
+    "finalizedUnsoldToRewardsDDC": "102299926.191757137033829647",
+    "batchInfoRaw": {
+      "priceUSDT": "790000",
+      "hardCapDDC": "102299926191757137033829647",
+      "remainingDDC": "102299926191757137033829647",
+      "soldDDC": "0",
+      "startTime": "1775662683",
+      "endTime": "1775662803",
+      "active": true
+    },
+    "batchInfoFmt": {
+      "priceUSDT": "0.79",
+      "hardCapDDC": "102299926.191757137033829647",
+      "remainingDDC": "102299926.191757137033829647",
+      "soldDDC": "0.0"
+    }
+  },
+  "rewardPool": {
+    "burnLockedRaw": "51200000000000000000000000",
+    "burnLockedDDC": "51200000.0",
+    "rewardEligibleRaw": "51099926191757137033829647",
+    "rewardEligibleDDC": "51099926.191757137033829647",
+    "presaleBurnAccountedRaw": "51200000000000000000000000",
+    "presaleBurnAccountedDDC": "51200000.0",
+    "remainingPresaleBurnNeedRaw": "0",
+    "remainingPresaleBurnNeedDDC": "0.0",
+    "totalBalanceRaw": "102299926191757137033829647",
+    "totalBalanceDDC": "102299926.191757137033829647"
+  },
+  "recorder": {
+    "availableFunctions": [
+      "getGlobalPurchaseCount",
+      "getUserPresaleTotals",
+      "getUserPurchaseAt",
+      "getUserPurchaseCount",
+      "listGlobalPurchases",
+      "listUserPurchases",
+      "recordPresalePurchase"
+    ],
+    "countOk": false,
+    "count": null,
+    "pageOk": false,
+    "pageData": null
+  }
+}

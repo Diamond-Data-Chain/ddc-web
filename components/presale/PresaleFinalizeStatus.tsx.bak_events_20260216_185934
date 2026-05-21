@@ -1,0 +1,150 @@
+"use client";
+
+import { Contract, JsonRpcProvider, formatUnits } from "ethers";
+import { useEffect, useMemo, useState } from "react";
+import { RPC_URL, CHAIN_ID, PRESALE_VESTING_ADDRESS, REWARDPOOL_ADDRESS } from "@/app/config/contracts";
+import { DDC_PRESALE_ABI } from "@/app/abi/ddcPresaleVesting";
+
+type Data = {
+  finalized?: boolean;
+  rewardPool?: string;
+  unsoldMoved?: bigint;
+  totalSold?: bigint;
+};
+
+type State =
+  | { status: "idle" | "loading"; data?: undefined; error?: undefined }
+  | { status: "success"; data: Data; error?: undefined }
+  | { status: "error"; error: string; data?: undefined };
+
+async function tryBool(c: any, names: string[]): Promise<boolean | undefined> {
+  for (const n of names) {
+    try {
+      if (typeof c[n] === "function") {
+        const v = await c[n]();
+        if (typeof v === "boolean") return v;
+        if (typeof v === "bigint") return v !== 0n;
+        if (v?.toString) return v.toString() !== "0";
+      }
+    } catch {}
+  }
+  return undefined;
+}
+
+async function tryAddr(c: any, names: string[]): Promise<string | undefined> {
+  for (const n of names) {
+    try {
+      if (typeof c[n] === "function") {
+        const v = await c[n]();
+        if (typeof v === "string") return v;
+      }
+    } catch {}
+  }
+  return undefined;
+}
+
+async function tryBig(c: any, names: string[]): Promise<bigint | undefined> {
+  for (const n of names) {
+    try {
+      if (typeof c[n] === "function") {
+        const v = await c[n]();
+        if (typeof v === "bigint") return v;
+        if (v?.toString) return BigInt(v.toString());
+      }
+    } catch {}
+  }
+  return undefined;
+}
+
+export default function PresaleFinalizeStatus() {
+  const [st, setSt] = useState<State>({ status: "idle" });
+
+  const provider = useMemo(() => new JsonRpcProvider(RPC_URL, CHAIN_ID), []);
+  const presaleAddr = PRESALE_VESTING_ADDRESS as string;
+
+  useEffect(() => {
+    let alive = true;
+
+    const run = async () => {
+      try {
+        if (!presaleAddr || presaleAddr === "0x0000000000000000000000000000000000000000") {
+          setSt({ status: "error", error: "Presale adresa nije podešena (NEXT_PUBLIC_PRESALE_ADDRESS)." });
+          return;
+        }
+        setSt({ status: "loading" });
+
+        const c: any = new Contract(presaleAddr, DDC_PRESALE_ABI, provider);
+
+        const [finalized, rewardPool, unsoldMoved, totalSold] = await Promise.all([
+          tryBool(c, ["presaleFinalized", "finalized", "isFinalized"]),
+          tryAddr(c, ["rewardPool", "rewardPoolAddress"]),
+          tryBig(c, ["unsoldMoved", "unsoldAmount", "unsoldTokens", "unsold", "getUnsold"]),
+          tryBig(c, ["totalSold", "soldTotal", "tokensSold", "totalTokensSold"]),
+        ]);
+
+        const data: Data = {
+          finalized,
+          rewardPool: rewardPool ?? (REWARDPOOL_ADDRESS as string),
+          unsoldMoved,
+          totalSold,
+        };
+
+        if (!alive) return;
+        setSt({ status: "success", data });
+      } catch (e: any) {
+        if (!alive) return;
+        setSt({ status: "error", error: e?.message ?? "Presale finalize read error" });
+      }
+    };
+
+    run();
+    const t = setInterval(run, 15000);
+    return () => {
+      alive = false;
+      clearInterval(t);
+    };
+  }, [provider, presaleAddr]);
+
+  const fmt = (v?: bigint) => (typeof v === "bigint" ? formatUnits(v, 18) : "—");
+
+  return (
+    <div className="mt-6">
+      <div className="mb-2">
+        <h3 className="text-lg font-semibold">Presale finalize status</h3>
+        <p className="text-sm opacity-80">Read-only on-chain finalize / unsold → RewardPool.</p>
+      </div>
+
+      <div className="border rounded p-4">
+        {st.status === "idle" && <div className="text-sm opacity-80">—</div>}
+        {st.status === "loading" && <div className="text-sm">Učitavanje…</div>}
+        {st.status === "error" && <div className="text-sm text-red-600">{st.error}</div>}
+
+        {st.status === "success" && (
+          <div className="text-sm">
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Finalized</span>
+              <span className="font-semibold">
+                {typeof st.data.finalized === "boolean" ? (st.data.finalized ? "Yes" : "No") : "—"}
+              </span>
+            </div>
+
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">RewardPool</span>
+              <span className="font-semibold">{st.data.rewardPool ?? "—"}</span>
+            </div>
+
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Unsold moved (if exposed)</span>
+              <span className="font-semibold">{fmt(st.data.unsoldMoved)}</span>
+            </div>
+
+            <div className="flex items-center justify-between py-1">
+              <span className="opacity-80">Total sold (if exposed)</span>
+              <span className="font-semibold">{fmt(st.data.totalSold)}</span>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}

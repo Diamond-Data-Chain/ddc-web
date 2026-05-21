@@ -1,0 +1,171 @@
+"use client";
+import Image from "next/image";
+
+import { motion } from "framer-motion";
+
+export default function Tokenomics() {
+  return (
+    <section
+      id="tokenomics"
+      className="py-16 border-t border-slate-800 scroll-mt-24"
+    >
+      <div className="max-w-7xl mx-auto px-4">
+        <motion.h2
+          className="text-3xl font-bold"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ duration: 0.5 }}
+        >
+          Tokenomics
+        </motion.h2>
+
+        <motion.p
+          className="mt-2 text-slate-300 max-w-3xl"
+          initial={{ opacity: 0, x: -20 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: "-120px" }}
+          transition={{ delay: 0.15, duration: 0.5 }}
+        >
+          
+          The native Layer-1 utility and governance coin used for staking, fees, and 
+          governance participation. The DDC coin does not represent equity, ownership, 
+          profit entitlement, or guaranteed economic return.
+        
+        </motion.p>
+
+        {/* Figure kartice */}
+        <div className="mt-8 grid md:grid-cols-2 gap-6">
+          {/* Token distribution pie */}
+          <motion.div
+            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            whileHover={{
+              translateY: -6,
+              boxShadow:
+                "0 18px 45px rgba(15, 23, 42, 0.85), 0 0 40px rgba(251, 191, 36, 0.12)",
+              borderColor: "rgba(251, 191, 36, 0.6)",
+            }}
+          >
+            <div className="h-56 rounded-xl bg-slate-800/60 flex items-center justify-center overflow-hidden">
+              <Image
+                src="/assets/images/token-distribution.png"
+                alt="DDC Token Distribution"
+                width={1200}
+                height={600}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <h3 className="mt-4 font-semibold">Token Distribution</h3>
+            <p className="text-sm text-slate-400">
+              
+              
+              DDC coins designated for protocol-level burn or burn-locking:
+              • are permanently excluded from vesting,
+              • are never claimable or transferable,
+              • do not participate in validator incentives,
+              • are excluded from all distribution mechanics regardless of burn execution
+              timing.
+              Vesting schedules apply exclusively to claimable DDC coin allocations and
+              operate only on the effective post-burn supply, consistent with Phase 7.4.2.
+              Coin Allocation Table
+              Category Allocation Coins Vesting / Treatment
+              Buyer portion (50%): 10% unlocked at TGE, remainder
+              Public vested per Phase 7.4.2. Remaining portion (50%)
+              40% 102.4M
+              Presale permanently burn-locked, non-claimable, excluded
+              from vesting and distribution.
+              Accounting pool containing burn-locked and reward-
+              Reward eligible DDC. Burn-locked coins are permanently
+              20% 51.2M
+              Pool excluded from vesting, claiming, and validator
+              incentives.
+              Continuous allocation subject exclusively to
+              Foundati
+              15% 38.4M predefined, governance-approved rules and on-chain
+              on
+              constraints, without discretionary adjustment.
+              Treasury 7.5% 19.2M 18-month linear unlock.
+              Team 12.5% 32.0M 24-month linear vesting, no TGE unlock.
+              Advisors 5% 12.8M Dedicated vesting schedule as defined in Phase 7.4.2.
+              Total Maximum Supply: 256,000,000 DDC
+            
+            
+            </p>
+          </motion.div>
+
+          {/* Tokenomics flow */}
+          <motion.div
+            className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ delay: 0.15, duration: 0.5 }}
+            whileHover={{
+              translateY: -6,
+              boxShadow:
+                "0 18px 45px rgba(15, 23, 42, 0.85), 0 0 40px rgba(56, 189, 248, 0.18)",
+              borderColor: "rgba(56, 189, 248, 0.7)",
+            }}
+          >
+            <div className="h-56 rounded-xl bg-slate-800/60 flex items-center justify-center overflow-hidden">
+              <Image
+                src="/assets/images/tokenomics-flow.png"
+                alt="DDC Tokenomics Flow"
+                width={1200}
+                height={600}
+                className="w-full h-full object-contain"
+              />
+            </div>
+            <h3 className="mt-4 font-semibold">Tokenomics Flow</h3>
+            <p className="text-sm text-slate-400">
+              
+              
+              Deflationary Mechanism
+              Supply reduction within Diamond Data Chain is governed exclusively by the
+              deterministic, protocol-level burn mechanism defined in C.7 and Phase 7.5.
+            
+            
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Net Circulation blok */}
+        <motion.div
+          className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.5 }}
+        >
+          <div className="text-sm text-slate-300">The effective circulating supply at time t is defined as:</div>
+          <div className="mt-2 text-lg md:text-xl text-amber-300 font-mono">
+            S(t) = S₀ − B(t)
+          </div>
+          <div className="mt-2 text-xs text-slate-400">
+            
+            • B_max = maximum burn cap (128,000,000 DDC)
+            • S(t) = effective circulating supply at time t
+            The effective circulating supply at time t is defined as:
+            S(t) = S₀ − B(t)
+            Subject to the invariant:
+            0 ≤ B(t) ≤ B_max
+            Burn execution logic enforces:
+            • irreversible destruction of DDC coins,
+            • monotonic increase of B(t),
+            • permanent reduction of S(t).
+            No governance vote, administrative role, validator action, or off-chain process can:
+            • initiate discretionary burns,
+            • modify burn rates,
+            • extend burn caps,
+            • re-enable burn functionality after shutdown.
+          
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}

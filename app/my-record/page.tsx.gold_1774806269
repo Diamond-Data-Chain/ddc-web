@@ -1,0 +1,321 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import { ethers } from 'ethers';
+import { useWallet } from '../WalletProvider';
+
+const RECORDER_ABI = [
+  'function getUserPresaleTotals(bytes32 projectId,address user) view returns (uint256 ddc,uint256 usdt,uint256 bnb)',
+  'function getUserPurchaseCount(bytes32 projectId,address user) view returns (uint256)',
+  'function listUserPurchases(bytes32 projectId,address user,uint256 offset,uint256 limit) view returns (tuple(uint256 ddcAmount,address payAsset,uint256 payAmount,uint8 payMethod,bytes32 memoHash,bytes32 sourceRef,uint64 ts)[])',
+];
+
+function short(a?: string) {
+  if (!a) return '-';
+  return a.slice(0, 6) + '…' + a.slice(-4);
+}
+
+async function copyText(s: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(s);
+    return true;
+  } catch {
+    try {
+      const ta = document.createElement('textarea');
+      ta.value = s;
+      ta.setAttribute('readonly', '');
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      ta.style.top = '0';
+      document.body.appendChild(ta);
+      ta.select();
+      const ok = document.execCommand('copy');
+      document.body.removeChild(ta);
+      return ok;
+    } catch {
+      return false;
+    }
+  }
+}
+
+export default function MyRecordPage() {
+  const { address, isConnected, connect } = useWallet();
+
+  const recorderAddr = process.env.NEXT_PUBLIC_RECORDER_ADDRESS || '';
+  const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL || '';
+  const projectKey = process.env.NEXT_PUBLIC_PROJECT_KEY || 'DDC_PROJECT_V1';
+  const projectId = useMemo(() => ethers.keccak256(ethers.toUtf8Bytes(projectKey)), [projectKey]);
+
+  const provider = useMemo(() => {
+    if (!rpcUrl) return null;
+    try {
+      return new ethers.JsonRpcProvider(rpcUrl, undefined, { batchMaxCount: 1, batchStallTime: 0 });
+    } catch {
+      return null;
+    }
+  }, [rpcUrl]);
+
+  const [toast, setToast] = useState<string | null>(null);
+  const [toastOk, setToastOk] = useState(true);
+  const showToast = (msg: string, ok: boolean) => {
+    setToastOk(ok);
+    setToast(msg);
+    window.setTimeout(() => setToast(null), 1200);
+  };
+  const copyAndToast = async (value: string) => {
+    const ok = await copyText(value);
+    showToast(ok ? 'Copied!' : 'Copy failed', ok);
+  };
+
+  const [queryAddr, setQueryAddr] = useState('');
+  const [pageSize, setPageSize] = useState(20);
+  const [page, setPage] = useState(0);
+
+  const [totals, setTotals] = useState<{ ddc: bigint; usdt: bigint; bnb: bigint } | null>(null);
+  const [count, setCount] = useState<number>(0);
+  const [rows, setRows] = useState<any[]>([]);
+  const [err, setErr] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  const activeAddr = useMemo(() => {
+    const a = isConnected && address ? address : queryAddr;
+    try {
+      return a ? ethers.getAddress(a) : '';
+    } catch {
+      return '';
+    }
+  }, [isConnected, address, queryAddr]);
+
+  async function load() {
+    setErr(null);
+    setLoading(true);
+    setRows([]);
+    setTotals(null);
+    setCount(0);
+
+    try {
+      if (!provider) throw new Error('RPC URL is missing.');
+      if (!recorderAddr) throw new Error('Recorder address is missing.');
+      if (!activeAddr) throw new Error('Connect your wallet or enter an address.');
+
+      const rec = ethers.getAddress(recorderAddr);
+      const code = await provider.getCode(rec);
+      if (code === '0x') throw new Error('Recorder contract is not deployed on this network.');
+
+      const c = new ethers.Contract(rec, RECORDER_ABI, provider);
+
+      const [ddc, usdt, bnb] = await c.getUserPresaleTotals(projectId, activeAddr);
+      setTotals({ ddc: BigInt(ddc.toString()), usdt: BigInt(usdt.toString()), bnb: BigInt(bnb.toString()) });
+
+      const n = await c.getUserPurchaseCount(projectId, activeAddr);
+      const total = Number(n.toString());
+      setCount(total);
+
+      // newest-first pagination (storage is append-only oldest->newest)
+      const endExclusive = Math.max(0, total - page * pageSize);
+      const start = Math.max(0, endExclusive - pageSize);
+      const limit = endExclusive - start;
+
+      const items = limit > 0 ? await c.listUserPurchases(projectId, activeAddr, start, limit) : [];
+      const mapped = (items as any[]).map((it) => ({
+        ddcAmount: BigInt(it.ddcAmount.toString()),
+        payAsset: String(it.payAsset),
+        payAmount: BigInt(it.payAmount.toString()),
+        payMethod: Number(it.payMethod),
+        sourceRef: String(it.sourceRef),
+        ts: Number(it.ts),
+      })).reverse();
+
+      const filtered = mapped.filter((r: any) => (r.payAmount ?? 0n) > 0n);
+      setRows(filtered);
+
+      // Totals for REAL purchases only (exclude backfill/test payAmount==0)
+      const ddcSum = filtered.reduce((a: bigint, r: any) => a + (r.ddcAmount ?? 0n), 0n);
+      const usdtSum = filtered.reduce((a: bigint, r: any) => a + ((r.payMethod === 0 ? (r.payAmount ?? 0n) : 0n)), 0n);
+      const bnbSum = filtered.reduce((a: bigint, r: any) => a + ((r.payMethod === 1 ? (r.payAmount ?? 0n) : 0n)), 0n);
+
+      setTotals({ ddc: ddcSum, usdt: usdtSum, bnb: bnbSum });
+      setCount(filtered.length);
+
+    } catch (e: any) {
+      setErr(String(e?.shortMessage || e?.message || e));
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    if (isConnected && address) load().catch(() => {});
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isConnected, address, recorderAddr, projectId, page, pageSize]);
+
+  const fmtDDC = (x: bigint) => ethers.formatUnits(x, 18);
+  const fmtUSDT = (x: bigint) => ethers.formatUnits(x, 6);
+  const fmtBNB = (x: bigint) => ethers.formatUnits(x, 18);
+  const getPay = (r: any): bigint => {
+    try {
+      const v = r?.payAmt ?? r?.payAmount ?? r?.pay ?? 0;
+      // handle bigint, string, number
+      if (typeof v === "bigint") return v;
+      if (typeof v === "number") return BigInt(Math.floor(v));
+      return BigInt(String(v));
+    } catch {
+      return 0n;
+    }
+  };
+
+  const visibleRows = (rows || []).filter((r: any) => getPay(r) > 0n);
+
+
+  return (<main className="min-h-screen bg-slate-950 text-slate-50">
+      {toast && (
+        <div
+          className={`fixed top-4 right-4 z-[9999] rounded-xl border px-4 py-2 text-sm shadow-2xl ${
+            toastOk ? 'border-emerald-600/50 bg-emerald-950/90 text-emerald-100' : 'border-red-600/50 bg-red-950/90 text-red-100'
+          }`}
+        >
+          {toast}
+        </div>
+      )}
+
+      <div className="mx-auto max-w-6xl px-6 py-10">
+        <h1 className="text-2xl font-semibold">My DDC Token</h1>
+        <p className="mt-2 text-slate-400 text-sm">
+          Reads purchase history from on-chain Recorder storage (no RPC log scanning).
+        </p>
+
+        <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-900/40 p-5">
+          <div className="flex flex-wrap items-center gap-3">
+            <button
+              onClick={() => connect()}
+              className="inline-flex items-center justify-center rounded-full border border-amber-400/70 bg-black/40 hover:bg-amber-500/10 text-sm font-medium transition-all px-5 py-2"
+            >
+              {isConnected ? `Connected: ${short(address || '')}` : 'Connect wallet'}
+            </button>
+
+            <input
+              className="w-full max-w-md rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100"
+              placeholder="Or enter an address (0x...)"
+              value={queryAddr}
+              onChange={(e) => setQueryAddr(e.target.value)}
+            />
+
+            <select
+              value={pageSize}
+              onChange={(e) => setPageSize(Number(e.target.value))}
+              className="rounded-xl border border-slate-700 bg-slate-950 px-3 py-2 text-sm text-slate-100"
+            >
+              <option value={10}>10</option>
+              <option value={20}>20</option>
+              <option value={50}>50</option>
+            </select>
+
+            <button
+              onClick={() => load()}
+              className="inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-950/40 px-4 py-2 text-sm hover:bg-slate-800/40 transition"
+            >
+              {loading ? 'Loading…' : 'Refresh'}
+            </button>
+          </div>
+
+          {err && (
+            <div className="mt-4 rounded-xl border border-red-900/60 bg-red-950/30 p-3 text-sm text-red-200">
+              {err}
+            </div>
+          )}
+
+          {totals && (
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-4">
+                <div className="text-xs uppercase tracking-wider text-slate-400">Purchased DDC</div>
+                <div className="mt-2 font-mono text-lg">{fmtDDC(totals.ddc)}</div>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-4">
+                <div className="text-xs uppercase tracking-wider text-slate-400">Paid USDT</div>
+                <div className="mt-2 font-mono text-lg">{fmtUSDT(totals.usdt)}</div>
+              </div>
+              <div className="rounded-2xl border border-slate-800 bg-slate-950/30 p-4">
+                <div className="text-xs uppercase tracking-wider text-slate-400">Paid BNB</div>
+                <div className="mt-2 font-mono text-lg">{fmtBNB(totals.bnb)}</div>
+              </div>
+            </div>
+          )}
+
+          <div className="mt-4 flex items-center justify-between gap-3 text-xs text-slate-400">
+            <div>Total records: {count}</div>
+            <div className="flex items-center gap-2">
+              <button
+                className="rounded-full border border-slate-700 bg-slate-950/40 px-3 py-1 hover:bg-slate-800/40 disabled:opacity-50"
+                onClick={() => setPage((p) => Math.max(0, p - 1))}
+                disabled={page <= 0}
+              >
+                Newer
+              </button>
+              <button
+                className="rounded-full border border-slate-700 bg-slate-950/40 px-3 py-1 hover:bg-slate-800/40 disabled:opacity-50"
+                onClick={() => setPage((p) => p + 1)}
+                disabled={(page + 1) * pageSize >= count}
+              >
+                Older
+              </button>
+            </div>
+          </div>
+
+          <div className="mt-4 overflow-x-auto">
+            <table className="w-full text-left text-sm">
+              <thead className="text-xs text-slate-400">
+                <tr className="border-b border-slate-800">
+                  <th className="py-2 pr-3">Time</th>
+                  <th className="py-2 pr-3">DDC</th>
+                  <th className="py-2 pr-3">Paid</th>
+                  <th className="py-2 pr-3">Asset</th>
+                  <th className="py-2 pr-3">SourceRef (copy)</th>
+                </tr>
+              </thead>
+              <tbody className="text-slate-300">
+                {visibleRows.map((r, i) => (
+                  <tr key={i} className="border-t border-slate-800">
+                    <td className="py-2 pr-3 font-mono">{r.ts ? new Date(r.ts * 1000).toISOString() : '-'}</td>
+                    <td className="py-2 pr-3 font-mono">{fmtDDC(r.ddcAmount)}</td>
+                    <td className="py-2 pr-3 font-mono">{r.payMethod === 0 ? fmtUSDT(r.payAmount) : fmtBNB(r.payAmount)}</td>
+                    <td className="py-2 pr-3 font-mono">
+                      <button
+                        type="button"
+                        onClick={() => copyAndToast(r.payAsset)}
+                        title={r.payAsset}
+                        className="underline decoration-slate-700 hover:decoration-slate-300 underline-offset-4 hover:text-slate-100"
+                      >
+                        {short(r.payAsset)}
+                      </button>
+                    </td>
+                    <td className="py-2 pr-3 font-mono">
+                      <button
+                        type="button"
+                        onClick={() => copyAndToast(r.sourceRef)}
+                        title={r.sourceRef}
+                        className="underline decoration-slate-700 hover:decoration-slate-300 underline-offset-4 hover:text-slate-100"
+                      >
+                        {short(r.sourceRef)}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+                {rows.length === 0 && !err && !loading && (
+                  <tr>
+                    <td className="py-3 text-slate-400" colSpan={5}>
+                      No records found. (Recorder has no entries for this address yet.)
+                    </td>
+                  </tr>
+                )}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-3 text-xs text-slate-500">
+            Recorder: {recorderAddr || '(missing)'} · ProjectKey: {projectKey}
+          </div>
+        </div>
+      </div>
+    </main>
+  );
+}

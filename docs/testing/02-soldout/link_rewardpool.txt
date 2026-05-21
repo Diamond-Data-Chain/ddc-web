@@ -1,0 +1,8 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale   = 0x19203a4b68Ef70B73bC6B72cB2Aa57cD6314259e
+rewardPool= 0x945091f9F4de66F921F7892737039c0Df3440cfB
+setRewardPool tx = 0xbc60119fdb333efd0341bf38f5d63ebcfb1bbcea48f870da4187b4b2590ccda8
+done

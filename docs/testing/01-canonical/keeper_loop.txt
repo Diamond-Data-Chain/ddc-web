@@ -1,0 +1,4500 @@
+
+=== 2026-04-08 16:04:55 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657098
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:05:13 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657115
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:05:30 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657133
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:05:48 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657150
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:06:05 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657167
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:06:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657185
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:06:40 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657202
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:06:57 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657219
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:07:14 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657237
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:07:32 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657254
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:07:49 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657271
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:08:06 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657289
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:08:24 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657306
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:08:41 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657323
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:08:58 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657341
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:09:16 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657358
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:09:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657376
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:09:51 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657393
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:10:08 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657410
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:10:25 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657428
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:10:43 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657445
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:11:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657462
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:11:17 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657479
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:11:34 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657497
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:11:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657514
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:12:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657531
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:12:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657548
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:12:43 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657565
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:13:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657583
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:13:18 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657600
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:13:35 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657617
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:13:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657634
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:14:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657651
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:14:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657669
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:14:44 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657686
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:15:01 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657704
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:15:19 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657721
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:15:36 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657738
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:15:53 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657755
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:16:10 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657773
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:16:28 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657790
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:16:45 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657808
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:17:03 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657825
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:17:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657842
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:17:37 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657859
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:17:54 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657876
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:18:11 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657894
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:18:29 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657911
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:18:46 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657928
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:19:03 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657945
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:19:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657962
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:19:37 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657979
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:19:54 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775657996
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:20:11 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658013
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:20:28 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658031
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:20:46 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658048
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:21:03 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658065
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:21:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658082
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:21:38 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658100
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:21:55 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 1
+priceUSDT = 10000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658003
+end = 1775658123
+active = true
+now = 1775658117
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:22:12 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658135
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:22:30 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658152
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:22:47 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658169
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:23:04 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658187
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:23:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658204
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:23:39 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658221
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:23:56 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 2
+priceUSDT = 30000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658123
+end = 1775658243
+active = true
+now = 1775658238
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:24:13 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658255
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:24:30 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658272
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:24:47 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658290
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:25:05 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658307
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:25:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658324
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:25:39 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658342
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:25:57 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 3
+priceUSDT = 50000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658243
+end = 1775658363
+active = true
+now = 1775658360
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:26:15 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658377
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:26:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658396
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:26:51 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658414
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:27:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658431
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:27:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658453
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:27:48 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 4
+priceUSDT = 70000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658363
+end = 1775658483
+active = true
+now = 1775658470
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:28:05 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658487
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:28:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658505
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:28:40 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658522
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:28:57 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658539
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:29:14 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658557
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:29:32 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658574
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:29:49 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 5
+priceUSDT = 90000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658483
+end = 1775658603
+active = true
+now = 1775658591
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:30:06 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658608
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:30:23 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658626
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:30:41 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658643
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:30:58 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658660
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:31:16 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 15360000000000000000000000
+remaining = 15360000000000000000000000
+sold = 45454545454545454545454
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658678
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:31:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 15360000000000000000000000
+remaining = 15360000000000000000000000
+sold = 45454545454545454545454
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658695
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:31:50 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 6
+priceUSDT = 110000
+hardCap = 15360000000000000000000000
+remaining = 15360000000000000000000000
+sold = 45454545454545454545454
+start = 1775658603
+end = 1775658723
+active = true
+now = 1775658712
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:32:07 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658730
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:32:25 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658747
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:32:42 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658764
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:32:59 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658781
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:33:16 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658798
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:33:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658816
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:33:51 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 7
+priceUSDT = 130000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658723
+end = 1775658843
+active = true
+now = 1775658833
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:34:08 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658850
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:34:25 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658867
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:34:42 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658885
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:35:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658902
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:35:17 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658919
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:35:34 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658936
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:35:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 8
+priceUSDT = 150000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658843
+end = 1775658963
+active = true
+now = 1775658954
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:36:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775658971
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:36:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775658988
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:36:43 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775659005
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:37:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775659023
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:37:18 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775659040
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:37:35 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775659057
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:37:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 9
+priceUSDT = 170000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775658963
+end = 1775659083
+active = true
+now = 1775659074
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:38:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659091
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:38:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659109
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:38:44 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659126
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:39:01 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659143
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:39:18 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659161
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:39:36 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659178
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:39:53 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 10
+priceUSDT = 190000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659083
+end = 1775659203
+active = true
+now = 1775659195
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:40:10 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659212
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:40:27 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659230
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:40:45 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659248
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:41:03 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659265
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:41:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659283
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:41:38 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659300
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:41:55 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 11
+priceUSDT = 210000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659203
+end = 1775659323
+active = true
+now = 1775659317
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:42:12 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659334
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:42:29 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659352
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:42:47 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659369
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:43:04 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659386
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:43:21 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659403
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:43:38 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659420
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:43:55 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 12
+priceUSDT = 230000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659323
+end = 1775659443
+active = true
+now = 1775659438
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:44:13 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659455
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:44:30 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659472
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:44:47 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659490
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:45:05 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659507
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:45:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659524
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:45:39 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659541
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:45:56 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 13
+priceUSDT = 250000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659443
+end = 1775659563
+active = true
+now = 1775659559
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:46:14 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659576
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:46:31 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659593
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:46:48 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659611
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:47:06 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659628
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:47:23 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659645
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:47:40 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659663
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:47:58 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 14
+priceUSDT = 270000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659563
+end = 1775659683
+active = true
+now = 1775659680
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:48:15 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659698
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:48:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659715
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:48:51 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659733
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:49:08 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 38354545454545454545454546
+remaining = 38354545454545454545454546
+sold = 7662068965517241379310
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659750
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:49:25 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 38354545454545454545454546
+remaining = 38354545454545454545454546
+sold = 17241379310344827586206
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659767
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:49:42 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 38354545454545454545454546
+remaining = 38354545454545454545454546
+sold = 17241379310344827586206
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659784
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:50:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 15
+priceUSDT = 290000
+hardCap = 38354545454545454545454546
+remaining = 38354545454545454545454546
+sold = 17241379310344827586206
+start = 1775659683
+end = 1775659803
+active = true
+now = 1775659802
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:50:17 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659820
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:50:35 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659837
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:50:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659854
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:51:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659871
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:51:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659888
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:51:43 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 16
+priceUSDT = 310000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659803
+end = 1775659923
+active = true
+now = 1775659906
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:52:01 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775659923
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:52:18 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775659941
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:52:36 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775659958
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:52:53 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775659975
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:53:10 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775659992
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:53:27 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775660009
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:53:44 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 17
+priceUSDT = 330000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775659923
+end = 1775660043
+active = true
+now = 1775660027
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:54:02 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660044
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:54:19 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660062
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:54:37 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660079
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:54:54 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660096
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:55:11 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660114
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:55:29 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660131
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:55:46 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 18
+priceUSDT = 350000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660043
+end = 1775660163
+active = true
+now = 1775660148
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:56:03 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660165
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:56:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660183
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:56:38 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 48577304075235109717868340
+remaining = 48577304075235109717868340
+sold = 135135135135135135135
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660200
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:56:55 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 48577304075235109717868340
+remaining = 48577304075235109717868340
+sold = 135135135135135135135
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660217
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:57:12 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 48577304075235109717868340
+remaining = 48577304075235109717868340
+sold = 2432432432432432432432
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660235
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:57:30 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 48577304075235109717868340
+remaining = 48577304075235109717868340
+sold = 13513513513513513513513
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660252
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:57:47 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 19
+priceUSDT = 370000
+hardCap = 48577304075235109717868340
+remaining = 48577304075235109717868340
+sold = 13513513513513513513513
+start = 1775660163
+end = 1775660283
+active = true
+now = 1775660270
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:58:05 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660287
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:58:22 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660304
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:58:39 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660322
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:58:57 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660339
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:59:14 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660356
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:59:31 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660374
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 16:59:49 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 20
+priceUSDT = 390000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660283
+end = 1775660403
+active = true
+now = 1775660391
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:00:06 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660409
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:00:24 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660426
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:00:41 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660443
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:00:58 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660461
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:01:16 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660478
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:01:33 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660496
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:01:51 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 21
+priceUSDT = 410000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660403
+end = 1775660523
+active = true
+now = 1775660513
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:02:08 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660530
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:02:25 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660548
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:02:43 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660565
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:03:00 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660582
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:03:17 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660599
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:03:34 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660617
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:03:52 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  override existing env vars with { override: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 22
+priceUSDT = 430000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660523
+end = 1775660643
+active = true
+now = 1775660634
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:04:09 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660651
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:04:26 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660669
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:04:44 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660686
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:05:01 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660703
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:05:18 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660720
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:05:35 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660738
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:05:53 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 23
+priceUSDT = 450000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660643
+end = 1775660763
+active = true
+now = 1775660755
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:06:10 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660772
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:06:27 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660790
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:06:45 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660807
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:07:02 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660824
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:07:20 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660842
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:07:37 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660859
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:07:54 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 24
+priceUSDT = 470000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660763
+end = 1775660883
+active = true
+now = 1775660877
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:08:12 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  write to custom object with { processEnv: myObject }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660894
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:08:29 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660911
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:08:46 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🤖 agentic secret storage: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  enable debug logging with { debug: true }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660929
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:09:04 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  suppress all logs with { quiet: true }
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  load multiple .env files with { path: ['.env.local', '.env'] }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660946
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:09:21 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚙️  specify custom .env file path with { path: '/custom/path/.env' }
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660964
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance
+
+=== 2026-04-08 17:09:39 keeper tick ===
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: ⚡️ secrets for agents: https://dotenvx.com/as2
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent committing .env to code: https://dotenvx.com/precommit
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+presale = 0x607C762D285Dd7b69A7F9C9fe646081de3faF015
+finalized = false
+currentBatch = 25
+priceUSDT = 490000
+hardCap = 2560000000000000000000000
+remaining = 2560000000000000000000000
+sold = 0
+start = 1775660883
+end = 1775661003
+active = true
+now = 1775660981
+timeEnded = false
+soldOut = false
+NOOP: batch not ready for advance

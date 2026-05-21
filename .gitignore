@@ -1,0 +1,46 @@
+node_modules
+.next
+.env
+.env.*
+!.env.example
+
+*.bak
+*.backup
+*.gold
+*.fix_*
+*.pre_*
+*.accountpick*
+*.connectfix*
+
+.vercel
+dist
+coverage
+npm-debug.log*
+
+# non-web / local archives
+artifacts
+cache
+contracts
+contracts_bundle.tar.gz
+scripts_archive
+import_fix_backup_*.tgz
+_archive
+archive
+reference
+dao_materials
+per-transfer
+reportHash
+spent
+
+# handoff/local docs
+DDC_*.docx
+DDC_*.rtf
+DDC_HANDOFF_NEXT_CHAT.md
+
+# contracts repo only
+hardhat.config.js
+hardhat.config.bscTestnet.js
+scripts
+
+# archived
+archived_routes

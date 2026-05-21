@@ -1,0 +1,370 @@
+'use client';
+
+import { useEffect, useMemo, useState } from 'react';
+import { ethers } from 'ethers';
+
+const VAULT_ABI = [
+ // legacy config (already in your UI)
+ 'function getProjectConfig() view returns (bytes32 projectId,address ddcToken,address assetUSDT,address governor,address daoExecutor,bool daoMode,uint64 commitFreq,bool requireDDCLogPerTransfer)',
+ 'function getTotalInflowTracked() view returns (uint256)',
+ 'function getAllocationRule(uint8 role) view returns (uint256 maxBps,uint256 maxAbsolute,bool enabled)',
+ 'function getSpent(uint8 role) view returns (uint256)',
+ 'function remainingAllocation(uint8 role) view returns (uint256)',
+ 'function listWalletsByRole(uint8 role) view returns (address[])',
+
+ // NEW commit policy getters (added by our patch)
+ 'function commitRegistry() view returns (address)',
+ 'function enforceFreshCommit() view returns (bool)',
+ 'function policyCommitFrequencySeconds() view returns (uint64)',
+ 'function projectId() view returns (bytes32)',
+];
+
+const COMMIT_REGISTRY_ABI = [
+ 'function latestCommitTimestamp(bytes32 projectId) view returns (uint64)',
+];
+
+// Roles enum order must match contract
+const ROLES: { id: number; name: string }[] = [
+ { id: 1, name: 'DEV' },
+ { id: 2, name: 'MARKETING' },
+ { id: 3, name: 'LIQUIDITY' },
+ { id: 4, name: 'OPERATIONS' },
+ { id: 5, name: 'PAYROLL' },
+ { id: 6, name: 'FOUNDER' },
+ { id: 7, name: 'CEX' },
+ { id: 8, name: 'OTHER' },
+];
+
+function short(a?: string) {
+ if (!a) return '-';
+ return a.slice(0, 6) + '…' + a.slice(-4);
+}
+
+export default function TreasuryPage() {
+ const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL || '';
+ const vaultAddr = process.env.NEXT_PUBLIC_TREASURY_VAULT_ADDRESS || '';
+ const commitRegistryEnv = process.env.NEXT_PUBLIC_COMMIT_REGISTRY_ADDRESS || '';
+ const projectKey = process.env.NEXT_PUBLIC_PROJECT_KEY || 'DDC_PROJECT_V1';
+
+ const provider = useMemo(() => {
+ if (!rpcUrl) return null;
+ try {
+ return new ethers.JsonRpcProvider(rpcUrl, undefined, { batchMaxCount: 1, batchStallTime: 0 });
+ } catch {
+ return null;
+ }
+ }, [rpcUrl]);
+
+ const [loading, setLoading] = useState(false);
+ const [err, setErr] = useState<string | null>(null);
+
+ // legacy config shown in UI
+ const [cfg, setCfg] = useState<any>(null);
+ const [inflow, setInflow] = useState<bigint>(0n);
+
+ // commit policy (new)
+ const [commitRegistry, setCommitRegistry] = useState<string>('');
+ const [commitFreq, setCommitFreq] = useState<number>(0);
+ const [commitEnforce, setCommitEnforce] = useState<boolean>(false);
+ const [lastCommitTs, setLastCommitTs] = useState<number | null>(null);
+ const [lastCommitAgeSec, setLastCommitAgeSec] = useState<number | null>(null);
+
+ // roles
+ const [roleRows, setRoleRows] = useState<Record<number, any>>({});
+
+ const commitFreshComputed = commitEnforce
+ ? (commitFreq > 0 && lastCommitAgeSec != null ? lastCommitAgeSec <= commitFreq : false)
+ : null;
+
+ async function load() {
+ setErr(null);
+ setLoading(true);
+ try {
+ if (!provider) throw new Error('NEXT_PUBLIC_RPC_URL is missing');
+ if (!vaultAddr) throw new Error('NEXT_PUBLIC_TREASURY_VAULT_ADDRESS is missing');
+
+ const vault = ethers.getAddress(vaultAddr);
+ const code = await provider.getCode(vault);
+ if (code === '0x') throw new Error('TreasuryPolicyVault has no code on this RPC');
+
+ const v = new ethers.Contract(vault, VAULT_ABI, provider);
+
+ // config
+ try {
+ const pc = await v.getProjectConfig();
+ setCfg(pc);
+ } catch (e: any) {
+ setCfg(null);
+ }
+
+ // inflow
+ try {
+ const total = await v.getTotalInflowTracked();
+ setInflow(BigInt(total.toString()));
+ } catch {
+ setInflow(0n);
+ }
+
+ // commit policy read from vault
+ let reg = '0x0000000000000000000000000000000000000000';
+ let freq = 0;
+ let enf = false;
+ let pid = '0x' + '0'.repeat(64);
+
+ try { reg = String(await v.commitRegistry()); } catch {}
+ try { freq = Number((await v.policyCommitFrequencySeconds()).toString()); } catch {}
+ try { enf = Boolean(await v.enforceFreshCommit()); } catch {}
+ try { pid = String(await v.projectId()); } catch {}
+
+ const regToUse =
+ reg && reg !== '0x0000000000000000000000000000000000000000'
+ ? reg
+ : (commitRegistryEnv || '');
+
+ setCommitRegistry(regToUse || reg);
+ setCommitFreq(Number.isFinite(freq) ? freq : 0);
+ setCommitEnforce(enf);
+
+ // commit latest ts
+ setLastCommitTs(null);
+ setLastCommitAgeSec(null);
+ try {
+ if (regToUse && pid && pid !== ('0x' + '0'.repeat(64))) {
+ const regCode = await provider.getCode(regToUse);
+ if (regCode !== '0x') {
+ const cr = new ethers.Contract(regToUse, COMMIT_REGISTRY_ABI, provider);
+ const last = await cr.latestCommitTimestamp(pid);
+ const lastNum = Number(last.toString());
+ setLastCommitTs(lastNum > 0 ? lastNum : null);
+
+ const blk = await provider.getBlock('latest');
+ const nowTs = Number(blk?.timestamp ?? Math.floor(Date.now() / 1000));
+ const age = lastNum > 0 ? Math.max(0, nowTs - lastNum) : null;
+ setLastCommitAgeSec(age);
+ }
+ }
+ } catch {}
+
+ // roles
+ const next: Record<number, any> = {};
+ for (const r of ROLES) {
+ let rule = { enabled: false, maxBps: 0n, maxAbsolute: 0n };
+ let spent = 0n;
+ let remaining: bigint | null = null;
+ let wallets: string[] = [];
+
+ try {
+ const rr = await v.getAllocationRule(r.id);
+ rule = { enabled: Boolean(rr[2]), maxBps: BigInt(rr[0].toString()), maxAbsolute: BigInt(rr[1].toString()) };
+ } catch {}
+
+ try {
+ const s = await v.getSpent(r.id);
+ spent = BigInt(s.toString());
+ } catch {}
+
+ try {
+ const rem = await v.remainingAllocation(r.id);
+ remaining = BigInt(rem.toString());
+ } catch {
+ remaining = null;
+ }
+
+ try {
+ wallets = await v.listWalletsByRole(r.id);
+ } catch {
+ wallets = [];
+ }
+
+ next[r.id] = { rule, spent, remaining, wallets };
+ }
+ setRoleRows(next);
+
+ } catch (e: any) {
+ setErr(String(e?.shortMessage || e?.message || e));
+ } finally {
+ setLoading(false);
+ }
+ }
+
+ useEffect(() => {
+ load().catch(() => {});
+ // eslint-disable-next-line react-hooks/exhaustive-deps
+ }, [rpcUrl, vaultAddr, commitRegistryEnv]);
+
+ const fmtUSDT = (x: bigint) => {
+ try { return Number(ethers.formatUnits(x, 6)).toLocaleString('en-US', { maximumFractionDigits: 6 }); }
+ catch { return '0'; }
+ };
+
+ return (
+ <main className="min-h-screen bg-black text-amber-50">
+ <div className="mx-auto max-w-6xl px-6 py-10">
+ <h1 className="text-2xl font-semibold text-amber-200">Treasury Status (on-chain)</h1>
+ <p className="mt-2 text-amber-100/80">
+ These figures are read directly from the TreasuryPolicyVault contract.
+ </p>
+
+ <div className="mt-6 flex flex-wrap items-center gap-3">
+ <button
+ onClick={() => load()}
+ className="inline-flex items-center justify-center rounded-full border border-amber-400/40 bg-black/30 hover:bg-amber-500/10 text-sm font-medium transition-all px-5 py-2"
+ >
+ {loading ? 'Loading…' : 'Refresh'}
+ </button>
+ <div className="text-sm text-amber-100/80">
+ Vault: {vaultAddr ? `${short(vaultAddr)} (${vaultAddr})` : '(missing)'}
+ </div>
+ </div>
+
+ {err && (
+ <div className="mt-6 rounded-xl border border-red-900/60 bg-red-950/30 p-3 text-sm text-red-200">
+ {err}
+ </div>
+ )}
+
+ {/* COMMIT POLICY BLOCK */}
+ <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
+ <div className="flex items-center justify-between gap-3">
+ <div>
+ <div className="text-sm font-semibold text-amber-200">Commit policy (fresh daily commit)</div>
+ <div className="mt-1 text-[12px] text-amber-100/70">
+ Enforced in <span className="font-mono">transferOut</span>. Source of truth: vault + DDCCommitRegistry.
+ </div>
+ </div>
+ <div
+ className={`shrink-0 rounded-full border px-3 py-1 text-xs ${
+ commitFreshComputed === true
+ ? 'border-emerald-600/60 bg-emerald-600/10 text-emerald-200'
+ : commitFreshComputed === false
+ ? 'border-red-600/60 bg-red-600/10 text-red-200'
+ : 'border-amber-500/40 bg-black/40 text-amber-100/80'
+ }`}
+ >
+ {commitFreshComputed === true ? 'OK' : commitFreshComputed === false ? 'STALE' : (commitEnforce ? 'CHECKING' : 'DISABLED')}
+ </div>
+ </div>
+
+ <div className="mt-4 grid gap-4 md:grid-cols-3">
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Enforcement</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{commitEnforce ? 'enabled' : 'disabled'}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Window (seconds)</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{commitFreq || 0}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Registry</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono break-all">{commitRegistry || commitRegistryEnv || '—'}</div>
+ </div>
+ </div>
+
+ <div className="mt-4 grid gap-4 md:grid-cols-2">
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Last commit time (UTC)</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">
+ {lastCommitTs ? new Date(lastCommitTs * 1000).toISOString() : '—'}
+ </div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Commit age</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">
+ {lastCommitAgeSec == null ? '—' : `${Math.floor(lastCommitAgeSec / 3600)}h ${Math.floor((lastCommitAgeSec % 3600) / 60)}m`}
+ </div>
+ </div>
+ </div>
+ </div>
+
+ {/* LEGACY CONFIG */}
+ <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
+ <div className="text-sm font-semibold text-amber-200">Config</div>
+
+ <div className="mt-4 grid gap-4 md:grid-cols-2">
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">ProjectId</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.projectId || cfg?.[0] || '—'}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">USDT asset</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.assetUSDT || cfg?.[2] || '—'}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">DDC token</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.ddcToken || cfg?.[1] || '—'}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Governor</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.governor || cfg?.[3] || '—'}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">DAO mode</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.daoMode ?? cfg?.[5] ?? false)}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Commit freq (sec) [legacy field]</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.commitFreq ?? cfg?.[6] ?? 0)}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Require per-transfer log</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.requireDDCLogPerTransfer ?? cfg?.[7] ?? false)}</div>
+ </div>
+ </div>
+ </div>
+
+ {/* INFLOW */}
+ <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
+ <div className="text-sm font-semibold text-amber-200">Total inflow tracked (USDT)</div>
+ <div className="mt-2 text-xl font-semibold text-amber-200">{fmtUSDT(inflow)}</div>
+ </div>
+
+ {/* ROLES */}
+ <div className="mt-6">
+ <div className="text-sm font-semibold text-amber-200">Roles (spent / remaining / policy)</div>
+ <div className="mt-4 grid gap-4">
+ {ROLES.map((r) => {
+ const row = roleRows[r.id];
+ const enabled = row?.rule?.enabled ?? false;
+ const bps = row?.rule?.maxBps ?? 0n;
+ const abs = row?.rule?.maxAbsolute ?? 0n;
+ const spent = row?.spent ?? 0n;
+ const remaining = row?.remaining;
+
+ return (
+ <div key={r.name} className="rounded-2xl border border-amber-500/30 bg-black/35 p-5">
+ <div className="flex items-center justify-between">
+ <div className="text-sm font-semibold">{r.name}</div>
+ <div className="text-xs text-amber-100/70 font-mono">
+ enabled={String(enabled)} bps={bps.toString()} abs={abs.toString()}
+ </div>
+ </div>
+
+ <div className="mt-4 grid gap-4 md:grid-cols-3">
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Spent (USDT)</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{fmtUSDT(spent)}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Remaining (USDT)</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">
+ {remaining == null ? 'n/a (disabled or revert)' : fmtUSDT(remaining)}
+ </div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">Wallets</div>
+ <div className="mt-1 text-sm text-amber-200 font-mono">{(row?.wallets?.length ?? 0).toString()}</div>
+ </div>
+ </div>
+ </div>
+ );
+ })}
+ </div>
+ </div>
+
+ <div className="mt-8 text-[12px] text-amber-500">
+ Vault: <span className="font-mono">{vaultAddr || '(missing)'}</span>
+ </div>
+ </div>
+ </main>
+ );
+}

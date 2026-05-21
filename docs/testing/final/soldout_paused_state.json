@@ -1,0 +1,64 @@
+[dotenv@17.3.1] injecting env (1) from .env -- tip: 🛡️ auth for agents: https://vestauth.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 prevent building .env in docker: https://dotenvx.com/prebuild
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🔐 encrypt with Dotenvx: https://dotenvx.com
+[dotenv@17.3.1] injecting env (0) from .env -- tip: 🛠️  run anywhere with `dotenvx run -- yourcommand`
+{
+  "ts": "2026-04-11T10:27:48.052Z",
+  "addresses": {
+    "presale": "0x9785143D8a532f55E07c7d054BeC182D72D88e96",
+    "rewardPool": "0xFCC7dE2Df97868b67cde2baB107C157d2077108A",
+    "recorder": "0xFca86dd25ceE26F6bb66f43cA3aa2bA8540971e3",
+    "user": "0xd10038af00BfC74f300171F479ccE4B02d263866"
+  },
+  "presale": {
+    "currentBatch": "34",
+    "totalBatches": "40",
+    "finalized": false,
+    "finalizedTotalSoldRaw": "0",
+    "finalizedTotalSoldDDC": "0.0",
+    "finalizedUnsoldToRewardsRaw": "0",
+    "finalizedUnsoldToRewardsDDC": "0.0",
+    "batchInfoRaw": {
+      "priceUSDT": "670000",
+      "hardCapDDC": "5000000000000000000000",
+      "remainingDDC": "5000000000000000000000",
+      "soldDDC": "0",
+      "startTime": "1775903207",
+      "endTime": "1775903327",
+      "active": true
+    },
+    "batchInfoFmt": {
+      "priceUSDT": "0.67",
+      "hardCapDDC": "5000.0",
+      "remainingDDC": "5000.0",
+      "soldDDC": "0.0"
+    }
+  },
+  "rewardPool": {
+    "burnLockedRaw": "0",
+    "burnLockedDDC": "0.0",
+    "rewardEligibleRaw": "0",
+    "rewardEligibleDDC": "0.0",
+    "presaleBurnAccountedRaw": "0",
+    "presaleBurnAccountedDDC": "0.0",
+    "remainingPresaleBurnNeedRaw": "51200000000000000000000000",
+    "remainingPresaleBurnNeedDDC": "51200000.0",
+    "totalBalanceRaw": "0",
+    "totalBalanceDDC": "0.0"
+  },
+  "recorder": {
+    "availableFunctions": [
+      "getGlobalPurchaseCount",
+      "getUserPresaleTotals",
+      "getUserPurchaseAt",
+      "getUserPurchaseCount",
+      "listGlobalPurchases",
+      "listUserPurchases",
+      "recordPresalePurchase"
+    ],
+    "countOk": false,
+    "count": null,
+    "pageOk": false,
+    "pageData": null
+  }
+}

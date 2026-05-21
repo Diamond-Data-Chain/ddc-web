@@ -1,0 +1,66 @@
+// Single source of truth for addresses + network. NEXT_PUBLIC_* (client-safe) first.
+import { BrowserProvider, JsonRpcProvider, type Eip1193Provider, type JsonRpcSigner } from "ethers";
+
+const HARDHAT_RPC_URL = "http://127.0.0.1:8545";
+const HARDHAT_CHAIN_ID = 31337;
+const HARDHAT_CHAIN_NAME = "DDC Local Testnet (Hardhat)";
+
+// IMPORTANT: literal reads so Next can inline into client bundle
+const ENV = {
+  NEXT_PUBLIC_CHAIN_ID: process.env.NEXT_PUBLIC_CHAIN_ID,
+  NEXT_PUBLIC_RPC_URL: process.env.NEXT_PUBLIC_RPC_URL,
+  NEXT_PUBLIC_CHAIN_NAME: process.env.NEXT_PUBLIC_CHAIN_NAME,
+  NEXT_PUBLIC_BLOCK_EXPLORER_URL: process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL,
+
+  NEXT_PUBLIC_PRESALE_ADDRESS: process.env.NEXT_PUBLIC_PRESALE_ADDRESS,
+  NEXT_PUBLIC_DDC_TOKEN_ADDRESS: process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS,
+  NEXT_PUBLIC_USDT_ADDRESS: process.env.NEXT_PUBLIC_USDT_ADDRESS,
+  NEXT_PUBLIC_GOVERNANCE_ADDRESS: process.env.NEXT_PUBLIC_GOVERNANCE_ADDRESS,
+  NEXT_PUBLIC_REWARDPOOL_ADDRESS: process.env.NEXT_PUBLIC_REWARDPOOL_ADDRESS,
+} as const;
+
+const envStr = (v: string | undefined, fallback = ""): string => {
+  const s = (v ?? "").trim();
+  return s.length ? s : fallback;
+};
+
+const envNum = (v: string | undefined, fallback: number): number => {
+  const s = (v ?? "").trim();
+  if (!s) return fallback;
+  const n = Number(s);
+  return Number.isFinite(n) ? n : fallback;
+};
+
+export const CHAIN_ID = envNum(ENV.NEXT_PUBLIC_CHAIN_ID, HARDHAT_CHAIN_ID);
+export const RPC_URL = envStr(ENV.NEXT_PUBLIC_RPC_URL, HARDHAT_RPC_URL);
+export const CHAIN_NAME = envStr(ENV.NEXT_PUBLIC_CHAIN_NAME, HARDHAT_CHAIN_NAME);
+export const BLOCK_EXPLORER_URL = envStr(ENV.NEXT_PUBLIC_BLOCK_EXPLORER_URL, "");
+
+export const PRESALE_VESTING_ADDRESS = envStr(ENV.NEXT_PUBLIC_PRESALE_ADDRESS, "0x0000000000000000000000000000000000000000") as `0x${string}`;
+export const DDC_TOKEN_ADDRESS = envStr(ENV.NEXT_PUBLIC_DDC_TOKEN_ADDRESS, "0x0000000000000000000000000000000000000000") as `0x${string}`;
+export const USDT_ADDRESS = envStr(ENV.NEXT_PUBLIC_USDT_ADDRESS, "0x0000000000000000000000000000000000000000") as `0x${string}`;
+export const GOVERNANCE_ADDRESS = envStr(ENV.NEXT_PUBLIC_GOVERNANCE_ADDRESS, "0x0000000000000000000000000000000000000000") as `0x${string}`;
+export const REWARDPOOL_ADDRESS = envStr(ENV.NEXT_PUBLIC_REWARDPOOL_ADDRESS, "0x0000000000000000000000000000000000000000") as `0x${string}`;
+
+export const ADDRESSES = {
+  presale: PRESALE_VESTING_ADDRESS,
+  ddc: DDC_TOKEN_ADDRESS,
+  usdt: USDT_ADDRESS,
+  governance: GOVERNANCE_ADDRESS,
+  rewardPool: REWARDPOOL_ADDRESS,
+} as const;
+
+export const getReadonlyProvider = () => new JsonRpcProvider(RPC_URL, CHAIN_ID);
+
+export const getBrowserProvider = (): BrowserProvider | null => {
+  if (typeof window === "undefined") return null;
+  const eth = (globalThis as unknown as { ethereum?: Eip1193Provider }).ethereum;
+  if (!eth?.request) return null;
+  return new BrowserProvider(eth);
+};
+
+export const getSigner = async (): Promise<JsonRpcSigner | null> => {
+  const bp = getBrowserProvider();
+  if (!bp) return null;
+  return bp.getSigner();
+};

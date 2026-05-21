@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="180" viewBox="0 0 320 180">
+  <rect width="100%" height="100%" fill="#0f172a"/>
+  <circle cx="60" cy="90" r="28" fill="#fbbf24"/>
+  <rect x="110" y="62" width="60" height="56" rx="8" fill="#fbbf24"/>
+  <polygon points="220,62 260,118 180,118" fill="#fbbf24"/>
+  <text x="20" y="170" fill="#fbbf24" font-family="Arial" font-size="14">UI Icons Placeholder</text>
+</svg>
