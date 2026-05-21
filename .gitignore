@@ -44,3 +44,10 @@ scripts
 
 # archived
 archived_routes
+
+*.swp
+*.broken*
+*.repair*
+*.gold*
+*.bak*
+*.fix*
