@@ -1,49 +1,82 @@
-# DDC Presale v1
+# Diamond Data Chain — Web Application
 
-DDC Presale v1 is a batch-based USDT-only presale implementation on BSC Testnet / BSC deployment flow.
+Official web application and public interface for the Diamond Data Chain (DDC) protocol.
 
-## Scope
-Live v1 scope:
+## Overview
+
+This repository contains the DDC public website, presale interface, allocation views, treasury views and wallet integration stack.
+
+The application is built with:
+
+- Next.js 14
+- React
+- ethers.js v6
+- WalletConnect v2
+- BNB Chain integration
+
+## Live v1 Scope
+
+Current production scope includes:
+
 - Wallet connection
-- Buy with USDT
-- Batch status and totals
-- Finalize after batch 40
-- Unsold transfer to Reward Pool
-- On-chain purchase recording via Recorder
+- WalletConnect v2 support
+- BNB Chain support
+- Presale dashboard
+- USDT purchase flow
+- Batch status tracking
+- Coin allocation views
+- Treasury transparency views
+- Reward pool tracking
+- Read-only vesting and allocation interfaces
 
-Out of scope for v1:
-- Native BNB buy path for production presale
-- Claim UI
-- Validator payout tracking
-- Keeper deployment automation
+## Repository Structure
 
-## Key Design Decisions
-- Presale is USDT-only by design.
-- No oracle-based pricing is used.
-- Batch progression is permissionless through `advanceIfEnded()`.
-- Finalization is implemented on-chain.
-- Reward Pool integration is implemented on-chain.
-- Automation/keeper is not yet deployed as an always-on service.
+- app/ — Next.js App Router pages
+- components/ — UI and protocol components
+- public/ — static assets and documents
+- abi/ — exported ABI files
+- docs/ — supporting documentation
 
-## Repository Evidence
-Testing and evidence are stored under:
+## Required Environment Variables
 
-- `docs/testing/FINAL_TEST_REPORT.md`
-- `docs/testing/TEST_MATRIX.md`
-- `docs/testing/EVIDENCE_INDEX.md`
-- `docs/testing/KNOWN_LIMITATIONS.md`
-- `docs/testing/final/presale_evidence.json`
-- `docs/testing/final/recorder_storage.json`
-- `docs/testing/final/soldout_final.json`
-- `docs/testing/final/soldout_recorder.json`
+NEXT_PUBLIC_CHAIN_ID=
+NEXT_PUBLIC_PRESALE_ADDRESS=
+NEXT_PUBLIC_USDT_ADDRESS=
+NEXT_PUBLIC_WC_PROJECT_ID=
 
-## Current Status
-Presale core flow is validated:
-- batch progression
-- min/max enforcement
-- sold-out progression
-- finalization
-- reward pool transfer
-- recorder storage
+## Optional Environment Variables
 
-See `docs/testing/FINAL_TEST_REPORT.md` for the detailed test outcome.
+NEXT_PUBLIC_RPC_URL=
+NEXT_PUBLIC_VESTING_VAULT_ADDRESS=
+NEXT_PUBLIC_REWARD_POOL_ADDRESS=
+
+## Development
+
+Install dependencies:
+
+npm install
+
+Run development server:
+
+npm run dev
+
+Production build:
+
+npm run build
+
+## Production Status
+
+Current deployment targets:
+
+- BNB Chain Testnet (staging)
+- BNB Chain Mainnet (post-freeze production)
+
+## Related Repositories
+
+- ddc-contracts
+- ddc-whitepaper
+
+## Disclaimer
+
+DDC protocol interfaces are informational and infrastructure-oriented. Nothing in this repository constitutes investment advice, financial solicitation, or guarantees of future value or performance.
+
