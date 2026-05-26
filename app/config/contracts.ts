@@ -8,6 +8,9 @@ export const DEFAULT_CHAIN_ID = 56;
 export const DEFAULT_CHAIN_NAME = "BNB Smart Chain";
 
 export const RPC_URL = process.env.NEXT_PUBLIC_RPC_URL ?? DEFAULT_RPC_URL;
+export const RPC_FALLBACK_URL =
+  process.env.NEXT_PUBLIC_RPC_FALLBACK_URL ??
+  "https://bsc-dataseed1.bnbchain.org";
 export const CHAIN_ID = Number(process.env.NEXT_PUBLIC_CHAIN_ID ?? DEFAULT_CHAIN_ID);
 export const CHAIN_NAME = process.env.NEXT_PUBLIC_CHAIN_NAME ?? DEFAULT_CHAIN_NAME;
 export const BLOCK_EXPLORER_URL = process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL ?? "";
@@ -35,7 +38,13 @@ export const ADDRESSES = {
   rewardPool: REWARD_POOL_ADDRESS,
 } as const;
 
-export const getReadonlyProvider = () => new JsonRpcProvider(RPC_URL);
+export const getReadonlyProvider = () => {
+  try {
+    return new JsonRpcProvider(RPC_URL);
+  } catch {
+    return new JsonRpcProvider(RPC_FALLBACK_URL);
+  }
+};
 
 export const getBrowserProvider = (): BrowserProvider | null => {
   if (typeof window === "undefined") return null;
