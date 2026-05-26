@@ -1,7 +1,7 @@
 "use client";
 
 import type { InterfaceAbi } from "ethers";
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import RewardPoolStatus from "@/components/presale/RewardPoolStatus";
 import PresaleFinalizeStatus from "@/components/presale/PresaleFinalizeStatus";
 import { ethers, BrowserProvider, Contract, formatEther, formatUnits, parseEther, parseUnits } from "ethers";
@@ -208,6 +208,9 @@ const [usdtBalance, setUsdtBalance] = useState<bigint>(0n);
  Math.floor(Date.now() / 1000)
  );
 
+ const refreshBusyRef = useRef(false);
+ const mountedRef = useRef(true);
+
  useEffect(() => {
  const id = setInterval(() => {
  setNowTs(Math.floor(Date.now() / 1000));
@@ -297,16 +300,23 @@ const loadUsdtBalance = useCallback(async () => {
 }, [provider, address, presaleRead]);
 
 const refreshData = useCallback(async () => {
- try {
- // existing code
  if (!presaleRead) return;
+
+ if (refreshBusyRef.current) return;
+ refreshBusyRef.current = true;
+
+ try {
  const currentBatch = await presaleRead.currentBatch();
+
  let finalizedNow = false;
  try {
  if (typeof (presaleRead as any).finalized === "function") {
  finalizedNow = Boolean(await (presaleRead as any).finalized());
  }
  } catch {}
+
+ if (!mountedRef.current) return;
+
  setIsFinalized(finalizedNow);
 
  const displayBatchId = Number(currentBatch);
@@ -319,6 +329,8 @@ const refreshData = useCallback(async () => {
  const soldDDC = BigInt(info[4].toString());
  const startTime = BigInt(info[5].toString());
  const endTime = BigInt(info[6].toString());
+
+ if (!mountedRef.current) return;
 
  setBatchStart(startTime);
  setBatchEnd(endTime);
@@ -338,6 +350,9 @@ const refreshData = useCallback(async () => {
  presaleRead.claimed(address),
  presaleRead.locked(address),
  ]);
+
+ if (!mountedRef.current) return;
+
  setClaimable(c);
  setTotalPurchased(cp);
  setClaimed(cl);
@@ -350,6 +365,8 @@ const refreshData = useCallback(async () => {
  }
  } catch (err) {
  console.error("Failed to read presale data:", err);
+ } finally {
+ refreshBusyRef.current = false;
  }
  }, [presaleRead, address]);
 
@@ -369,7 +386,7 @@ const refreshData = useCallback(async () => {
  };
 
  onBlock();
- const intervalId = setInterval(onBlock, 2000);
+ const intervalId = setInterval(onBlock, 8000);
 
  return () => {
  alive = false;
@@ -380,6 +397,15 @@ const refreshData = useCallback(async () => {
  
 
 
+
+
+useEffect(() => {
+ mountedRef.current = true;
+
+ return () => {
+ mountedRef.current = false;
+ };
+}, []);
 
 
 useEffect(() => {
