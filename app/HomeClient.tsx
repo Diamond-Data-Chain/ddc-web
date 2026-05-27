@@ -16,6 +16,7 @@ const ESG = dynamic(() => import("./(sections)/ESG"), { ssr: false, loading: () 
 const Roadmap = dynamic(() => import("./(sections)/Roadmap"), { ssr: false, loading: () => null });
 const InvestorSummary = dynamic(() => import("./(sections)/InvestorSummary"), { ssr: false, loading: () => null });
 const Developers = dynamic(() => import("./(sections)/Developers"), { ssr: false, loading: () => null });
+const FAQ = dynamic(() => import("./(sections)/FAQ"), { ssr: false, loading: () => null });
 const Footer = dynamic(() => import("./(sections)/Footer"), { ssr: false, loading: () => null });
 
 export default function HomeClient() {
@@ -38,6 +39,7 @@ export default function HomeClient() {
  <Roadmap />
  <InvestorSummary />
  <Developers />
+ <FAQ />
 <Footer />
  </main>
  );
