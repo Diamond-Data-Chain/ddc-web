@@ -9,7 +9,7 @@ const ITEMS: Item[] = [
  {
  key: "linkedin",
  label: "LinkedIn",
- href: "#",
+ href: "https://www.linkedin.com/in/adamas-system-architect-6731383ab",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path fill="currentColor" d="M6.94 6.5A2.04 2.04 0 1 1 6.9 2.42a2.04 2.04 0 0 1 .04 4.08ZM3.9 21.5h6.1V8.2H3.9V21.5Zm8.2-13.3h5.8v1.82h.08c.8-1.5 2.76-3.08 5.68-3.08 6.08 0 7.2 4 7.2 9.2v5.06h-6.1v-4.48c0-2.14-.04-4.9-2.98-4.9-2.98 0-3.44 2.32-3.44 4.74v4.64H12.1V8.2Z" />
@@ -19,7 +19,7 @@ const ITEMS: Item[] = [
  {
  key: "discord",
  label: "Discord",
- href: "#",
+ href: "https://discord.com/channels/1469266962109435979/1469270526676566242",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path
@@ -29,23 +29,11 @@ const ITEMS: Item[] = [
  </svg>
  ),
  },
- {
- key: "telegram",
- label: "Telegram",
- href: "#",
- svg: (
- <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
- <path
- fill="currentColor"
- d="M21.6 4.3 2.9 11.6c-1.3.5-1.3 1.2-.2 1.5l4.8 1.5 11.1-7c.5-.3 1-.1.6.2l-9 8.2-.3 4.6c.5 0 .7-.2 1-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8l3.1-14.5c.3-1.2-.4-1.7-1.4-1.3Z"
- />
- </svg>
- ),
- },
+ 
  {
  key: "youtube",
  label: "YouTube",
- href: "#",
+ href: "https://www.youtube.com/@AdamasSystemArchitect",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path
@@ -68,10 +56,25 @@ const ITEMS: Item[] = [
  </svg>
  ),
  },
+
+ {
+ key: "reddit",
+ label: "Reddit",
+ href: "https://www.reddit.com/user/East_Economy5568/",
+ svg: (
+ <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+ <path
+ fill="currentColor"
+ d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2Zm4.7 6.7c.7 0 1.3.6 1.3 1.3 0 .5-.3 1-.8 1.2.1.3.1.6.1.8 0 2.5-2.4 4.5-5.3 4.5S6.7 14.5 6.7 12c0-.3 0-.6.1-.8-.5-.2-.8-.7-.8-1.2 0-.7.6-1.3 1.3-1.3.3 0 .6.1.8.3 1-.7 2.3-1.1 3.7-1.2l.8-3.5 2.4.5c0 .7.6 1.2 1.2 1.2Zm-7.1 4.1c0 .5.4.9.9.9s.9-.4.9-.9-.4-.9-.9-.9-.9.4-.9.9Zm5.8 0c0 .5-.4.9-.9.9s-.9-.4-.9-.9.4-.9.9-.9.9.4.9.9Zm-4.5 2.3c.4.4 1 .6 1.6.6s1.2-.2 1.6-.6c.2-.2.2-.5 0-.7s-.5-.2-.7 0c-.2.2-.5.3-.9.3s-.7-.1-.9-.3c-.2-.2-.5-.2-.7 0s-.2.5 0 .7Z"
+ />
+ </svg>
+ ),
+ },
+
  {
  key: "tiktok",
  label: "TikTok",
- href: "#",
+ href: "https://www.tiktok.com/@adamassystemarchitect?lang=en",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path
