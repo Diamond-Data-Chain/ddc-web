@@ -2,36 +2,44 @@
 
 const FAQS = [
   {
-    q: "What is Diamond Data Chain (DDC)?",
-    a: "Diamond Data Chain is a blockchain infrastructure project focused on secure data systems, transparency, decentralized validation, and enterprise-grade digital trust."
+    q: "1. What is DDC?",
+    a: "DDC (Diamond Data Chain) is a system designed to record data in a way that makes it difficult to secretly change, delete, or manipulate."
   },
   {
-    q: "What problem does DDC solve?",
-    a: "DDC is designed to improve trust, auditability, and long-term integrity of digital records and data processes across decentralized environments."
+    q: "2. Is DDC a cryptocurrency?",
+    a: "Partly. DDC has a Coin used for fees, staking, and network operation, and a DDC Token (DDT) used to record and verify data. The goal is not only payments, but trusted digital records."
   },
   {
-    q: "Why does DDC use blockchain technology?",
-    a: "Blockchain infrastructure allows DDC to provide transparent, tamper-resistant, and verifiable data operations without relying on centralized control."
+    q: "3. What problem does DDC solve?",
+    a: "Today, records can often be changed, deleted, manipulated, or hidden. DDC creates a permanent and traceable record system where responsibility can be tracked."
   },
   {
-    q: "What is the purpose of the DDC Coin?",
-    a: "DDC Coin is the native asset of the ecosystem and is intended to support network participation, ecosystem incentives, future governance, and protocol-level utility."
+    q: "4. Why is DDC different from normal databases?",
+    a: "In a normal database, administrators can change records, history can be modified, and responsibility can disappear. In DDC, every action is recorded, changes leave a permanent trace, and records are verified by the network."
   },
   {
-    q: "How does the presale work?",
-    a: "The DDC presale operates fully on-chain through a deterministic batch-based system deployed on BNB Smart Chain."
+    q: "5. What is a DDC Token (DDT)?",
+    a: "A DDC Token (DDT) is not money. It is a digital record containing who created the data, when it was created, proof of origin, and validation information."
   },
   {
-    q: "Can the total supply increase later?",
-    a: "No. DDC uses a fixed total supply model established during deployment."
+    q: "6. Can someone enter false information into DDC?",
+    a: "Anyone can submit information, but DDC does not automatically treat it as truth. The system evaluates who submitted it, whether the source is verified, whether the data matches other records, and whether multiple confirmations exist. Each record receives a Trust Score."
   },
   {
-    q: "How are team and advisor allocations handled?",
-    a: "Team and advisor allocations are managed through dedicated vesting vaults with predefined unlock schedules."
+    q: "7. What is the purpose of validators?",
+    a: "Validators are independent network participants who verify transactions, confirm records, and secure the system. They are rewarded for helping maintain network integrity."
   },
   {
-    q: "Is the project focused on long-term infrastructure?",
-    a: "Yes. DDC is designed as a long-term infrastructure and ecosystem project rather than a short-term speculative launch."
+    q: "8. Can records be deleted or secretly changed?",
+    a: "No. Once confirmed by the network, records become permanent and traceable. Any attempt to manipulate data leaves visible evidence."
+  },
+  {
+    q: "9. Where can DDC be used?",
+    a: "DDC can be used in logistics, manufacturing, finance, AI datasets, healthcare, supply chains, inventory systems, and public administration — anywhere accurate and accountable records matter."
+  },
+  {
+    q: "10. What is the main idea behind DDC?",
+    a: "DDC is not just about storing data. Its purpose is to create a system where responsibility is visible, records are traceable, manipulation becomes extremely difficult, and trust can be measured instead of assumed."
   },
 ];
 
