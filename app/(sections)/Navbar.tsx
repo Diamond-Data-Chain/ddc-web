@@ -17,6 +17,7 @@ const navLinks = [
  { href: "#roadmap", label: "Roadmap" },
  { href: "#investor", label: "Investor" },
  { href: "#developers", label: "Developers" },
+ { href: "#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
