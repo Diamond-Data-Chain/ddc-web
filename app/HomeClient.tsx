@@ -18,6 +18,7 @@ const InvestorSummary = dynamic(() => import("./(sections)/InvestorSummary"), { 
 const Developers = dynamic(() => import("./(sections)/Developers"), { ssr: false, loading: () => null });
 const FAQ = dynamic(() => import("./(sections)/FAQ"), { ssr: false, loading: () => null });
 const Footer = dynamic(() => import("./(sections)/Footer"), { ssr: false, loading: () => null });
+const FloatingAIMonitor = dynamic(() => import("@/components/common/FloatingAIMonitor"), { ssr: false, loading: () => null });
 
 export default function HomeClient() {
  return (
@@ -41,6 +42,7 @@ export default function HomeClient() {
  <Developers />
  <FAQ />
 <Footer />
+ <FloatingAIMonitor />
  </main>
  );
 }
