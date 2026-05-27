@@ -58,7 +58,7 @@ const ITEMS: Item[] = [
  {
  key: "github",
  label: "GitHub",
- href: "#",
+ href: "https://github.com/Diamond-Data-Chain",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path
