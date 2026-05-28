@@ -86,7 +86,9 @@ export default function PresaleFinalizeStatus() {
  return;
  }
 
- setSt({ status: "loading" });
+ setSt((prev) =>
+ prev.status === "idle" ? { status: "loading" } : prev
+ );
 
  const presale: any = new Contract(presaleAddr, ((DDC_PRESALE_ABI as any).abi ?? DDC_PRESALE_ABI) as any, provider);
  const blk = await provider.getBlock("latest");
@@ -258,7 +260,7 @@ export default function PresaleFinalizeStatus() {
  </p>
  </div>
 
- <div className="rounded-2xl border border-amber-500/40 bg-black/40 p-5 shadow-lg">
+ <div className="rounded-2xl border border-amber-500/40 bg-black/40 p-5 shadow-lg min-h-[310px]">
  {st.status === "idle" && <div className="text-sm text-amber-100/70">—</div>}
  {st.status === "loading" && <div className="text-sm text-amber-100/70">Loading…</div>}
  {st.status === "error" && <div className="text-sm text-red-400">{st.error}</div>}
