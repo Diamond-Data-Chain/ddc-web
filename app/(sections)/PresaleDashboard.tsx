@@ -626,9 +626,24 @@ const handleAddNetwork = async () => {
  const progress =
  hardCap > 0n ? Number((sold * 10000n) / hardCap) / 100 : 0;
 
+ const batchEnded =
+ batch &&
+ batch.endTime &&
+ nowTs >= Number(batch.endTime);
+
+ const virtualBatchId =
+ !isFinalized &&
+ batchEnded &&
+ batchId &&
+ batchId < TOTAL_BATCHES
+ ? batchId + 1
+ : batchId;
+
  const currentPlan =
- batchId && batchId >= 1 && batchId <= TOTAL_BATCHES
- ? PRESALE_PLAN[batchId - 1]
+ virtualBatchId &&
+ virtualBatchId >= 1 &&
+ virtualBatchId <= TOTAL_BATCHES
+ ? PRESALE_PLAN[virtualBatchId - 1]
  : null;
 
 
@@ -650,7 +665,7 @@ const handleAddNetwork = async () => {
  if (now < start) {
  timeLeftLabel = "Batch not started yet";
  } else if (now >= end) {
- timeLeftLabel = "Batch ended";
+ timeLeftLabel = "Pending chain sync";
  } else {
  const rem = end - now;
  const days = Math.floor(rem / 86400);
@@ -683,7 +698,7 @@ const handleAddNetwork = async () => {
  DDC Presale – Dashboard
  </h2>
  <p className="text-sm text-amber-100/70">
- Batch #{batchId ?? "-"} / {TOTAL_BATCHES} · BNB Smart Chain
+ Batch #{virtualBatchId ?? "-"} / {TOTAL_BATCHES} · BNB Smart Chain
  </p>
  <p className="text-[11px] text-amber-100/60 mt-1">
  Network:{" "}
@@ -764,7 +779,11 @@ const handleAddNetwork = async () => {
  <div className="space-y-1 text-xs text-amber-100/80">
  <div className="flex justify-between">
  <span>Batch ID</span>
- <span>{isFinalized ? "Presale ended" : `#${batchId ?? "-"}`}</span>
+ <span>
+{isFinalized
+ ? "Presale ended"
+ : `#${virtualBatchId ?? "-"}`}
+</span>
  </div>
  <div className="flex justify-between">
  <span>Hard cap</span>
