@@ -965,9 +965,7 @@ const handleAddNetwork = async () => {
  }
  } catch {}
 
- setTxStatus(
- `MAX_CHECK liveBal=${liveBal.toString()} walletMax=${walletMax} batchMax=${batchMax} walletBatchCapMax=${walletBatchCapMax} batchId=${batchId ?? "-"} address=${address ?? "-"}`
- );
+
 
  const finalMax = Math.max(
  0,
