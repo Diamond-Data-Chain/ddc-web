@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { AI_DEMO_EVENTS } from "@/data/aiDemoEvents";
+import AIRiskBar from "@/components/common/AIRiskBar";
 
 const riskColors: Record<string, string> = {
   LOW: "text-green-400 border-green-500/30 bg-green-500/10",
@@ -109,6 +110,11 @@ export default function DDCAIMonitorPage() {
                 Risk Score: {selectedEvent.score}/100
               </div>
             </div>
+
+            <AIRiskBar
+              score={selectedEvent.score}
+              risk={selectedEvent.risk}
+            />
 
             <div className="space-y-6">
 
