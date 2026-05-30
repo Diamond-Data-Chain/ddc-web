@@ -27,11 +27,13 @@ export default function AIRiskBar({ score, risk }: Props) {
     <div className="mt-5 rounded-2xl border border-slate-700 bg-slate-950/60 p-5">
       <div className="mb-4 flex items-center justify-between">
         <div>
-          <div className="text-xs uppercase tracking-wider text-slate-500">
-            AI Anomaly Spectrum
-          </div>
-          <div className="text-sm text-slate-300">
-            Green → Yellow → Orange → Red
+          <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-slate-400">
+            <span>AI Anomaly Spectrum</span>
+
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75"></span>
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-300"></span>
+            </span>
           </div>
         </div>
 
