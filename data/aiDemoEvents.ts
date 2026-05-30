@@ -90,6 +90,27 @@ export const AI_DEMO_EVENTS = [
   },
 
   {
+    category: "Manufacturing",
+    event: "Bicycle Factory Parts Mismatch",
+    status: "Suspicious",
+    risk: "HIGH",
+    score: 89,
+    details: {
+      product: "Bicycle Model X",
+      expectedParts: "1 rear derailleur per bicycle",
+      detectedUsage: "2 rear derailleurs used on Position X",
+      warehouseExit: "Parts issued from warehouse",
+      productionOutput: "Finished bicycle recorded",
+    },
+    reasons: [
+      "Part consumption exceeds declared bill of materials",
+      "Warehouse exit does not match expected production usage",
+      "Finished product record conflicts with component usage",
+      "Possible assembly error, inventory leak, or false production entry",
+    ],
+  },
+
+  {
     category: "AI Datasets",
     event: "Dataset Integrity Alert",
     status: "Suspicious",
