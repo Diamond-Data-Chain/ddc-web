@@ -54,6 +54,28 @@ export const AI_DEMO_EVENTS = [
   },
 
   {
+    category: "Fleet Monitoring",
+    event: "Fuel Consumption Anomaly",
+    status: "Suspicious",
+    risk: "HIGH",
+    score: 87,
+    details: {
+      vehicle: "Service Truck #14",
+      normalConsumption: "11 L / 100 km",
+      detectedConsumption: "38 L / 100 km",
+      route: "Regular delivery route",
+      fuelCard: "Used twice within 42 minutes",
+      mileage: "GPS distance does not match fuel volume",
+    },
+    reasons: [
+      "Fuel consumption exceeds historical vehicle pattern",
+      "Fuel card usage frequency is abnormal",
+      "GPS mileage does not justify reported fuel volume",
+      "Possible fuel theft, leak, false entry, or unauthorized card use",
+    ],
+  },
+
+  {
     category: "Healthcare",
     event: "Patient Record Modification",
     status: "Suspicious",
