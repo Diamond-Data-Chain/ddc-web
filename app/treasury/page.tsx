@@ -290,7 +290,7 @@ export default function TreasuryPage() {
  <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.assetUSDT || cfg?.[2] || '—'}</div>
  </div>
  <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">DDC token</div>
+ <div className="text-xs uppercase tracking-wide text-amber-100/70">DDC Coin asset</div>
  <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.ddcToken || cfg?.[1] || '—'}</div>
  </div>
  <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
