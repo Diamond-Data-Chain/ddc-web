@@ -12,7 +12,6 @@ export default function Footer() {
  </div>
  </div>
  <div className="mt-6 flex justify-center">
- <SocialLinks />
  </div>
 </footer>
  );
