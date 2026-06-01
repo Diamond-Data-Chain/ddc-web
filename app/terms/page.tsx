@@ -5,7 +5,7 @@ export default function TermsPage() {
 
       <div className="mt-8 space-y-6 text-slate-300">
         <p>
-          DDCchain is experimental blockchain infrastructure and users participate at their own risk.
+          DDChain is experimental blockchain infrastructure and users participate at their own risk.
         </p>
 
         <p>
@@ -22,7 +22,7 @@ export default function TermsPage() {
         </p>
 
         <p>
-          DDCchain reserves the right to improve, update, or modify platform functionality
+          DDChain reserves the right to improve, update, or modify platform functionality
           during active development phases.
         </p>
       </div>

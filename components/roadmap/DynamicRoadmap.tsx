@@ -29,7 +29,7 @@ export default function DynamicRoadmap() {
         <div className="mb-10 text-center">
           <h3 className="text-5xl md:text-7xl font-black tracking-tight">
             <span className="bg-gradient-to-r from-white via-cyan-200 to-cyan-400 bg-clip-text text-transparent">
-              DDCchain
+              DDChain
             </span>
           </h3>
           <div className="mt-2 text-2xl md:text-4xl tracking-[0.35em] text-slate-200">

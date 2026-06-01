@@ -5,12 +5,12 @@ export default function PrivacyPage() {
 
       <div className="mt-8 space-y-6 text-slate-300">
         <p>
-          DDCchain respects user privacy and minimizes personal data collection.
+          DDChain respects user privacy and minimizes personal data collection.
         </p>
 
         <p>
           Wallet interactions are processed directly through blockchain networks.
-          DDCchain does not custody user funds.
+          DDChain does not custody user funds.
         </p>
 
         <p>
@@ -18,7 +18,7 @@ export default function PrivacyPage() {
         </p>
 
         <p>
-          DDCchain may use limited analytics, infrastructure logs, and security monitoring
+          DDChain may use limited analytics, infrastructure logs, and security monitoring
           to maintain platform integrity and operational security.
         </p>
 
