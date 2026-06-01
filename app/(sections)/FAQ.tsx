@@ -1,5 +1,7 @@
 "use client";
 
+import SocialLinks from "@/components/common/SocialLinks";
+
 const FAQS = [
   {
     q: "1. What is DDC?",
@@ -50,6 +52,10 @@ export default function FAQ() {
         <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">
           FAQ
         </h2>
+
+        <div className="mb-12 flex justify-center">
+          <SocialLinks />
+        </div>
 
         <div className="space-y-6">
           {FAQS.map((item, idx) => (
