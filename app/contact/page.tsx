@@ -7,6 +7,13 @@ export default function ContactPage() {
         Technical support, partnerships, enterprise inquiries, or ecosystem collaboration.
       </p>
 
+      <p className="mt-4 text-cyan-300">
+        Direct email:{" "}
+        <a className="underline hover:text-cyan-200" href="mailto:ddc.protocol@gmail.com">
+          ddc.protocol@gmail.com
+        </a>
+      </p>
+
       <form
         action="https://formsubmit.co/ddc.protocol@gmail.com"
         method="POST"
