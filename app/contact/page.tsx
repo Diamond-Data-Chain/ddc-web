@@ -3,19 +3,36 @@
 import { useState } from "react";
 
 export default function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    setSent(true);
+
+    const subject = encodeURIComponent("DDChain Support Request");
+
+    const body = encodeURIComponent(
+`Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`
+    );
+
+    window.location.href =
+      `mailto:ddc.protocol@gmail.com?subject=${subject}&body=${body}`;
   }
 
   return (
     <main className="mx-auto max-w-3xl px-6 py-24 text-slate-200">
-      <h1 className="text-4xl font-bold text-white">Contact Support</h1>
+      <h1 className="text-4xl font-bold text-white">
+        Contact Support
+      </h1>
 
       <p className="mt-4 text-slate-400">
-        Questions, technical issues, partnerships, or enterprise inquiries.
+        Technical support, partnerships, enterprise inquiries, or ecosystem collaboration.
       </p>
 
       <form
@@ -30,6 +47,8 @@ export default function ContactPage() {
           <input
             type="text"
             required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-cyan-400"
           />
         </div>
@@ -42,6 +61,8 @@ export default function ContactPage() {
           <input
             type="email"
             required
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-cyan-400"
           />
         </div>
@@ -54,6 +75,8 @@ export default function ContactPage() {
           <textarea
             required
             rows={6}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 outline-none focus:border-cyan-400"
           />
         </div>
@@ -62,14 +85,8 @@ export default function ContactPage() {
           type="submit"
           className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400"
         >
-          Send Message
+          Contact DDChain
         </button>
-
-        {sent && (
-          <div className="rounded-xl border border-green-500/30 bg-green-500/10 p-4 text-green-300">
-            Message submitted successfully.
-          </div>
-        )}
       </form>
     </main>
   );
