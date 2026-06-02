@@ -70,7 +70,7 @@ export default function RewardPoolDDCTokenPage() {
  return (
  <main className="min-h-screen bg-black text-amber-50">
  <div className="mx-auto max-w-5xl px-6 py-10">
- <h1 className="text-2xl font-semibold text-amber-200">Reward Pool DDC Token</h1>
+ <h1 className="text-2xl font-semibold text-amber-200">Reward Pool Coin Allocation</h1>
  <p className="mt-2 text-amber-100/70 text-sm">
  Read-only status from Presale view functions (no RPC log scanning).
  </p>

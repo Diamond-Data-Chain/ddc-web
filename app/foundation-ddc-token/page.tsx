@@ -7,7 +7,7 @@ export default function FoundationDdcTokenPage() {
  <div className="mx-auto max-w-7xl px-4 py-8">
  <div className="mb-6 flex items-center justify-between gap-4">
  <div>
- <h1 className="text-2xl font-semibold text-amber-200">Foundation DDC Token</h1>
+ <h1 className="text-2xl font-semibold text-amber-200">Foundation Coin Allocation</h1>
  <p className="mt-1 text-sm text-amber-100/70">Focused Foundation allocation view.</p>
  </div>
  <Link

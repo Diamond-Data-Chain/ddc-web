@@ -128,7 +128,7 @@ export default function PublicDDCTokenPage() {
  )}
 
  <div className="mx-auto max-w-6xl px-6 py-10">
- <h1 className="text-2xl font-semibold text-amber-200">Public DDC Token</h1>
+ <h1 className="text-2xl font-semibold text-amber-200">Public Coin Allocation</h1>
  <p className="mt-2 text-amber-100/70 text-sm">
  Public feed of presale purchases recorded in the DDC Recorder (on-chain). No RPC log scanning.
  </p>
