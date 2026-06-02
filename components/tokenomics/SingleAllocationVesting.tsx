@@ -128,7 +128,7 @@ export default function SingleAllocationVesting({ allocation }: { allocation: Al
  const total = ALLOC.TEAM;
  const unlocked = tge > 0 && dt > 0 ? linearUnlocked(total, dt, 24 * MONTH_SEC) : 0n;
  vm = {
- title: "Team DDC Token",
+ title: "Team DDC Coin Allocation",
  subtitle: "Read-only release progress for the Team allocation.",
  allocation: total,
  rule: "24-month linear vesting, 0% at TGE.",
@@ -142,7 +142,7 @@ export default function SingleAllocationVesting({ allocation }: { allocation: Al
  const lin = 18 * MONTH_SEC;
  const unlocked = tge > 0 && dt > cliff ? linearUnlocked(total, dt - cliff, lin) : 0n;
  vm = {
- title: "Advisors DDC Token",
+ title: "Advisors DDC Coin Allocation",
  subtitle: "Read-only release progress for the Advisors allocation.",
  allocation: total,
  rule: "0% at TGE, 3-month cliff, then 18-month linear vesting (21 months total).",

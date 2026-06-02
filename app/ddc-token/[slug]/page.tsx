@@ -6,8 +6,8 @@ import { useParams } from 'next/navigation';
 const TITLE: Record<string, string> = {
  'reward-pool': 'Reward Pool DDC Token',
  'foundation': 'Foundation DDC Token',
- 'team': 'Team DDC Token',
- 'advisors': 'Advisors DDC Token',
+ 'team': 'Team DDC Coin Allocation',
+ 'advisors': 'Advisors DDC Coin Allocation',
 };
 
 export default function AllocationTokenPage() {

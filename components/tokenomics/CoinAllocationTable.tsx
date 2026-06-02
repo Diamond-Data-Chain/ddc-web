@@ -53,7 +53,7 @@ const ROWS: Row[] = [
  coins: "32.0M",
  treatment: "24-month linear vesting, no TGE unlock.",
  href: "/team-ddc-token",
- cta: "Team DDC Token",
+ cta: "Team DDC Coin Allocation",
  },
  {
  category: "Advisors",
@@ -61,7 +61,7 @@ const ROWS: Row[] = [
  coins: "12.8M",
  treatment: "Dedicated vesting schedule (see vesting section).",
  href: "/advisors-ddc-token",
- cta: "Advisors DDC Token",
+ cta: "Advisors DDC Coin Allocation",
  },
 ];
 
