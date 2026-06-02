@@ -7,13 +7,6 @@ export default function ContactPage() {
         Technical support, partnerships, enterprise inquiries, or ecosystem collaboration.
       </p>
 
-      <p className="mt-4 text-cyan-300">
-        Direct email:{" "}
-        <a className="underline hover:text-cyan-200" href="mailto:ddc.protocol@gmail.com">
-          ddc.protocol@gmail.com
-        </a>
-      </p>
-
       <form
         action="https://formsubmit.co/ddc.protocol@gmail.com"
         method="POST"
@@ -21,6 +14,8 @@ export default function ContactPage() {
       >
         <input type="hidden" name="_subject" value="DDChain Support Request" />
         <input type="hidden" name="_captcha" value="false" />
+        <input type="hidden" name="_template" value="table" />
+        <input type="hidden" name="_next" value="https://ddc-web-theta.vercel.app/contact?success=1" />
 
         <div>
           <label className="mb-2 block text-sm text-slate-300">Name</label>
@@ -40,6 +35,10 @@ export default function ContactPage() {
         <button type="submit" className="rounded-xl bg-cyan-500 px-6 py-3 font-semibold text-black transition hover:bg-cyan-400">
           Send Message
         </button>
+
+        <p className="text-sm text-slate-400">
+          Direct email: <a href="mailto:ddc.protocol@gmail.com" className="text-cyan-300 underline">ddc.protocol@gmail.com</a>
+        </p>
       </form>
     </main>
   );
