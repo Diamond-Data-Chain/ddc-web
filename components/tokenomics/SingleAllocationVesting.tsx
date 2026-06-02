@@ -156,7 +156,7 @@ export default function SingleAllocationVesting({ allocation }: { allocation: Al
  const lin = 30 * MONTH_SEC;
  const unlocked = tge > 0 && dt > cliff ? linearUnlocked(total, dt - cliff, lin) : 0n;
  vm = {
- title: "Foundation DDC Token",
+ title: "Foundation Coin Allocation",
  subtitle: "Read-only release progress for the Foundation allocation.",
  allocation: total,
  rule: "0% at TGE, 6-month cliff, then 30-month linear release (36 months total).",
