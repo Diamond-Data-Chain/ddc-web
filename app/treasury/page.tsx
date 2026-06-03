@@ -344,46 +344,27 @@ export default function TreasuryPage() {
  <div className="mt-2 text-xl font-semibold text-amber-200">{fmtUSDT(inflow)}</div>
  </div>
 
- {/* ROLES */}
- <div className="mt-6">
- <div className="text-sm font-semibold text-amber-200">Roles (spent / remaining / policy)</div>
+ {/* WALLET REGISTRY */}
+ <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
+ <div className="text-sm font-semibold text-amber-200">Treasury Wallet Registry</div>
+ <div className="mt-1 text-[12px] text-amber-100/70">
+ Public operational wallet map. Only real configured wallets/contracts are shown.
+ </div>
+
  <div className="mt-4 grid gap-4">
- {ROLES.map((r) => {
- const row = roleRows[r.id];
- const enabled = row?.rule?.enabled ?? false;
- const bps = row?.rule?.maxBps ?? 0n;
- const abs = row?.rule?.maxAbsolute ?? 0n;
- const spent = row?.spent ?? 0n;
- const remaining = row?.remaining;
-
- return (
- <div key={r.name} className="rounded-2xl border border-amber-500/30 bg-black/35 p-5">
- <div className="flex items-center justify-between">
- <div className="text-sm font-semibold">{r.name}</div>
- <div className="text-xs text-amber-100/70 font-mono">
- enabled={String(enabled)} bps={bps.toString()} abs={abs.toString()}
+ {walletRows.map((w) => (
+ <div key={w.label} className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+ <div>
+ <div className="text-sm font-semibold text-amber-200">{w.label}</div>
+ <div className="mt-1 text-xs text-amber-100/65">{w.type}</div>
  </div>
- </div>
-
- <div className="mt-4 grid gap-4 md:grid-cols-3">
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Spent (USDT)</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{fmtUSDT(spent)}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Remaining (USDT)</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">
- {remaining == null ? 'n/a (disabled or revert)' : fmtUSDT(remaining)}
- </div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Wallets</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{(row?.wallets?.length ?? 0).toString()}</div>
+ <div className="text-sm text-amber-200 font-mono break-all">
+ {w.address || '—'}
  </div>
  </div>
  </div>
- );
- })}
+ ))}
  </div>
  </div>
 
