@@ -25,6 +25,9 @@ export async function GET() {
     NEXT_PUBLIC_ADAMAS_GRANT_VAULT_ADDRESS:
       process.env.NEXT_PUBLIC_ADAMAS_GRANT_VAULT_ADDRESS ?? null,
 
+    NEXT_PUBLIC_MARKETING_WALLET_ADDRESS:
+      process.env.NEXT_PUBLIC_MARKETING_WALLET_ADDRESS ?? null,
+
     NEXT_PUBLIC_WC_PROJECT_ID:
       process.env.NEXT_PUBLIC_WC_PROJECT_ID ? "set" : null,
   });
