@@ -23,6 +23,10 @@ const COMMIT_REGISTRY_ABI = [
  'function latestCommitTimestamp(bytes32 projectId) view returns (uint64)',
 ];
 
+const ERC20_ABI = [
+ 'function balanceOf(address) view returns (uint256)',
+];
+
 // Roles enum order must match contract
 const ROLES: { id: number; name: string }[] = [
  { id: 1, name: 'DEV' },
@@ -83,6 +87,7 @@ export default function TreasuryPage() {
 
  // roles
  const [roleRows, setRoleRows] = useState<Record<number, any>>({});
+ const [walletBalances, setWalletBalances] = useState<Record<string, bigint>>({});
 
  const commitFreshComputed = commitEnforce
  ? (commitFreq > 0 && lastCommitAgeSec != null ? lastCommitAgeSec <= commitFreq : false)
@@ -192,6 +197,33 @@ export default function TreasuryPage() {
  }
  setRoleRows(next);
 
+ // wallet DDC balances
+ try {
+ const ddcForBalance = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || '';
+ if (ddcForBalance) {
+ const ddc = new ethers.Contract(ddcForBalance, ERC20_ABI, provider);
+ const rows = [
+ treasuryAddr || vaultAddr,
+ marketingAddr,
+ monthlyOpsAddr,
+ adamasGrantAddr,
+ teamVaultAddr,
+ advisorsVaultAddr,
+ rewardPoolAddr,
+ presaleAddr,
+ ];
+ const balances: Record<string, bigint> = {};
+ for (const addr of rows) {
+ if (!addr) continue;
+ try {
+ const bal = await ddc.balanceOf(addr);
+ balances[addr.toLowerCase()] = BigInt(bal.toString());
+ } catch {}
+ }
+ setWalletBalances(balances);
+ }
+ } catch {}
+
  } catch (e: any) {
  setErr(String(e?.shortMessage || e?.message || e));
  } finally {
@@ -210,17 +242,17 @@ export default function TreasuryPage() {
  };
 
  const walletRows = [
-   { label: 'Treasury Safe', type: 'Multisig treasury / ownership control', address: treasuryAddr || vaultAddr },
-   { label: 'Marketing Wallet', type: 'Marketing operations wallet', address: marketingAddr },
-   { label: 'Monthly Operations Vault', type: 'Monthly operational reserve', address: monthlyOpsAddr },
-   { label: 'Adamas Grant Vault', type: 'Adamas ecosystem / grant reserve', address: adamasGrantAddr },
-   { label: 'Team Vesting Vault', type: 'Independent team vesting vault', address: teamVaultAddr },
-   { label: 'Advisors Vesting Vault', type: 'Advisors vesting vault', address: advisorsVaultAddr },
-   { label: 'Reward Pool', type: 'Reward and burn-lock accounting pool', address: rewardPoolAddr },
-   { label: 'Presale Contract', type: 'Public presale contract', address: presaleAddr },
-   { label: 'DDC Coin Contract', type: 'DDC coin asset contract', address: ddcAddr },
-   { label: 'Recorder', type: 'DDC token / record registry', address: recorderAddr },
-   { label: 'USDT Asset', type: 'BEP-20 USDT payment asset', address: usdtAddr },
+   { label: 'Treasury Safe', type: 'Multisig treasury / ownership control', address: treasuryAddr || vaultAddr, showBalance: true },
+   { label: 'Marketing Wallet', type: 'Marketing operations wallet', address: marketingAddr, showBalance: true },
+   { label: 'Monthly Operations Vault', type: 'Monthly operational reserve', address: monthlyOpsAddr, showBalance: true },
+   { label: 'Adamas Grant Vault', type: 'Adamas ecosystem / grant reserve', address: adamasGrantAddr, showBalance: true },
+   { label: 'Team Vesting Vault', type: 'Independent team vesting vault', address: teamVaultAddr, showBalance: true },
+   { label: 'Advisors Vesting Vault', type: 'Advisors vesting vault', address: advisorsVaultAddr, showBalance: true },
+   { label: 'Reward Pool', type: 'Reward and burn-lock accounting pool', address: rewardPoolAddr, showBalance: true },
+   { label: 'Presale Contract', type: 'Public presale contract', address: presaleAddr, showBalance: true },
+   { label: 'DDC Coin Contract', type: 'DDC coin asset contract', address: ddcAddr, showBalance: false },
+   { label: 'Recorder', type: 'DDC token / record registry', address: recorderAddr, showBalance: false },
+   { label: 'USDT Asset', type: 'BEP-20 USDT payment asset', address: usdtAddr, showBalance: false },
  ];
 
  return (
@@ -359,8 +391,15 @@ export default function TreasuryPage() {
  <div className="text-sm font-semibold text-amber-200">{w.label}</div>
  <div className="mt-1 text-xs text-amber-100/65">{w.type}</div>
  </div>
+ <div className="text-right">
  <div className="text-sm text-amber-200 font-mono break-all">
  {w.address || '—'}
+ </div>
+ {w.showBalance && w.address && (
+ <div className="mt-2 text-xs text-emerald-300 font-mono">
+ Balance: {walletBalances[w.address.toLowerCase()] == null ? '—' : `${Number(ethers.formatEther(walletBalances[w.address.toLowerCase()])).toLocaleString('en-US', { maximumFractionDigits: 6 })} DDC`}
+ </div>
+ )}
  </div>
  </div>
  </div>
