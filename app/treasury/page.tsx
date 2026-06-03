@@ -46,6 +46,18 @@ export default function TreasuryPage() {
  const commitRegistryEnv = process.env.NEXT_PUBLIC_COMMIT_REGISTRY_ADDRESS || '';
  const projectKey = process.env.NEXT_PUBLIC_PROJECT_KEY || 'DDC_PROJECT_V1';
 
+ const presaleAddr = process.env.NEXT_PUBLIC_PRESALE_ADDRESS || '';
+ const ddcAddr = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || '';
+ const usdtAddr = process.env.NEXT_PUBLIC_USDT_ADDRESS || '';
+ const recorderAddr = process.env.NEXT_PUBLIC_RECORDER_ADDRESS || '';
+ const rewardPoolAddr = process.env.NEXT_PUBLIC_REWARD_POOL_ADDRESS || '';
+ const treasuryAddr = process.env.NEXT_PUBLIC_TREASURY_ADDRESS || '';
+ const teamVaultAddr = process.env.NEXT_PUBLIC_TEAM_VAULT_ADDRESS || '';
+ const advisorsVaultAddr = process.env.NEXT_PUBLIC_ADVISORS_VAULT_ADDRESS || '';
+ const monthlyOpsAddr = process.env.NEXT_PUBLIC_MONTHLY_OPS_VAULT_ADDRESS || '';
+ const adamasGrantAddr = process.env.NEXT_PUBLIC_ADAMAS_GRANT_VAULT_ADDRESS || '';
+ const marketingAddr = process.env.NEXT_PUBLIC_MARKETING_WALLET_ADDRESS || '';
+
  const provider = useMemo(() => {
  if (!rpcUrl) return null;
  try {
@@ -196,6 +208,20 @@ export default function TreasuryPage() {
  try { return Number(ethers.formatUnits(x, 6)).toLocaleString('en-US', { maximumFractionDigits: 6 }); }
  catch { return '0'; }
  };
+
+ const walletRows = [
+   { label: 'Treasury Safe', type: 'Multisig treasury / ownership control', address: treasuryAddr || vaultAddr },
+   { label: 'Marketing Wallet', type: 'Marketing operations wallet', address: marketingAddr },
+   { label: 'Monthly Operations Vault', type: 'Monthly operational reserve', address: monthlyOpsAddr },
+   { label: 'Adamas Grant Vault', type: 'Adamas ecosystem / grant reserve', address: adamasGrantAddr },
+   { label: 'Team Vesting Vault', type: 'Independent team vesting vault', address: teamVaultAddr },
+   { label: 'Advisors Vesting Vault', type: 'Advisors vesting vault', address: advisorsVaultAddr },
+   { label: 'Reward Pool', type: 'Reward and burn-lock accounting pool', address: rewardPoolAddr },
+   { label: 'Presale Contract', type: 'Public presale contract', address: presaleAddr },
+   { label: 'DDC Coin Contract', type: 'DDC coin asset contract', address: ddcAddr },
+   { label: 'Recorder', type: 'DDC token / record registry', address: recorderAddr },
+   { label: 'USDT Asset', type: 'BEP-20 USDT payment asset', address: usdtAddr },
+ ];
 
  return (
  <main className="min-h-screen bg-black text-amber-50">
