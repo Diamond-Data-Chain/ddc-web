@@ -179,7 +179,7 @@ export default function MyRecordPage() {
  )}
 
  <div className="mx-auto max-w-6xl px-6 py-10">
- <h1 className="text-2xl font-semibold text-amber-200">My DDC Token</h1>
+ <h1 className="text-2xl font-semibold text-amber-200">My DDC Coin Allocation</h1>
  <p className="mt-2 text-amber-100/70 text-sm">
  Reads purchase history from on-chain Recorder storage (no RPC log scanning).
  </p>
