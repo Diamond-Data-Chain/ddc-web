@@ -722,7 +722,7 @@ const handleAddNetwork = async () => {
  </p>
  )}
  </div>
- <div className="flex gap-3">
+ <div className="flex flex-col gap-2 sm:flex-row">
  <button
  onClick={handleConnect}
  className="rounded-full border border-amber-400/60 bg-amber-500/10 px-4 py-2 text-xs font-medium text-amber-100 hover:bg-amber-500/20"
