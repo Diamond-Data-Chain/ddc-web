@@ -29,7 +29,7 @@ export async function addDDCNetworkAndSwitch() {
               symbol: "ETH",
               decimals: 18,
             },
-            rpcUrls: ["http://127.0.0.1:8545"],
+            rpcUrls: ["https://data-seed-prebsc-1-s1.binance.org:8545"],
             blockExplorerUrls: [],
           },
         ],

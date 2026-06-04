@@ -77,7 +77,7 @@ export default function Header() {
  {
  chainId: chainIdHex,
  chainName: "BNB Smart Chain",
- rpcUrls: [RPC_URL || "http://127.0.0.1:8545"],
+ rpcUrls: [RPC_URL || "https://data-seed-prebsc-1-s1.binance.org:8545"],
  nativeCurrency: {
  name: "Ether",
  symbol: "ETH",
