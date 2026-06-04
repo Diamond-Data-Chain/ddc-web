@@ -36,7 +36,7 @@ export default function DynamicRoadmap() {
             ROADMAP
           </div>
           <p className="mt-4 text-cyan-200">
-            Transparent. On-Chain. AI-Powered.
+            Transparent. On-Chain. Community Governed.
           </p>
         </div>
 
