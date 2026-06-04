@@ -126,16 +126,19 @@ export default function TreasuryPage() {
  }
  } catch {}
 
- if (!vaultAddr) throw new Error('NEXT_PUBLIC_TREASURY_VAULT_ADDRESS is missing');
+ const vault = vaultAddr ? ethers.getAddress(vaultAddr) : '';
 
- const vault = ethers.getAddress(vaultAddr);
+ let v: ethers.Contract | null = null;
+ if (vault) {
  const code = await provider.getCode(vault);
- if (code === '0x') throw new Error('TreasuryPolicyVault has no code on this RPC');
-
- const v = new ethers.Contract(vault, VAULT_ABI, provider);
+ if (code !== '0x') {
+ v = new ethers.Contract(vault, VAULT_ABI, provider);
+ }
+ }
 
  // config
  try {
+ if (!v) throw new Error("no treasury policy vault");
  const pc = await v.getProjectConfig();
  setCfg(pc);
  } catch (e: any) {
@@ -144,6 +147,7 @@ export default function TreasuryPage() {
 
  // inflow
  try {
+ if (!v) throw new Error("no treasury policy vault");
  const total = await v.getTotalInflowTracked();
  setInflow(BigInt(total.toString()));
  } catch {
@@ -156,10 +160,14 @@ export default function TreasuryPage() {
  let enf = false;
  let pid = '0x' + '0'.repeat(64);
 
- try { reg = String(await v.commitRegistry()); } catch {}
- try { freq = Number((await v.policyCommitFrequencySeconds()).toString()); } catch {}
- try { enf = Boolean(await v.enforceFreshCommit()); } catch {}
- try { pid = String(await v.projectId()); } catch {}
+ try { if (!v) throw new Error("no treasury policy vault");
+ reg = String(await v.commitRegistry()); } catch {}
+ try { if (!v) throw new Error("no treasury policy vault");
+ freq = Number((await v.policyCommitFrequencySeconds()).toString()); } catch {}
+ try { if (!v) throw new Error("no treasury policy vault");
+ enf = Boolean(await v.enforceFreshCommit()); } catch {}
+ try { if (!v) throw new Error("no treasury policy vault");
+ pid = String(await v.projectId()); } catch {}
 
  const regToUse =
  reg && reg !== '0x0000000000000000000000000000000000000000'
@@ -199,16 +207,19 @@ export default function TreasuryPage() {
  let wallets: string[] = [];
 
  try {
+ if (!v) throw new Error("no treasury policy vault");
  const rr = await v.getAllocationRule(r.id);
  rule = { enabled: Boolean(rr[2]), maxBps: BigInt(rr[0].toString()), maxAbsolute: BigInt(rr[1].toString()) };
  } catch {}
 
  try {
+ if (!v) throw new Error("no treasury policy vault");
  const s = await v.getSpent(r.id);
  spent = BigInt(s.toString());
  } catch {}
 
  try {
+ if (!v) throw new Error("no treasury policy vault");
  const rem = await v.remainingAllocation(r.id);
  remaining = BigInt(rem.toString());
  } catch {
@@ -216,6 +227,7 @@ export default function TreasuryPage() {
  }
 
  try {
+ if (!v) throw new Error("no treasury policy vault");
  wallets = await v.listWalletsByRole(r.id);
  } catch {
  wallets = [];
