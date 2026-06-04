@@ -98,6 +98,34 @@ export default function TreasuryPage() {
  setLoading(true);
  try {
  if (!provider) throw new Error('NEXT_PUBLIC_RPC_URL is missing');
+
+ // Load public wallet DDC balances first. This must not depend on legacy vault reads.
+ try {
+ const ddcForBalance = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || '';
+ if (ddcForBalance) {
+ const ddc = new ethers.Contract(ddcForBalance, ERC20_ABI, provider);
+ const rows = [
+ treasuryAddr || vaultAddr,
+ marketingAddr,
+ monthlyOpsAddr,
+ adamasGrantAddr,
+ teamVaultAddr,
+ advisorsVaultAddr,
+ rewardPoolAddr,
+ presaleAddr,
+ ];
+ const balances: Record<string, bigint> = {};
+ for (const addr of rows) {
+ if (!addr) continue;
+ try {
+ const bal = await ddc.balanceOf(addr);
+ balances[addr.toLowerCase()] = BigInt(bal.toString());
+ } catch {}
+ }
+ setWalletBalances(balances);
+ }
+ } catch {}
+
  if (!vaultAddr) throw new Error('NEXT_PUBLIC_TREASURY_VAULT_ADDRESS is missing');
 
  const vault = ethers.getAddress(vaultAddr);
@@ -196,33 +224,6 @@ export default function TreasuryPage() {
  next[r.id] = { rule, spent, remaining, wallets };
  }
  setRoleRows(next);
-
- // wallet DDC balances
- try {
- const ddcForBalance = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || '';
- if (ddcForBalance) {
- const ddc = new ethers.Contract(ddcForBalance, ERC20_ABI, provider);
- const rows = [
- treasuryAddr || vaultAddr,
- marketingAddr,
- monthlyOpsAddr,
- adamasGrantAddr,
- teamVaultAddr,
- advisorsVaultAddr,
- rewardPoolAddr,
- presaleAddr,
- ];
- const balances: Record<string, bigint> = {};
- for (const addr of rows) {
- if (!addr) continue;
- try {
- const bal = await ddc.balanceOf(addr);
- balances[addr.toLowerCase()] = BigInt(bal.toString());
- } catch {}
- }
- setWalletBalances(balances);
- }
- } catch {}
 
  } catch (e: any) {
  setErr(String(e?.shortMessage || e?.message || e));
