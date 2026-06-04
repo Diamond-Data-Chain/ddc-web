@@ -250,7 +250,7 @@ export default function TreasuryPage() {
    { label: 'Team Vesting Vault', type: 'Independent team vesting vault', address: teamVaultAddr, showBalance: true },
    { label: 'Advisors Vesting Vault', type: 'Advisors vesting vault', address: advisorsVaultAddr, showBalance: true },
    { label: 'Reward Pool', type: 'Reward and burn-lock accounting pool', address: rewardPoolAddr, showBalance: true },
-   { label: 'Presale Contract', type: 'Public presale contract', address: presaleAddr, showBalance: true },
+   { label: 'Presale Contract Reserve', type: 'Public presale contract', address: presaleAddr, showBalance: true },
    { label: 'DDC Coin Contract', type: 'DDC coin asset contract', address: ddcAddr, showBalance: false },
    { label: 'Recorder', type: 'DDC token / record registry', address: recorderAddr, showBalance: false },
    { label: 'USDT Asset', type: 'BEP-20 USDT payment asset', address: usdtAddr, showBalance: false },
