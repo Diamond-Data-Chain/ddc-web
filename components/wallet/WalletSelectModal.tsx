@@ -159,9 +159,9 @@ export default function WalletSelectModal({
  <div className="w-full max-w-md rounded-2xl border border-slate-800 bg-slate-950 shadow-2xl overflow-hidden">
  <div className="flex items-start justify-between gap-3 p-5 border-b border-slate-800">
  <div>
- <div className="text-base font-semibold text-slate-50">Connect a wallet</div>
+ <div className="text-base font-semibold text-slate-50">Connect Wallet</div>
  <div className="mt-1 text-sm text-slate-400">
- Pick a wallet. WalletConnect will show a QR code (works with many wallets).
+ Choose a wallet to access the DDC Presale Dashboard.
  </div>
  </div>
  <button
