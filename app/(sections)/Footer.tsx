@@ -1,4 +1,3 @@
-import SocialLinks from "@/components/common/SocialLinks";
 // app/(sections)/Footer.tsx
 export default function Footer() {
  return (
@@ -10,8 +9,6 @@ export default function Footer() {
  <a href="/terms" className="hover:text-amber-300">Terms</a>
  <a href="/contact" className="hover:text-amber-300">Contact</a>
  </div>
- </div>
- <div className="mt-6 flex justify-center">
  </div>
 </footer>
  );
