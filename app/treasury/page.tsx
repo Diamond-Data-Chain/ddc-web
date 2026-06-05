@@ -271,123 +271,10 @@ export default function TreasuryPage() {
  return (
  <main className="min-h-screen bg-black text-amber-50">
  <div className="mx-auto max-w-6xl px-6 py-10">
- <h1 className="text-2xl font-semibold text-amber-200">Treasury Status (on-chain)</h1>
+ <h1 className="text-2xl font-semibold text-amber-200">Treasury Wallet Registry</h1>
  <p className="mt-2 text-amber-100/80">
- These figures are read directly from the TreasuryPolicyVault contract.
+ Public on-chain registry of configured DDChain wallets, vaults, and contracts.
  </p>
-
- <div className="mt-6 flex flex-wrap items-center gap-3">
- <button
- onClick={() => load()}
- className="inline-flex items-center justify-center rounded-full border border-amber-400/40 bg-black/30 hover:bg-amber-500/10 text-sm font-medium transition-all px-5 py-2"
- >
- {loading ? 'Loading…' : 'Refresh'}
- </button>
- <div className="text-sm text-amber-100/80">
- Vault: {vaultAddr ? `${short(vaultAddr)} (${vaultAddr})` : '(missing)'}
- </div>
- </div>
-
- {err && (
- <div className="mt-6 rounded-xl border border-red-900/60 bg-red-950/30 p-3 text-sm text-red-200">
- {err}
- </div>
- )}
-
- {/* COMMIT POLICY BLOCK */}
- <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
- <div className="flex items-center justify-between gap-3">
- <div>
- <div className="text-sm font-semibold text-amber-200">Commit policy (fresh daily commit)</div>
- <div className="mt-1 text-[12px] text-amber-100/70">
- Enforced in <span className="font-mono">transferOut</span>. Source of truth: vault + DDCCommitRegistry.
- </div>
- </div>
- <div
- className={`shrink-0 rounded-full border px-3 py-1 text-xs ${
- commitFreshComputed === true
- ? 'border-emerald-600/60 bg-emerald-600/10 text-emerald-200'
- : commitFreshComputed === false
- ? 'border-red-600/60 bg-red-600/10 text-red-200'
- : 'border-amber-500/40 bg-black/40 text-amber-100/80'
- }`}
- >
- {commitFreshComputed === true ? 'OK' : commitFreshComputed === false ? 'STALE' : (commitEnforce ? 'CHECKING' : 'DISABLED')}
- </div>
- </div>
-
- <div className="mt-4 grid gap-4 md:grid-cols-3">
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Enforcement</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{commitEnforce ? 'enabled' : 'disabled'}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Window (seconds)</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{commitFreq || 0}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Registry</div>
- <div className="mt-1 text-sm text-amber-200 font-mono break-all">{commitRegistry || commitRegistryEnv || '—'}</div>
- </div>
- </div>
-
- <div className="mt-4 grid gap-4 md:grid-cols-2">
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Last commit time (UTC)</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">
- {lastCommitTs ? new Date(lastCommitTs * 1000).toISOString() : '—'}
- </div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Commit age</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">
- {lastCommitAgeSec == null ? '—' : `${Math.floor(lastCommitAgeSec / 3600)}h ${Math.floor((lastCommitAgeSec % 3600) / 60)}m`}
- </div>
- </div>
- </div>
- </div>
-
- {/* LEGACY CONFIG */}
- <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
- <div className="text-sm font-semibold text-amber-200">Config</div>
-
- <div className="mt-4 grid gap-4 md:grid-cols-2">
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">ProjectId</div>
- <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.projectId || cfg?.[0] || '—'}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">USDT asset</div>
- <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.assetUSDT || cfg?.[2] || '—'}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">DDC Coin asset</div>
- <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.ddcToken || cfg?.[1] || '—'}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Governor</div>
- <div className="mt-1 text-sm text-amber-200 font-mono break-all">{cfg?.governor || cfg?.[3] || '—'}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">DAO mode</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.daoMode ?? cfg?.[5] ?? false)}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Commit freq (sec) [legacy field]</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.commitFreq ?? cfg?.[6] ?? 0)}</div>
- </div>
- <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wide text-amber-100/70">Require per-transfer log</div>
- <div className="mt-1 text-sm text-amber-200 font-mono">{String(cfg?.requireDDCLogPerTransfer ?? cfg?.[7] ?? false)}</div>
- </div>
- </div>
- </div>
-
- {/* INFLOW */}
- <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
- <div className="text-sm font-semibold text-amber-200">Total inflow tracked (USDT)</div>
- <div className="mt-2 text-xl font-semibold text-amber-200">{fmtUSDT(inflow)}</div>
- </div>
 
  {/* WALLET REGISTRY */}
  <div className="mt-6 rounded-2xl border border-amber-500/30 bg-black/35 p-5">
@@ -420,9 +307,6 @@ export default function TreasuryPage() {
  </div>
  </div>
 
- <div className="mt-8 text-[12px] text-amber-500">
- Vault: <span className="font-mono">{vaultAddr || '(missing)'}</span>
- </div>
  </div>
  </main>
  );
