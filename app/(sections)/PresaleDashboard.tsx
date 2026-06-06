@@ -748,6 +748,15 @@ const handleAddNetwork = async () => {
  </div>
  </div>
 
+ {String(process.env.NEXT_PUBLIC_CHAIN_ID) === "97" && (
+ <div className="rounded-2xl border border-red-400/60 bg-red-950/70 px-4 py-3 text-sm text-red-100 shadow-[0_0_30px_rgba(248,113,113,0.25)]">
+ <div className="font-bold uppercase tracking-wide">⚠ TESTNET DEMONSTRATION</div>
+ <div className="mt-1 text-xs text-red-100/80">
+ This deployment is running on BNB Smart Chain Testnet. All transactions use test assets with no real monetary value. Mainnet presale has not started.
+ </div>
+ </div>
+ )}
+
  {/* ➤ BATCH PROGRESS LINE (sa pulsiranjem na kraju) */}
  <div className="relative mt-4 h-2 w-full overflow-hidden rounded-full bg-amber-500/20">
  <div
