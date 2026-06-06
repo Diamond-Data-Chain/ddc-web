@@ -225,7 +225,7 @@ export default function MyRecordPage() {
  )}
 
  {totals && (
- <div className="mt-6 grid gap-4 md:grid-cols-3">
+ <div className="mt-6 grid gap-4 md:grid-cols-4">
  <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
  <div className="text-xs uppercase tracking-wider text-amber-100/70">Purchased DDC</div>
  <div className="mt-2 font-mono text-lg">{fmtDDC(totals.ddc)}</div>
@@ -235,8 +235,12 @@ export default function MyRecordPage() {
  <div className="mt-2 font-mono text-lg">{fmtUSDT(totals.usdt)}</div>
  </div>
  <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
- <div className="text-xs uppercase tracking-wider text-amber-100/70">Paid BNB</div>
- <div className="mt-2 font-mono text-lg">{fmtBNB(totals.bnb)}</div>
+ <div className="text-xs uppercase tracking-wider text-amber-100/70">Vesting Allocation</div>
+ <div className="mt-2 font-mono text-lg">{fmtDDC(totals.ddc / 2n)}</div>
+ </div>
+ <div className="rounded-2xl border border-amber-500/30 bg-black/30 p-4">
+ <div className="text-xs uppercase tracking-wider text-amber-100/70">Burn-Lock Allocation</div>
+ <div className="mt-2 font-mono text-lg">{fmtDDC(totals.ddc - totals.ddc / 2n)}</div>
  </div>
  </div>
  )}
