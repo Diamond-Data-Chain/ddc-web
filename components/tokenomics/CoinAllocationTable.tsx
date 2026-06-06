@@ -77,7 +77,23 @@ export default function CoinAllocationTable() {
  </div>
  </div>
 
- <div className="mt-4 overflow-x-auto">
+ <div className="mt-4 grid gap-3 md:hidden">
+ {ROWS.map((r) => (
+ <div key={r.category} className="rounded-2xl border border-slate-800 bg-slate-950/40 p-4">
+ <div className="flex items-start justify-between gap-3">
+ <div className="font-semibold text-slate-200">{r.category}</div>
+ <div className="font-mono text-sm text-amber-300">{r.percent}</div>
+ </div>
+ <div className="mt-2 font-mono text-sm text-slate-300">{r.coins} DDC</div>
+ <div className="mt-3 text-sm leading-relaxed text-slate-400">{r.treatment}</div>
+ <Link href={r.href} className="mt-4 inline-flex items-center justify-center rounded-full border border-slate-700 bg-slate-950/40 px-4 py-2 text-sm hover:bg-slate-800/40 transition">
+ {r.cta}
+ </Link>
+ </div>
+ ))}
+ </div>
+
+ <div className="mt-4 hidden md:block overflow-x-auto">
  <table className="w-full table-fixed text-left text-sm">
  <colgroup>
  <col className="w-44" />
@@ -93,7 +109,7 @@ export default function CoinAllocationTable() {
  <th className="py-2 pr-3">%</th>
  <th className="py-2 pr-3">Coins</th>
  <th className="py-2 pr-3">Vesting / Treatment</th>
- <th className="py-2 pr-3">DDC Token</th>
+ <th className="py-2 pr-3">Allocation Page</th>
  </tr>
  </thead>
 
