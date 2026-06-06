@@ -1099,13 +1099,12 @@ const handleAddNetwork = async () => {
  Presale Structure – 40 Batches
  </h3>
  <p className="mb-3 text-[11px] text-amber-100/80">
- Svaki batch ima{" "}
+ Each batch contains{" "}
  <span className="font-semibold">
  {BATCH_SIZE_DDC.toLocaleString("en-US")} DDC
  </span>
- . Starting price is{" "}
- <span className="font-semibold">0.01 USDT</span> po DDC, a svaki
- next batch increases by{" "}
+ . The starting price is{" "}
+ <span className="font-semibold">0.01 USDT</span> per DDC, and each subsequent batch increases by{" "}
  <span className="font-semibold">0.02 USDT</span>.
  </p>
  <div className="overflow-x-auto">
