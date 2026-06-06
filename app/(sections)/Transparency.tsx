@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const transparencyItems = [
  {
  title: "Presale Architecture & Batch Pricing Model",
- body: "To achieve these objectives, the presale is implemented as a fixed sequence of 40 batches, each characterized by:",
+ body: "The DDC presale is structured as 40 sequential batches. Each batch contains 2,560,000 DDC and runs for 102.4 hours unless sold out earlier. The starting price is 0.01 USDT per DDC, and each next batch increases by 0.02 USDT. If a batch sells out, the next batch starts immediately. If time expires without sell-out, unsold DDC rolls into the next batch.",
  },
  {
  title: "Public View Functions & Dashboard Integration",
