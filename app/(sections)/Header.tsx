@@ -117,6 +117,7 @@ export default function Header() {
  const navLinks = [
  { label: "Home", href: "#home" },
  { label: "Technology", href: "#technology" },
+ { label: "Whitepaper", href: "/whitepaper.pdf", external: true },
  { label: "Tokenomics", href: "#tokenomics" },
  { label: "Presale", href: "#presale" },
  { label: "Transparency", href: "#transparency" },
