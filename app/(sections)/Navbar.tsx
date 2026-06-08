@@ -125,6 +125,15 @@ export default function Navbar() {
  <div className="border-t border-slate-800 px-4 py-4 space-y-3">
  <ConnectWalletButton />
  <a
+ href="/whitepaper.pdf"
+ target="_blank"
+ rel="noopener noreferrer"
+ className="rounded-full border border-cyan-400/60 bg-cyan-500/10 px-4 py-2 text-sm font-semibold text-cyan-100 hover:bg-cyan-500/20 transition"
+>
+ Whitepaper
+</a>
+
+<a
  href="#investor"
  className="block text-center px-4 py-2 rounded-2xl bg-amber-400/10 text-amber-300 border border-amber-400/30 hover:bg-amber-400/20 transition text-sm"
  onClick={() => setMobileOpen(false)}
