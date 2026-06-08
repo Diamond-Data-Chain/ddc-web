@@ -176,7 +176,7 @@ export default function Header() {
  href="/whitepaper.pdf"
  target="_blank"
  rel="noopener noreferrer"
- className="hidden rounded-full border border-cyan-400/60 bg-cyan-500/10 px-3 py-1.5 text-[0.7rem] font-semibold text-cyan-100 hover:bg-cyan-500/20 md:inline-flex"
+ className="inline-flex rounded-full border border-cyan-400/60 bg-cyan-500/10 px-3 py-1.5 text-[0.7rem] font-semibold text-cyan-100 hover:bg-cyan-500/20"
  >
  Whitepaper
  </a>
