@@ -6,7 +6,7 @@ export default function FloatingAIMonitor() {
   return (
     <Link
       href="/ddc-ai-demo-monitor"
-      className="fixed bottom-6 right-6 z-50 group"
+      className="hidden md:block fixed bottom-6 right-6 z-50 group"
     >
       <div className="relative overflow-hidden rounded-2xl border border-cyan-400/30 bg-slate-900/90 px-5 py-4 shadow-2xl backdrop-blur-xl transition hover:scale-105 hover:border-cyan-300">
 

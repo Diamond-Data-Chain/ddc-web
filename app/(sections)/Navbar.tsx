@@ -10,7 +10,6 @@ import ConnectWalletButton from "./ConnectWalletButton";
 const navLinks = [
  { href: "#home", label: "Home" },
  { href: "#technology", label: "Technology" },
- { href: "/whitepaper.pdf", label: "Whitepaper", external: true },
  { href: "#tokenomics", label: "Tokenomics" },
  { href: "#presale", label: "Presale" },
  { href: "#transparency", label: "Transparency" },
