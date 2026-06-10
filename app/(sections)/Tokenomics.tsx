@@ -3,6 +3,8 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 
 import CoinAllocationTable from "@/components/tokenomics/CoinAllocationTable";
+import TokenDistributionVisual from "@/components/tokenomics/TokenDistributionVisual";
+import TokenomicsFlowVisual from "@/components/tokenomics/TokenomicsFlowVisual";
 export default function Tokenomics() {
  return (
  <section id="tokenomics"
@@ -35,7 +37,7 @@ export default function Tokenomics() {
  <div className="mt-8 grid md:grid-cols-2 gap-6">
  {/* Token distribution pie */}
  <motion.div
- className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
+ className="rounded-2xl border border-amber-400/40 bg-slate-900/40 p-5"
  initial={{ opacity: 0, y: 30 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, margin: "-80px" }}
@@ -47,14 +49,8 @@ export default function Tokenomics() {
  borderColor: "rgba(251, 191, 36, 0.6)",
  }}
  >
- <div className="h-56 rounded-xl bg-slate-800/60 flex items-center justify-center overflow-hidden">
- <Image
- src="/assets/images/token-distribution.png"
- alt="DDC Token Distribution"
- width={1200}
- height={600}
- className="w-full h-full object-contain"
- />
+ <div className="min-h-[360px] rounded-xl bg-[#04091b] flex items-center justify-center overflow-visible">
+ <TokenDistributionVisual />
  </div>
  <h3 className="mt-4 font-semibold">Token Distribution</h3>
  <p className="text-sm text-slate-400">
@@ -71,7 +67,7 @@ export default function Tokenomics() {
 
  {/* Tokenomics flow */}
  <motion.div
- className="rounded-2xl border border-slate-800 bg-slate-900/40 p-5"
+ className="rounded-2xl border border-amber-400/40 bg-slate-900/40 p-5"
  initial={{ opacity: 0, y: 30 }}
  whileInView={{ opacity: 1, y: 0 }}
  viewport={{ once: true, margin: "-80px" }}
@@ -80,17 +76,11 @@ export default function Tokenomics() {
  translateY: -6,
  boxShadow:
  "0 18px 45px rgba(15, 23, 42, 0.85), 0 0 40px rgba(56, 189, 248, 0.18)",
- borderColor: "rgba(56, 189, 248, 0.7)",
+ borderColor: "rgba(251, 191, 36, 0.7)",
  }}
  >
- <div className="h-56 rounded-xl bg-slate-800/60 flex items-center justify-center overflow-hidden">
- <Image
- src="/assets/images/tokenomics-flow.png"
- alt="DDC Tokenomics Flow"
- width={1200}
- height={600}
- className="w-full h-full object-contain"
- />
+ <div className="min-h-[360px] rounded-xl bg-[#04091b] flex items-center justify-center overflow-visible">
+ <TokenomicsFlowVisual />
  </div>
  <h3 className="mt-4 font-semibold">Tokenomics Flow</h3>
  <p className="text-sm text-slate-400">
