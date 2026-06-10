@@ -646,6 +646,24 @@ const handleAddNetwork = async () => {
  ? PRESALE_PLAN[virtualBatchId - 1]
  : null;
 
+ const isVirtualNextBatch =
+ !isFinalized &&
+ Boolean(batchEnded) &&
+ Boolean(batchId) &&
+ Boolean(virtualBatchId) &&
+ virtualBatchId !== batchId;
+
+ const displaySold = isVirtualNextBatch ? 0n : sold;
+ const displayHardCap = isVirtualNextBatch
+ ? BigInt(BATCH_SIZE_DDC) * 10n ** 18n + remaining
+ : hardCap;
+ const displayRemaining = displayHardCap > displaySold ? displayHardCap - displaySold : 0n;
+ const displayProgress =
+ displayHardCap > 0n ? Number((displaySold * 10000n) / displayHardCap) / 100 : 0;
+ const displayPriceUSDT =
+ isVirtualNextBatch && currentPlan
+ ? BigInt(Math.round(currentPlan.priceUSDT * 1_000_000))
+ : batch?.priceInUSDT ?? 0n;
 
  // Timer calculation: batch duration and remaining time
  let batchDurationHours: string = "102.4"; // default if the contract returns nothing
@@ -653,8 +671,8 @@ const handleAddNetwork = async () => {
 
  if (batch && batch.startTime && batch.endTime) {
  try {
- const start = Number(batch.startTime);
- const end = Number(batch.endTime);
+ const start = isVirtualNextBatch ? Number(batch.endTime) : Number(batch.startTime);
+ const end = isVirtualNextBatch ? Number(batch.endTime) + Math.round(102.4 * 3600) : Number(batch.endTime);
 
  if (end > start) {
  const totalSec = end - start;
@@ -770,12 +788,12 @@ const handleAddNetwork = async () => {
  : "bg-amber-400"
  }
  `}
- style={{ width: `${progress}%` }}
+ style={{ width: `${displayProgress}%` }}
  />
  </div>
 
  <p className="text-right text-[11px] text-amber-100/70 mt-1">
- {progress.toFixed(2)}% of batch sold
+ {displayProgress.toFixed(2)}% of batch sold
  </p>
 
  {/* Main card grid */}
@@ -796,15 +814,15 @@ const handleAddNetwork = async () => {
  </div>
  <div className="flex justify-between">
  <span>Hard cap</span>
- <span>{isFinalized ? "0 DDC" : `${formatBigInt(hardCap)} DDC`}</span>
+ <span>{isFinalized ? "0 DDC" : `${formatBigInt(displayHardCap)} DDC`}</span>
  </div>
  <div className="flex justify-between">
  <span>Sold</span>
- <span>{isFinalized ? "0 DDC" : `${formatBigInt(sold)} DDC`}</span>
+ <span>{isFinalized ? "0 DDC" : `${formatBigInt(displaySold)} DDC`}</span>
  </div>
  <div className="flex justify-between">
  <span>Remaining</span>
- <span>{isFinalized ? "0 DDC" : `${formatBigInt(remaining)} DDC`}</span>
+ <span>{isFinalized ? "0 DDC" : `${formatBigInt(displayRemaining)} DDC`}</span>
  </div>
 
  {/* Batch timers */}
@@ -822,8 +840,8 @@ const handleAddNetwork = async () => {
  <span>
  {isFinalized
  ? "-"
- : batch
- ? `${formatPriceUSDT(batch.priceInUSDT, usdtDecimals)} USDT`
+ : displayPriceUSDT > 0n
+ ? `${formatPriceUSDT(displayPriceUSDT, usdtDecimals)} USDT`
  : "-"}
  </span>
  </div>
@@ -831,7 +849,7 @@ const handleAddNetwork = async () => {
  <div className="mt-3 h-2 w-full overflow-hidden rounded-full bg-amber-500/20">
  <div
  className="h-full rounded-full bg-gradient-to-r from-amber-300 via-amber-400 to-amber-500"
- style={{ width: `${progress}%` }}
+ style={{ width: `${displayProgress}%` }}
  />
  </div>
  <p className="mt-1 text-right text-[10px] text-amber-100/70">
