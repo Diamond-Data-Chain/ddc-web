@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import LayeredStructureVisual from "@/components/technology/LayeredStructureVisual";
 import AIDecisionFlowVisual from "@/components/technology/AIDecisionFlowVisual";
+import AIDataFeedbackVisual from "@/components/technology/AIDataFeedbackVisual";
 
 const techCards = [
   {
@@ -78,6 +79,8 @@ export default function Technology() {
                   <LayeredStructureVisual />
                 ) : card.title === "AI Advisory Analysis Flow" ? (
                   <AIDecisionFlowVisual />
+                ) : card.title === "AI Data Feedback Cycle" ? (
+                  <AIDataFeedbackVisual />
                 ) : (
                   <Image
                     src={card.src}
