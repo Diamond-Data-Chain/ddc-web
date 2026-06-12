@@ -8,6 +8,7 @@ const VestingPools = dynamic(() => import("./(sections)/VestingPools"), { ssr: f
 const Navbar = dynamic(() => import("./(sections)/Navbar"), { ssr: false, loading: () => null });
 const Hero = dynamic(() => import("./(sections)/Hero"), { ssr: false, loading: () => null });
 const WhatIsDDC = dynamic(() => import("./(sections)/WhatIsDDC"), { ssr: false, loading: () => null });
+const OurStory = dynamic(() => import("./(sections)/OurStory"), { ssr: false, loading: () => null });
 const MyDDCOverview = dynamic(() => import("./(sections)/MyDDCOverview"), { ssr: false, loading: () => null });
 const Technology = dynamic(() => import("./(sections)/Technology"), { ssr: false, loading: () => null });
 const Tokenomics = dynamic(() => import("./(sections)/Tokenomics"), { ssr: false, loading: () => null });
@@ -27,6 +28,7 @@ export default function HomeClient() {
  <Navbar />
  <Hero />
  <WhatIsDDC />
+ <OurStory />
 
  <MyDDCOverview />
  <VestingPools />

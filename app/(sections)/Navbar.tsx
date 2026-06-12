@@ -5,6 +5,7 @@ import ConnectWalletButton from "./ConnectWalletButton";
 
 const navLinks = [
   { href: "#home", label: "Home" },
+  { href: "#our-story", label: "Story" },
   { href: "#technology", label: "Technology" },
   { href: "#tokenomics", label: "Tokenomics" },
   { href: "#presale", label: "Presale" },
@@ -17,6 +18,7 @@ const navLinks = [
 ];
 
 const docs = [
+  { href: "/ddc-our-story.pdf", label: "💎 Our Story" },
   { href: "/ddc-vision.pdf", label: "📘 Vision" },
   { href: "/ddc-executive-summary.pdf", label: "📗 Executive Summary" },
   { href: "/ddc-condensed-whitepaper.pdf", label: "📙 Condensed Whitepaper" },

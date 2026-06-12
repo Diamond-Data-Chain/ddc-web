@@ -54,7 +54,7 @@ export default function ESG() {
  width={1200}
  height={600}
  className="w-full h-full object-contain"
- />
+/>
  </div>
  <h3 className="font-semibold">Carbon Reduction Indicator</h3>
  <p className="text-sm text-slate-400 mt-1">
