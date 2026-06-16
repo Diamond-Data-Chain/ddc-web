@@ -19,7 +19,7 @@ const ITEMS: Item[] = [
  {
  key: "discord",
  label: "Discord",
- href: "https://discord.gg/c7BQENuG",
+ href: "https://discord.gg/3G3SMuNQqv",
  svg: (
  <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
  <path
