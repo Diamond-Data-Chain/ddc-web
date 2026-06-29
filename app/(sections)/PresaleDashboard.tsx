@@ -683,7 +683,24 @@ const handleAddNetwork = async () => {
  if (now < start) {
  timeLeftLabel = "Batch not started yet";
  } else if (now >= end) {
- timeLeftLabel = "Pending chain sync";
+ 
+const virtualEnd = end + Math.round(102.4 * 3600);
+const rem = virtualEnd - now;
+
+if (rem > 0) {
+ const days = Math.floor(rem / 86400);
+ const h = Math.floor((rem % 86400) / 3600);
+ const m = Math.floor((rem % 3600) / 60);
+ const sec = rem % 60;
+
+ const hh = h.toString().padStart(2, "0");
+ const mm = m.toString().padStart(2, "0");
+ const ss = sec.toString().padStart(2, "0");
+
+ timeLeftLabel = days > 0 ? `${days}d ${hh}:${mm}:${ss}` : `${hh}:${mm}:${ss}`;
+} else {
+ timeLeftLabel = "Awaiting next batch";
+}
  } else {
  const rem = end - now;
  const days = Math.floor(rem / 86400);
