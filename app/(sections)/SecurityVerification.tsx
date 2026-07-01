@@ -22,15 +22,12 @@ const docs = [
 ];
 
 const checks = [
-  "End-to-End Presale Tested",
-  "WalletConnect v2 Supported",
-  "USDT Purchase Flow",
-  "Batch Transition Keeper",
-  "Reward Pool Integration",
-  "Recorder Entries",
-  "Treasury Transparency",
-  "Vesting Logic",
-  "Public Testnet Deployment",
+  ["Testing Overview", "/docs/testing/README.md"],
+  ["Final Test Report", "/docs/testing/FINAL_TEST_REPORT.md"],
+  ["Final Summary", "/docs/testing/FINAL_SUMMARY.md"],
+  ["Test Matrix", "/docs/testing/TEST_MATRIX.md"],
+  ["Evidence Index", "/docs/testing/EVIDENCE_INDEX.md"],
+  ["Known Limitations", "/docs/testing/KNOWN_LIMITATIONS.md"],
 ];
 
 const status = [
@@ -169,15 +166,15 @@ export default function SecurityVerification() {
 
           <Card title="Testing Status">
             <div className="grid gap-3 sm:grid-cols-2">
-              {checks.map((item) => (
+              {checks.map(([name, href]) => (
                 <a
-                  key={item}
-                  href="https://github.com/Diamond-Data-Chain"
+                  key={name}
+                  href={href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="rounded-xl border border-slate-800 bg-black/35 p-3 text-sm text-slate-300 hover:border-amber-400/60 hover:text-amber-200"
                 >
-                  ✓ {item}
+                  ✓ {name}
                 </a>
               ))}
             </div>
