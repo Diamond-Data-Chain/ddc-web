@@ -19,7 +19,7 @@ export const ROADMAP_PHASES = [
   {
     quarter: "Q2 2026",
     title: "Public Testnet & Presale Launch",
-    status: "active" as RoadmapStatus,
+    status: "completed" as RoadmapStatus,
     color: "green",
     icon: "🚀",
     items: [
@@ -34,7 +34,7 @@ export const ROADMAP_PHASES = [
   {
     quarter: "Q3 2026",
     title: "Presale Completion & Security Validation",
-    status: "upcoming" as RoadmapStatus,
+    status: "active" as RoadmapStatus,
     color: "yellow",
     icon: "🛡",
     items: [
