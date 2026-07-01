@@ -14,6 +14,7 @@ const navLinks = [
   { href: "#roadmap", label: "Roadmap" },
   { href: "#investor", label: "Investor" },
   { href: "#developers", label: "Developers" },
+ { href: "#verification", label: "Verify" },
   { href: "#faq", label: "FAQ" },
 ];
 
