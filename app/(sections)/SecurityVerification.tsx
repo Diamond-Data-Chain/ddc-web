@@ -133,16 +133,20 @@ export default function SecurityVerification() {
           <Card title="Security Model">
             <div className="grid gap-3 sm:grid-cols-2">
               {[
-                "3/5 Multisig Treasury",
-                "Permissionless Batch Advancement",
-                "Deterministic Vesting",
-                "On-chain Reward Pool",
-                "Immutable Recorder Entries",
-                "Daily Treasury Commitments",
-              ].map((item) => (
-                <div key={item} className="rounded-xl border border-slate-800 bg-black/35 p-3 text-sm text-slate-300">
+                ["/treasury","3/5 Multisig Treasury"],
+                ["/testing","Permissionless Batch Advancement"],
+                ["/vesting","Deterministic Vesting"],
+                ["/reward-pool-ddc-token","On-chain Reward Pool"],
+                ["/my-record","Immutable Recorder Entries"],
+                ["/daily-commits","Daily Treasury Commitments"],
+              ].map(([href,item]) => (
+                <a
+                  key={item}
+                  href={href}
+                  className="rounded-xl border border-slate-800 bg-black/35 p-3 text-sm text-slate-300 hover:border-amber-400/60 hover:text-amber-200"
+                >
                   ✓ {item}
-                </div>
+                </a>
               ))}
             </div>
           </Card>
