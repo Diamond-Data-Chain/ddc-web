@@ -102,7 +102,7 @@ export default function SecurityVerification() {
                 <a
                   key={addr}
                   href={`${bsc}${addr}`}
-                  target="_blank"
+                  target="_self"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
                 >
@@ -119,7 +119,7 @@ export default function SecurityVerification() {
                 <a
                   key={name}
                   href={href}
-                  target="_blank"
+                  target="_self"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
                 >
@@ -170,7 +170,7 @@ export default function SecurityVerification() {
                 <a
                   key={name}
                   href={href}
-                  target="_blank"
+                  target="_self"
                   rel="noopener noreferrer"
                   className="rounded-xl border border-slate-800 bg-black/35 p-3 text-sm text-slate-300 hover:border-amber-400/60 hover:text-amber-200"
                 >
