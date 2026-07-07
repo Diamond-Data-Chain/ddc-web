@@ -119,3 +119,21 @@ Architecture confirmation:
 - Presale address cannot be changed after setPresaleOnce().
 - Burn-locked and reward-eligible accounting is deterministic.
 - No public withdrawal function found in active RewardPool contract.
+
+---
+
+## Contract audit: contracts/DDCToken.sol
+
+STATUS: VERIFIED
+
+Checked:
+- Fixed supply ERC20
+- Total supply minted once in constructor
+- No onlyOwner functions
+- No post-deployment mint
+- No admin burn
+- No pause
+
+Architecture confirmation:
+- Token supply is immutable after deployment.
+- Token contract has no privileged administrative control.
