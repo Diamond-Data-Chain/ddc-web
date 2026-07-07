@@ -61,3 +61,12 @@ BLOCKER_MAINNET_OWNER_TRANSFER_TO_SAFE=YES
 TEAM_VAULT_BENEFICIARY=0x06bC0482f31CA4a4a1A1A5A8231B5795E776Ba3A
 TEAM_VAULT_BENEFICIARY_STATUS=INTENTIONAL
 TEAM_VAULT_RULE=Team coins vest deterministically to the declared team beneficiary. Safe/DAO must not be able to arbitrarily stop the vested team claim path.
+
+## Presale treasury sweep rule
+LIVE_PAYMENT_ASSET=USDT_ONLY
+BNB_BUY_STATUS=DISABLED_FOR_LIVE_FLOW
+TREASURY_SWEEP_THRESHOLD_USDT=10000
+SWEEP_FUNCTION=sweepRaisedFundsToTreasury()
+SWEEP_PERMISSION=PERMISSIONLESS
+SWEEP_DESTINATION=TREASURY
+SWEEP_REASON=When presale USDT balance reaches threshold, anyone may trigger transfer to treasury; funds cannot be redirected by caller.
