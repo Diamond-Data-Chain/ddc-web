@@ -75,3 +75,27 @@ PENDING
 ### Env / deployment
 PENDING
 
+
+---
+
+## Contract audit: contracts/presale/DDCPresaleVesting.sol
+
+STATUS: VERIFIED
+
+Checked:
+- pause(): onlyOwner
+- unpause(): onlyOwner
+- setTGE(uint64): onlyOwner, one-time TGE activation
+- buy flow: public, nonReentrant, whenNotPaused
+- claim(): public, nonReentrant
+- finalize(): permissionless, nonReentrant
+- sweepRaisedFundsToTreasury(): permissionless, nonReentrant
+- withdrawRaisedFunds(): treasury-only, nonReentrant, after finalized
+
+Architecture confirmation:
+- Live payment asset is USDT-only.
+- BNB buy is not part of live flow.
+- Treasury sweep at 10,000 USDT is intentional.
+- sweepRaisedFundsToTreasury() is permissionless by design and always sends funds to treasury.
+- finalize() is permissionless by design.
+- pause/unpause affects buy flow, not claim/finalize.
