@@ -99,3 +99,23 @@ Architecture confirmation:
 - sweepRaisedFundsToTreasury() is permissionless by design and always sends funds to treasury.
 - finalize() is permissionless by design.
 - pause/unpause affects buy flow, not claim/finalize.
+
+---
+
+## Contract audit: contracts/DDCRewardPool.sol
+
+STATUS: VERIFIED
+
+Checked:
+- setPresaleOnce(address): onlyOwner, one-time only
+- accountPresaleReconciliation(uint256,uint256): onlyPresale
+- totalAccounted(): view only
+- unaccountedBalance(): view only
+- remainingPresaleBurnTarget(): view only
+- remainingGlobalBurnCapacity(): view only
+
+Architecture confirmation:
+- RewardPool accepts presale reconciliation only from configured Presale.
+- Presale address cannot be changed after setPresaleOnce().
+- Burn-locked and reward-eligible accounting is deterministic.
+- No public withdrawal function found in active RewardPool contract.
