@@ -1,36 +1,59 @@
-# DDC Decisions Log (v1)
+# DDC Decisions Log
 
-## Presale Architecture
-- DDCPresaleVesting is single source of truth for presale logic
-- No manual batch manipulation (no setBatch in production)
-- Batch progression is deterministic (time + sold-out logic)
+## D-001 — Presale purchase asset
+Status: Locked
 
-## Token
-- DDCToken is fixed supply (mint only in constructor)
-- No post-deploy mint possible
+Decision:
+Live presale accepts USDT only.
 
-## TGE
-- setTGE can be called once
-- Must be in the future
-- Claim disabled until TGE
+Notes:
+BNB purchase path is not part of the live production flow because the USDT pricing model is the canonical accounting unit.
 
-## Vesting
-- 50% burn allocation
-- 50% vesting allocation
-- Claimable only after TGE
+---
 
-## Finalize
-- Permissionless
-- Only after last batch
-- No admin override
+## D-002 — Presale start
+Status: Locked
 
-## Admin / Security
-- No hidden mint
-- No upgradeability
-- No owner manipulation of core logic
+Decision:
+Presale is started exactly once using startPresaleOnce(uint64).
 
-## Scripts Policy
-- scripts/ contains ONLY production flow
-- All test/mock scripts moved to archive_mock_legacy
+---
 
-- withdrawRaisedFunds controlled by multisig owner (temporary v1 constraint)
+## D-003 — UI policy
+Status: Locked
+
+Decision:
+No design changes during production readiness. Only bug fixes, wiring, and runtime fixes.
+
+---
+
+## D-004 — Team allocation
+Status: Locked
+
+Decision:
+Team vesting beneficiary is intentionally not the Treasury Safe.
+
+Verified:
+0x06bC0482f31CA4a4a1A1A5A8231B5795E776Ba3A
+
+---
+
+## D-005 — Advisors allocation
+Status: Locked
+
+Decision:
+Advisors beneficiary is the Treasury Safe.
+
+Verified:
+0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f
+
+---
+
+## D-006 — Treasury sweep
+Status: Locked
+
+Decision:
+USDT accumulated in the Presale contract is swept to Treasury after reaching the configured threshold.
+
+Notes:
+Live accounting is USDT-based.
