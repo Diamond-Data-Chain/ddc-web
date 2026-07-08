@@ -173,3 +173,27 @@ Verified:
 - tgeTimestamp = 0
 - presale token balance = 102.4M DDC
 - reward token balance = 51.2M DDC
+
+---
+
+## Deployment pipeline audit: scripts/deploy_prod.js
+
+STATUS: REVIEW REQUIRED
+
+Verified:
+- Deploys DDCToken
+- Deploys DDCRewardPool
+- Deploys DDCPresaleVesting
+- Links RewardPool to Presale via setPresaleOnce()
+- Uses env fallback for TREASURY / NEXT_PUBLIC_TREASURY_ADDRESS
+- Uses env fallback for USDT / NEXT_PUBLIC_USDT_ADDRESS
+
+Missing for complete live presale pipeline:
+- Recorder deployment
+- Recorder wiring to Presale, if required by final live flow
+- Presale DDC funding
+- RewardPool DDC funding
+- Deployment output manifest
+- Post-deploy verification
+- Ownership transfer plan
+- Final env generation
