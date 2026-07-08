@@ -137,3 +137,20 @@ Checked:
 Architecture confirmation:
 - Token supply is immutable after deployment.
 - Token contract has no privileged administrative control.
+
+---
+
+## ABI audit
+
+STATUS: VERIFIED
+
+Checked:
+- Presale ABI duplicate removed after identical SHA-256 confirmation.
+- Active Presale ABI source standardized to app/abi/ddcPresaleVesting.json.
+- app/abi/ddcPresaleVesting.ts wrapper now imports active ABI file.
+- Mock Presale ABI archived.
+- Remaining ABI files retained intentionally before live freeze to avoid destabilizing working flow.
+- Production build passed after ABI cleanup.
+
+Build:
+npm run build = PASS
