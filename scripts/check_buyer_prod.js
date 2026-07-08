@@ -2,18 +2,19 @@ require("dotenv").config({ path: ".env.staging", override: true });
 const hre = require("hardhat");
 
 async function main() {
-  const [buyer] = await hre.ethers.getSigners();
+  const [signer] = await hre.ethers.getSigners();
+  const buyerAddress = process.env.BUYER || signer.address;
   const presaleAddr = process.env.NEXT_PUBLIC_PRESALE_ADDRESS;
 
   const presale = await hre.ethers.getContractAt("DDCPresaleVesting", presaleAddr);
 
-  const totalPurchased = await presale.totalPurchased(buyer.address);
-  const principal = await presale.vestingPrincipal(buyer.address);
-  const claimable = await presale.claimable(buyer.address);
-  const claimed = await presale.claimed(buyer.address);
-  const locked = await presale.locked(buyer.address);
+  const totalPurchased = await presale.totalPurchased(buyerAddress);
+  const principal = await presale.vestingPrincipal(buyerAddress);
+  const claimable = await presale.claimable(buyerAddress);
+  const claimed = await presale.claimed(buyerAddress);
+  const locked = await presale.locked(buyerAddress);
 
-  console.log("buyer:", buyer.address);
+  console.log("buyer:", buyerAddress);
   console.log("totalPurchased:", totalPurchased.toString());
   console.log("vestingPrincipal:", principal.toString());
   console.log("claimable:", claimable.toString());
