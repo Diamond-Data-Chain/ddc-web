@@ -154,3 +154,22 @@ Checked:
 
 Build:
 npm run build = PASS
+
+---
+
+## Scripts audit note
+
+STATUS: VERIFIED WITH HARDHAT NETWORK FLAG
+
+Production/staging scripts that use Hardhat runtime must be executed with explicit network:
+
+npx hardhat run scripts/check_prod_state.js --network bscTestnet
+npx hardhat run scripts/check_buyer_prod.js --network bscTestnet
+
+Direct node execution is not valid for these scripts because Hardhat defaults to its local/default provider and may return 0x for deployed BSC Testnet contracts.
+
+Verified:
+- currentBatch = 8
+- tgeTimestamp = 0
+- presale token balance = 102.4M DDC
+- reward token balance = 51.2M DDC
