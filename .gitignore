@@ -20,7 +20,7 @@ npm-debug.log*
 # non-web / local archives
 artifacts
 cache
-contracts
+# contracts
 contracts_bundle.tar.gz
 scripts_archive
 import_fix_backup_*.tgz
@@ -38,9 +38,9 @@ DDC_*.rtf
 DDC_HANDOFF_NEXT_CHAT.md
 
 # contracts repo only
-hardhat.config.js
-hardhat.config.bscTestnet.js
-scripts
+# hardhat.config.js
+# hardhat.config.bscTestnet.js
+# scripts
 
 # archived
 archived_routes
