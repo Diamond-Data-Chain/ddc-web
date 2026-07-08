@@ -7,7 +7,7 @@ import PresaleFinalizeStatus from "@/components/presale/PresaleFinalizeStatus";
 import { ethers, BrowserProvider, Contract, formatEther, formatUnits, parseEther, parseUnits } from "ethers";
 import { useWallet } from "../WalletProvider";
 
-import presaleArtifact from "@/app/abi/DDCPresaleVestingABI.json";
+import presaleArtifact from "@/app/abi/ddcPresaleVesting.json";
 
 
 // iz JSON artefakta uzimamo samo .abi niz
