@@ -1,0 +1,477 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+// TODO(WP): Confirm Recorder integration/projectId derivation in WP/Addendum.
+interface IDDCRecorder {
+  function recordPresalePurchase(
+    bytes32 projectId,
+    address buyer,
+    uint256 ddcAmount,
+    address payAsset,
+    uint256 payAmount,
+    uint8 payMethod,
+    bytes32 memoHash,
+    bytes32 sourceRef,
+    uint64 ts
+  ) external;
+}
+
+
+import {IDDCPresaleVesting} from "../interfaces/IDDCPresaleVesting.sol";
+
+interface IERC20Like {
+  function transferFrom(address from, address to, uint256 amount) external returns (bool);
+  function transfer(address to, uint256 amount) external returns (bool);
+  function balanceOf(address owner) external view returns (uint256);
+}
+
+/// @notice Local mock that implements the on-chain interface so the web app can be tested.
+///         Not for production.
+contract DDCPresaleVestingMock is IDDCPresaleVesting {
+  
+  
+  // --- Admin (mock) ---
+  // TODO(WP): replace with multisig/Ownable wiring in production presale contract.
+  address public admin;
+
+  modifier onlyAdmin() {
+    require(msg.sender == admin, "not admin");
+    _;
+  }
+
+// --- Recorder (evidence layer) ---
+  address public recorder;
+  bytes32 public recorderProjectId;
+  uint256 public purchaseSeq; // unique per-tx sourceRef seed
+
+  event RecorderConfigured(address indexed recorder, bytes32 indexed projectId);
+
+  function setRecorder(address _recorder, bytes32 _projectId) external onlyAdmin {
+    recorder = _recorder;
+    recorderProjectId = _projectId;
+    emit RecorderConfigured(_recorder, _projectId);
+  }
+
+  function _recordPurchase(
+    address buyer,
+    uint256 ddcAmount,
+    address payAsset,
+    uint256 payAmount,
+    uint8 payMethod,
+    bytes32 txId
+  ) internal {
+    // Strict transparency: recorder must be configured
+    require(recorder != address(0), "recorder not set");
+    require(recorderProjectId != bytes32(0), "projectId not set");
+
+    unchecked { purchaseSeq += 1; }
+    uint256 seq = purchaseSeq;
+
+    // memo links to presale txId; sourceRef is unique and deterministic
+    bytes32 memoHash = keccak256(abi.encodePacked("presale:", address(this), txId));
+    bytes32 sourceRef = keccak256(abi.encodePacked(block.chainid, address(this), buyer, txId, seq));
+
+    IDDCRecorder(recorder).recordPresalePurchase(
+      recorderProjectId,
+      buyer,
+      ddcAmount,
+      payAsset,
+      payAmount,
+      payMethod,
+      memoHash,
+      sourceRef,
+      uint64(block.timestamp)
+    );
+  }
+
+address public immutable ddc;
+  address public immutable usdt;
+
+  // finalize state (mock)
+  bool public finalized;
+  uint256 public finalizedTotalSold;
+  uint256 public finalizedUnsoldToRewards;
+
+  // TODO(WP): define exact “month” semantics for production. For local E2E we use 30 days.
+  uint256 private constant MONTH = 30 days;
+  uint256 private constant SEG_1_6 = 6 * MONTH;
+  uint256 private constant SEG_7_12 = 6 * MONTH;
+  uint256 private constant SEG_13_18 = 6 * MONTH;
+  uint256 private constant BPS_DENOM = 10_000;
+
+  // USDT limits (6 decimals)
+  uint256 private constant MIN_USDT = 50 * 1e6;
+  uint256 private constant MAX_USDT = 5000 * 1e6;
+
+  uint8 private _currentBatch = 1;
+  uint8 private _totalBatches = 40;
+
+  mapping(uint8 => Batch) private _batches;
+  VestingParams private _vp;
+
+  struct PurchaseRec {
+    uint64 timestamp;
+    uint8 batchId;
+    uint256 amountDDC; // nominal DDC (pre 50/50 split)
+    uint256 paidUSDT;  // paid in USDT (6 decimals) or native-eq (6 decimals)
+    bytes32 txId;
+  }
+
+  mapping(address => uint256) private _totalPurchasedNominal;
+  mapping(address => uint256) private _claimedVesting; // claimed from vesting principal only (50% of nominal)
+  mapping(address => PurchaseRec[]) private _purchases;
+
+  // Cumulative paid (per wallet per batch) to enforce max per batch per wallet
+  mapping(uint8 => mapping(address => uint256)) private _paidUSDTInBatch;
+
+  constructor(address _ddc, address _usdt, uint64 tge) {
+    admin = msg.sender;
+
+    ddc = _ddc;
+    usdt = _usdt;
+
+    // WP vesting: 10% + 45% + 30% + 15% (TGE anchored)
+    // IMPORTANT:
+    // Vesting must stay frozen until explicit TGE activation.
+    // We therefore deploy with tgeTimestamp = 0 and activate later via setTgeTimestamp(...).
+    _vp = VestingParams({
+      tgeTimestamp: 0,
+      tgeBps: 1000,     // 10%
+      m1_6Bps: 4500,    // 45%
+      m7_12Bps: 3000,   // 30%
+      m13_18Bps: 1500   // 15%
+    });
+  }
+
+  // ---------------- view ----------------
+  function currentBatch() external view returns (uint8) { return _effectiveCurrentBatch(); }
+  function totalBatches() external view returns (uint8) { return _totalBatches; }
+
+  function batchInfo(uint8 batchId) external view returns (Batch memory) {
+    return _batches[batchId];
+  }
+
+  function vestingParams() external view returns (VestingParams memory) {
+    return _vp;
+  }
+
+  // convenience for dashboards (not in interface, harmless)
+  function tgeTimestamp() external view returns (uint64) {
+    return _vp.tgeTimestamp;
+  }
+
+  // nominal (before burn split)
+  function totalPurchased(address user) external view returns (uint256) {
+    return _totalPurchasedNominal[user];
+  }
+
+  // claimed from vesting principal (<= 50% nominal)
+  function claimed(address user) external view returns (uint256) {
+    return _claimedVesting[user];
+  }
+
+  // locked(t) = P - C(t), where P is 50% of nominal and C(t) is unlocked total so far
+  function locked(address user) external view returns (uint256) {
+    uint256 p = _vestingPrincipal(_totalPurchasedNominal[user]);
+    uint256 unlocked = _unlockedTotal(p, block.timestamp);
+    return p > unlocked ? (p - unlocked) : 0;
+  }
+
+  // claimable(t) = max(0, C(t) - claimed)
+  function claimable(address user) external view returns (uint256) {
+    return _claimableNow(user, block.timestamp);
+  }
+
+  function _claimableNow(address user, uint256 ts) internal view returns (uint256) {
+    if (ts < _vp.tgeTimestamp) return 0;
+
+    uint256 p = _vestingPrincipal(_totalPurchasedNominal[user]);
+    uint256 unlocked = _unlockedTotal(p, ts);
+
+    uint256 c = _claimedVesting[user];
+    if (c >= unlocked) return 0;
+    return unlocked - c;
+  }
+
+  // vesting principal P = aggregated buyer-claimable amount (50% of nominal purchased)
+  function _vestingPrincipal(uint256 nominal) internal pure returns (uint256) {
+    return nominal / 2;
+  }
+
+  // returns unlocked total (amount) capped to principal
+  function _unlockedTotal(uint256 principal, uint256 ts) internal view returns (uint256) {
+    if (principal == 0) return 0;
+    if (ts < _vp.tgeTimestamp) return 0;
+
+    uint256 dt = ts - uint256(_vp.tgeTimestamp);
+
+    uint256 unlockedBps = uint256(_vp.tgeBps); // 10% immediately
+
+    // +45% linear months 1-6
+    unlockedBps += (uint256(_vp.m1_6Bps) * _clamp01e18(dt, SEG_1_6)) / 1e18;
+
+    // +30% linear months 7-12
+    if (dt > SEG_1_6) {
+      unlockedBps += (uint256(_vp.m7_12Bps) * _clamp01e18(dt - SEG_1_6, SEG_7_12)) / 1e18;
+    }
+
+    // +15% linear months 13-18
+    if (dt > SEG_1_6 + SEG_7_12) {
+      unlockedBps += (uint256(_vp.m13_18Bps) * _clamp01e18(dt - SEG_1_6 - SEG_7_12, SEG_13_18)) / 1e18;
+    }
+
+    if (unlockedBps > BPS_DENOM) unlockedBps = BPS_DENOM;
+    return (principal * unlockedBps) / BPS_DENOM;
+  }
+
+  // returns [0..1] scaled to 1e18
+  function _clamp01e18(uint256 x, uint256 denom) internal pure returns (uint256) {
+    if (denom == 0) return 0;
+    if (x >= denom) return 1e18;
+    return (x * 1e18) / denom;
+  }
+
+  function userPurchases(address user, uint256 offset, uint256 limit)
+    external
+    view
+    returns (Purchase[] memory)
+  {
+    PurchaseRec[] storage arr = _purchases[user];
+    if (offset >= arr.length) {
+      return new Purchase[](0);
+    }
+
+    uint256 end = offset + limit;
+    if (end > arr.length) end = arr.length;
+
+    uint256 n = end - offset;
+    Purchase[] memory out = new Purchase[](n);
+
+    for (uint256 i = 0; i < n; i++) {
+      PurchaseRec storage p0 = arr[offset + i];
+      out[i] = Purchase({
+        timestamp: p0.timestamp,
+        batchId: p0.batchId,
+        amountDDC: p0.amountDDC,
+        paidUSDT: p0.paidUSDT,
+        txId: p0.txId
+      });
+    }
+    return out;
+  }
+
+  // ---------------- admin-ish helpers (mock) ----------------
+  function setTgeTimestamp(uint64 newTge) external {
+    _vp.tgeTimestamp = newTge;
+  }
+
+  function setBatch(uint8 batchId, uint256 priceInWeiPerDDC, uint256 hardCap) external {
+    require(batchId >= 1 && batchId <= _totalBatches, "bad batch");
+    Batch storage b = _batches[batchId];
+
+    // NOTE: in this repo ABI, price param is USDT price (6 decimals) despite name.
+    b.priceUSDT = priceInWeiPerDDC;
+    b.baseAllocationDDC = hardCap;
+    b.hardCapDDC = hardCap;
+
+    if (b.startTime == 0) b.startTime = uint64(block.timestamp);
+    if (b.endTime == 0) b.endTime = uint64(block.timestamp + 368640); // 102.4h
+
+    b.isActive = true;
+  }
+
+  // fast local helper (only once, no duplicates)
+  function setBatchTimes(uint8 batchId, uint64 startTime, uint64 endTime) external {
+    require(batchId >= 1 && batchId <= _totalBatches, "bad batch");
+    Batch storage b = _batches[batchId];
+    b.startTime = startTime;
+    b.endTime = endTime;
+    b.isActive = true;
+  }
+
+  function closeBatch(uint8 batchId) external {
+    _batches[batchId].isActive = false;
+  }
+
+  // rollover helper (WP behavior: on time-expiry, unsold moves to next batch cap)
+  function _rolloverUnsold(uint8 fromBatch, uint8 toBatch) internal returns (uint256 unsold) {
+    Batch storage b = _batches[fromBatch];
+    if (b.hardCapDDC > b.soldDDC) {
+      unsold = b.hardCapDDC - b.soldDDC;
+      if (unsold > 0) {
+        Batch storage nb = _batches[toBatch];
+        nb.hardCapDDC += unsold;
+        nb.baseAllocationDDC += unsold;
+        emit BatchRollover(fromBatch, toBatch, unsold);
+      }
+    }
+  }
+
+  // finalize helper: emit PresaleFinished once last batch ends
+  function _finalizeIfNeeded(uint256 totalSold, uint256 unsoldToRewards) internal {
+    if (finalized) return;
+    finalized = true;
+    finalizedTotalSold = totalSold;
+    finalizedUnsoldToRewards = unsoldToRewards;
+    emit PresaleFinished(totalSold, unsoldToRewards, block.timestamp);
+  }
+
+  // @ddc-effective-soldout
+  // If remaining amount is worth < MIN_USDT, nobody can buy it due to min buy => treat as sold-out for local testing.
+  function _effectiveSoldOut(uint256 priceUSDT, uint256 hardCap, uint256 sold) internal pure returns (bool) {
+    if (hardCap == 0) return false;
+    if (sold >= hardCap) return true;
+    if (priceUSDT == 0) return false;
+    uint256 remainingDDC = hardCap - sold;
+    uint256 remainingUSDT = (remainingDDC * priceUSDT) / 1e18;
+    return remainingUSDT < MIN_USDT;
+  }
+
+  function _effectiveCurrentBatch() internal view returns (uint8) {
+    uint8 id = _currentBatch;
+
+    while (true) {
+      Batch storage b = _batches[id];
+      bool timeEnded = (b.endTime != 0 && block.timestamp >= b.endTime);
+      bool soldOut = (b.hardCapDDC > 0 && b.soldDDC >= b.hardCapDDC) || _effectiveSoldOut(b.priceUSDT, b.hardCapDDC, b.soldDDC);
+
+      if (!timeEnded && !soldOut) return id;
+      if (id >= _totalBatches) return id;
+
+      id += 1;
+    }
+  }
+
+  function _syncCurrentBatch() internal {
+    while (true) {
+      Batch storage b = _batches[_currentBatch];
+
+      bool timeEnded = (b.endTime != 0 && block.timestamp >= b.endTime);
+      bool soldOut = (b.hardCapDDC > 0 && b.soldDDC >= b.hardCapDDC) || _effectiveSoldOut(b.priceUSDT, b.hardCapDDC, b.soldDDC);
+
+      if (!timeEnded && !soldOut) return;
+
+      uint8 from = _currentBatch;
+
+      if (_currentBatch >= _totalBatches) {
+        uint256 totalSold = 0;
+        uint256 totalCap = 0;
+        for (uint8 i = 1; i <= _totalBatches; i++) {
+          Batch storage bi = _batches[i];
+          totalSold += bi.soldDDC;
+          totalCap += bi.hardCapDDC;
+        }
+        uint256 unsoldToRewards = totalCap > totalSold ? (totalCap - totalSold) : 0;
+        _finalizeIfNeeded(totalSold, unsoldToRewards);
+        return;
+      }
+
+      uint8 to = _currentBatch + 1;
+
+      b.isActive = false;
+
+      if (timeEnded) {
+        _rolloverUnsold(from, to);
+      }
+
+      Batch storage nb = _batches[to];
+      if (nb.startTime == 0) nb.startTime = uint64(block.timestamp);
+      if (nb.endTime == 0 || nb.endTime <= nb.startTime) nb.endTime = uint64(uint256(nb.startTime) + 368640);
+      nb.isActive = true;
+
+      _currentBatch = to;
+      emit BatchAdvanced(from, to, block.timestamp);
+    }
+  }
+
+  function advanceIfEnded() external {
+    _syncCurrentBatch();
+  }
+
+  // ---------------- buy / claim ----------------
+    function buyWithUSDT(uint8 batchId, uint256 usdtAmount) external {
+    require(batchId >= 1 && batchId <= _totalBatches, "bad batch");
+    Batch storage b = _batches[batchId];
+    require(b.isActive, "batch not active");
+    require(b.priceUSDT > 0, "price=0");
+    require(usdtAmount > 0, "amount=0");
+
+    // per-wallet per-batch max (in USDT 6 decimals)
+    uint256 newTotal = _paidUSDTInBatch[batchId][msg.sender] + usdtAmount;
+    require(newTotal <= MAX_USDT, "max 5000 usdt");
+    _paidUSDTInBatch[batchId][msg.sender] = newTotal;
+
+    uint256 remainingDDC = b.hardCapDDC > b.soldDDC ? (b.hardCapDDC - b.soldDDC) : 0;
+    require(remainingDDC > 0, "sold out");
+
+    // normal minimum buy check, EXCEPT when remaining is "dust" (worth < MIN_USDT)
+    // In dust case we allow < MIN_USDT ONLY if the amount exactly closes the batch.
+    uint256 minDDC = (MIN_USDT * 1e18) / b.priceUSDT; // how many DDC you get for min USDT
+    bool dust = remainingDDC < minDDC;
+
+    uint256 amountDDC;
+    if (!dust) {
+      require(usdtAmount >= MIN_USDT, "min 50 usdt");
+      amountDDC = (usdtAmount * 1e18) / b.priceUSDT;
+      require(amountDDC > 0, "amountDDC=0");
+      require(amountDDC <= remainingDDC, "sold out");
+    } else {
+      // exact USDT needed to buy all remaining: ceil(remainingDDC * priceUSDT / 1e18)
+      uint256 needed = (remainingDDC * b.priceUSDT + (1e18 - 1)) / 1e18;
+      require(usdtAmount == needed, "dust: use exact amount");
+      amountDDC = remainingDDC; // close batch
+    }
+
+    require(IERC20Like(usdt).transferFrom(msg.sender, address(this), usdtAmount), "usdt tf failed");
+
+    b.soldDDC += amountDDC;
+    _totalPurchasedNominal[msg.sender] += amountDDC;
+
+    bytes32 txId = keccak256(abi.encodePacked(msg.sender, batchId, usdtAmount, block.timestamp, block.number));
+    _purchases[msg.sender].push(PurchaseRec(uint64(block.timestamp), batchId, amountDDC, usdtAmount, txId));
+
+    emit Purchased(msg.sender, batchId, amountDDC, usdtAmount, true, txId, block.timestamp);
+  
+    _recordPurchase(msg.sender, amountDDC, address(usdt), usdtAmount, 0, txId);
+}
+
+  function buyWithNative(uint8 batchId) external payable {
+    require(batchId >= 1 && batchId <= _totalBatches, "bad batch");
+    Batch storage b = _batches[batchId];
+    require(b.isActive, "batch not active");
+    require(msg.value > 0, "value=0");
+    require(b.priceUSDT > 0, "price=0");
+
+    // Mock conversion: 1 ETH == 2000 USDT (6 decimals)
+    uint256 usdtEquivalent = (msg.value * 2000 * 1e6) / 1e18;
+
+    require(usdtEquivalent >= MIN_USDT, "min 50 usdtEq");
+    uint256 newTotal = _paidUSDTInBatch[batchId][msg.sender] + usdtEquivalent;
+    require(newTotal <= MAX_USDT, "max 5000 usdtEq");
+    _paidUSDTInBatch[batchId][msg.sender] = newTotal;
+
+    uint256 amountDDC = (usdtEquivalent * 1e18) / b.priceUSDT;
+    require(amountDDC > 0, "amountDDC=0");
+    require(b.soldDDC + amountDDC <= b.hardCapDDC, "sold out");
+
+    b.soldDDC += amountDDC;
+    _totalPurchasedNominal[msg.sender] += amountDDC;
+
+    bytes32 txId = keccak256(abi.encodePacked(msg.sender, batchId, msg.value, block.timestamp, block.number));
+    _purchases[msg.sender].push(PurchaseRec(uint64(block.timestamp), batchId, amountDDC, usdtEquivalent, txId));
+
+    emit Purchased(msg.sender, batchId, amountDDC, msg.value, false, txId, block.timestamp);
+  
+    _recordPurchase(msg.sender, amountDDC, address(0), msg.value, 1, txId);
+}
+
+  function claim() external {
+    uint256 can = _claimableNow(msg.sender, block.timestamp);
+    require(can > 0, "nothing claimable");
+
+    _claimedVesting[msg.sender] += can;
+
+    require(IERC20Like(ddc).transfer(msg.sender, can), "ddc transfer failed");
+    emit Claimed(msg.sender, can, block.timestamp);
+  }
+}
