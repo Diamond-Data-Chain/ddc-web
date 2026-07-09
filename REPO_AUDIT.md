@@ -263,3 +263,26 @@ Current repo state:
 
 Decision:
 Do not invent deployment funding logic until treasury payout contracts are either restored, found, or implemented and audited.
+
+---
+
+## Presale activation audit
+
+STATUS: REVIEW REQUIRED
+
+Full-deploy test state:
+- RewardPool is linked to Presale
+- Presale is linked to RewardPool
+- currentBatch = 1
+- paused = false
+- finalized = false
+- tgeTimestamp = 0
+
+Finding:
+Expected startPresaleOnce(uint64) is not present in active DDCPresaleVesting.sol.
+
+Active implementation starts presale through constructor presaleStart_.
+
+Decision required:
+- Either restore/start using startPresaleOnce(uint64)
+- Or explicitly update DECISIONS.md and launch runbook to state that presaleStart is constructor-defined and deployment-time locked.
