@@ -665,6 +665,9 @@ const handleAddNetwork = async () => {
  ? BigInt(Math.round(currentPlan.priceUSDT * 1_000_000))
  : batch?.priceInUSDT ?? 0n;
 
+ const batchStartTs = batch?.startTime ? Number(batch.startTime) : 0;
+ const isPresaleStarted = Boolean(batchStartTs) && nowTs >= batchStartTs;
+
  // Timer calculation: batch duration and remaining time
  let batchDurationHours: string = "102.4"; // default if the contract returns nothing
  let timeLeftLabel: string | null = null;
@@ -1067,7 +1070,7 @@ if (rem > 0) {
  <div className="mt-4 grid grid-cols-2 gap-2">
  <button
  onClick={handleApproveUSDT}
- disabled={loading || !isConnected || isWrongNetwork || !canProceed}
+ disabled={loading || !isConnected || isWrongNetwork || !canProceed || !isPresaleStarted}
  className="w-full rounded-full bg-blue-500/90 px-4 py-3 text-sm font-semibold text-black shadow-xl hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
  >
  Approve USDT
@@ -1081,7 +1084,8 @@ if (rem > 0) {
  isWrongNetwork ||
  !canProceed ||
  !hasAllowance ||
- !batchId
+ !batchId ||
+ !isPresaleStarted
  }
  className="w-full rounded-full bg-emerald-500/90 px-4 py-3 text-sm font-semibold text-black shadow-xl hover:brightness-110 disabled:cursor-not-allowed disabled:opacity-50"
  >
