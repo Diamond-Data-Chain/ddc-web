@@ -57,3 +57,26 @@ USDT accumulated in the Presale contract is swept to Treasury after reaching the
 
 Notes:
 Live accounting is USDT-based.
+
+---
+
+## D-007 — Recorder role
+Status: Locked
+
+Decision:
+Recorder is the DDC record/history layer for presale events.
+
+Recorder does not receive DDC coin allocation.
+
+Notes:
+Recorder exists to preserve verifiable event history and supports DDC as the first use case.
+
+---
+
+## D-008 — Treasury assets
+Status: Locked
+
+Decision:
+Treasury receives the 19.2M DDC Treasury allocation and also receives USDT raised during presale through treasury sweep/withdraw mechanisms.
+
+Monthly Ops, Adamas, and Marketing operational payments are expected to be paid from Treasury USDT funds, not from DDC coin allocation before DDC has market value.
