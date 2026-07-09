@@ -1,3 +1,4 @@
+require("dotenv").config({ path: ".env.staging", override: true });
 const hre = require("hardhat");
 
 function mustAddr(name, value) {
