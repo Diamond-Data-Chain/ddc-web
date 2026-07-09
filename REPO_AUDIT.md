@@ -243,3 +243,23 @@ Checked:
 - no pause function
 - no emergency withdraw
 - no arbitrary owner sweep
+
+---
+
+## Treasury payout contracts audit
+
+STATUS: MISSING / REVIEW REQUIRED
+
+Expected from architecture:
+- Monthly Ops USDT payout, strictly once every 30 days, first payout 30 days after presale start
+- Adamas USDT payout, one-time after presale ends, to locked Adamas address
+- Marketing USDT payout controlled by 3/5 approval / Treasury Safe
+
+Current repo state:
+- Treasury UI expects Monthly Ops and Adamas vault addresses
+- Wallet addresses are locked
+- No active Solidity contract found for Monthly Ops payout
+- No active Solidity contract found for Adamas grant payout
+
+Decision:
+Do not invent deployment funding logic until treasury payout contracts are either restored, found, or implemented and audited.
