@@ -286,3 +286,25 @@ Active implementation starts presale through constructor presaleStart_.
 Decision required:
 - Either restore/start using startPresaleOnce(uint64)
 - Or explicitly update DECISIONS.md and launch runbook to state that presaleStart is constructor-defined and deployment-time locked.
+
+---
+
+## Full deployment pipeline verification
+
+STATUS: VERIFIED
+
+Verified:
+- npm run build = PASS
+- full deployment state = PASS
+- RewardPool linked to Presale
+- Presale linked to RewardPool
+- currentBatch = 1
+- paused = false
+- finalized = false
+- full 256M DDC allocation funded
+- allocation verification PASS
+- deployer DDC remaining = 0
+- all Ownable contracts transferred to Treasury Safe
+
+Treasury Safe:
+0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f
