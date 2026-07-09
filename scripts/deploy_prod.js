@@ -28,8 +28,19 @@ async function main() {
     process.env.USDT || process.env.NEXT_PUBLIC_USDT_ADDRESS
   );
 
+  const TEAM_BENEFICIARY = mustAddr(
+    "TEAM_BENEFICIARY/NEXT_PUBLIC_TEAM_BENEFICIARY_ADDRESS",
+    process.env.TEAM_BENEFICIARY || process.env.NEXT_PUBLIC_TEAM_BENEFICIARY_ADDRESS
+  );
+
+  const ADVISORS_BENEFICIARY = mustAddr(
+    "ADVISORS_BENEFICIARY/NEXT_PUBLIC_ADVISORS_BENEFICIARY_ADDRESS",
+    process.env.ADVISORS_BENEFICIARY || process.env.NEXT_PUBLIC_ADVISORS_BENEFICIARY_ADDRESS
+  );
+
   const latest = await hre.ethers.provider.getBlock("latest");
   const PRESALE_START = Number(latest.timestamp) - 60;
+  const TGE_TIMESTAMP = 0;
 
   const prices = [
     10000,10500,11000,11500,12000,12500,13000,13500,14000,14500,
@@ -68,6 +79,38 @@ async function main() {
   await presale.waitForDeployment();
   const presaleAddr = await presale.getAddress();
   console.log("Presale:", presaleAddr);
+
+  const TeamVesting = await hre.ethers.getContractFactory("DDCTeamVesting");
+  const teamVesting = await TeamVesting.deploy(
+    tokenAddr,
+    TEAM_BENEFICIARY,
+    hre.ethers.parseUnits("32000000", 18),
+    TGE_TIMESTAMP
+  );
+  await teamVesting.waitForDeployment();
+  const teamVestingAddr = await teamVesting.getAddress();
+  console.log("TeamVesting:", teamVestingAddr);
+
+  const AdvisorVesting = await hre.ethers.getContractFactory("DDCAdvisorVesting");
+  const advisorVesting = await AdvisorVesting.deploy(
+    tokenAddr,
+    ADVISORS_BENEFICIARY,
+    hre.ethers.parseUnits("12800000", 18),
+    TGE_TIMESTAMP
+  );
+  await advisorVesting.waitForDeployment();
+  const advisorVestingAddr = await advisorVesting.getAddress();
+  console.log("AdvisorVesting:", advisorVestingAddr);
+
+  const FoundationRelease = await hre.ethers.getContractFactory("DDCFoundationRelease");
+  const foundationRelease = await FoundationRelease.deploy(
+    tokenAddr,
+    hre.ethers.parseUnits("38400000", 18),
+    TGE_TIMESTAMP
+  );
+  await foundationRelease.waitForDeployment();
+  const foundationReleaseAddr = await foundationRelease.getAddress();
+  console.log("FoundationRelease:", foundationReleaseAddr);
 
   const setPresaleTx = await reward.setPresaleOnce(presaleAddr);
   console.log("RewardPool setPresaleOnce tx:", setPresaleTx.hash);
