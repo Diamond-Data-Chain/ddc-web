@@ -197,3 +197,49 @@ Missing for complete live presale pipeline:
 - Post-deploy verification
 - Ownership transfer plan
 - Final env generation
+
+---
+
+## Contract audit: contracts/vesting/DDCTeamVesting.sol
+
+STATUS: VERIFIED
+
+Checked:
+- beneficiary is immutable
+- claim() can only be called by beneficiary
+- setTGEOnce() is onlyOwner and one-time
+- no setBeneficiary function
+- no pause function
+- no emergency withdraw
+- no owner sweep
+
+---
+
+## Contract audit: contracts/vesting/DDCAdvisorVesting.sol
+
+STATUS: VERIFIED
+
+Checked:
+- beneficiary is immutable
+- claim() can only be called by beneficiary
+- setTGEOnce() is onlyOwner and one-time
+- 3-month cliff + 18-month linear vesting
+- no setBeneficiary function
+- no pause function
+- no emergency withdraw
+- no owner sweep
+
+---
+
+## Contract audit: contracts/vesting/DDCFoundationRelease.sol
+
+STATUS: VERIFIED
+
+Checked:
+- setTGEOnce() is onlyOwner and one-time
+- release(address,uint256) is onlyOwner
+- release cannot exceed releasable amount
+- 6-month cliff + 30-month linear release
+- no pause function
+- no emergency withdraw
+- no arbitrary owner sweep
