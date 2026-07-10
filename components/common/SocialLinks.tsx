@@ -29,6 +29,19 @@ const ITEMS: Item[] = [
  </svg>
  ),
  },
+ {
+ key: "telegram",
+ label: "Telegram",
+ href: "https://t.me/DiamondDataChainOrg",
+ svg: (
+ <svg viewBox="0 0 24 24" className="h-5 w-5" aria-hidden="true">
+ <path
+ fill="currentColor"
+ d="M21.6 3.3 18.3 20c-.2 1.2-.9 1.5-1.9.9l-5-3.7-2.4 2.3c-.3.3-.5.5-1 .5l.4-5.1 9.3-8.4c.4-.4-.1-.6-.6-.2L5.6 13.6.7 12.1c-1.1-.3-1.1-1.1.2-1.6L20 3.1c.9-.3 1.8.2 1.6.2Z"
+ />
+ </svg>
+ ),
+ },
  
  {
  key: "youtube",
