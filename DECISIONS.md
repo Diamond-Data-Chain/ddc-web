@@ -80,3 +80,46 @@ Decision:
 Treasury receives the 19.2M DDC Treasury allocation and also receives USDT raised during presale through treasury sweep/withdraw mechanisms.
 
 Monthly Ops, Adamas, and Marketing operational payments are expected to be paid from Treasury USDT funds, not from DDC coin allocation before DDC has market value.
+
+---
+
+## D-009 — Monthly Operations USDT Vault
+Status: Locked
+
+Decision:
+Monthly Operations receives 168,000 USDT per installment, every 30 days,
+starting 30 days after presaleStart, for a maximum of 12 installments.
+
+The release trigger is permissionless. The amount, schedule, payment count,
+and recipient cannot be changed.
+
+Recipient:
+0x9c6778909831FcBd7BC0935a6d68f15A4ABf7bAF
+
+Source:
+Project treasury decision. TODO(WP): not explicitly specified in WP/Addendums.
+
+Affected:
+- contracts/treasury/DDCMonthlyOpsVault.sol
+
+---
+
+## D-010 — Adamas Grant USDT Vault
+Status: Locked
+
+Decision:
+Adamas receives a one-time payment of 1,850,000 USDT after the presale is
+finalized.
+
+The release trigger is permissionless. The amount and recipient cannot be
+changed.
+
+Recipient:
+0x90aDD10eb8742CE37bFd2E66c733f9423D41c3fd
+
+Source:
+Project treasury decision. TODO(WP): not explicitly specified in WP/Addendums.
+
+Affected:
+- contracts/treasury/DDCAdamasGrantVault.sol
+
