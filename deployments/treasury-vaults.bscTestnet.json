@@ -1,0 +1,10 @@
+{
+  "network": "bscTestnet",
+  "chainId": 97,
+  "deployedAt": "2026-07-10T16:09:51.283Z",
+  "deployer": "0xA94568bF1B50a06efDebc5846A1252410A65CA32",
+  "usdt": "0x225064Ea7c9077763059AE8C22553790F6f4661c",
+  "presale": "0xE503d6EF632698E95FCf31344D7874cC808ED4A1",
+  "monthlyOpsVault": "0xC3C435EbE530d0F7Cb29FaE1f56527D5C3c3216D",
+  "adamasGrantVault": "0x210188862ddf1A81EE1FA0426ceab338DBd1cF4f"
+}

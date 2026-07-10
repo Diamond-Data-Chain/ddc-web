@@ -111,6 +111,9 @@ contract DDCMonthlyOpsVault is ReentrancyGuard {
         return MAX_PAYMENTS - paymentsReleased;
     }
 
+    /// @notice Maximum budget across all 12 installments.
+    /// @dev This amount is informational and is NOT required upfront.
+    ///      The vault may be funded incrementally from Treasury USDT inflows.
     function requiredFullFunding() external pure returns (uint256) {
         return PAYMENT_AMOUNT * MAX_PAYMENTS;
     }
