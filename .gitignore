@@ -52,3 +52,6 @@ archived_routes
 *.bak*
 *.fix*
 DDC_HANDOFF_JUNE_2026.md
+
+# local environment backups
+repo_archive/local_env_backups/
