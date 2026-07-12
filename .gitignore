@@ -55,3 +55,6 @@ DDC_HANDOFF_JUNE_2026.md
 
 # local environment backups
 repo_archive/local_env_backups/
+
+# local repository backup packages
+repo_archive/local_backups/
