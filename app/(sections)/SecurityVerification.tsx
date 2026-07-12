@@ -2,15 +2,16 @@
 
 import { motion } from "framer-motion";
 
-const bsc = "https://testnet.bscscan.com/address/";
+const explorer =
+  process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL ||
+  "https://testnet.bscscan.com";
 
 const contracts = [
-  ["DDC Token", "0xF4350C295341202838d84D160Cd9a200b818181F"],
-  ["Presale", "0x1ACaC5012dC01f0F9440815EDBe7c345E47C18D3"],
-  ["Reward Pool", "0xda74A2326CAdeb3e7cfDD68EC7A44C7079C680A2"],
-  ["Recorder", "0x5bee2DFd36f97F2A14F31B8E16c7bd771ddF9369"],
-  ["USDT Test Token", "0x225064Ea7c9077763059AE8C22553790F6f4661c"],
-];
+  ["DDC Token / Recorder", process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || ""],
+  ["Presale", process.env.NEXT_PUBLIC_PRESALE_ADDRESS || ""],
+  ["Reward Pool", process.env.NEXT_PUBLIC_REWARD_POOL_ADDRESS || ""],
+  ["USDT Test Token", process.env.NEXT_PUBLIC_USDT_ADDRESS || ""],
+].filter(([, address]) => Boolean(address));
 
 const docs = [
   ["GitHub Repository", "https://github.com/Diamond-Data-Chain"],
@@ -101,7 +102,7 @@ export default function SecurityVerification() {
               {contracts.map(([name, addr]) => (
                 <a
                   key={addr}
-                  href={`${bsc}${addr}`}
+                  href={`${explorer}/address/${addr}`}
                   target="_self"
                   rel="noopener noreferrer"
                   className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
@@ -210,7 +211,7 @@ export default function SecurityVerification() {
             READY FOR PUBLIC PRESALE
           </div>
           <p className="mx-auto mt-3 max-w-3xl text-sm text-emerald-100/80">
-            Public testnet, visible smart contracts, open documentation,
+            Publicly verifiable smart contracts, open documentation,
             deterministic batch logic, treasury transparency, and operational
             verification are available for independent review.
           </p>
