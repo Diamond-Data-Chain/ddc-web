@@ -123,3 +123,37 @@ Project treasury decision. TODO(WP): not explicitly specified in WP/Addendums.
 Affected:
 - contracts/treasury/DDCAdamasGrantVault.sol
 
+---
+
+## D-011 — TGE activation is separate from Presale
+
+Status: Locked
+
+Decision:
+Presale launch does not activate vesting.
+
+During Presale:
+- tgeTimestamp remains 0
+- buyer claimable remains 0
+- Team, Advisors and Foundation vesting remain inactive
+
+TGE is activated once, in the future, when the DDC network is formally launched.
+
+The same protocol-wide TGE timestamp must be set once on:
+- DDCPresaleVesting
+- DDCTeamVesting
+- DDCAdvisorVesting
+- DDCFoundationRelease
+
+After it is set, the TGE timestamp is immutable.
+
+Source:
+Whitepaper vesting framework and Addendums v1.0.1, v1.0.2 and v1.0.3.
+
+Affected:
+- contracts/presale/DDCPresaleVesting.sol
+- contracts/vesting/DDCTeamVesting.sol
+- contracts/vesting/DDCAdvisorVesting.sol
+- contracts/vesting/DDCFoundationRelease.sol
+- PRESALE_LAUNCH_RUNBOOK.md
+
