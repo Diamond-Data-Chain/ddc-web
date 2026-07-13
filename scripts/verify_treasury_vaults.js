@@ -1,5 +1,7 @@
+const path = require("path");
+
 require("dotenv").config({
-  path: ".env.staging.full-deploy-test",
+  path: path.resolve(process.env.ENV_FILE || ".env.production"),
   override: true,
 });
 

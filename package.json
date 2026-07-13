@@ -6,7 +6,11 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "restart:dev": "fuser -k 3000/tcp || true && rm -rf .next && next dev"
+    "restart:dev": "fuser -k 3000/tcp || true && rm -rf .next && next dev",
+    "presale:deploy:testnet": "ENV_FILE=.env.staging.full-deploy-test EXPECTED_CHAIN_ID=97 hardhat run scripts/deploy_prod.js --network bscTestnet",
+    "presale:deploy:mainnet": "ENV_FILE=.env.production EXPECTED_CHAIN_ID=56 hardhat run scripts/deploy_prod.js --network bscMainnet",
+    "presale:launch:testnet": "ENV_FILE=.env.staging.full-deploy-test EXPECTED_CHAIN_ID=97 node scripts/presale_launch.js",
+    "presale:launch:mainnet": "ENV_FILE=.env.production EXPECTED_CHAIN_ID=56 node scripts/presale_launch.js"
   },
   "dependencies": {
     "@openzeppelin/contracts": "^5.4.0",

@@ -1,4 +1,9 @@
-require("dotenv").config({ path: ".env.staging.full-deploy-test", override: true });
+const path = require("path");
+
+require("dotenv").config({
+  path: path.resolve(process.env.ENV_FILE || ".env.production"),
+  override: true,
+});
 const hre = require("hardhat");
 
 function must(name) {

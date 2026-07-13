@@ -1,12 +1,30 @@
-require("dotenv").config({ path: ".env.staging.full-deploy-test", override: true });
+const path = require("path");
+
+require("dotenv").config({
+  path: path.resolve(process.env.ENV_FILE || ".env.production"),
+  override: true,
+});
 const hre = require("hardhat");
 
 const EXECUTE = process.env.EXECUTE === "true";
 
-const SAFE = "0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f";
+function mustAddress(name, value) {
+  if (!value) throw new Error(`Missing ${name}`);
+
+  try {
+    return hre.ethers.getAddress(value);
+  } catch {
+    throw new Error(`Invalid ${name}: ${value}`);
+  }
+}
 
 async function main() {
   const [signer] = await hre.ethers.getSigners();
+
+  const SAFE = mustAddress(
+    "NEXT_PUBLIC_TREASURY_ADDRESS",
+    process.env.NEXT_PUBLIC_TREASURY_ADDRESS
+  );
 
   const items = {
     RewardPool: process.env.NEXT_PUBLIC_REWARD_POOL_ADDRESS,
