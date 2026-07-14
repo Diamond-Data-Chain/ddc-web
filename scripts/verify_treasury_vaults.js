@@ -13,9 +13,6 @@ const EXPECTED_MONTHLY_RECIPIENT =
 const EXPECTED_ADAMAS_RECIPIENT =
   "0x90aDD10eb8742CE37bFd2E66c733f9423D41c3fd";
 
-const EXPECTED_MONTHLY_AMOUNT = hre.ethers.parseUnits("168000", 6);
-const EXPECTED_MONTHLY_TOTAL = hre.ethers.parseUnits("2016000", 6);
-const EXPECTED_ADAMAS_AMOUNT = hre.ethers.parseUnits("1850000", 6);
 const EXPECTED_INTERVAL = 30n * 24n * 60n * 60n;
 const EXPECTED_MAX_PAYMENTS = 12n;
 
@@ -85,9 +82,25 @@ async function main() {
 
   const usdt = new hre.ethers.Contract(
     usdtAddress,
-    ["function balanceOf(address) view returns (uint256)"],
+    [
+      "function decimals() view returns (uint8)",
+      "function balanceOf(address) view returns (uint256)",
+    ],
     hre.ethers.provider
   );
+
+  const decimals = Number(await usdt.decimals());
+
+  if (decimals < 6 || decimals > 18) {
+    throw new Error(`Unsupported USDT decimals: ${decimals}`);
+  }
+
+  const expectedMonthlyAmount =
+    hre.ethers.parseUnits("168000", decimals);
+  const expectedMonthlyTotal =
+    hre.ethers.parseUnits("2016000", decimals);
+  const expectedAdamasAmount =
+    hre.ethers.parseUnits("1850000", decimals);
 
   console.log("====================================");
   console.log("Treasury Vault Verification");
@@ -114,7 +127,7 @@ async function main() {
   assertEqual(
     "Monthly payment amount",
     await monthly.PAYMENT_AMOUNT(),
-    EXPECTED_MONTHLY_AMOUNT
+    expectedMonthlyAmount
   );
 
   assertEqual(
@@ -132,7 +145,7 @@ async function main() {
   assertEqual(
     "Monthly required funding",
     await monthly.requiredFullFunding(),
-    EXPECTED_MONTHLY_TOTAL
+    expectedMonthlyTotal
   );
 
   assertEqual(
@@ -156,7 +169,7 @@ async function main() {
   assertEqual(
     "Adamas grant amount",
     await adamas.GRANT_AMOUNT(),
-    EXPECTED_ADAMAS_AMOUNT
+    expectedAdamasAmount
   );
 
   assertEqual(
@@ -171,13 +184,13 @@ async function main() {
   console.log("------------------------------------");
   console.log(
     "Monthly balance:",
-    hre.ethers.formatUnits(monthlyBalance, 6),
+    hre.ethers.formatUnits(monthlyBalance, decimals),
     "USDT"
   );
 
   console.log(
     "Adamas balance :",
-    hre.ethers.formatUnits(adamasBalance, 6),
+    hre.ethers.formatUnits(adamasBalance, decimals),
     "USDT"
   );
 
@@ -186,7 +199,7 @@ async function main() {
 
   console.log(
     "Monthly installment:",
-    hre.ethers.formatUnits(monthlyPaymentAmount, 6),
+    hre.ethers.formatUnits(monthlyPaymentAmount, decimals),
     "USDT"
   );
 

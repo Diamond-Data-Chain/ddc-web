@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
@@ -18,7 +19,8 @@ contract DDCAdamasGrantVault is ReentrancyGuard {
     address public constant RECIPIENT =
         0x90aDD10eb8742CE37bFd2E66c733f9423D41c3fd;
 
-    uint256 public constant GRANT_AMOUNT = 1_850_000 * 1e6;
+    uint256 public immutable GRANT_AMOUNT;
+    uint8 public immutable usdtDecimals;
 
     IERC20 public immutable usdt;
     IDDCPresaleFinalized public immutable presale;
@@ -41,7 +43,14 @@ contract DDCAdamasGrantVault is ReentrancyGuard {
             revert ZeroAddress();
         }
 
+        uint8 detectedDecimals = IERC20Metadata(usdt_).decimals();
+        if (detectedDecimals < 6 || detectedDecimals > 18) {
+            revert ZeroAddress();
+        }
+
         usdt = IERC20(usdt_);
+        usdtDecimals = detectedDecimals;
+        GRANT_AMOUNT = 1_850_000 * (10 ** uint256(detectedDecimals));
         presale = IDDCPresaleFinalized(presale_);
     }
 

@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 
@@ -18,7 +19,8 @@ contract DDCMonthlyOpsVault is ReentrancyGuard {
     address public constant RECIPIENT =
         0x9c6778909831FcBd7BC0935a6d68f15A4ABf7bAF;
 
-    uint256 public constant PAYMENT_AMOUNT = 168_000 * 1e6;
+    uint256 public immutable PAYMENT_AMOUNT;
+    uint8 public immutable usdtDecimals;
     uint256 public constant PAYMENT_INTERVAL = 30 days;
     uint8 public constant MAX_PAYMENTS = 12;
 
@@ -45,7 +47,14 @@ contract DDCMonthlyOpsVault is ReentrancyGuard {
             revert ZeroAddress();
         }
 
+        uint8 detectedDecimals = IERC20Metadata(usdt_).decimals();
+        if (detectedDecimals < 6 || detectedDecimals > 18) {
+            revert ZeroAddress();
+        }
+
         usdt = IERC20(usdt_);
+        usdtDecimals = detectedDecimals;
+        PAYMENT_AMOUNT = 168_000 * (10 ** uint256(detectedDecimals));
         presale = IDDCPresaleStart(presale_);
     }
 
@@ -114,7 +123,7 @@ contract DDCMonthlyOpsVault is ReentrancyGuard {
     /// @notice Maximum budget across all 12 installments.
     /// @dev This amount is informational and is NOT required upfront.
     ///      The vault may be funded incrementally from Treasury USDT inflows.
-    function requiredFullFunding() external pure returns (uint256) {
+    function requiredFullFunding() external view returns (uint256) {
         return PAYMENT_AMOUNT * MAX_PAYMENTS;
     }
 }

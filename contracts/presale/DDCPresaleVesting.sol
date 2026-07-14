@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Pausable.sol";
 import "@openzeppelin/contracts/utils/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
+import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
 interface IDDCRewardPool {
@@ -22,9 +23,10 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
     uint64 public constant BATCH_DURATION = 368_640; // 102.4h
     uint256 public constant BATCH_BASE_ALLOCATION = 2_560_000 ether;
     uint256 public constant PRESALE_NOMINAL_TOTAL = 102_400_000 ether;
+    // Internal USD accounting always uses 6 decimals.
     uint256 public constant MIN_PURCHASE_USDT = 50 * 1e6;
     uint256 public constant MAX_PURCHASE_USDT = 5_000 * 1e6;
-    uint256 public constant TREASURY_SWEEP_THRESHOLD_USDT = 10_000 * 1e6;
+    uint256 private constant TREASURY_SWEEP_THRESHOLD_USD6 = 10_000 * 1e6;
     uint256 private constant PHASE_DURATION = 180 days;
 
     struct Batch {
@@ -48,6 +50,9 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
 
     IERC20 public immutable ddc;
     IERC20 public immutable usdt;
+    uint8 public immutable usdtDecimals;
+    uint256 public immutable usdtScale;
+    uint256 public immutable TREASURY_SWEEP_THRESHOLD_USDT;
     IDDCRewardPool public immutable rewardPool;
     address public immutable treasury;
     bool public immutable nativeBuyEnabled;
@@ -119,8 +124,21 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
             );
         }
 
+        uint8 detectedUsdtDecimals = IERC20Metadata(usdt_).decimals();
+        require(
+            detectedUsdtDecimals >= 6 && detectedUsdtDecimals <= 18,
+            "unsupported usdt decimals"
+        );
+
+        uint256 detectedUsdtScale =
+            10 ** uint256(detectedUsdtDecimals - 6);
+
         ddc = IERC20(ddc_);
         usdt = IERC20(usdt_);
+        usdtDecimals = detectedUsdtDecimals;
+        usdtScale = detectedUsdtScale;
+        TREASURY_SWEEP_THRESHOLD_USDT =
+            TREASURY_SWEEP_THRESHOLD_USD6 * detectedUsdtScale;
         rewardPool = IDDCRewardPool(rewardPool_);
         treasury = treasury_;
         presaleStart = presaleStart_;
@@ -244,11 +262,15 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
         require(block.timestamp <= b.endTime, "batch ended");
         require(!b.isClosed, "batch closed");
 
-        require(usdtAmount >= MIN_PURCHASE_USDT, "below min");
-        uint256 newSpent = spentUsdtPerBatch[batchId][msg.sender] + usdtAmount;
+        uint256 usdtAmountUSD6 = _toUSD6(usdtAmount);
+
+        require(usdtAmountUSD6 >= MIN_PURCHASE_USDT, "below min");
+        uint256 newSpent =
+            spentUsdtPerBatch[batchId][msg.sender] + usdtAmountUSD6;
         require(newSpent <= MAX_PURCHASE_USDT, "above max");
 
-        uint256 ddcAmount = (usdtAmount * 1 ether) / b.priceUSDT;
+        uint256 ddcAmount =
+            (usdtAmountUSD6 * 1 ether) / b.priceUSDT;
         require(ddcAmount > 0, "zero purchase");
         require(b.sold + ddcAmount <= b.hardCap, "hard cap");
 
@@ -268,14 +290,21 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
                 timestamp: uint64(block.timestamp),
                 batchId: batchId,
                 amountDDC: ddcAmount,
-                paidUSDT: usdtAmount,
+                paidUSDT: usdtAmountUSD6,
                 txId: txId
             })
         );
 
         usdt.safeTransferFrom(msg.sender, address(this), usdtAmount);
 
-        emit Purchased(msg.sender, batchId, ddcAmount, usdtAmount, true, txId);
+        emit Purchased(
+            msg.sender,
+            batchId,
+            ddcAmount,
+            usdtAmountUSD6,
+            true,
+            txId
+        );
         _syncBatches();
     }
 
@@ -410,6 +439,19 @@ function withdrawRaisedFunds() external nonReentrant {
         }
 
         emit RaisedFundsWithdrawn(treasury, usdtBal, nativeBal);
+    }
+
+    function _toUSD6(uint256 rawUsdtAmount)
+        internal
+        view
+        returns (uint256)
+    {
+        require(
+            rawUsdtAmount % usdtScale == 0,
+            "usdt precision exceeds 6 decimals"
+        );
+
+        return rawUsdtAmount / usdtScale;
     }
 
     function _syncBatches() internal {

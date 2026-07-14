@@ -73,8 +73,8 @@ async function main() {
 
   const decimals = Number(await usdt.decimals());
 
-  if (decimals !== 6) {
-    throw new Error(`Expected 6-decimal USDT, received ${decimals}`);
+  if (decimals < 6 || decimals > 18) {
+    throw new Error(`Unsupported USDT decimals: ${decimals}`);
   }
 
   const amount = hre.ethers.parseUnits(AMOUNT_USDT, decimals);

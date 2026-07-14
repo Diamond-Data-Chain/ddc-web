@@ -135,7 +135,7 @@ function calcMaxUsdtToFillBatch(
  const usdtNeeded = (remainingDDC * priceInUSDT) / 1000000000000000000n;
  if (usdtNeeded <= 0n) return "0";
 
- const usdt = Number(formatEther(usdtNeeded));
+ const usdt = Number(formatUnits(usdtNeeded, 6));
  return toFixedNoSci(usdt, 6);
 }
 
@@ -947,7 +947,13 @@ if (rem > 0) {
  </label>
  <input
  value={amountUSDT}
- onChange={(e) => setAmountUSDT(e.target.value.replace(",", "."))}
+ onChange={(e) => {
+ const normalized = e.target.value.replace(",", ".");
+ const sanitized = normalized.match(/^\d*(?:\.\d{0,6})?$/)
+ ? normalized
+ : amountUSDT;
+ setAmountUSDT(sanitized);
+ }}
  className="mt-1 w-full rounded-xl border border-amber-500/40 bg-black/60 px-3 py-2 text-sm text-amber-50 outline-none focus:border-amber-300"
  placeholder="e.g. 100"
  />
@@ -987,7 +993,7 @@ if (rem > 0) {
  const remainingDDC = batch.hardCapDDC - batch.soldDDC;
  const batchMaxRaw =
  (remainingDDC * batch.priceInUSDT) / 1000000000000000000n;
- batchMax = Number(formatUnits(batchMaxRaw, usdtDecimals));
+ batchMax = Number(formatUnits(batchMaxRaw, 6));
  }
 
  let walletBatchCapMax = 5000;
@@ -1006,9 +1012,9 @@ if (rem > 0) {
  spent = (await c.paidUsdtInBatch(b, address)) as bigint;
  }
 
- const cap = parseUnits("5000", usdtDecimals);
+ const cap = parseUnits("5000", 6);
  const left = cap > spent ? cap - spent : 0n;
- walletBatchCapMax = Number(formatUnits(left, usdtDecimals));
+ walletBatchCapMax = Number(formatUnits(left, 6));
  }
  } catch {}
 
@@ -1047,7 +1053,7 @@ if (rem > 0) {
  <p className="mt-0.5 text-[11px] text-amber-100/60">
  at{" "}
  <span className="font-medium text-amber-100">
- {formatUnits(batch.priceInUSDT, usdtDecimals)} USDT / DDC
+ {formatUnits(batch.priceInUSDT, 6)} USDT / DDC
  </span>{" "}
  (current batch price)
  </p>
