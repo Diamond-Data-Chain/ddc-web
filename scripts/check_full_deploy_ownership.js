@@ -1,4 +1,10 @@
-require("dotenv").config({ path: ".env.staging.full-deploy-test", override: true });
+const path = require("path");
+
+require("dotenv").config({
+  path: path.resolve(process.env.ENV_FILE || ".env.production"),
+  override: true,
+});
+
 const { ethers } = require("ethers");
 
 async function main() {
@@ -12,11 +18,28 @@ async function main() {
     FoundationRelease: process.env.NEXT_PUBLIC_FOUNDATION_VAULT_ADDRESS,
   };
 
+  const expectedOwner = ethers.getAddress(
+    process.env.NEXT_PUBLIC_TREASURY_ADDRESS
+  );
+
   const abi = ["function owner() view returns (address)"];
+
   for (const [name, addr] of Object.entries(contracts)) {
+    if (!addr) throw new Error(`Missing ${name} address`);
+
     const c = new ethers.Contract(addr, abi, provider);
-    console.log(`${name}: ${await c.owner()}`);
+    const owner = ethers.getAddress(await c.owner());
+
+    console.log(`${name}: ${owner}`);
+
+    if (owner !== expectedOwner) {
+      throw new Error(
+        `${name} ownership mismatch: expected ${expectedOwner}, actual ${owner}`
+      );
+    }
   }
+
+  console.log("FULL DEPLOY OWNERSHIP: PASS");
 }
 
 main().catch((e) => {

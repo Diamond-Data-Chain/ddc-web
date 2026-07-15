@@ -374,7 +374,6 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
 
     function finalize() external nonReentrant {
         require(!finalized, "already finalized");
-        require(currentBatchId == TOTAL_BATCHES, "not last batch");
         _syncBatches();
         require(currentBatchId == TOTAL_BATCHES, "not last batch");
 
@@ -403,11 +402,16 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
                 ? 0
                 : burnTarget - totalBurnLockedFromSales;
 
-        if (burnTopUp > residualToRewardPool) burnTopUp = residualToRewardPool;
+        uint256 burnLockedToAccount =
+            totalBurnLockedFromSales + burnTopUp;
+
+        if (burnLockedToAccount > residualToRewardPool) {
+            burnLockedToAccount = residualToRewardPool;
+        }
 
         rewardPool.accountPresaleReconciliation(
             residualToRewardPool,
-            burnTopUp
+            burnLockedToAccount
         );
 
         emit PresaleFinished(totalNominalSold, residualToRewardPool);

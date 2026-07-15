@@ -152,19 +152,19 @@ console.log("Monthly Ops initial USDT funding:", "NOT REQUIRED");
 console.log("Adamas initial USDT funding:", "NOT REQUIRED");
 
 run(
-  "1/8 Solidity compile",
+  "1/9 Solidity compile",
   "npx",
   ["hardhat", "compile"]
 );
 
 run(
-  "2/8 Production frontend build",
+  "2/9 Production frontend build",
   "npm",
   ["run", "build"]
 );
 
 run(
-  "3/8 Contract deployment",
+  "3/9 Contract deployment",
   "npx",
   [
     "hardhat",
@@ -176,7 +176,7 @@ run(
 );
 
 run(
-  "4/8 DDC Coin allocation funding",
+  "4/9 DDC Coin allocation funding",
   "npx",
   [
     "hardhat",
@@ -191,7 +191,7 @@ run(
 );
 
 run(
-  "5/8 Ownership transfer to Treasury Safe",
+  "5/9 Ownership transfer to Treasury Safe",
   "npx",
   [
     "hardhat",
@@ -206,7 +206,7 @@ run(
 );
 
 run(
-  "6/8 Allocation verification",
+  "6/9 Allocation verification",
   "npx",
   [
     "hardhat",
@@ -218,7 +218,7 @@ run(
 );
 
 run(
-  "7/8 Treasury vault configuration verification",
+  "7/9 Treasury vault configuration verification",
   "npx",
   [
     "hardhat",
@@ -230,7 +230,13 @@ run(
 );
 
 run(
-  "8/8 Full deployment state verification",
+  "8/9 Full deployment ownership verification",
+  "node",
+  ["scripts/check_full_deploy_ownership.js"]
+);
+
+run(
+  "9/9 Full deployment state verification",
   "node",
   ["scripts/check_full_deploy_state.js"]
 );
