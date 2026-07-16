@@ -1,5 +1,18 @@
+const path = require("path");
+
 require("@nomicfoundation/hardhat-ethers");
-require("dotenv").config();
+
+require("dotenv").config({
+  path: path.resolve(process.env.ENV_FILE || ".env"),
+  override: true,
+});
+
+if ((process.env.ENV_FILE || ".env") !== ".env") {
+  require("dotenv").config({
+    path: path.resolve(".env"),
+    override: false,
+  });
+}
 
 /** @type import('hardhat/config').HardhatUserConfig */
 const solidity = "0.8.20";
