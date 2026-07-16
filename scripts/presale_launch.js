@@ -264,6 +264,7 @@ console.log("Network:", network);
 console.log("Chain ID:", expectedChainId);
 console.log("DDC Coin:", finalManifest.ddcCoinContract);
 console.log("Presale:", finalManifest.presale);
+console.log("Recorder:", finalManifest.recorder);
 console.log("RewardPool:", finalManifest.rewardPool);
 console.log("Treasury Safe:", finalManifest.treasury);
 console.log("Presale starts:", finalManifest.presaleStartUtc);

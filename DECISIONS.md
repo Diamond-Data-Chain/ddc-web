@@ -157,3 +157,14 @@ Affected:
 - contracts/vesting/DDCFoundationRelease.sol
 - PRESALE_LAUNCH_RUNBOOK.md
 
+## DDC Token / Presale Recorder
+
+- DDC Coin remains the fixed-supply ERC-20 deployed from `contracts/DDCToken.sol`.
+- DDC Token records are append-only Recorder entries and have no supply or mint limit.
+- Presale writes purchases directly on-chain to `DDCPresaleRecorder`.
+- Recorder writer is the Presale contract.
+- Recorder ownership transfers to Treasury Safe 3/5.
+- Project key is fixed to `DDC_PROJECT_V1`.
+- Duplicate records are blocked by `(projectId, sourceRef)`.
+- Affected files: Presale contract, Recorder contract, deploy, ownership, manifest and state verification scripts.
+- Evidence: verified BNB Testnet Recorder ABI and working `/my-record` and `/public-ddc-token` flows.

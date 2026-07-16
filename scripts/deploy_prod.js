@@ -194,6 +194,35 @@ async function main() {
   const presaleAddr = await presale.getAddress();
   console.log("Presale:", presaleAddr);
 
+  const Recorder = await hre.ethers.getContractFactory(
+    "DDCPresaleRecorder"
+  );
+
+  const recorder = await Recorder.deploy(
+    deployer.address,
+    presaleAddr
+  );
+
+  await recorder.waitForDeployment();
+
+  const recorderAddr = await recorder.getAddress();
+
+  console.log("DDC Token / Recorder:", recorderAddr);
+
+  const setRecorderTx =
+    await presale.setRecorderOnce(recorderAddr);
+
+  console.log("Presale setRecorderOnce tx:", setRecorderTx.hash);
+
+  await setRecorderTx.wait();
+
+  if (
+    (await presale.recorder()).toLowerCase() !==
+    recorderAddr.toLowerCase()
+  ) {
+    throw new Error("Presale Recorder linking failed");
+  }
+
   const Team = await hre.ethers.getContractFactory(
     "DDCTeamVesting"
   );
@@ -282,6 +311,11 @@ async function main() {
     ddcCoinContract: tokenAddr,
     rewardPool: rewardAddr,
     presale: presaleAddr,
+    recorder: recorderAddr,
+    recorderProjectId:
+      hre.ethers.keccak256(
+        hre.ethers.toUtf8Bytes("DDC_PROJECT_V1")
+      ),
     teamVesting: teamAddr,
     advisorVesting: advisorsAddr,
     foundationRelease: foundationAddr,
@@ -309,6 +343,7 @@ async function main() {
     NEXT_PUBLIC_CHAIN_ID: String(chainId),
     NEXT_PUBLIC_DDC_TOKEN_ADDRESS: tokenAddr,
     NEXT_PUBLIC_PRESALE_ADDRESS: presaleAddr,
+    NEXT_PUBLIC_RECORDER_ADDRESS: recorderAddr,
     NEXT_PUBLIC_REWARD_POOL_ADDRESS: rewardAddr,
     NEXT_PUBLIC_TEAM_VAULT_ADDRESS: teamAddr,
     NEXT_PUBLIC_ADVISORS_VAULT_ADDRESS: advisorsAddr,

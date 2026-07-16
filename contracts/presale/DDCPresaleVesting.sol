@@ -8,6 +8,20 @@ import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 import "@openzeppelin/contracts/token/ERC20/extensions/IERC20Metadata.sol";
 import "@openzeppelin/contracts/token/ERC20/utils/SafeERC20.sol";
 
+interface IDDCPresaleRecorder {
+    function recordPurchase(
+        bytes32 projectId,
+        address user,
+        uint256 ddcAmount,
+        address payAsset,
+        uint256 payAmount,
+        uint8 payMethod,
+        bytes32 memoHash,
+        bytes32 sourceRef,
+        uint64 ts
+    ) external;
+}
+
 interface IDDCRewardPool {
     function PRESALE_BURN_TARGET() external view returns (uint256);
     function accountPresaleReconciliation(
@@ -63,6 +77,12 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
     uint64 public tgeTimestamp;
     bool public finalized;
 
+    bytes32 public constant RECORDER_PROJECT_ID =
+        keccak256("DDC_PROJECT_V1");
+
+    address public recorder;
+    uint256 public purchaseSeq;
+
     mapping(uint8 => Batch) private _batches;
     mapping(address => uint256) public totalPurchased;
     mapping(address => uint256) public vestingPrincipal;
@@ -92,6 +112,10 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
     event Claimed(address indexed user, uint256 amount);
     event TgeSet(uint64 indexed tgeTimestamp);
     event PresaleFinished(uint256 totalSold, uint256 unsoldToRewards);
+    event RecorderConfigured(
+        address indexed recorder,
+        bytes32 indexed projectId
+    );
     event RaisedFundsWithdrawn(
         address indexed treasury,
         uint256 usdtAmount,
@@ -164,6 +188,22 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
     }
 
     receive() external payable {}
+
+    function setRecorderOnce(address recorder_)
+        external
+        onlyOwner
+    {
+        require(recorder == address(0), "recorder already set");
+        require(recorder_ != address(0), "zero recorder");
+        require(recorder_.code.length > 0, "recorder has no code");
+
+        recorder = recorder_;
+
+        emit RecorderConfigured(
+            recorder_,
+            RECORDER_PROJECT_ID
+        );
+    }
 
     function pause() external onlyOwner {
         _pause();
@@ -297,6 +337,15 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
 
         usdt.safeTransferFrom(msg.sender, address(this), usdtAmount);
 
+        _recordPurchase(
+            msg.sender,
+            ddcAmount,
+            address(usdt),
+            usdtAmount,
+            0,
+            txId
+        );
+
         emit Purchased(
             msg.sender,
             batchId,
@@ -358,7 +407,24 @@ contract DDCPresaleVesting is Ownable, Pausable, ReentrancyGuard {
             })
         );
 
-        emit Purchased(msg.sender, batchId, ddcAmount, msg.value, false, txId);
+        _recordPurchase(
+            msg.sender,
+            ddcAmount,
+            address(0),
+            msg.value,
+            1,
+            txId
+        );
+
+        emit Purchased(
+            msg.sender,
+            batchId,
+            ddcAmount,
+            msg.value,
+            false,
+            txId
+        );
+
         _syncBatches();
     }
 
@@ -443,6 +509,51 @@ function withdrawRaisedFunds() external nonReentrant {
         }
 
         emit RaisedFundsWithdrawn(treasury, usdtBal, nativeBal);
+    }
+
+    function _recordPurchase(
+        address buyer,
+        uint256 ddcAmount,
+        address payAsset,
+        uint256 payAmount,
+        uint8 payMethod,
+        bytes32 txId
+    ) internal {
+        require(recorder != address(0), "recorder not set");
+
+        unchecked {
+            purchaseSeq += 1;
+        }
+
+        bytes32 memoHash = keccak256(
+            abi.encodePacked(
+                "presale:",
+                address(this),
+                txId
+            )
+        );
+
+        bytes32 sourceRef = keccak256(
+            abi.encodePacked(
+                block.chainid,
+                address(this),
+                buyer,
+                txId,
+                purchaseSeq
+            )
+        );
+
+        IDDCPresaleRecorder(recorder).recordPurchase(
+            RECORDER_PROJECT_ID,
+            buyer,
+            ddcAmount,
+            payAsset,
+            payAmount,
+            payMethod,
+            memoHash,
+            sourceRef,
+            uint64(block.timestamp)
+        );
     }
 
     function _toUSD6(uint256 rawUsdtAmount)

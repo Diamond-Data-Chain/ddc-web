@@ -29,6 +29,7 @@ async function main() {
   const items = {
     RewardPool: process.env.NEXT_PUBLIC_REWARD_POOL_ADDRESS,
     Presale: process.env.NEXT_PUBLIC_PRESALE_ADDRESS,
+    Recorder: process.env.NEXT_PUBLIC_RECORDER_ADDRESS,
     TeamVesting: process.env.NEXT_PUBLIC_TEAM_VAULT_ADDRESS,
     AdvisorVesting: process.env.NEXT_PUBLIC_ADVISORS_VAULT_ADDRESS,
     FoundationRelease: process.env.NEXT_PUBLIC_FOUNDATION_VAULT_ADDRESS,
