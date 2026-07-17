@@ -179,7 +179,12 @@ export default function PresaleDashboard() {
 
  const readProvider = publicProvider ?? provider;
 
- const isWrongNetwork = typeof EXPECTED_CHAIN_ID === "number" ? chainId !== EXPECTED_CHAIN_ID : false;
+ const walletChainId =
+  chainId == null ? null : Number(chainId);
+
+const isWrongNetwork =
+  typeof EXPECTED_CHAIN_ID === "number" &&
+  walletChainId !== EXPECTED_CHAIN_ID;
 
  const [batchId, setBatchId] = useState<number | null>(null);
  const [batch, setBatch] = useState<BatchInfo | null>(null);
@@ -532,11 +537,13 @@ const handleAddNetwork = async () => {
  await loadUsdtBalance();
  } catch (e: unknown) {
  console.error("USDT buy error:", e);
+ const err = e as any;
  const msg =
- (e as any)?.shortMessage ||
- (e as any)?.reason ||
- (e as any)?.message ||
- "USDT buy failed";
+   err?.shortMessage ||
+   err?.reason ||
+   err?.message ||
+   "USDT buy failed";
+
  setTxStatus(`USDT buy failed ❌ ${msg}`);
  setLastTxStatus(`Buy failed ❌ ${msg}`);
  } finally {

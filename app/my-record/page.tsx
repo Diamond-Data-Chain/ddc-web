@@ -131,8 +131,23 @@ export default function MyRecordPage() {
 
  // Totals for REAL purchases only (exclude backfill/test payAmount==0)
  const ddcSum = filtered.reduce((a: bigint, r: any) => a + (r.ddcAmount ?? 0n), 0n);
- const usdtSum = filtered.reduce((a: bigint, r: any) => a + ((r.payMethod === 1 ? (r.payAmount ?? 0n) : 0n)), 0n);
- const bnbSum = filtered.reduce((a: bigint, r: any) => a + ((r.payMethod === 2 ? (r.payAmount ?? 0n) : 0n)), 0n);
+ const usdtSum = filtered.reduce(
+ (a: bigint, r: any) =>
+   a +
+   (String(r.payAsset).toLowerCase() !== ethers.ZeroAddress.toLowerCase()
+     ? (r.payAmount ?? 0n)
+     : 0n),
+ 0n
+ );
+
+ const bnbSum = filtered.reduce(
+ (a: bigint, r: any) =>
+   a +
+   (String(r.payAsset).toLowerCase() === ethers.ZeroAddress.toLowerCase()
+     ? (r.payAmount ?? 0n)
+     : 0n),
+ 0n
+ );
 
  setTotals({ ddc: ddcSum, usdt: usdtSum, bnb: bnbSum });
  setCount(filtered.length);
@@ -281,7 +296,9 @@ export default function MyRecordPage() {
  <tr key={i} className="border-t border-amber-500/30">
  <td className="py-2 pr-3 font-mono">{r.ts ? new Date(r.ts * 1000).toISOString() : '-'}</td>
  <td className="py-2 pr-3 font-mono">{fmtDDC(r.ddcAmount)}</td>
- <td className="py-2 pr-3 font-mono">{r.payMethod === 1 ? fmtUSDT(r.payAmount) : r.payMethod === 2 ? fmtBNB(r.payAmount) : "0"}</td>
+ <td className="py-2 pr-3 font-mono">{String(r.payAsset).toLowerCase() === ethers.ZeroAddress.toLowerCase()
+ ? fmtBNB(r.payAmount)
+ : fmtUSDT(r.payAmount)}</td>
  <td className="py-2 pr-3 font-mono">
  <button
  type="button"

@@ -66,25 +66,38 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 
  const wcAvailable = Boolean(wcProjectId);
 
- async function syncFromEip1193(p: any, preferredAddress?: string | null) {
+ async function syncFromEip1193(
+ p: any,
+ preferredAddress?: string | null
+ ) {
  const bp = new ethers.BrowserProvider(p);
- setWalletProvider(bp);
 
- let s: ethers.Signer;
- if (preferredAddress) {
- try {
- s = await bp.getSigner(preferredAddress);
- } catch {
- s = await bp.getSigner();
- }
- } else {
- s = await bp.getSigner();
+ const requestedAddress = preferredAddress
+ ? ethers.getAddress(preferredAddress)
+ : null;
+
+ const nextSigner = requestedAddress
+ ? await bp.getSigner(requestedAddress)
+ : await bp.getSigner();
+
+ const signerAddress = ethers.getAddress(
+ await nextSigner.getAddress()
+ );
+
+ if (
+ requestedAddress &&
+ signerAddress !== requestedAddress
+ ) {
+ throw new Error(
+ `Wallet signer mismatch: requested ${requestedAddress}, received ${signerAddress}`
+ );
  }
 
- setSigner(s);
- const addr = await s.getAddress();
- setAddress(addr);
  const net = await bp.getNetwork();
+
+ setWalletProvider(bp);
+ setSigner(nextSigner);
+ setAddress(signerAddress);
  setChainId(Number(net.chainId));
  }
 
@@ -119,8 +132,14 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
  }
  try {
  await syncFromEip1193(eth, next);
- } catch {
- setAddress(next);
+ } catch (error: any) {
+ setAddress(null);
+ setChainId(null);
+ setWalletProvider(null);
+ setSigner(null);
+ setLastError(
+ `Wallet account sync failed: ${error?.message ?? String(error)}`
+ );
  }
  });
  eth.on?.('chainChanged', async () => {
@@ -172,7 +191,29 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
 
  provider.on('display_uri', (uri: string) => modal.openModal({ uri }));
 
- provider.on('accountsChanged', (accs: string[]) => setAddress(accs?.[0] || null));
+ provider.on('accountsChanged', async (accs: string[]) => {
+ const next = accs?.[0] || null;
+
+ if (!next) {
+ setAddress(null);
+ setChainId(null);
+ setWalletProvider(null);
+ setSigner(null);
+ return;
+ }
+
+ try {
+ await syncFromEip1193(provider, next);
+ } catch (error: any) {
+ setAddress(null);
+ setChainId(null);
+ setWalletProvider(null);
+ setSigner(null);
+ setLastError(
+ `WalletConnect account sync failed: ${error?.message ?? String(error)}`
+ );
+ }
+ });
  provider.on('chainChanged', (c: number | string) => {
  const n = typeof c === 'string' ? Number(c) : Number(c);
  setChainId(Number.isFinite(n) ? n : null);
@@ -280,17 +321,6 @@ export function WalletProvider({ children }: { children: React.ReactNode }) {
  setSigner(null);
  }
 
- useEffect(() => {
- let mounted = true;
- (async () => {
- try {
- if (!publicProvider) return;
- const net = await publicProvider.getNetwork();
- if (mounted) setChainId(Number(net.chainId));
- } catch {}
- })();
- return () => { mounted = false; };
- }, [publicProvider]);
 
  const value: WalletState = {
  address,

@@ -203,7 +203,9 @@ export default function PublicDDCTokenPage() {
  <td className="py-2 pr-3 font-mono">{r.ts ? new Date(r.ts * 1000).toISOString() : '-'}</td>
  <td className="py-2 pr-3 font-mono">{ethers.formatUnits(r.ddc, 18)}</td>
  <td className="py-2 pr-3 font-mono">
- {r.payMethod === 1 ? ethers.formatUnits(r.payAmt, 6) : r.payMethod === 2 ? ethers.formatUnits(r.payAmt, 18) : "0"}
+ {String(r.payAsset).toLowerCase() === ethers.ZeroAddress.toLowerCase()
+ ? ethers.formatUnits(r.payAmt, 18)
+ : ethers.formatUnits(r.payAmt, 6)}
  </td>
  <td className="py-2 pr-3 font-mono">{short(r.payAsset)}</td>
  <td className="py-2 pr-3 font-mono">
