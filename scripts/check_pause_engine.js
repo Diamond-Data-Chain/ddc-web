@@ -74,7 +74,28 @@ async function main() {
 
   await presale.waitForDeployment();
 
-  await (await reward.setPresaleOnce(await presale.getAddress())).wait();
+  const presaleAddress = await presale.getAddress();
+
+  const Recorder = await hre.ethers.getContractFactory(
+    "DDCPresaleRecorder"
+  );
+
+  const recorder = await Recorder.deploy(
+    owner.address,
+    presaleAddress
+  );
+
+  await recorder.waitForDeployment();
+
+  await (
+    await presale.setRecorderOnce(
+      await recorder.getAddress()
+    )
+  ).wait();
+
+  await (
+    await reward.setPresaleOnce(presaleAddress)
+  ).wait();
 
   await (
     await ddc.transfer(

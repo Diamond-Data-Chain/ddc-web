@@ -88,6 +88,23 @@ async function deployFixture() {
 
   const presaleAddress = await presale.getAddress();
 
+  const Recorder = await hre.ethers.getContractFactory(
+    "DDCPresaleRecorder"
+  );
+
+  const recorder = await Recorder.deploy(
+    treasury.address,
+    presaleAddress
+  );
+
+  await recorder.waitForDeployment();
+
+  await (
+    await presale.setRecorderOnce(
+      await recorder.getAddress()
+    )
+  ).wait();
+
   await (
     await reward.setPresaleOnce(presaleAddress)
   ).wait();
