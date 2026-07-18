@@ -1,0 +1,35 @@
+{
+  "createdAt": "2026-07-17T17:11:16.726Z",
+  "network": "bscMainnet",
+  "chainId": 56,
+  "deployer": "0xA94568bF1B50a06efDebc5846A1252410A65CA32",
+  "presaleStartUtc": "2026-07-20T13:00:00Z",
+  "presaleStart": 1784552400,
+  "tgeTimestamp": 0,
+  "treasury": "0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f",
+  "usdt": "0x55d398326f99059fF775485246999027B3197955",
+  "ddcCoinContract": "0x94fB2B99248ba05fbC75Dd1C0C254A4C2fac86Ff",
+  "rewardPool": "0xf44450e678256B2c8A243eD7AbAe5Eed2F7Bf1d9",
+  "presale": "0x03F81eA22C45d073924087aFe7DC7F8c0d522a01",
+  "recorder": "0x62a5D70E623feC9262497881a3B9C69EE1F97cDb",
+  "recorderProjectId": "0xd9f8ae431c57688b82843ccd1e68435d50e94121a517b7bd0ed2d8df86b50fe9",
+  "teamVesting": "0xA48F9e607168B1A9C258C9d697797e03518a3844",
+  "advisorVesting": "0x264cA44c22dB44d7ee0060A6c5105f629B9f975a",
+  "foundationRelease": "0x1836806D3D92a98415eb6ECCb7bfc403272B72E0",
+  "monthlyOpsVault": "0xe4a83a9535F45f78eD9AeFfa1A3D583F188E29C5",
+  "adamasGrantVault": "0x5367A3A7eEC33D65fa7F8202C60B7e9E48960cA2",
+  "ownership": {
+    "treasury": "0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f",
+    "transfers": {
+      "DDCToken": false,
+      "DDCRewardPool": true,
+      "DDCPresaleVesting": true,
+      "DDCPresaleRecorder": true,
+      "DDCTeamVesting": true,
+      "DDCAdvisorVesting": true,
+      "DDCFoundationRelease": true,
+      "DDCMonthlyOpsVault": false,
+      "DDCAdamasGrantVault": false
+    }
+  }
+}

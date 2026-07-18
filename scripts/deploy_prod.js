@@ -57,6 +57,39 @@ async function requireCode(name, address) {
   }
 }
 
+async function transferOwnershipToTreasury(name, contract, treasury) {
+  const hasOwner =
+    contract.interface.hasFunction("owner()") &&
+    contract.interface.hasFunction("transferOwnership(address)");
+
+  if (!hasOwner) {
+    console.log(`${name}: ownership transfer not applicable`);
+    return false;
+  }
+
+  const currentOwner = await contract.owner();
+
+  if (currentOwner.toLowerCase() === treasury.toLowerCase()) {
+    console.log(`${name}: already owned by Treasury`);
+    return true;
+  }
+
+  const tx = await contract.transferOwnership(treasury);
+  console.log(`${name} transferOwnership tx:`, tx.hash);
+  await tx.wait();
+
+  const newOwner = await contract.owner();
+
+  if (newOwner.toLowerCase() !== treasury.toLowerCase()) {
+    throw new Error(
+      `${name} ownership transfer failed. Expected ${treasury}, received ${newOwner}`
+    );
+  }
+
+  console.log(`${name}: ownership transferred to Treasury`);
+  return true;
+}
+
 async function main() {
   const signers = await hre.ethers.getSigners();
 
@@ -92,6 +125,21 @@ async function main() {
   ) {
     throw new Error(
       'Mainnet blocked. Set CONFIRM_BSC_MAINNET="YES".'
+    );
+  }
+
+  const mainnetManifest = path.resolve(
+    "deployments/presale-mainnet.json"
+  );
+
+  if (
+    chainId === 56 &&
+    fs.existsSync(mainnetManifest) &&
+    process.env.ALLOW_MAINNET_REDEPLOY !== "YES"
+  ) {
+    throw new Error(
+      `Mainnet deployment already exists: ${mainnetManifest}. ` +
+      'Redeploy blocked. Existing deployment must be used.'
     );
   }
 
@@ -298,6 +346,27 @@ async function main() {
     throw new Error("RewardPool linking failed");
   }
 
+  const ownershipTransfers = {};
+
+  for (const [name, contract] of [
+    ["DDCToken", token],
+    ["DDCRewardPool", reward],
+    ["DDCPresaleVesting", presale],
+    ["DDCPresaleRecorder", recorder],
+    ["DDCTeamVesting", team],
+    ["DDCAdvisorVesting", advisors],
+    ["DDCFoundationRelease", foundation],
+    ["DDCMonthlyOpsVault", monthly],
+    ["DDCAdamasGrantVault", adamas],
+  ]) {
+    ownershipTransfers[name] =
+      await transferOwnershipToTreasury(
+        name,
+        contract,
+        treasury
+      );
+  }
+
   const manifest = {
     createdAt: new Date().toISOString(),
     network: hre.network.name,
@@ -321,6 +390,10 @@ async function main() {
     foundationRelease: foundationAddr,
     monthlyOpsVault: monthlyAddr,
     adamasGrantVault: adamasAddr,
+    ownership: {
+      treasury,
+      transfers: ownershipTransfers,
+    },
   };
 
   fs.mkdirSync("deployments", { recursive: true });

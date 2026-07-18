@@ -168,3 +168,39 @@ Affected:
 - Duplicate records are blocked by `(projectId, sourceRef)`.
 - Affected files: Presale contract, Recorder contract, deploy, ownership, manifest and state verification scripts.
 - Evidence: verified BNB Testnet Recorder ABI and working `/my-record` and `/public-ddc-token` flows.
+
+## Mainnet ownership handoff
+
+- Odluka: nakon kompletnog setup-a, svi deployovani ugovori koji implementiraju `Ownable` prenose ownership na Treasury multisig.
+- Osnov: v1 pravilo „Ownable + multisig 3/5; ownership se prebacuje na multisig odmah nakon setup-a“.
+- Treasury: `NEXT_PUBLIC_TREASURY_ADDRESS`.
+- Pogođeni fajlovi: `scripts/deploy_prod.js`, `deployments/presale-mainnet.json`.
+- Deploy se prekida ako potvrđeni `owner()` nije Treasury multisig.
+
+## BSC Mainnet presale deployment — 2026-07-17
+
+- Mreža: BSC Mainnet, chain ID 56.
+- Presale početak: 2026-07-20T13:00:00Z / 1784552400.
+- Treasury multisig: 0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f.
+- USDT: 0x55d398326f99059fF775485246999027B3197955.
+- DDCToken: 0x94fB2B99248ba05fbC75Dd1C0C254A4C2fac86Ff.
+- DDCRewardPool: 0xf44450e678256B2c8A243eD7AbAe5Eed2F7Bf1d9.
+- DDCPresaleVesting: 0x03F81eA22C45d073924087aFe7DC7F8c0d522a01.
+- DDCPresaleRecorder: 0x62a5D70E623feC9262497881a3B9C69EE1F97cDb.
+- DDCTeamVesting: 0xA48F9e607168B1A9C258C9d697797e03518a3844.
+- DDCAdvisorVesting: 0x264cA44c22dB44d7ee0060A6c5105f629B9f975a.
+- DDCFoundationRelease: 0x1836806D3D92a98415eb6ECCb7bfc403272B72E0.
+- DDCMonthlyOpsVault: 0xe4a83a9535F45f78eD9AeFfa1A3D583F188E29C5.
+- DDCAdamasGrantVault: 0x5367A3A7eEC33D65fa7F8202C60B7e9E48960cA2.
+- Recorder i RewardPool linkovi potvrđeni on-chain.
+- Svi ugovori koji implementiraju Ownable preneti su na Treasury multisig.
+- Mainnet manifest: deployments/presale-mainnet.json.
+- ABI freeze v1: DDCPresaleVesting, DDCVestingVault, IDDCPresaleVesting; Recorder i RewardPool uključeni u aktivni live flow.
+- Pogođeni fajlovi: .env.production, deployments/presale-mainnet.json, scripts/deploy_prod.js, scripts/verify_mainnet_deployment.js.
+
+## Mainnet redeploy guard
+
+- Odluka: `scripts/deploy_prod.js` blokira novi BSC Mainnet deploy kada postoji `deployments/presale-mainnet.json`.
+- Razlog: sprečavanje slučajnog deploy-a drugog skupa produkcionih adresa.
+- Emergency override postoji samo kroz eksplicitni `ALLOW_MAINNET_REDEPLOY=YES`.
+- Pogođeni fajlovi: `scripts/deploy_prod.js`, `deployments/presale-mainnet.json`.
