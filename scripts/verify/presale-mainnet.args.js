@@ -1,0 +1,11 @@
+module.exports = [
+  "0xA94568bF1B50a06efDebc5846A1252410A65CA32",
+  "0x94fB2B99248ba05fbC75Dd1C0C254A4C2fac86Ff",
+  "0x55d398326f99059fF775485246999027B3197955",
+  "0xf44450e678256B2c8A243eD7AbAe5Eed2F7Bf1d9",
+  "0x08cF1a271b5a05165bBac6D655dD351F7eD61F1f",
+  1784552400,
+  Array.from({ length: 40 }, (_, index) => (1 + index * 2) * 10000),
+  false,
+  0,
+];

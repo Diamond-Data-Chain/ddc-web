@@ -1,6 +1,7 @@
 const path = require("path");
 
 require("@nomicfoundation/hardhat-ethers");
+require("@nomicfoundation/hardhat-verify");
 
 require("dotenv").config({
   path: path.resolve(process.env.ENV_FILE || ".env"),
@@ -62,4 +63,7 @@ if (mainnetRpc) {
 module.exports = {
   solidity,
   networks,
+  etherscan: {
+    apiKey: process.env.ETHERSCAN_API_KEY || "",
+  },
 };
