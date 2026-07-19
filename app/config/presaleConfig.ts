@@ -6,7 +6,7 @@ export const PRESALE_CONFIG = {
   START_PRICE_USDT: 0.01,      // batch #1
   END_PRICE_USDT: 0.79,        // batch #40
   PRICE_STEP_USDT: 0.02,       // each next batch +0.02
-  BATCH_DURATION_HOURS: 0.0166667,
+  BATCH_DURATION_HOURS: 102.4,
 };
 
 // Helper functions
