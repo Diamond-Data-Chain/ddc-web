@@ -165,7 +165,7 @@ export default function MyRecordPage() {
  }, [isConnected, address, recorderAddr, projectId, page, pageSize]);
 
  const fmtDDC = (x: bigint) => ethers.formatUnits(x, 18);
- const fmtUSDT = (x: bigint) => ethers.formatUnits(x, 6);
+ const fmtUSDT = (x: bigint) => ethers.formatUnits(x, 18);
  const fmtBNB = (x: bigint) => ethers.formatUnits(x, 18);
  const getPay = (r: any): bigint => {
  try {
