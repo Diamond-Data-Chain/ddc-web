@@ -204,3 +204,26 @@ Affected:
 - Razlog: sprečavanje slučajnog deploy-a drugog skupa produkcionih adresa.
 - Emergency override postoji samo kroz eksplicitni `ALLOW_MAINNET_REDEPLOY=YES`.
 - Pogođeni fajlovi: `scripts/deploy_prod.js`, `deployments/presale-mainnet.json`.
+
+## 2026-07-19 — Presale batch duration frontend fix
+
+- Odlučeno: `BATCH_DURATION_HOURS` vraćen sa test vrednosti `0.0166667` na `102.4`.
+- Source: WP/Addendum — svaki presale batch traje 102.4h.
+- Razlog: test vrednost je izazivala pogrešan virtualni batch prikaz na produkciji.
+- Utiče na: `app/config/presaleConfig.ts`, `app/(sections)/PresaleDashboard.tsx`.
+
+## 2026-07-20 — WalletProvider ostaje neizmenjen pre mainnet starta
+
+Odluka:
+- Ne uvoditi auto-sync/refactor u `app/WalletProvider.tsx` neposredno pre početka presale-a.
+- Zvanični javni presale URL je `https://www.diamonddatachain.org/#presale`.
+- `app.diamonddatachain.org` se ne promoviše kao javni ulaz dok se ponašanje wallet sesije između domena naknadno ne ujednači.
+
+Razlog:
+- Glavni domen pravilno prikazuje BNB Smart Chain, Chain ID 56.
+- `Add DDC Network` pravilno prebacuje wallet na Chain ID 56.
+- Izmena centralnog wallet providera neposredno pre starta nosi veći rizik od postojećeg UX odstupanja između dva origin-a.
+
+Uticaj:
+- `app/WalletProvider.tsx`: bez izmena.
+- Marketing, navigacija i presale linkovi: koristiti samo `www.diamonddatachain.org/#presale`.
