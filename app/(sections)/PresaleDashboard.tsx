@@ -195,7 +195,7 @@ const isWrongNetwork =
  const [totalPurchased, setTotalPurchased] = useState<bigint>(0n);
  const [claimed, setClaimed] = useState<bigint>(0n);
  const [locked, setLocked] = useState<bigint>(0n);
- const [usdtDecimals, setUsdtDecimals] = useState<number>(6);
+ const [usdtDecimals, setUsdtDecimals] = useState<number>(18);
  const [amountEth, setAmountEth] = useState<string>("0.1");
  const [loading, setLoading] = useState<boolean>(false);
  const [txStatus, setTxStatus] = useState<string | null>(null);
@@ -252,7 +252,16 @@ const [usdtBalance, setUsdtBalance] = useState<bigint>(0n);
  }, [signer]);
 
  const loadUsdtDecimals = useCallback(async () => {
- setUsdtDecimals(6);
+  if (!usdtRead) {
+    setUsdtDecimals(18);
+    return;
+  }
+  try {
+    const d = Number(await usdtRead.decimals());
+    setUsdtDecimals(d);
+  } catch {
+    setUsdtDecimals(18);
+  }
  return 6;
 }, []);
 const loadUsdtAllowance = useCallback(async () => {
