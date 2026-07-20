@@ -877,7 +877,7 @@ if (rem > 0) {
  {isFinalized
  ? "-"
  : displayPriceUSDT > 0n
- ? `${formatPriceUSDT(displayPriceUSDT, usdtDecimals)} USDT`
+ ? `${formatPriceUSDT(displayPriceUSDT, 6)} USDT`
  : "-"}
  </span>
  </div>

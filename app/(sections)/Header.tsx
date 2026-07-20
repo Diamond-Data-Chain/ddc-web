@@ -67,8 +67,29 @@ export default function Header() {
  return;
  }
 
- const chainIdDec = Number(CHAIN_ID || 31337);
+ const chainIdDec = Number(CHAIN_ID || 97);
  const chainIdHex = "0x" + chainIdDec.toString(16);
+
+ try {
+ await window.ethereum.request({
+ method: "wallet_switchEthereumChain",
+ params: [{ chainId: chainIdHex }],
+ });
+ return;
+ } catch (switchError: any) {
+ const code =
+ switchError?.code ??
+ switchError?.data?.originalError?.code;
+
+ if (code !== 4902) {
+ console.error("wallet_switchEthereumChain failed", switchError);
+ alert(switchError?.message ?? "Network switch failed.");
+ return;
+ }
+ }
+
+ const isMainnet = chainIdDec === 56;
+ const isTestnet = chainIdDec === 97;
 
  try {
  await window.ethereum.request({
@@ -76,18 +97,38 @@ export default function Header() {
  params: [
  {
  chainId: chainIdHex,
- chainName: "BNB Smart Chain",
- rpcUrls: [RPC_URL || "https://data-seed-prebsc-1-s1.binance.org:8545"],
+ chainName: isMainnet
+ ? "BNB Smart Chain"
+ : isTestnet
+ ? "BNB Smart Chain Testnet"
+ : `Chain ${chainIdDec}`,
+ rpcUrls: [
+ RPC_URL ||
+ (isMainnet
+ ? "https://bsc-dataseed.bnbchain.org"
+ : "https://data-seed-prebsc-1-s1.bnbchain.org:8545"),
+ ],
  nativeCurrency: {
- name: "Ether",
- symbol: "ETH",
+ name: isTestnet ? "tBNB" : "BNB",
+ symbol: isTestnet ? "tBNB" : "BNB",
  decimals: 18,
  },
+ blockExplorerUrls: isMainnet
+ ? ["https://bscscan.com"]
+ : isTestnet
+ ? ["https://testnet.bscscan.com"]
+ : [],
  },
  ],
  });
- } catch (err) {
- console.error(err);
+
+ await window.ethereum.request({
+ method: "wallet_switchEthereumChain",
+ params: [{ chainId: chainIdHex }],
+ });
+ } catch (err: any) {
+ console.error("wallet_addEthereumChain failed", err);
+ alert(err?.message ?? "Adding network failed.");
  }
  }
 
