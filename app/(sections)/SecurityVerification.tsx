@@ -2,16 +2,50 @@
 
 import { motion } from "framer-motion";
 
+const ZERO_ADDRESS = "0x0000000000000000000000000000000000000000";
+const chainId = Number(process.env.NEXT_PUBLIC_CHAIN_ID || 56);
+const isMainnet = chainId === 56;
+
 const explorer =
   process.env.NEXT_PUBLIC_BLOCK_EXPLORER_URL ||
-  "https://testnet.bscscan.com";
+  (isMainnet ? "https://bscscan.com" : "https://testnet.bscscan.com");
 
-const contracts = [
-  ["DDC Token / Recorder", process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || ""],
+type ContractLink = [string, string];
+
+const isConfiguredAddress = (address: string) =>
+  Boolean(address) &&
+  !address.startsWith("TODO") &&
+  address.toLowerCase() !== ZERO_ADDRESS;
+
+const productionContracts = ([
+  ["DDC Coin", process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || ""],
   ["Presale", process.env.NEXT_PUBLIC_PRESALE_ADDRESS || ""],
+  ["Recorder", process.env.NEXT_PUBLIC_RECORDER_ADDRESS || ""],
   ["Reward Pool", process.env.NEXT_PUBLIC_REWARD_POOL_ADDRESS || ""],
-  ["USDT Test Token", process.env.NEXT_PUBLIC_USDT_ADDRESS || ""],
-].filter(([, address]) => Boolean(address));
+  ["Treasury", process.env.NEXT_PUBLIC_TREASURY_ADDRESS || ""],
+] satisfies ContractLink[]).filter(([, address]) =>
+  isConfiguredAddress(address),
+);
+
+const infrastructureVaults = ([
+  ["Treasury Vault", process.env.NEXT_PUBLIC_TREASURY_VAULT_ADDRESS || ""],
+  ["Team Vault", process.env.NEXT_PUBLIC_TEAM_VAULT_ADDRESS || ""],
+  ["Advisors Vault", process.env.NEXT_PUBLIC_ADVISORS_VAULT_ADDRESS || ""],
+  ["Foundation Vault", process.env.NEXT_PUBLIC_FOUNDATION_VAULT_ADDRESS || ""],
+  ["Monthly Operations Vault", process.env.NEXT_PUBLIC_MONTHLY_OPS_VAULT_ADDRESS || ""],
+  ["Adamas Grant Vault", process.env.NEXT_PUBLIC_ADAMAS_GRANT_VAULT_ADDRESS || ""],
+] satisfies ContractLink[]).filter(([, address]) =>
+  isConfiguredAddress(address),
+);
+
+const externalContracts = ([
+  [
+    isMainnet ? "BSC USDT" : "USDT Test Token",
+    process.env.NEXT_PUBLIC_USDT_ADDRESS || "",
+  ],
+] satisfies ContractLink[]).filter(([, address]) =>
+  isConfiguredAddress(address),
+);
 
 const docs = [
   ["GitHub Repository", "https://github.com/Diamond-Data-Chain"],
@@ -75,10 +109,10 @@ export default function SecurityVerification() {
             Security & Verification
           </h2>
           <p className="mt-4 max-w-4xl text-slate-300">
-            Diamond Data Chain is built on deterministic smart contracts, public
-            testnet deployment, open-source documentation, and transparent
-            on-chain execution. Critical components can be independently checked
-            through public blockchain explorers and project repositories.
+            Diamond Data Chain is built on deterministic smart contracts, verified
+            on-chain deployments, open-source documentation, and transparent
+            on-chain execution. Critical components can be independently verified
+            through BscScan and the project's public repositories.
           </p>
         </motion.div>
 
@@ -97,20 +131,77 @@ export default function SecurityVerification() {
         </div>
 
         <div className="mt-8 grid gap-6 lg:grid-cols-2">
-          <Card title="Smart Contracts">
-            <div className="space-y-3">
-              {contracts.map(([name, addr]) => (
-                <a
-                  key={addr}
-                  href={`${explorer}/address/${addr}`}
-                  target="_self"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
-                >
-                  <span>✓ {name}</span>
-                  <span className="text-xs text-slate-500">BscScan →</span>
-                </a>
-              ))}
+          <Card title="On-chain Contracts">
+            <div className="space-y-5">
+              <div>
+                <div className="mb-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+                  {isMainnet ? "Production" : "Testnet"}
+                </div>
+                <div className="space-y-2">
+                  {productionContracts.map(([name, address]) => (
+                    <a
+                      key={`${name}-${address}`}
+                      href={`${explorer}/address/${address}#code`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
+                    >
+                      <span>✓ {name}</span>
+                      <span className="text-xs text-slate-500">
+                        {isMainnet ? "Production" : "Testnet"} · BscScan →
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              {infrastructureVaults.length > 0 && (
+                <div>
+                  <div className="mb-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+                    Infrastructure Vaults
+                  </div>
+                  <div className="space-y-2">
+                    {infrastructureVaults.map(([name, address]) => (
+                      <a
+                        key={`${name}-${address}`}
+                        href={`${explorer}/address/${address}#code`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
+                      >
+                        <span>✓ {name}</span>
+                        <span className="text-xs text-slate-500">
+                          {isMainnet ? "Production" : "Testnet"} · BscScan →
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {externalContracts.length > 0 && (
+                <div>
+                  <div className="mb-2 text-xs font-bold uppercase tracking-wider text-amber-300">
+                    External Contract
+                  </div>
+                  <div className="space-y-2">
+                    {externalContracts.map(([name, address]) => (
+                      <a
+                        key={`${name}-${address}`}
+                        href={`${explorer}/address/${address}#code`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center justify-between rounded-xl border border-slate-800 bg-black/35 px-4 py-3 text-sm text-slate-200 hover:border-amber-400/60 hover:text-amber-200"
+                      >
+                        <span>✓ {name}</span>
+                        <span className="text-xs text-slate-500">
+                          External · BscScan →
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </Card>
 
