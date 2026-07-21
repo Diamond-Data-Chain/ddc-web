@@ -282,7 +282,7 @@ export default function PresaleFinalizeStatus() {
  </div>
  <Row label="Current batch" value={`#${st.data.currentBatch}`} />
  <Row label="Base hardCap (batch #1)" value={`${fmt18(st.data.baseHardCap)} DDC`} />
- <Row label="Current hardCap" value={`${fmt18(st.data.curHardCap)} DDC`} />
+ <Row label="Current remaining" value={`${fmt18(st.data.curHardCap > st.data.curSold ? st.data.curHardCap - st.data.curSold : 0n)} DDC`} />
  <Row label="Current sold" value={`${fmt18(st.data.curSold)} DDC`} />
  <Row
  label="Projected Batch #40 hardCap (if future sold=0)"
