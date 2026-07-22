@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import React from "react";
 import { WalletProvider } from "./WalletProvider";
+import { Analytics } from "@vercel/analytics/next";
 
 export const metadata: Metadata = {
  title: "Diamond Data Chain — DDC",
@@ -30,6 +31,7 @@ export default function RootLayout({
  <WalletProvider>
  {children}
  </WalletProvider>
+    <Analytics />
  </body>
  </html>
  );
