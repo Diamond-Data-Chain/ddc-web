@@ -1,0 +1,24 @@
+{
+  "standard": "DDC-DAILY-COMMIT-1.0",
+  "engine": {
+    "engineVersion": "DDC-TE-0.1",
+    "engineCodeHash": "0x00b2a5477848dddbd94b0ac0bf50dfac55f3a3f9cc7264b2a51ad21b78016d3b"
+  },
+  "commit": {
+    "commitId": "2026-07-24",
+    "eventCount": 1,
+    "eventHashes": [
+      "0x5d93a43a417eedf349f8ca2f55683cf11067e699fa10655c39a931dba2220c3b"
+    ],
+    "reportHash": "0x7b5b881c408c97962eec2ea2ff95291790c63700ba97464bf295b01cd11ec241"
+  },
+  "proofOfValidation": {
+    "validatorId": "validator-01",
+    "validatorAddress": "0xA94568bF1B50a06efDebc5846A1252410A65CA32",
+    "messageHash": "0x866fac74996e1c35d5d75bab60cb0474f9f582bf84d596db653ac60cce5539b6",
+    "signature": "0xbd2b4378ed0642f865cd34cd31e0c3fdc11c846ba879b1a3680b850cc0062b647a8c83eb84d1b9857d9a7a38ec5bec4892e00408aa0a6c2e365bcb26ee59d99c1b",
+    "signatureType": "EIP191"
+  },
+  "submitTxHash": "0xb091e1bd65124254f4a960013c6a903cb46699dc2656a6fdcd149c789e808f20",
+  "submitChainId": 56
+}

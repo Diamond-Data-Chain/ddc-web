@@ -227,3 +227,43 @@ Razlog:
 Uticaj:
 - `app/WalletProvider.tsx`: bez izmena.
 - Marketing, navigacija i presale linkovi: koristiti samo `www.diamonddatachain.org/#presale`.
+
+## Recorder daily exporter block range
+- Odluka: `exportRecorderEvents.js` automatski određuje prvi blok UTC dana i prvi blok narednog UTC dana iz `COMMIT_ID`; skenira samo taj dnevni opseg.
+- Razlog: dnevni commit ne sme skenirati od genesis/deployment bloka do trenutnog vrha lanca.
+- RPC kompatibilnost: `eth_getLogs` opseg je ograničen na najviše 5 blokova, uz throttle i retry za rate-limit.
+- WP/Addendum veza: dnevni commit/export tok; precizan RPC način određivanja blokova nije eksplicitno propisan.
+- Utiče na: `scripts/exportRecorderEvents.js`.
+
+## Recorder event discovery preko Etherscan API V2
+- Odluka: `exportRecorderEvents.js` koristi indeksirani Etherscan API V2 za pronalaženje `PurchaseRecorded` događaja, umesto sekvencijalnog `eth_getLogs` skeniranja po 5 blokova.
+- Filter: BSC Mainnet `chainid=56`, recorder adresa, event topic0 i indeksirani projectId topic1.
+- RPC ostaje za potvrdu mreže i trenutnog poslednjeg bloka.
+- Izlazni DDC event JSON format ostaje nepromenjen.
+- WP/Addendum: način indeksiranja blockchain logova nije eksplicitno propisan; implementirana je minimalna operativna integracija.
+- Utiče na: `scripts/exportRecorderEvents.js`.
+
+## Targeted recorder event correlation
+- Odluka: exporter čita stvarne kupovine preko `listGlobalPurchases()` i za svaku kupovinu traži `PurchaseRecorded` log samo u malom blok-opsegu oko njenog timestamp-a.
+- Početak backfill perioda: 2026-07-20 13:00 UTC, potvrđeni početak live presale-a.
+- Razlog: QuickNode Discover ograničava `eth_getLogs` na pet blokova; potpuno dnevno ili istorijsko skeniranje proizvodi hiljade praznih poziva.
+- Rezultat: dobijaju se transactionHash, blockNumber i logIndex bez punog skeniranja lanca.
+- Izvoz se grupiše po UTC danu radi dnevnog commit pipeline-a.
+- WP/Addendum: transport i RPC strategija nisu eksplicitno propisani; zadržan je blockchain-native dokaz događaja.
+- Utiče na: `scripts/exportRecorderEvents.js`.
+
+## Live mainnet presale configuration correction
+- Odluka: produkcioni presale je `0x03F81eA22C45d073924087aFe7DC7F8c0d522a01`.
+- Odluka: produkcioni recorder je `0x62a5D70E623feC9262497881a3B9C69EE1F97cDb`.
+- Exporter više ne računa niti uzima recorder project ID iz ENV-a, već čita `recorder()` i `RECORDER_PROJECT_ID()` direktno iz live presale kontrakta.
+- Razlog: prethodna `NEXT_PUBLIC_PRESALE_ADDRESS` adresa nije sadržala contract bytecode.
+- Utiče na: `.env.production`, `scripts/exportRecorderEvents.js`.
+
+## Exact-block PurchaseRecorded export
+- Odluka: mainnet backfill koristi potvrđene blokove `111124513`, `111139435` i `111809855`.
+- Exporter čita `recorder()` i `RECORDER_PROJECT_ID()` direktno iz live presale kontrakta.
+- Exporter više ne zavisi od `listGlobalPurchases()` niti skenira široke raspone blokova.
+- Razlog: sva tri `PurchaseRecorded` događaja potvrđena su na BscScan-u, dok RPC ograničava `eth_getLogs` opseg.
+- `RECORDER_EVENT_BLOCKS` može eksplicitno promeniti listu blokova bez izmene koda.
+- WP/Addendum ne propisuju RPC/backfill strategiju; blockchain event ostaje izvor dokaza.
+- Utiče na: `scripts/exportRecorderEvents.js`.
