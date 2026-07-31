@@ -230,7 +230,7 @@ export default function SecurityVerification() {
                 ["/vesting","Deterministic Vesting"],
                 ["/reward-pool-ddc-token","On-chain Reward Pool"],
                 ["/my-record","Immutable Recorder Entries"],
-                ["/daily-commits","Daily Treasury Commitments"],
+                ["/daily-commits","Development Commits"],
               ].map(([href,item]) => (
                 <a
                   key={item}

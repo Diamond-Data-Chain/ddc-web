@@ -12,16 +12,8 @@ const VAULT_ABI = [
  'function remainingAllocation(uint8 role) view returns (uint256)',
  'function listWalletsByRole(uint8 role) view returns (address[])',
 
- // NEW commit policy getters (added by our patch)
- 'function commitRegistry() view returns (address)',
- 'function enforceFreshCommit() view returns (bool)',
- 'function policyCommitFrequencySeconds() view returns (uint64)',
- 'function projectId() view returns (bytes32)',
 ];
 
-const COMMIT_REGISTRY_ABI = [
- 'function latestCommitTimestamp(bytes32 projectId) view returns (uint64)',
-];
 
 const ERC20_ABI = [
  'function balanceOf(address) view returns (uint256)',
@@ -47,8 +39,6 @@ function short(a?: string) {
 export default function TreasuryPage() {
  const rpcUrl = process.env.NEXT_PUBLIC_RPC_URL || '';
  const vaultAddr = process.env.NEXT_PUBLIC_TREASURY_VAULT_ADDRESS || '';
- const commitRegistryEnv = process.env.NEXT_PUBLIC_COMMIT_REGISTRY_ADDRESS || '';
- const projectKey = process.env.NEXT_PUBLIC_PROJECT_KEY || 'DDC_PROJECT_V1';
 
  const presaleAddr = process.env.NEXT_PUBLIC_PRESALE_ADDRESS || '';
  const ddcAddr = process.env.NEXT_PUBLIC_DDC_TOKEN_ADDRESS || '';
@@ -78,20 +68,9 @@ export default function TreasuryPage() {
  const [cfg, setCfg] = useState<any>(null);
  const [inflow, setInflow] = useState<bigint>(0n);
 
- // commit policy (new)
- const [commitRegistry, setCommitRegistry] = useState<string>('');
- const [commitFreq, setCommitFreq] = useState<number>(0);
- const [commitEnforce, setCommitEnforce] = useState<boolean>(false);
- const [lastCommitTs, setLastCommitTs] = useState<number | null>(null);
- const [lastCommitAgeSec, setLastCommitAgeSec] = useState<number | null>(null);
-
  // roles
  const [roleRows, setRoleRows] = useState<Record<number, any>>({});
  const [walletBalances, setWalletBalances] = useState<Record<string, bigint>>({});
-
- const commitFreshComputed = commitEnforce
- ? (commitFreq > 0 && lastCommitAgeSec != null ? lastCommitAgeSec <= commitFreq : false)
- : null;
 
  async function load() {
  setErr(null);
@@ -154,50 +133,6 @@ export default function TreasuryPage() {
  setInflow(0n);
  }
 
- // commit policy read from vault
- let reg = '0x0000000000000000000000000000000000000000';
- let freq = 0;
- let enf = false;
- let pid = '0x' + '0'.repeat(64);
-
- try { if (!v) throw new Error("no treasury policy vault");
- reg = String(await v.commitRegistry()); } catch {}
- try { if (!v) throw new Error("no treasury policy vault");
- freq = Number((await v.policyCommitFrequencySeconds()).toString()); } catch {}
- try { if (!v) throw new Error("no treasury policy vault");
- enf = Boolean(await v.enforceFreshCommit()); } catch {}
- try { if (!v) throw new Error("no treasury policy vault");
- pid = String(await v.projectId()); } catch {}
-
- const regToUse =
- reg && reg !== '0x0000000000000000000000000000000000000000'
- ? reg
- : (commitRegistryEnv || '');
-
- setCommitRegistry(regToUse || reg);
- setCommitFreq(Number.isFinite(freq) ? freq : 0);
- setCommitEnforce(enf);
-
- // commit latest ts
- setLastCommitTs(null);
- setLastCommitAgeSec(null);
- try {
- if (regToUse && pid && pid !== ('0x' + '0'.repeat(64))) {
- const regCode = await provider.getCode(regToUse);
- if (regCode !== '0x') {
- const cr = new ethers.Contract(regToUse, COMMIT_REGISTRY_ABI, provider);
- const last = await cr.latestCommitTimestamp(pid);
- const lastNum = Number(last.toString());
- setLastCommitTs(lastNum > 0 ? lastNum : null);
-
- const blk = await provider.getBlock('latest');
- const nowTs = Number(blk?.timestamp ?? Math.floor(Date.now() / 1000));
- const age = lastNum > 0 ? Math.max(0, nowTs - lastNum) : null;
- setLastCommitAgeSec(age);
- }
- }
- } catch {}
-
  // roles
  const next: Record<number, any> = {};
  for (const r of ROLES) {
@@ -247,7 +182,7 @@ export default function TreasuryPage() {
  useEffect(() => {
  load().catch(() => {});
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [rpcUrl, vaultAddr, commitRegistryEnv]);
+ }, [rpcUrl, vaultAddr]);
 
  const fmtUSDT = (x: bigint) => {
  try { return Number(ethers.formatUnits(x, 6)).toLocaleString('en-US', { maximumFractionDigits: 6 }); }

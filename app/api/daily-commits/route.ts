@@ -1,109 +1,149 @@
 import { NextResponse } from "next/server";
-import { ethers } from "ethers";
 
-export const dynamic = "force-dynamic";
-export const revalidate = 0;
 export const runtime = "nodejs";
+export const revalidate = 300;
 
-const ABI = [
-  "event CommitSubmitted(bytes32 indexed projectId, bytes32 indexed reportHash, bytes32 indexed engineCodeHash, bytes32 engineVersionHash, address validator, bytes32 messageHash, uint64 ts)",
-];
+const GITHUB_OWNER = "Diamond-Data-Chain";
+const GITHUB_REPOSITORY = "ddc-web";
+const GITHUB_BRANCH = "main";
 
-const DEFAULT_REGISTRY = "0xA6016d4DF086D52E3f13893B136743B4AbfB26c0";
-const DEFAULT_FROM_BLOCK = 112428000;
+type GitHubCommitResponse = {
+  sha: string;
+  html_url: string;
+  commit?: {
+    message?: string;
+    author?: {
+      name?: string;
+      date?: string;
+    } | null;
+    committer?: {
+      name?: string;
+      date?: string;
+    } | null;
+    verification?: {
+      verified?: boolean;
+      reason?: string;
+    } | null;
+  };
+  author?: {
+    login?: string;
+    avatar_url?: string;
+    html_url?: string;
+  } | null;
+};
+
+function cleanCommitMessage(message: string): {
+  title: string;
+  description: string;
+} {
+  const lines = message
+    .split("\n")
+    .map((line) => line.trim())
+    .filter(Boolean);
+
+  return {
+    title: lines[0] || "Untitled commit",
+    description: lines.slice(1).join(" "),
+  };
+}
 
 export async function GET() {
   try {
-    const rpcUrl =
-      process.env.BSC_MAINNET_RPC_URL ||
-      process.env.NEXT_PUBLIC_RPC_URL ||
-      "https://bsc-dataseed.bnbchain.org";
-
-    const registryAddress =
-      process.env.NEXT_PUBLIC_COMMIT_REGISTRY_ADDRESS ||
-      DEFAULT_REGISTRY;
-
-    const projectKey =
-      process.env.NEXT_PUBLIC_PROJECT_KEY ||
-      "DDC_PROJECT_V1";
-
-    const fromBlock = Number(
-      process.env.COMMIT_REGISTRY_FROM_BLOCK || DEFAULT_FROM_BLOCK
+    const url = new URL(
+      `https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPOSITORY}/commits`
     );
 
-    if (!ethers.isAddress(registryAddress)) {
-      throw new Error("Invalid commit registry address");
+    url.searchParams.set("sha", GITHUB_BRANCH);
+    url.searchParams.set("per_page", "50");
+
+    const headers: Record<string, string> = {
+      Accept: "application/vnd.github+json",
+      "X-GitHub-Api-Version": "2022-11-28",
+      "User-Agent": "Diamond-Data-Chain-Website",
+    };
+
+    const githubToken = process.env.GITHUB_TOKEN?.trim();
+
+    if (githubToken) {
+      headers.Authorization = `Bearer ${githubToken}`;
     }
 
-    const provider = new ethers.JsonRpcProvider(rpcUrl);
+    const response = await fetch(url, {
+      headers,
+      next: {
+        revalidate: 300,
+      },
+    });
 
-    const network = await provider.getNetwork();
-    if (Number(network.chainId) !== 56) {
+    if (!response.ok) {
+      const body = await response.text();
+
       throw new Error(
-        `Wrong RPC network: expected BNB mainnet chainId 56, received ${network.chainId}`
+        `GitHub API returned ${response.status}: ${
+          body.slice(0, 300) || response.statusText
+        }`
       );
     }
 
-    const latestBlock = await provider.getBlockNumber();
-    const contract = new ethers.Contract(registryAddress, ABI, provider);
+    const data = (await response.json()) as GitHubCommitResponse[];
 
-    const projectId = ethers.keccak256(
-      ethers.toUtf8Bytes(projectKey)
-    );
+    const items = data.map((item) => {
+      const message = cleanCommitMessage(
+        item.commit?.message || ""
+      );
 
-    const filter = contract.filters.CommitSubmitted(projectId);
-
-    const events: any[] = [];
-    const chunkSize = 4000;
-
-    for (
-      let start = fromBlock;
-      start <= latestBlock;
-      start += chunkSize
-    ) {
-      const end = Math.min(start + chunkSize - 1, latestBlock);
-      const chunk = await contract.queryFilter(filter, start, end);
-      events.push(...chunk);
-    }
-
-    const items = events
-      .map((event: any) => {
-        const args = event.args;
-
-        return {
-          projectId: args.projectId,
-          reportHash: args.reportHash,
-          engineCodeHash: args.engineCodeHash,
-          engineVersionHash: args.engineVersionHash,
-          validator: args.validator,
-          messageHash: args.messageHash,
-          timestamp: Number(args.ts),
-          blockNumber: event.blockNumber,
-          transactionHash: event.transactionHash,
-        };
-      })
-      .sort((a, b) => {
-        if (b.timestamp !== a.timestamp) {
-          return b.timestamp - a.timestamp;
-        }
-        return b.blockNumber - a.blockNumber;
-      });
+      return {
+        sha: item.sha,
+        shortSha: item.sha.slice(0, 7),
+        title: message.title,
+        description: message.description,
+        url: item.html_url,
+        date:
+          item.commit?.author?.date ||
+          item.commit?.committer?.date ||
+          null,
+        author:
+          item.author?.login ||
+          item.commit?.author?.name ||
+          item.commit?.committer?.name ||
+          "Unknown",
+        authorUrl: item.author?.html_url || null,
+        avatarUrl: item.author?.avatar_url || null,
+        verified:
+          item.commit?.verification?.verified === true,
+        verificationReason:
+          item.commit?.verification?.reason || null,
+      };
+    });
 
     return NextResponse.json({
-      chainId: 56,
-      registryAddress,
-      projectId,
-      fromBlock,
-      latestBlock,
+      source: "github",
+      repository: `${GITHUB_OWNER}/${GITHUB_REPOSITORY}`,
+      branch: GITHUB_BRANCH,
+      repositoryUrl: `https://github.com/${GITHUB_OWNER}/${GITHUB_REPOSITORY}`,
       count: items.length,
       items,
     });
-  } catch (e: any) {
+  } catch (error: unknown) {
+    const message =
+      error instanceof Error
+        ? error.message
+        : "Unable to read GitHub commits.";
+
+    console.error("GitHub commits API error:", error);
+
     return NextResponse.json(
       {
-        error: String(e?.shortMessage || e?.message || e),
+        source: "github",
+        repository: `${GITHUB_OWNER}/${GITHUB_REPOSITORY}`,
+        branch: GITHUB_BRANCH,
+        count: 0,
+        items: [],
+        error: message,
       },
-      { status: 500 }
+      {
+        status: 500,
+      }
     );
   }
 }
