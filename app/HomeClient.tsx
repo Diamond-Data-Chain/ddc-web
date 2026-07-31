@@ -9,6 +9,7 @@ const Navbar = dynamic(() => import("./(sections)/Navbar"), { ssr: false, loadin
 const Hero = dynamic(() => import("./(sections)/Hero"), { ssr: false, loading: () => null });
 const WhatIsDDC = dynamic(() => import("./(sections)/WhatIsDDC"), { ssr: false, loading: () => null });
 const OurStory = dynamic(() => import("./(sections)/OurStory"), { ssr: false, loading: () => null });
+const WhyDDCMattersNow = dynamic(() => import("./(sections)/WhyDDCMattersNow"), { ssr: false, loading: () => null });
 const MyDDCOverview = dynamic(() => import("./(sections)/MyDDCOverview"), { ssr: false, loading: () => null });
 const Technology = dynamic(() => import("./(sections)/Technology"), { ssr: false, loading: () => null });
 const Tokenomics = dynamic(() => import("./(sections)/Tokenomics"), { ssr: false, loading: () => null });
@@ -30,6 +31,7 @@ export default function HomeClient() {
  <Hero />
  <WhatIsDDC />
  <OurStory />
+ <WhyDDCMattersNow />
 
  <MyDDCOverview />
  <VestingPools />
