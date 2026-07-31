@@ -639,20 +639,43 @@ const handleAddNetwork = async () => {
  const sold = batch?.soldDDC ?? 0n;
  const hardCap = batch?.hardCapDDC ?? 0n;
  const remaining = hardCap > sold ? hardCap - sold : 0n;
- const progress =
- hardCap > 0n ? Number((sold * 10000n) / hardCap) / 100 : 0;
 
- const batchEnded =
- batch &&
- batch.endTime &&
- nowTs >= Number(batch.endTime);
+ const BATCH_DURATION_SECONDS = Math.round(102.4 * 3600);
+ const baseBatchCap = BigInt(BATCH_SIZE_DDC) * 10n ** 18n;
 
- const virtualBatchId =
- !isFinalized &&
- batchEnded &&
- batchId &&
- batchId < TOTAL_BATCHES
- ? batchId + 1
+ const storedStart = batch?.startTime ? Number(batch.startTime) : 0;
+ const storedEnd = batch?.endTime ? Number(batch.endTime) : 0;
+
+ const storedSoldOut =
+ Boolean(batch) &&
+ hardCap > 0n &&
+ sold >= hardCap;
+
+ /*
+  * The contract may remain on an older stored batch until a transaction
+  * executes its internal synchronization. Calculate the effective batch
+  * from the original schedule so the UI can advance through multiple
+  * expired batches, not only one.
+  */
+ let virtualSteps = 0;
+
+ if (!isFinalized && batchId && batchId < TOTAL_BATCHES) {
+ if (storedSoldOut) {
+ virtualSteps = 1;
+ } else if (storedEnd > 0 && nowTs >= storedEnd) {
+ virtualSteps =
+ Math.floor((nowTs - storedEnd) / BATCH_DURATION_SECONDS) + 1;
+ }
+ }
+
+ const maxVirtualSteps = batchId
+ ? Math.max(0, TOTAL_BATCHES - batchId)
+ : 0;
+
+ virtualSteps = Math.min(virtualSteps, maxVirtualSteps);
+
+ const virtualBatchId = batchId
+ ? Math.min(batchId + virtualSteps, TOTAL_BATCHES)
  : batchId;
 
  const currentPlan =
@@ -662,84 +685,83 @@ const handleAddNetwork = async () => {
  ? PRESALE_PLAN[virtualBatchId - 1]
  : null;
 
- const isVirtualNextBatch =
+ const isVirtualBatch =
  !isFinalized &&
- Boolean(batchEnded) &&
  Boolean(batchId) &&
  Boolean(virtualBatchId) &&
  virtualBatchId !== batchId;
 
- const displaySold = isVirtualNextBatch ? 0n : sold;
- const displayHardCap = isVirtualNextBatch
- ? BigInt(BATCH_SIZE_DDC) * 10n ** 18n + remaining
- : hardCap;
- const displayRemaining = displayHardCap > displaySold ? displayHardCap - displaySold : 0n;
+ /*
+  * Rollover:
+  * first virtual batch receives the unsold balance of the stored batch;
+  * every additional completely unsold virtual batch adds another base cap.
+  */
+ let displayHardCap = hardCap;
+
+ if (isVirtualBatch) {
+ displayHardCap =
+ baseBatchCap +
+ remaining +
+ baseBatchCap * BigInt(Math.max(0, virtualSteps - 1));
+ }
+
+ const displaySold = isVirtualBatch ? 0n : sold;
+ const displayRemaining =
+ displayHardCap > displaySold
+ ? displayHardCap - displaySold
+ : 0n;
+
  const displayProgress =
- displayHardCap > 0n ? Number((displaySold * 10000n) / displayHardCap) / 100 : 0;
+ displayHardCap > 0n
+ ? Number((displaySold * 10000n) / displayHardCap) / 100
+ : 0;
+
  const displayPriceUSDT =
- isVirtualNextBatch && currentPlan
+ isVirtualBatch && currentPlan
  ? BigInt(Math.round(currentPlan.priceUSDT * 1_000_000))
  : batch?.priceInUSDT ?? 0n;
 
- const batchStartTs = batch?.startTime ? Number(batch.startTime) : 0;
- const isPresaleStarted = Boolean(batchStartTs) && nowTs >= batchStartTs;
+ const batchStartTs = isVirtualBatch
+ ? storedEnd + (virtualSteps - 1) * BATCH_DURATION_SECONDS
+ : storedStart;
 
- // Timer calculation: batch duration and remaining time
- let batchDurationHours: string = "102.4"; // default if the contract returns nothing
+ const batchEndTs = isVirtualBatch
+ ? storedEnd + virtualSteps * BATCH_DURATION_SECONDS
+ : storedEnd;
+
+ const isPresaleStarted =
+ Boolean(batchStartTs) &&
+ nowTs >= batchStartTs;
+
+ let batchDurationHours = "102.4";
  let timeLeftLabel: string | null = null;
 
- if (batch && batch.startTime && batch.endTime) {
- try {
- const start = isVirtualNextBatch ? Number(batch.endTime) : Number(batch.startTime);
- const end = isVirtualNextBatch ? Number(batch.endTime) + Math.round(102.4 * 3600) : Number(batch.endTime);
+ if (batchStartTs > 0 && batchEndTs > batchStartTs) {
+ const totalSec = batchEndTs - batchStartTs;
+ batchDurationHours = (totalSec / 3600).toFixed(1);
 
- if (end > start) {
- const totalSec = end - start;
- const hours = totalSec / 3600;
- batchDurationHours = hours.toFixed(1);
-
- const now = nowTs;
- if (now < start) {
+ if (nowTs < batchStartTs) {
  timeLeftLabel = "Batch not started yet";
- } else if (now >= end) {
- 
-const virtualEnd = end + Math.round(102.4 * 3600);
-const rem = virtualEnd - now;
-
-if (rem > 0) {
- const days = Math.floor(rem / 86400);
- const h = Math.floor((rem % 86400) / 3600);
- const m = Math.floor((rem % 3600) / 60);
- const sec = rem % 60;
-
- const hh = h.toString().padStart(2, "0");
- const mm = m.toString().padStart(2, "0");
- const ss = sec.toString().padStart(2, "0");
-
- timeLeftLabel = days > 0 ? `${days}d ${hh}:${mm}:${ss}` : `${hh}:${mm}:${ss}`;
-} else {
- timeLeftLabel = "Awaiting next batch";
-}
+ } else if (nowTs >= batchEndTs) {
+ timeLeftLabel =
+ virtualBatchId === TOTAL_BATCHES
+ ? "Awaiting presale finalization"
+ : "Awaiting next batch";
  } else {
- const rem = end - now;
+ const rem = batchEndTs - nowTs;
  const days = Math.floor(rem / 86400);
- const h = Math.floor((rem % 86400) / 3600);
- const m = Math.floor((rem % 3600) / 60);
- const s = rem % 60;
+ const hours = Math.floor((rem % 86400) / 3600);
+ const minutes = Math.floor((rem % 3600) / 60);
+ const seconds = rem % 60;
 
- const hh = h.toString().padStart(2, "0");
- const mm = m.toString().padStart(2, "0");
- const ss = s.toString().padStart(2, "0");
+ const hh = hours.toString().padStart(2, "0");
+ const mm = minutes.toString().padStart(2, "0");
+ const ss = seconds.toString().padStart(2, "0");
 
- if (days > 0) {
- timeLeftLabel = `${days}d ${hh}:${mm}:${ss}`;
- } else {
- timeLeftLabel = `${hh}:${mm}:${ss}`;
- }
- }
- }
- } catch {
- // ostavi default 102.4h i "-" za timeLeftLabel
+ timeLeftLabel =
+ days > 0
+ ? `${days}d ${hh}:${mm}:${ss}`
+ : `${hh}:${mm}:${ss}`;
  }
  }
 
@@ -771,7 +793,7 @@ if (rem > 0) {
  </span>{" "}
  per DDC · Batch size (on-chain):{" "}
  <span className="font-semibold">
- {hardCap > 0n ? formatBigInt(hardCap) : "-"} DDC
+ {displayHardCap > 0n ? formatBigInt(displayHardCap) : "-"} DDC
  </span>
  </p>
  )}
@@ -817,9 +839,9 @@ if (rem > 0) {
  className={`
  h-full rounded-full transition-all duration-500
  ${
- progress >= 95
+ displayProgress >= 95
  ? "bg-red-500 animate-pulse"
- : progress >= 80
+ : displayProgress >= 80
  ? "bg-orange-400 animate-pulse"
  : "bg-amber-400"
  }
@@ -889,7 +911,7 @@ if (rem > 0) {
  />
  </div>
  <p className="mt-1 text-right text-[10px] text-amber-100/70">
- {progress.toFixed(2)}% sold
+ {displayProgress.toFixed(2)}% sold
  </p>
  </div>
 
