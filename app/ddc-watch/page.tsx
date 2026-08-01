@@ -219,6 +219,12 @@ export default function DDCWatchPage() {
     };
   }, []);
 
+  const recordById = useMemo(() => {
+    return new Map(
+      records.map((record) => [record.recordId, record])
+    );
+  }, [records]);
+
   const filteredRecords = useMemo(() => {
     if (activeFilter === "All") return records;
 
@@ -440,6 +446,21 @@ export default function DDCWatchPage() {
                             {formatDate(record.detectedAt)}
                           </span>
                         </div>
+
+                        {record.previousRecordId && (
+                          <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
+                            <span className="font-mono text-slate-500">
+                              Supersedes{" "}
+                              {recordById.get(record.previousRecordId)
+                                ?.ddcTokenRecordNumber ||
+                                record.previousRecordId}
+                            </span>
+                            <span className="text-slate-600">→</span>
+                            <span className="font-mono text-emerald-300">
+                              Current {record.ddcTokenRecordNumber}
+                            </span>
+                          </div>
+                        )}
                       </div>
 
                       <div className="shrink-0 text-left lg:text-right">
@@ -623,10 +644,24 @@ export default function DDCWatchPage() {
                     {selectedRecord.previousRecordId ? (
                       <div className="mt-5 border-t border-slate-800 pt-4">
                         <div className="font-mono text-xs text-slate-400">
-                          {selectedRecord.previousRecordId}
+                          {recordById.get(selectedRecord.previousRecordId)
+                            ?.ddcTokenRecordNumber ||
+                            selectedRecord.previousRecordId}
                         </div>
                         <div className="mt-1 text-xs text-slate-500">
-                          Previous preserved version
+                          Superseded preserved version
+                        </div>
+
+                        <div className="mt-3 flex items-center gap-2 text-xs">
+                          <span className="font-mono text-slate-500">
+                            {recordById.get(selectedRecord.previousRecordId)
+                              ?.ddcTokenRecordNumber ||
+                              selectedRecord.previousRecordId}
+                          </span>
+                          <span className="text-slate-600">→</span>
+                          <span className="font-mono text-emerald-300">
+                            {selectedRecord.ddcTokenRecordNumber}
+                          </span>
                         </div>
                       </div>
                     ) : (
