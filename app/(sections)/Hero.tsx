@@ -57,7 +57,7 @@ export default function Hero() {
             </a>
 
             <a
-              href="/ddc-whitepaper.pdf"
+              href="/whitepaper.pdf"
               target="_blank"
               rel="noreferrer"
               className="rounded-2xl border border-amber-400/40 bg-amber-500/20 px-5 py-3 font-semibold text-amber-300 transition hover:bg-amber-500/30"
