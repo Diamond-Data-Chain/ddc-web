@@ -1,0 +1,434 @@
+[
+  {
+    "scanId": "SCAN-1785590420587-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T13:20:19.913Z",
+    "result": "new",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590420804-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T13:20:20.587Z",
+    "result": "new",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590421002-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T13:20:20.804Z",
+    "result": "new",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590421295-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T13:20:21.002Z",
+    "result": "new",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590422235-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T13:20:21.325Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590422302-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T13:20:22.235Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590422427-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T13:20:22.302Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785590422577-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T13:20:22.427Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785591390403-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T13:36:29.577Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785591390873-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T13:36:30.403Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785591391049-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T13:36:30.873Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785591391338-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T13:36:31.049Z",
+    "result": "new",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592410711-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T13:53:29.810Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592411212-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T13:53:30.711Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592411374-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T13:53:31.212Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592411685-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T13:53:31.374Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592672907-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T13:57:52.058Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592673017-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T13:57:52.907Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592673138-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T13:57:53.017Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592673407-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T13:57:53.138Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592802287-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T14:00:01.437Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592802388-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T14:00:02.287Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592802564-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T14:00:02.388Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785592802871-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T14:00:02.564Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785593702351-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T14:15:01.602Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785593702857-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T14:15:02.351Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785593703068-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T14:15:02.857Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785593703355-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T14:15:03.068Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785594602206-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T14:30:01.382Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785594602640-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T14:30:02.206Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785594602845-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T14:30:02.640Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785594603127-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T14:30:02.845Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785595502812-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T14:45:01.962Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785595503292-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T14:45:02.812Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785595503441-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T14:45:03.292Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785595503704-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T14:45:03.441Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596402845-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:00:01.724Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596402963-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:00:02.845Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596403106-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:00:02.963Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596403350-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:00:03.106Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596507907-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:01:46.763Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596508460-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:01:47.907Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596508651-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:01:48.460Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785596508934-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:01:48.651Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785597301905-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:15:01.224Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785597302012-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:15:01.905Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785597302135-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:15:02.012Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785597302370-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:15:02.135Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  }
+]

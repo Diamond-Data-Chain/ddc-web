@@ -64,6 +64,20 @@ export default function Hero() {
             >
               Read Whitepaper
             </a>
+
+            <a
+              href="/ddc-watch"
+              className="inline-flex items-center gap-2 rounded-2xl border border-cyan-400/50 bg-cyan-500/15 px-5 py-3 font-semibold text-cyan-200 shadow-[0_0_20px_rgba(34,211,238,0.12)] transition hover:border-cyan-300/70 hover:bg-cyan-500/25"
+            >
+              <span className="relative flex h-3 w-3">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-60" />
+                <span className="relative inline-flex h-3 w-3 rounded-full bg-emerald-400" />
+              </span>
+              DDC Watch
+              <span className="text-xs uppercase tracking-[0.18em] text-emerald-300">
+                Live
+              </span>
+            </a>
           </motion.div>
 
           <motion.div

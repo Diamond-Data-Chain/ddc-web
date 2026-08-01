@@ -1,0 +1,38 @@
+[
+  {
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "documentUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "category": "Regulation",
+    "sourceName": "United Nations",
+    "sourceDomain": "un.org",
+    "documentTitle": "Global Digital Compact",
+    "documentUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "APPLE-10Q-2026Q2",
+    "category": "Corporate",
+    "sourceName": "U.S. Securities and Exchange Commission",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Apple Inc. Form 10-Q \u2014 period ended March 28, 2026",
+    "documentUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "NEXTJS-RELEASES",
+    "category": "Software",
+    "sourceName": "Vercel / Next.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Next.js release",
+    "documentUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "fetchMode": "github-release-json"
+  }
+]

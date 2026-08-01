@@ -1,0 +1,231 @@
+[
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-01T13:20:19.913Z",
+    "contentLength": 2583319,
+    "contentType": "application/pdf",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260801-000001.pdf",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-01T13:20:19.913Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e"
+        }
+      ]
+    },
+    "verificationReportHash": "0x7d1b9d55d6a90e9c6ca9c41ab40eb3adb0e626438c6ea3e4a84e1fc06b5f00ec",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000001",
+    "recorderTransactionHash": "0x2020da521f4f7287aa89ec9f12fb88c44cf8dea774bf1207b35d918c8707af66",
+    "recorderBlockNumber": 113412699,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T14:50:33.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "category": "Regulation",
+    "sourceName": "United Nations",
+    "sourceDomain": "un.org",
+    "documentTitle": "Global Digital Compact",
+    "requestedUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "observedAt": "2026-08-01T13:20:20.587Z",
+    "contentLength": 139382,
+    "contentType": "text/html; charset=utf-8",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+      "observedAt": "2026-08-01T13:20:20.587Z",
+      "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.un.org"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452"
+        }
+      ]
+    },
+    "verificationReportHash": "0x1de16ab5df4df588c553120049d2f47f8111cdd7f18ff7e94f09db1f1587ab98",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000002",
+    "recorderTransactionHash": "0x055817b9996a126752b04de7e79a9b3263334424ab98fce2a1a0fc231f5e064c",
+    "recorderBlockNumber": 113413235,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T14:54:34.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "category": "Corporate",
+    "sourceName": "U.S. Securities and Exchange Commission",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Apple Inc. Form 10-Q — period ended March 28, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "observedAt": "2026-08-01T13:20:20.804Z",
+    "contentLength": 999810,
+    "contentType": "text/html",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "APPLE-10Q-2026Q2",
+      "observedAt": "2026-08-01T13:20:20.804Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+      "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228"
+        }
+      ]
+    },
+    "verificationReportHash": "0xc065f9ac3a8f9b97e1d8b921f6b131d976c311418cecf30aecaed36f0cf11cf7",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000003",
+    "recorderTransactionHash": "0xd15ed1d4b6e4eb15362c6e1ae036af912216d4bd5cbba5e4d70d04b5f4a8ca2d",
+    "recorderBlockNumber": 113413238,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T14:54:35.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "sourceId": "NEXTJS-RELEASES",
+    "category": "Software",
+    "sourceName": "Vercel / Next.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Next.js release",
+    "requestedUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "publicUrl": "https://github.com/vercel/next.js/releases/tag/v16.2.12",
+    "observedAt": "2026-08-01T13:36:31.049Z",
+    "contentLength": 649,
+    "contentType": "application/json",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NEXTJS-RELEASES",
+      "observedAt": "2026-08-01T13:36:31.049Z",
+      "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+      "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a"
+        }
+      ]
+    },
+    "verificationReportHash": "0xba8070abf52046f5f0f4853e61db4a89867bbd5a0d48c7a2255e8e01e3cc2777",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000004",
+    "recorderTransactionHash": "0x647103ad7f286f3fa13eb5b7ac85fa25dda60fbf35925281293e99a5203be36c",
+    "recorderBlockNumber": 113413241,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T14:54:37.000Z"
+  }
+]
