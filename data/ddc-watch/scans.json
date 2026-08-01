@@ -430,5 +430,248 @@
     "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
     "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
     "error": null
+  },
+  {
+    "scanId": "SCAN-1785598202252-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:30:01.380Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785598202803-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:30:02.252Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785598202974-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:30:02.803Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785598203246-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:30:02.974Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599102516-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:45:01.687Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599102948-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:45:02.516Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599103125-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:45:02.948Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599103414-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:45:03.125Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599710275-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:55:09.430Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599710373-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:55:10.275Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599710507-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:55:10.373Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599710755-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:55:10.507Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599711141-OPENAI-MODEL-SPEC-2025-10-27",
+    "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+    "observedAt": "2026-08-01T15:55:10.755Z",
+    "result": "new",
+    "contentHash": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518",
+    "recordId": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599711437-ANTHROPIC-RSP-3-4",
+    "sourceId": "ANTHROPIC-RSP-3-4",
+    "observedAt": "2026-08-01T15:55:11.141Z",
+    "result": "new",
+    "contentHash": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+    "recordId": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599711609-NIST-AI-RMF-1-0",
+    "sourceId": "NIST-AI-RMF-1-0",
+    "observedAt": "2026-08-01T15:55:11.609Z",
+    "result": "failed",
+    "contentHash": null,
+    "recordId": null,
+    "error": "HTTP 403 Forbidden"
+  },
+  {
+    "scanId": "SCAN-1785599711884-CISA-KEV-CATALOG",
+    "sourceId": "CISA-KEV-CATALOG",
+    "observedAt": "2026-08-01T15:55:11.609Z",
+    "result": "new",
+    "contentHash": "0x15b44d7c9c57f3d27128999e09f0fc991659a0b64713b5e1af599565447a2409",
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260801-000007",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599712088-NODEJS-LATEST-RELEASE",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "observedAt": "2026-08-01T15:55:11.884Z",
+    "result": "new",
+    "contentHash": "0x91be28f9248281e2755b01e71bddcdcd7c863308f7700e2f0419d0f121d9b147",
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260801-000008",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599712333-KUBERNETES-LATEST-RELEASE",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "observedAt": "2026-08-01T15:55:12.088Z",
+    "result": "new",
+    "contentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599821525-EU-AI-ACT",
+    "sourceId": "EU-AI-ACT",
+    "observedAt": "2026-08-01T15:57:00.771Z",
+    "result": "unchanged",
+    "contentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599821650-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-08-01T15:57:01.525Z",
+    "result": "unchanged",
+    "contentHash": "0x554431c3a57aedcbfc110d64a01dc79692e7bbcc83a886ca94fb4f2b4e0f8452",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599821845-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-08-01T15:57:01.650Z",
+    "result": "unchanged",
+    "contentHash": "0xbb90060d61a273e51b5a472d65ae15d8b51bfd037ddf91e559f9d9adfe2a0228",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599822124-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-08-01T15:57:01.845Z",
+    "result": "unchanged",
+    "contentHash": "0xa008ebd625cb45fb13b125ee9a71cddb7be674b62a1096a78a5abe3bf789180a",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599822383-OPENAI-MODEL-SPEC-2025-10-27",
+    "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+    "observedAt": "2026-08-01T15:57:02.124Z",
+    "result": "unchanged",
+    "contentHash": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518",
+    "recordId": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599822726-ANTHROPIC-RSP-3-4",
+    "sourceId": "ANTHROPIC-RSP-3-4",
+    "observedAt": "2026-08-01T15:57:02.383Z",
+    "result": "unchanged",
+    "contentHash": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+    "recordId": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599822967-CISA-KEV-CATALOG",
+    "sourceId": "CISA-KEV-CATALOG",
+    "observedAt": "2026-08-01T15:57:02.726Z",
+    "result": "unchanged",
+    "contentHash": "0x15b44d7c9c57f3d27128999e09f0fc991659a0b64713b5e1af599565447a2409",
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260801-000007",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599823152-NODEJS-LATEST-RELEASE",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "observedAt": "2026-08-01T15:57:02.967Z",
+    "result": "unchanged",
+    "contentHash": "0x91be28f9248281e2755b01e71bddcdcd7c863308f7700e2f0419d0f121d9b147",
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260801-000008",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1785599823326-KUBERNETES-LATEST-RELEASE",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "observedAt": "2026-08-01T15:57:03.152Z",
+    "result": "unchanged",
+    "contentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009",
+    "error": null
   }
 ]

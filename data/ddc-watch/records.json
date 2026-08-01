@@ -227,5 +227,295 @@
     "recorderBlockNumber": 113413241,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-08-01T14:54:37.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005",
+    "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+    "category": "AI Governance",
+    "sourceName": "OpenAI",
+    "sourceDomain": "model-spec.openai.com",
+    "documentTitle": "OpenAI Model Spec — 27 October 2025",
+    "requestedUrl": "https://model-spec.openai.com/2025-10-27.html",
+    "finalUrl": "https://model-spec.openai.com/2025-10-27.html",
+    "publicUrl": "https://model-spec.openai.com/2025-10-27.html",
+    "observedAt": "2026-08-01T15:55:10.755Z",
+    "contentLength": 2627505,
+    "contentType": "text/html; charset=utf-8",
+    "contentHash": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+      "observedAt": "2026-08-01T15:55:10.755Z",
+      "finalUrl": "https://model-spec.openai.com/2025-10-27.html",
+      "contentHash": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: model-spec.openai.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518"
+        }
+      ]
+    },
+    "verificationReportHash": "0x7e68a3adb09959908815608c4c4e87e91862e8722d3e30a94b051727ec083cd7",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000005",
+    "recorderTransactionHash": "0x2eebf2d7f3e0577425342f010383ad44b2d9ad7e516d701eaed5a5041a10172f",
+    "recorderBlockNumber": 113421323,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T15:55:14.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006",
+    "sourceId": "ANTHROPIC-RSP-3-4",
+    "category": "AI Governance",
+    "sourceName": "Anthropic",
+    "sourceDomain": "cdn.sanity.io",
+    "documentTitle": "Anthropic Responsible Scaling Policy — Version 3.4",
+    "requestedUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+    "finalUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+    "publicUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+    "observedAt": "2026-08-01T15:55:11.141Z",
+    "contentLength": 304755,
+    "contentType": "application/pdf",
+    "contentHash": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006.pdf",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "ANTHROPIC-RSP-3-4",
+      "observedAt": "2026-08-01T15:55:11.141Z",
+      "finalUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+      "contentHash": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: cdn.sanity.io"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d"
+        }
+      ]
+    },
+    "verificationReportHash": "0x6e684edde880c353309fff1b62d34b86221a67d23e342ad12633d14db9de03f7",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000006",
+    "recorderTransactionHash": "0x49cb9c18fca2214f3e68b933613a594df722e3b7cc927a40969cfeb032fe1b97",
+    "recorderBlockNumber": 113421327,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T15:55:16.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260801-000007",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-08-01T15:55:11.609Z",
+    "contentLength": 1567768,
+    "contentType": "application/json",
+    "contentHash": "0x15b44d7c9c57f3d27128999e09f0fc991659a0b64713b5e1af599565447a2409",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260801-000007.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-08-01T15:55:11.609Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x15b44d7c9c57f3d27128999e09f0fc991659a0b64713b5e1af599565447a2409",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x15b44d7c9c57f3d27128999e09f0fc991659a0b64713b5e1af599565447a2409"
+        }
+      ]
+    },
+    "verificationReportHash": "0x8bb7e5796e63db9daeca2062878bd6e31485b8cf9c790c9282342b382482746b",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000007",
+    "recorderTransactionHash": "0x8d4de7580ff415efde886e832eaeef5828959f5ef79fc7d664bd52f301a78e42",
+    "recorderBlockNumber": 113421330,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T15:55:17.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260801-000008",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Node.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Node.js release",
+    "requestedUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "publicUrl": "https://github.com/nodejs/node/releases/tag/v26.5.1",
+    "observedAt": "2026-08-01T15:55:11.884Z",
+    "contentLength": 4403,
+    "contentType": "application/json",
+    "contentHash": "0x91be28f9248281e2755b01e71bddcdcd7c863308f7700e2f0419d0f121d9b147",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260801-000008.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NODEJS-LATEST-RELEASE",
+      "observedAt": "2026-08-01T15:55:11.884Z",
+      "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+      "contentHash": "0x91be28f9248281e2755b01e71bddcdcd7c863308f7700e2f0419d0f121d9b147",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x91be28f9248281e2755b01e71bddcdcd7c863308f7700e2f0419d0f121d9b147"
+        }
+      ]
+    },
+    "verificationReportHash": "0x81e0b111222d0d719d8e9c70dbf56892a4e023f177cb23d438f0283231e9741e",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000008",
+    "recorderTransactionHash": "0x7e4b0dffd257fccc4f41f3ccdc82fbae4edf12fa7ed1129f094d9e75b65ae28f",
+    "recorderBlockNumber": 113421334,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T15:55:19.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Kubernetes",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Kubernetes release",
+    "requestedUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "publicUrl": "https://github.com/kubernetes/kubernetes/releases/tag/v1.36.3",
+    "observedAt": "2026-08-01T15:55:12.088Z",
+    "contentLength": 689,
+    "contentType": "application/json",
+    "contentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+    "previousContentHash": null,
+    "previousRecordId": null,
+    "changeDetected": false,
+    "snapshotFile": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "KUBERNETES-LATEST-RELEASE",
+      "observedAt": "2026-08-01T15:55:12.088Z",
+      "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+      "contentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+      "previousContentHash": null,
+      "changed": false,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479"
+        }
+      ]
+    },
+    "verificationReportHash": "0x5e6dc97cf8ce5e24fb62497d77c597c296e3a08e4e4646c8f1102ff9e71a4239",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000009",
+    "recorderTransactionHash": "0x6180ce476540928795168a56c308879f9efc7f97a0bb3a6c3c903253788cda0a",
+    "recorderBlockNumber": 113421338,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T15:55:21.000Z"
   }
 ]

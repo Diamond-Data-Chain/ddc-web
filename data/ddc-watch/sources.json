@@ -34,5 +34,50 @@
     "documentTitle": "Latest stable Next.js release",
     "documentUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
     "fetchMode": "github-release-json"
+  },
+  {
+    "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+    "category": "AI Governance",
+    "sourceName": "OpenAI",
+    "sourceDomain": "model-spec.openai.com",
+    "documentTitle": "OpenAI Model Spec \u2014 27 October 2025",
+    "documentUrl": "https://model-spec.openai.com/2025-10-27.html",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "ANTHROPIC-RSP-3-4",
+    "category": "AI Governance",
+    "sourceName": "Anthropic",
+    "sourceDomain": "cdn.sanity.io",
+    "documentTitle": "Anthropic Responsible Scaling Policy \u2014 Version 3.4",
+    "documentUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "documentUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "fetchMode": "binary-document"
+  },
+  {
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Node.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Node.js release",
+    "documentUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "fetchMode": "github-release-json"
+  },
+  {
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Kubernetes",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Kubernetes release",
+    "documentUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "fetchMode": "github-release-json"
   }
 ]
