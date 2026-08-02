@@ -64,7 +64,11 @@ function fmt18(v: bigint) {
  return Number.isFinite(n) ? n.toLocaleString("en-US", { maximumFractionDigits: 6 }) : "—";
 }
 
-export default function PresaleFinalizeStatus() {
+export default function PresaleFinalizeStatus({
+ activeBatchId,
+}: {
+ activeBatchId?: number | null;
+}) {
  const [st, setSt] = useState<State>({ status: "idle" });
 
  const provider = useMemo(() => new JsonRpcProvider(RPC_URL, CHAIN_ID), []);
@@ -94,18 +98,18 @@ export default function PresaleFinalizeStatus() {
  const blk = await provider.getBlock("latest");
  const now = Number(blk?.timestamp ?? Math.floor(Date.now() / 1000));
 
- // (A) Progress: total sold from Purchased events
+ // (A) Canonical total sold from on-chain batch storage.
  let totalSoldNominal = 0n;
  let purchasesCount = 0;
+
  try {
- const logs = await presale.queryFilter(presale.filters.Purchased?.(), 0, "latest");
- purchasesCount = logs?.length ?? 0;
- if (logs && logs.length) {
- for (const l of logs as any[]) {
- const amt = pickLikelyDDCAmount(l.args);
- if (amt) totalSoldNominal += amt;
- }
- }
+   for (let id = 1; id <= 40; id += 1) {
+     const info: any = await presale.batchInfo(id);
+
+     totalSoldNominal += BigInt(
+       (info.soldDDC ?? info[4] ?? 0n).toString()
+     );
+   }
  } catch {}
 
  // (B) batch #1 base hardCap (used for projection)
@@ -114,6 +118,10 @@ export default function PresaleFinalizeStatus() {
  const b1: any = await presale.batchInfo(1);
  baseHardCap = (b1.hardCapDDC ?? b1[2] ?? 0n) as bigint;
  } catch {}
+
+ if (baseHardCap === 0n) {
+   return;
+ }
 
  // (C) current batch snapshot
  let currentBatch = 1;
@@ -160,24 +168,16 @@ export default function PresaleFinalizeStatus() {
  finalizedAt = end40;
  }
 
- // (F) Projection: what would hardCap#40 become if from NOW onward sold=0
- // Rollover rule: cap_{i+1} = base + (cap_i - sold_i) (on time expiry)
+ // (F) Projection if no additional DDC is sold.
  let projectedHardCap40 = hardCap40;
+
  if (!finalized && baseHardCap > 0n) {
- if (currentBatch >= 40) {
- projectedHardCap40 = curHardCap;
- } else {
- const unsoldCur = curHardCap > curSold ? (curHardCap - curSold) : 0n;
- // next cap if current expires:
- const nextCap = baseHardCap + unsoldCur;
- const remainingSteps = 40 - currentBatch; // number of advances needed to reach 40
- if (remainingSteps <= 1) {
- projectedHardCap40 = nextCap;
- } else {
- // each further step (assuming sold=0) adds baseHardCap
- projectedHardCap40 = nextCap + baseHardCap * BigInt(remainingSteps - 1);
- }
- }
+   const totalPresaleAllocation = baseHardCap * 40n;
+
+   projectedHardCap40 =
+     totalPresaleAllocation > totalSoldNominal
+       ? totalPresaleAllocation - totalSoldNominal
+       : 0n;
  }
 
  // (G) Final-only values
@@ -280,10 +280,26 @@ export default function PresaleFinalizeStatus() {
  <div className="mt-4 pt-3 border-t border-amber-400/20 text-xs text-amber-100/60">
  Live rollover projection
  </div>
- <Row label="Current batch" value={`#${st.data.currentBatch}`} />
- <Row label="Base hardCap (batch #1)" value={`${fmt18(st.data.baseHardCap)} DDC`} />
- <Row label="Current remaining" value={`${fmt18(st.data.curHardCap > st.data.curSold ? st.data.curHardCap - st.data.curSold : 0n)} DDC`} />
- <Row label="Current sold" value={`${fmt18(st.data.curSold)} DDC`} />
+ <Row
+ label="Current batch"
+ value={`#${activeBatchId ?? st.data.currentBatch}`}
+ />
+ <Row
+ label="Total presale allocation"
+ value={`${fmt18(st.data.baseHardCap * 40n)} DDC`}
+ />
+ <Row
+ label="Total sold"
+ value={`${fmt18(st.data.totalSoldNominal)} DDC`}
+ />
+ <Row
+ label="Remaining presale allocation"
+ value={`${fmt18(
+   st.data.baseHardCap * 40n > st.data.totalSoldNominal
+     ? st.data.baseHardCap * 40n - st.data.totalSoldNominal
+     : 0n
+ )} DDC`}
+ />
  <Row
  label="Projected Batch #40 hardCap (if future sold=0)"
  value={`${fmt18(st.data.projectedHardCap40)} DDC`}

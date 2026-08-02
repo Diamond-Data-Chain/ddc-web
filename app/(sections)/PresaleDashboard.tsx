@@ -1075,14 +1075,9 @@ const handleAddNetwork = async () => {
  </button>
  </div>
 
- {(virtualBatchId ?? batchId) && (
+ {displayPriceUSDT > 0n && (
  (() => {
- const effectiveBatchId = Number(virtualBatchId ?? batchId);
-
- const activeBatchPrice = parseUnits(
-   (0.01 + (effectiveBatchId - 1) * 0.02).toFixed(2),
-   6
- );
+ const activeBatchPrice = displayPriceUSDT;
 
  const out = calcYouWillGetDDC(
    amountUSDT,
@@ -1247,7 +1242,7 @@ const handleAddNetwork = async () => {
  
  <RewardPoolStatus />
 
- <PresaleFinalizeStatus />
+ <PresaleFinalizeStatus activeBatchId={virtualBatchId} />
 </section>
  );
 }
