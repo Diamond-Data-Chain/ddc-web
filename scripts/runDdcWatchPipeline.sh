@@ -2,7 +2,8 @@
 
 set -euo pipefail
 
-PROJECT_DIR="$HOME/DDC_Web_Concil/DDChain-Web_FIXED_v2/DDChain-Web"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 
 cd "$PROJECT_DIR"
 
