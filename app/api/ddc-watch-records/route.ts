@@ -41,6 +41,8 @@ type StoredRecord = {
     | "registered"
     | "failed";
   ddcTokenRecordNumber?: string | null;
+  publicTokenId?: string | null;
+  onChainRecordNumber?: number | null;
   recorderTransactionHash?: string | null;
   recorderBlockNumber?: number | null;
 };
@@ -142,8 +144,13 @@ export async function GET() {
         recordId: record.recordId,
 
         ddcTokenRecordNumber:
+          record.publicTokenId ||
           record.ddcTokenRecordNumber ||
           "Pending registration",
+
+        onChainRecordNumber:
+          record.onChainRecordNumber ||
+          undefined,
 
         category: record.category,
         status: statusFor(record),

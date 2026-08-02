@@ -24,6 +24,7 @@ type VerificationCheck = {
 type DDCWatchRecord = {
   recordId: string;
   ddcTokenRecordNumber: string;
+  onChainRecordNumber?: number;
   category: Category;
   status: RecordStatus;
   sourceName: string;
@@ -589,6 +590,12 @@ export default function DDCWatchPage() {
                 [
                   "Change detected",
                   selectedRecord.changeDetected ? "Yes" : "No",
+                ],
+                [
+                  "On-chain record",
+                  selectedRecord.onChainRecordNumber
+                    ? String(selectedRecord.onChainRecordNumber)
+                    : "Pending",
                 ],
                 [
                   "Transaction",

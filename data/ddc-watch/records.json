@@ -5,7 +5,7 @@
     "category": "Regulation",
     "sourceName": "EUR-Lex",
     "sourceDomain": "eur-lex.europa.eu",
-    "documentTitle": "Regulation (EU) 2024/1689 — Artificial Intelligence Act",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
     "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
     "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
     "observedAt": "2026-08-01T13:20:19.913Z",
@@ -54,7 +54,9 @@
     "recorderTransactionHash": "0x2020da521f4f7287aa89ec9f12fb88c44cf8dea774bf1207b35d918c8707af66",
     "recorderBlockNumber": 113412699,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T14:50:33.000Z"
+    "registeredAt": "2026-08-01T14:50:33.000Z",
+    "onChainRecordNumber": 1,
+    "publicTokenId": "DDT-2026-08-REG-00001"
   },
   {
     "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260801-000002",
@@ -111,7 +113,9 @@
     "recorderTransactionHash": "0x055817b9996a126752b04de7e79a9b3263334424ab98fce2a1a0fc231f5e064c",
     "recorderBlockNumber": 113413235,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T14:54:34.000Z"
+    "registeredAt": "2026-08-01T14:54:34.000Z",
+    "onChainRecordNumber": 2,
+    "publicTokenId": "DDT-2026-08-REG-00002"
   },
   {
     "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20260801-000003",
@@ -119,7 +123,7 @@
     "category": "Corporate",
     "sourceName": "U.S. Securities and Exchange Commission",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Apple Inc. Form 10-Q — period ended March 28, 2026",
+    "documentTitle": "Apple Inc. Form 10-Q \u2014 period ended March 28, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
     "observedAt": "2026-08-01T13:20:20.804Z",
@@ -168,7 +172,9 @@
     "recorderTransactionHash": "0xd15ed1d4b6e4eb15362c6e1ae036af912216d4bd5cbba5e4d70d04b5f4a8ca2d",
     "recorderBlockNumber": 113413238,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T14:54:35.000Z"
+    "registeredAt": "2026-08-01T14:54:35.000Z",
+    "onChainRecordNumber": 3,
+    "publicTokenId": "DDT-2026-08-FIN-00001"
   },
   {
     "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260801-000004",
@@ -226,7 +232,9 @@
     "recorderTransactionHash": "0x647103ad7f286f3fa13eb5b7ac85fa25dda60fbf35925281293e99a5203be36c",
     "recorderBlockNumber": 113413241,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T14:54:37.000Z"
+    "registeredAt": "2026-08-01T14:54:37.000Z",
+    "onChainRecordNumber": 4,
+    "publicTokenId": "DDT-2026-08-SWR-00001"
   },
   {
     "recordId": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005",
@@ -234,7 +242,7 @@
     "category": "AI Governance",
     "sourceName": "OpenAI",
     "sourceDomain": "model-spec.openai.com",
-    "documentTitle": "OpenAI Model Spec — 27 October 2025",
+    "documentTitle": "OpenAI Model Spec \u2014 27 October 2025",
     "requestedUrl": "https://model-spec.openai.com/2025-10-27.html",
     "finalUrl": "https://model-spec.openai.com/2025-10-27.html",
     "publicUrl": "https://model-spec.openai.com/2025-10-27.html",
@@ -284,7 +292,9 @@
     "recorderTransactionHash": "0x2eebf2d7f3e0577425342f010383ad44b2d9ad7e516d701eaed5a5041a10172f",
     "recorderBlockNumber": 113421323,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T15:55:14.000Z"
+    "registeredAt": "2026-08-01T15:55:14.000Z",
+    "onChainRecordNumber": 5,
+    "publicTokenId": "DDT-2026-08-AIG-00001"
   },
   {
     "recordId": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006",
@@ -292,7 +302,7 @@
     "category": "AI Governance",
     "sourceName": "Anthropic",
     "sourceDomain": "cdn.sanity.io",
-    "documentTitle": "Anthropic Responsible Scaling Policy — Version 3.4",
+    "documentTitle": "Anthropic Responsible Scaling Policy \u2014 Version 3.4",
     "requestedUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
     "finalUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
     "publicUrl": "https://cdn.sanity.io/files/4zrzovbb/website/0bacdc8440ea96e62a8766d99ebe1d4eea6d5f3a.pdf",
@@ -342,7 +352,9 @@
     "recorderTransactionHash": "0x49cb9c18fca2214f3e68b933613a594df722e3b7cc927a40969cfeb032fe1b97",
     "recorderBlockNumber": 113421327,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T15:55:16.000Z"
+    "registeredAt": "2026-08-01T15:55:16.000Z",
+    "onChainRecordNumber": 6,
+    "publicTokenId": "DDT-2026-08-AIG-00002"
   },
   {
     "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260801-000007",
@@ -400,7 +412,9 @@
     "recorderTransactionHash": "0x8d4de7580ff415efde886e832eaeef5828959f5ef79fc7d664bd52f301a78e42",
     "recorderBlockNumber": 113421330,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T15:55:17.000Z"
+    "registeredAt": "2026-08-01T15:55:17.000Z",
+    "onChainRecordNumber": 7,
+    "publicTokenId": "DDT-2026-08-SEC-00001"
   },
   {
     "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260801-000008",
@@ -458,7 +472,9 @@
     "recorderTransactionHash": "0x7e4b0dffd257fccc4f41f3ccdc82fbae4edf12fa7ed1129f094d9e75b65ae28f",
     "recorderBlockNumber": 113421334,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T15:55:19.000Z"
+    "registeredAt": "2026-08-01T15:55:19.000Z",
+    "onChainRecordNumber": 8,
+    "publicTokenId": "DDT-2026-08-SWR-00002"
   },
   {
     "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009",
@@ -516,7 +532,9 @@
     "recorderTransactionHash": "0x6180ce476540928795168a56c308879f9efc7f97a0bb3a6c3c903253788cda0a",
     "recorderBlockNumber": 113421338,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T15:55:21.000Z"
+    "registeredAt": "2026-08-01T15:55:21.000Z",
+    "onChainRecordNumber": 9,
+    "publicTokenId": "DDT-2026-08-SWR-00003"
   },
   {
     "recordId": "DDC-WATCH-MICROSOFT-10Q-2026Q3-20260801-000010",
@@ -524,7 +542,7 @@
     "category": "Corporate",
     "sourceName": "Microsoft Corporation / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Microsoft Form 10-Q — quarter ended March 31, 2026",
+    "documentTitle": "Microsoft Form 10-Q \u2014 quarter ended March 31, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
@@ -574,7 +592,9 @@
     "recorderTransactionHash": "0xb221a358de6671ff96303dcf1fe53a41408cc960deb7e9863ca0b35ffbe52f5b",
     "recorderBlockNumber": 113424887,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:21:58.000Z"
+    "registeredAt": "2026-08-01T16:21:58.000Z",
+    "onChainRecordNumber": 10,
+    "publicTokenId": "DDT-2026-08-FIN-00002"
   },
   {
     "recordId": "DDC-WATCH-NVIDIA-10Q-2027Q1-20260801-000011",
@@ -582,7 +602,7 @@
     "category": "Corporate",
     "sourceName": "NVIDIA Corporation / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "NVIDIA Form 10-Q — quarter ended April 26, 2026",
+    "documentTitle": "NVIDIA Form 10-Q \u2014 quarter ended April 26, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
@@ -632,7 +652,9 @@
     "recorderTransactionHash": "0x607cb4cd2c065548c4893a65b7c559f6f2f6d4ebddddf0bba156ae24500acf68",
     "recorderBlockNumber": 113424890,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:21:59.000Z"
+    "registeredAt": "2026-08-01T16:21:59.000Z",
+    "onChainRecordNumber": 11,
+    "publicTokenId": "DDT-2026-08-FIN-00003"
   },
   {
     "recordId": "DDC-WATCH-AMD-10Q-2026Q1-20260801-000012",
@@ -640,7 +662,7 @@
     "category": "Corporate",
     "sourceName": "Advanced Micro Devices / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "AMD Form 10-Q — quarter ended March 28, 2026",
+    "documentTitle": "AMD Form 10-Q \u2014 quarter ended March 28, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
@@ -690,7 +712,9 @@
     "recorderTransactionHash": "0xa0d858edab8842f6fd87f0da7c96b175a54c0c209be3ed3e95c74b14c2b14f1b",
     "recorderBlockNumber": 113424893,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:22:01.000Z"
+    "registeredAt": "2026-08-01T16:22:01.000Z",
+    "onChainRecordNumber": 12,
+    "publicTokenId": "DDT-2026-08-FIN-00004"
   },
   {
     "recordId": "DDC-WATCH-INTEL-10Q-2026Q1-20260801-000013",
@@ -698,7 +722,7 @@
     "category": "Corporate",
     "sourceName": "Intel Corporation / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Intel Form 10-Q — quarter ended March 28, 2026",
+    "documentTitle": "Intel Form 10-Q \u2014 quarter ended March 28, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
@@ -748,7 +772,9 @@
     "recorderTransactionHash": "0xf9b0b5daf33b9914079edc5ce58c89ba5578da8188e024ddaf3a4b38e276954f",
     "recorderBlockNumber": 113424896,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:22:02.000Z"
+    "registeredAt": "2026-08-01T16:22:02.000Z",
+    "onChainRecordNumber": 13,
+    "publicTokenId": "DDT-2026-08-FIN-00005"
   },
   {
     "recordId": "DDC-WATCH-AMAZON-10Q-2026Q1-20260801-000014",
@@ -756,7 +782,7 @@
     "category": "Corporate",
     "sourceName": "Amazon.com, Inc. / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Amazon Form 10-Q — quarter ended March 31, 2026",
+    "documentTitle": "Amazon Form 10-Q \u2014 quarter ended March 31, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
@@ -806,7 +832,9 @@
     "recorderTransactionHash": "0x3d8d471c8127f53c800997634d21babb6f8cfc1023c35e0e4ba09dcf07bf5ca9",
     "recorderBlockNumber": 113424899,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:22:03.000Z"
+    "registeredAt": "2026-08-01T16:22:03.000Z",
+    "onChainRecordNumber": 14,
+    "publicTokenId": "DDT-2026-08-FIN-00006"
   },
   {
     "recordId": "DDC-WATCH-META-10Q-2026Q1-20260801-000015",
@@ -814,7 +842,7 @@
     "category": "Corporate",
     "sourceName": "Meta Platforms, Inc. / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Meta Form 10-Q — quarter ended March 31, 2026",
+    "documentTitle": "Meta Form 10-Q \u2014 quarter ended March 31, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
@@ -864,7 +892,9 @@
     "recorderTransactionHash": "0xb9a3b56048539f2589d31f8ba85fa895547faeb4c940d84d03b269e24a3f326f",
     "recorderBlockNumber": 113424902,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:22:05.000Z"
+    "registeredAt": "2026-08-01T16:22:05.000Z",
+    "onChainRecordNumber": 15,
+    "publicTokenId": "DDT-2026-08-FIN-00007"
   },
   {
     "recordId": "DDC-WATCH-MICRON-10Q-2026Q3-20260801-000016",
@@ -872,7 +902,7 @@
     "category": "Corporate",
     "sourceName": "Micron Technology, Inc. / SEC",
     "sourceDomain": "sec.gov",
-    "documentTitle": "Micron Form 10-Q — quarter ended May 28, 2026",
+    "documentTitle": "Micron Form 10-Q \u2014 quarter ended May 28, 2026",
     "requestedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
     "finalUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
     "publicUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
@@ -922,6 +952,8 @@
     "recorderTransactionHash": "0xae9a313c5bf5225f0972ae4e016cfba92b1a8f820fbd651b9f97be8eafc86078",
     "recorderBlockNumber": 113424905,
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
-    "registeredAt": "2026-08-01T16:22:06.000Z"
+    "registeredAt": "2026-08-01T16:22:06.000Z",
+    "onChainRecordNumber": 16,
+    "publicTokenId": "DDT-2026-08-FIN-00008"
   }
 ]
