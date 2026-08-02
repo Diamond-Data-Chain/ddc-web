@@ -1075,10 +1075,22 @@ const handleAddNetwork = async () => {
  </button>
  </div>
 
- {batch?.priceInUSDT && (
+ {batchId && (
  (() => {
- const out = calcYouWillGetDDC(amountUSDT, batch.priceInUSDT, remaining);
- if (!amountUSDT || amountUSDT === "0" || out.ddc === 0n) return null;
+ const activeBatchPrice = parseUnits(
+   (0.01 + (Number(batchId) - 1) * 0.02).toFixed(2),
+   6
+ );
+
+ const out = calcYouWillGetDDC(
+   amountUSDT,
+   activeBatchPrice,
+   remaining
+ );
+
+ if (!amountUSDT || amountUSDT === "0" || out.ddc === 0n) {
+   return null;
+ }
 
  return (
  <div className="mt-2 rounded-lg border border-amber-500/20 bg-black/30 px-3 py-2">
@@ -1091,7 +1103,7 @@ const handleAddNetwork = async () => {
  <p className="mt-0.5 text-[11px] text-amber-100/60">
  at{" "}
  <span className="font-medium text-amber-100">
- {formatUnits(batch.priceInUSDT, 6)} USDT / DDC
+ {formatUnits(activeBatchPrice, 6)} USDT / DDC
  </span>{" "}
  (current batch price)
  </p>
