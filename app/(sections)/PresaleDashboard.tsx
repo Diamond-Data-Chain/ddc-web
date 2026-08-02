@@ -1075,10 +1075,12 @@ const handleAddNetwork = async () => {
  </button>
  </div>
 
- {batchId && (
+ {(virtualBatchId ?? batchId) && (
  (() => {
+ const effectiveBatchId = Number(virtualBatchId ?? batchId);
+
  const activeBatchPrice = parseUnits(
-   (0.01 + (Number(batchId) - 1) * 0.02).toFixed(2),
+   (0.01 + (effectiveBatchId - 1) * 0.02).toFixed(2),
    6
  );
 
