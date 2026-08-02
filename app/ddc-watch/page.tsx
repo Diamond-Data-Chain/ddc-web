@@ -568,7 +568,10 @@ export default function DDCWatchPage() {
 
             <div className="mt-6 space-y-4 border-t border-slate-800 pt-5 text-sm">
               {[
-                ["DDC Record ID", selectedRecord.recordId],
+                [
+                  "DDC Token ID",
+                  selectedRecord.ddcTokenRecordNumber,
+                ],
                 ["Source", selectedRecord.sourceName],
                 ["Domain", selectedRecord.sourceDomain],
                 [
