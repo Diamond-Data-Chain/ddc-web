@@ -16,8 +16,77 @@ function requireBytes32(value, label) {
   return value;
 }
 
-function formatDdtNumber(recordNumber) {
+function formatLegacyDdtNumber(recordNumber) {
   return `DDT-${recordNumber.toString().padStart(8, "0")}`;
+}
+
+function categoryCode(category) {
+  const codes = {
+    Regulation: "REG",
+    Corporate: "FIN",
+    "AI Governance": "AIG",
+    Security: "SEC",
+    Software: "SWR",
+    Research: "RES",
+    Governance: "GOV",
+    Legal: "LEG",
+    Audit: "AUD",
+    Manufacturing: "MFG",
+    Healthcare: "MED",
+    Transportation: "TRN",
+    Energy: "NRG",
+  };
+
+  return codes[String(category)] || "GEN";
+}
+
+function onChainNumberFromRecord(record) {
+  if (
+    Number.isInteger(record.onChainRecordNumber) &&
+    record.onChainRecordNumber > 0
+  ) {
+    return record.onChainRecordNumber;
+  }
+
+  const match = String(
+    record.ddcTokenRecordNumber || ""
+  ).match(/^DDT-(\d+)$/);
+
+  return match ? Number(match[1]) : null;
+}
+
+function createPublicTokenId(records, record) {
+  if (record.publicTokenId) {
+    return record.publicTokenId;
+  }
+
+  const timestamp =
+    record.registeredAt || record.observedAt;
+
+  const date = new Date(timestamp);
+
+  if (!Number.isFinite(date.getTime())) {
+    throw new Error(
+      `Invalid public ID timestamp for ${record.recordId}`
+    );
+  }
+
+  const year = date.getUTCFullYear();
+  const month = String(
+    date.getUTCMonth() + 1
+  ).padStart(2, "0");
+
+  const code = categoryCode(record.category);
+  const prefix = `DDT-${year}-${month}-${code}-`;
+
+  const sequence =
+    records.filter(
+      (item) =>
+        item !== record &&
+        String(item.publicTokenId || "").startsWith(prefix)
+    ).length + 1;
+
+  return `${prefix}${String(sequence).padStart(5, "0")}`;
 }
 
 async function main() {
@@ -150,11 +219,17 @@ async function main() {
         );
       }
 
-      previousRecordNumber = BigInt(
-        String(
-          previousLocalRecord.ddcTokenRecordNumber
-        ).replace(/\D/g, "")
-      );
+      const previousOnChainNumber =
+        onChainNumberFromRecord(previousLocalRecord);
+
+      if (!previousOnChainNumber) {
+        throw new Error(
+          `Previous on-chain number missing for ${record.recordId}`
+        );
+      }
+
+      previousRecordNumber =
+        BigInt(previousOnChainNumber);
     }
 
     const observedAt = Math.floor(
@@ -175,7 +250,7 @@ async function main() {
 
     if (existingRecordNumber > 0n) {
       const ddtNumber =
-        formatDdtNumber(existingRecordNumber);
+        formatLegacyDdtNumber(existingRecordNumber);
 
       console.log(
         `ALREADY REGISTERED ${record.recordId} -> ${ddtNumber}`
@@ -186,6 +261,12 @@ async function main() {
 
       record.ddcTokenRecordNumber =
         ddtNumber;
+
+      record.onChainRecordNumber =
+        Number(existingRecordNumber);
+
+      record.publicTokenId =
+        createPublicTokenId(records, record);
 
       record.recorderAddress =
         recorderAddress;
@@ -200,7 +281,7 @@ async function main() {
     console.log("Registering:", record.recordId);
     console.log(
       "Expected DDT:",
-      formatDdtNumber(expectedRecordNumber)
+      formatLegacyDdtNumber(expectedRecordNumber)
     );
 
     const tx = await recorder.registerRecord(
@@ -240,13 +321,19 @@ async function main() {
     }
 
     const ddtNumber =
-      formatDdtNumber(expectedRecordNumber);
+      formatLegacyDdtNumber(expectedRecordNumber);
 
     record.ddcTokenRegistrationStatus =
       "registered";
 
     record.ddcTokenRecordNumber =
       ddtNumber;
+
+    record.onChainRecordNumber =
+      Number(expectedRecordNumber);
+
+    record.publicTokenId =
+      createPublicTokenId(records, record);
 
     record.recorderTransactionHash =
       tx.hash;
@@ -268,7 +355,8 @@ async function main() {
     );
 
     console.log(
-      `REGISTERED ${record.recordId} -> ${ddtNumber}`
+      `REGISTERED ${record.recordId} -> ${record.publicTokenId} ` +
+      `(on-chain ${expectedRecordNumber})`
     );
   }
 

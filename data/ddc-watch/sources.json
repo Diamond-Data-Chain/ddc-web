@@ -1,14 +1,5 @@
 [
   {
-    "sourceId": "EU-AI-ACT",
-    "category": "Regulation",
-    "sourceName": "EUR-Lex",
-    "sourceDomain": "eur-lex.europa.eu",
-    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
-    "documentUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
-    "fetchMode": "binary-document"
-  },
-  {
     "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
     "category": "Regulation",
     "sourceName": "United Nations",

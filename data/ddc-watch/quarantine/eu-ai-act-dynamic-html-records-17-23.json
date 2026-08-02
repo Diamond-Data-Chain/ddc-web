@@ -1,0 +1,422 @@
+[
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000017",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-01T16:30:01.188Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0x67971459de899696a6fb172e7b66eb480f7b9125bd59abb96fcf270c497dea07",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260801-000001",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260801-000017.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-01T16:30:01.188Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0x67971459de899696a6fb172e7b66eb480f7b9125bd59abb96fcf270c497dea07",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x67971459de899696a6fb172e7b66eb480f7b9125bd59abb96fcf270c497dea07"
+        }
+      ]
+    },
+    "verificationReportHash": "0x7e46c9fe5cbff121b1ac2afc0064c345d42f056ebd7000a573564a05fa4296d1",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000017",
+    "recorderTransactionHash": "0xa85c53c96e3c6477605dd82779c731f67e1c7bf5efcece9f3a9e1b2d34003818",
+    "recorderBlockNumber": 113425970,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T16:30:05.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 17
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000019",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-01T17:30:02.061Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0x7a3f60c792b04e3cd0b0e1151e73734be6806251a4ecd17637229dd2723a7fda",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260801-000018",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260801-000019.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-01T17:30:02.061Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0x7a3f60c792b04e3cd0b0e1151e73734be6806251a4ecd17637229dd2723a7fda",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x7a3f60c792b04e3cd0b0e1151e73734be6806251a4ecd17637229dd2723a7fda"
+        }
+      ]
+    },
+    "verificationReportHash": "0xe326bbba93db6c479424a8a5703909de5136fd9152fd3d90ddea49a19958d276",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000018",
+    "recorderTransactionHash": "0x3f3cfa91c46e46bb73545a0c0c434f22d5dba5a62f66a328f868c5a406340a1d",
+    "recorderBlockNumber": 113433972,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T17:30:07.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 18
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260801-000021",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-01T21:15:01.538Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0xef466655116688f5b7ad98587df6e6bc4a212809897f0b6899c88146a12f4b63",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260801-000020",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260801-000021.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-01T21:15:01.538Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0xef466655116688f5b7ad98587df6e6bc4a212809897f0b6899c88146a12f4b63",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xef466655116688f5b7ad98587df6e6bc4a212809897f0b6899c88146a12f4b63"
+        }
+      ]
+    },
+    "verificationReportHash": "0xe7dc8127aaca338f7b90971177fc8b35337a0a7ff26b819feeee72b9b2865e21",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000019",
+    "recorderTransactionHash": "0x58e56f8221575e82235572b9bd43780775e5531aa47711d0bfa97617e395fade",
+    "recorderBlockNumber": 113463968,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-01T21:15:06.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 19
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260802-000023",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-02T01:00:01.744Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0xaaae1fd19136c940aba53c553c865ab5857344e9c8d90ce92a3d254646f4ef94",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260801-000022",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260802-000023.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-02T01:00:01.744Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0xaaae1fd19136c940aba53c553c865ab5857344e9c8d90ce92a3d254646f4ef94",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xaaae1fd19136c940aba53c553c865ab5857344e9c8d90ce92a3d254646f4ef94"
+        }
+      ]
+    },
+    "verificationReportHash": "0x7df227368581aca072d9008736b09e9ad6b28cc9c3c43b667bbb60124e130229",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000020",
+    "recorderTransactionHash": "0x769f36f2468182ef7b0b6674dc822aa0d9b89ab077a7d49a0baee1264ffac7c1",
+    "recorderBlockNumber": 113493963,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-02T01:00:06.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 20
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260802-000025",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-02T01:30:01.518Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0x95bf4f9ca0d67e87616969d6c5508b0a0c31ad9d4086a7f29eef730a9ecf6379",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260802-000024",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260802-000025.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-02T01:30:01.518Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0x95bf4f9ca0d67e87616969d6c5508b0a0c31ad9d4086a7f29eef730a9ecf6379",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x95bf4f9ca0d67e87616969d6c5508b0a0c31ad9d4086a7f29eef730a9ecf6379"
+        }
+      ]
+    },
+    "verificationReportHash": "0x209298a2e26e7db9318f7f2e028dbe9c535e468aeb4bd21c4148ba91871e5709",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000021",
+    "recorderTransactionHash": "0x6e6611e0185c53ecdb85d150839d4270fad39701e9915714553b48d0f6a8d186",
+    "recorderBlockNumber": 113497962,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-02T01:30:06.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 21
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260802-000027",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-02T03:30:01.188Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0x97ade25c98322d7f4e2ffb4b48840171a2c5a29452babfdf24df3484637ebeed",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260802-000026",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260802-000027.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-02T03:30:01.188Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0x97ade25c98322d7f4e2ffb4b48840171a2c5a29452babfdf24df3484637ebeed",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x97ade25c98322d7f4e2ffb4b48840171a2c5a29452babfdf24df3484637ebeed"
+        }
+      ]
+    },
+    "verificationReportHash": "0xfea47b7e4f3009bef2511385c6592e809c3f3e2427284cf3e4d8129583efe0c7",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000022",
+    "recorderTransactionHash": "0x30efe7dc6a8a6ac448cfcee04063900961220b87e4db264f6377f87d3c2d9325",
+    "recorderBlockNumber": 113513963,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-02T03:30:08.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 22
+  },
+  {
+    "recordId": "DDC-WATCH-EU-AI-ACT-20260802-000029",
+    "sourceId": "EU-AI-ACT",
+    "category": "Regulation",
+    "sourceName": "EUR-Lex",
+    "sourceDomain": "eur-lex.europa.eu",
+    "documentTitle": "Regulation (EU) 2024/1689 \u2014 Artificial Intelligence Act",
+    "requestedUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "publicUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+    "observedAt": "2026-08-02T06:00:01.314Z",
+    "contentLength": 2036,
+    "contentType": "text/html; charset=UTF-8",
+    "contentHash": "0x958025fc0417877c6c6116c42605011f16074d744ba66ce4f0a4f68b89a95b25",
+    "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+    "previousRecordId": "DDC-WATCH-EU-AI-ACT-20260802-000028",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-EU-AI-ACT-20260802-000029.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "EU-AI-ACT",
+      "observedAt": "2026-08-02T06:00:01.314Z",
+      "finalUrl": "https://eur-lex.europa.eu/legal-content/EN/TXT/PDF/?uri=CELEX:32024R1689",
+      "contentHash": "0x958025fc0417877c6c6116c42605011f16074d744ba66ce4f0a4f68b89a95b25",
+      "previousContentHash": "0xbba630444b3278e881066774002a1d7824308934f49ccfa203e65be43692f55e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: eur-lex.europa.eu"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 202"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x958025fc0417877c6c6116c42605011f16074d744ba66ce4f0a4f68b89a95b25"
+        }
+      ]
+    },
+    "verificationReportHash": "0xb0e3c897c9bb97906388602c41ce94c6be8831956feccf3fa95c8366b49b6a0f",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000023",
+    "recorderTransactionHash": "0x667cdf1ba000ee75c5658957696a7f00ade6dab919607535a09f2c4a5bcc3f55",
+    "recorderBlockNumber": 113533958,
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-02T06:00:06.000Z",
+    "quarantineReason": "Non-substantive dynamic EUR-Lex HTML change. The record exists on-chain but is excluded from the public evidence registry.",
+    "onChainRecordNumber": 23
+  }
+]
