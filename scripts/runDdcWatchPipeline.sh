@@ -18,11 +18,11 @@ echo "===== DDC WATCH PIPELINE $(date --iso-8601=seconds) ====="
 
 echo
 echo "===== SOURCE SCAN ====="
-/usr/bin/node scripts/runDdcWatch.js
+node scripts/runDdcWatch.js
 
 echo
 echo "===== DDC TOKEN REGISTRATION ====="
-./node_modules/.bin/hardhat run \
+npx hardhat run \
   scripts/registerPendingDdcWatchRecords.js \
   --network bscMainnet
 
