@@ -1,0 +1,73 @@
+name: DDC Token Records
+
+on:
+  schedule:
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ddc-token-records
+  cancel-in-progress: false
+
+jobs:
+  scan-and-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Create runtime configuration
+        env:
+          WRITER_PRIVATE_KEY: ${{ secrets.DDC_WRITER_PRIVATE_KEY }}
+          MAINNET_RPC_URL: ${{ secrets.BSC_MAINNET_RPC_URL }}
+        run: |
+          test -n "$WRITER_PRIVATE_KEY" || {
+            echo "Missing DDC_WRITER_PRIVATE_KEY"
+            exit 1
+          }
+
+          test -n "$MAINNET_RPC_URL" || {
+            echo "Missing BSC_MAINNET_RPC_URL"
+            exit 1
+          }
+
+          cat > .env.production <<ENV
+          BSC_MAINNET_RPC_URL=$MAINNET_RPC_URL
+          DEPLOYER_PRIVATE_KEY=$WRITER_PRIVATE_KEY
+          NEXT_PUBLIC_DDC_TOKEN_RECORDER_ADDRESS=0x9AC7562Cea9D60864bAB9086F825Bb470a666087
+          NEXT_PUBLIC_CHAIN_ID=56
+          ENV
+
+      - name: Scan sources and register changes
+        run: ./scripts/runDdcWatchPipeline.sh
+
+      - name: Publish updated record state
+        run: |
+          git config user.name "DDC Token Records Bot"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add \
+            data/ddc-watch/records.json \
+            data/ddc-watch/scans.json
+
+          if git diff --cached --quiet; then
+            echo "No record-state changes to publish."
+            exit 0
+          fi
+
+          git commit -m "Update DDC Token record state"
+          git push origin HEAD:main
