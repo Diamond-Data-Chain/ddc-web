@@ -81,6 +81,34 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
+            className="mt-8 max-w-3xl rounded-3xl border border-amber-400/40 bg-gradient-to-r from-amber-500/10 via-slate-900/80 to-blue-500/10 p-6 shadow-[0_0_40px_rgba(251,191,36,0.12)]"
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5, duration: 0.5 }}
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-amber-300">
+              Executive Business Assessment
+            </p>
+
+            <h3 className="mt-2 text-2xl font-semibold text-white">
+              How much is fragmented evidence costing your organization?
+            </h3>
+
+            <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-300">
+              Measure the financial impact of reconstructing products,
+              incidents, approvals and operational history across disconnected
+              evidence sources.
+            </p>
+
+            <a
+              href="/business-value-calculator"
+              className="mt-6 inline-flex items-center rounded-2xl bg-amber-400 px-6 py-3 text-base font-bold text-slate-950 transition hover:bg-amber-300"
+            >
+              Start Business Assessment →
+            </a>
+          </motion.div>
+
+          <motion.div
             className="mt-6 max-w-xl space-y-3"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
