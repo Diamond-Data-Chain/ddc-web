@@ -21,7 +21,7 @@ const cards = [
     badge: "Verification",
     title: "Trust requires verifiable infrastructure",
     text:
-      "Traditional systems can lose context, overwrite history or leave uncertainty about responsibility. DDC is designed to preserve independently verifiable records that remain auditable years later.",
+      "Organizations replace software, merge with other organizations, migrate infrastructure and change governance platforms. Diamond Data Chain preserves governance history independently of those operational changes.",
     visual: "comparison",
   },
   {
@@ -30,6 +30,13 @@ const cards = [
     text:
       "Diamond Data Chain combines transparent governance, deterministic allocation, verifiable records and future AI-assisted accountability into infrastructure designed for the next generation of digital systems.",
     visual: "network",
+  },
+  {
+    badge: "Positioning",
+    title: "Where DDC Fits",
+    text:
+      "DDC sits between operational systems and the independent governance history required for audits, investigations, regulators and courts.",
+    visual: "fit",
   },
 ];
 
@@ -216,10 +223,60 @@ function NetworkVisual() {
   );
 }
 
+function WhereDDCFitsVisual() {
+  const systems = ["ERP", "AI", "IoT", "GRC", "Documents", "Humans"];
+
+  return (
+    <div className="relative flex min-h-[290px] items-center justify-center overflow-hidden rounded-2xl border border-amber-500/25 bg-slate-950/90 p-5">
+      <div className="absolute inset-0 opacity-25 [background-image:linear-gradient(rgba(148,163,184,0.08)_1px,transparent_1px),linear-gradient(90deg,rgba(148,163,184,0.08)_1px,transparent_1px)] [background-size:32px_32px]" />
+
+      <div className="relative w-full max-w-[620px] space-y-4">
+        <div className="rounded-xl border border-slate-700 bg-slate-900/95 p-4">
+          <div className="mb-3 text-center text-xs font-semibold uppercase tracking-[0.25em] text-slate-400">
+            Operational Systems
+          </div>
+
+          <div className="grid grid-cols-3 gap-2 md:grid-cols-6">
+            {systems.map((system) => (
+              <div
+                key={system}
+                className="rounded-lg border border-slate-700 bg-slate-950/80 px-2 py-3 text-center text-xs font-medium text-slate-300"
+              >
+                {system}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="flex justify-center text-2xl text-amber-300">↓</div>
+
+        <div className="rounded-xl border border-amber-400/50 bg-amber-400/[0.08] px-5 py-5 text-center shadow-[0_0_35px_rgba(251,191,36,0.14)]">
+          <div className="text-xs font-semibold uppercase tracking-[0.3em] text-amber-300">
+            Diamond Data Chain
+          </div>
+          <div className="mt-2 text-xl font-semibold text-white">
+            Governance Preservation Layer
+          </div>
+        </div>
+
+        <div className="flex justify-center text-2xl text-cyan-300">↓</div>
+
+        <div className="rounded-xl border border-cyan-400/30 bg-cyan-400/[0.06] px-5 py-4 text-center">
+          <div className="text-sm font-medium leading-6 text-slate-200">
+            Independent governance history for audits, investigations,
+            regulators and courts
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function CardVisual({ type }: { type: string }) {
   if (type === "ai") return <AIControlRoomVisual />;
   if (type === "timeline") return <TimelineVisual />;
   if (type === "comparison") return <ComparisonVisual />;
+  if (type === "fit") return <WhereDDCFitsVisual />;
   return <NetworkVisual />;
 }
 
@@ -309,7 +366,7 @@ export default function WhyDDCMattersNow() {
               key={card.title}
               data-reveal
               style={{ transitionDelay: `${index * 90}ms` }}
-              className="group flex min-h-[610px] translate-y-[25px] flex-col rounded-[28px] border border-amber-500/35 bg-slate-900/55 p-5 opacity-0 shadow-[0_22px_80px_rgba(0,0,0,0.28)] backdrop-blur-sm transition-all duration-[800ms] ease-out hover:-translate-y-1 hover:border-amber-300/70 md:p-7"
+              className="group flex min-h-[610px] translate-y-[25px] flex-col rounded-[28px] border border-amber-500/35 xl:last:col-span-2 bg-slate-900/55 p-5 opacity-0 shadow-[0_22px_80px_rgba(0,0,0,0.28)] backdrop-blur-sm transition-all duration-[800ms] ease-out hover:-translate-y-1 hover:border-amber-300/70 md:p-7"
             >
               <CardVisual type={card.visual} />
 

@@ -7,6 +7,7 @@ const VestingPools = dynamic(() => import("./(sections)/VestingPools"), { ssr: f
 
 const Navbar = dynamic(() => import("./(sections)/Navbar"), { ssr: false, loading: () => null });
 const Hero = dynamic(() => import("./(sections)/Hero"), { ssr: false, loading: () => null });
+const WhyDDCExists = dynamic(() => import("./(sections)/WhyDDCExists"), { ssr: false, loading: () => null });
 const WhatIsDDC = dynamic(() => import("./(sections)/WhatIsDDC"), { ssr: false, loading: () => null });
 const OurStory = dynamic(() => import("./(sections)/OurStory"), { ssr: false, loading: () => null });
 const WhyDDCMattersNow = dynamic(() => import("./(sections)/WhyDDCMattersNow"), { ssr: false, loading: () => null });
@@ -29,6 +30,7 @@ export default function HomeClient() {
  <main className="min-h-screen bg-slate-950 text-slate-50">
  <Navbar />
  <Hero />
+ <WhyDDCExists />
  <WhatIsDDC />
  <OurStory />
  <WhyDDCMattersNow />
