@@ -80,3 +80,41 @@ Current deployment targets:
 
 DDC protocol interfaces are informational and infrastructure-oriented. Nothing in this repository constitutes investment advice, financial solicitation, or guarantees of future value or performance.
 
+
+---
+
+# DDC Operational Value Assessment v2
+
+The original Business Value Calculator has been replaced by the Operational Value Assessment v2.
+
+The assessment estimates:
+
+- Current addressable operational cost
+- DDC implementation scope
+- Implementation team effort (person-months)
+- One-time DDC implementation cost
+- Annual DDC operating cost
+- DDC network requirement
+- Estimated recurring annual benefit
+- First-year net value
+- Estimated payback period
+
+Supported operational domains:
+
+- Manufacturing
+- Healthcare
+- Transport & Logistics
+- Banking & Financial Services
+- Insurance
+- Energy & Utilities
+- AI & Digital Systems
+- Other
+
+Additional features:
+
+- Industry-specific questionnaires
+- Universal implementation cost engine
+- Executive PDF export
+- JSON export
+- Versioned assessment assumptions (v2.0)
+
