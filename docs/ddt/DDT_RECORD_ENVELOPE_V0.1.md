@@ -382,3 +382,84 @@ Structural changes discovered during the pilot must first be recorded here and t
 The UI MUST NOT silently redefine the schema.
 
 **END - DDT Record Envelope v0.1**
+## 21. Integrity, provenance and registration proof
+
+DDT MUST distinguish between content integrity, source provenance and DDC registration proof. These properties are related but MUST NOT be treated as equivalent.
+
+### 21.1 Payload integrity
+
+`payloadHash` proves the integrity of the canonical upstream payload registered by the DDT record. If any part of the canonical payload changes, the resulting `payloadHash` MUST change.
+
+A successful payload-hash verification means that the supplied payload is identical to the payload represented by the registered hash. It does NOT by itself prove factual truth, legal correctness, authorship, or actor authority.
+
+### 21.2 Source provenance and authenticity
+
+Source provenance is separate from payload integrity. Where available, DDT SHOULD preserve sufficient information to verify the origin of the upstream payload, including upstream digital signatures, signer identity, certificate or public-key references, source-system identity, source record identifiers, evaluator or issuing authority, authority references, or other independently verifiable provenance evidence.
+
+A source signature or equivalent provenance proof may establish that a particular source produced or approved a payload. It MUST NOT automatically establish that the contents are factually or legally correct.
+
+### 21.3 DDC registration proof
+
+DDC registration proof establishes that a specific DDT record containing a specific payload commitment was registered by DDC at a provable registration time.
+
+Conceptually:
+
+```text
+upstream payload -> payloadHash
+payloadHash + DDT envelope metadata -> canonical DDT envelope
+canonical DDT envelope -> recordHash
+recordHash -> DDC registration proof
+```
+
+A valid DDC registration proof means that DDC can independently demonstrate that the corresponding DDT record existed in its registered form at the proven registration time.
+
+### 21.4 payloadHash and recordHash
+
+`payloadHash` and `recordHash` MUST remain separate.
+
+`payloadHash` commits to the canonical upstream payload.
+
+`recordHash` commits to the canonical DDT record envelope according to the applicable DDT schema and canonicalization rules.
+
+The exact canonical serialization rules and hash algorithms remain DDC design work and MUST be versioned before production use.
+
+### 21.5 Verification states
+
+Future DDT verification interfaces SHOULD distinguish at least:
+
+```text
+CONTENT INTEGRITY
+VERIFIED / FAILED / NOT AVAILABLE
+
+SOURCE PROVENANCE
+VERIFIED / FAILED / UNRESOLVED / NOT AVAILABLE
+
+DDC REGISTRATION
+VERIFIED / FAILED / LOCAL ONLY / NOT AVAILABLE
+
+UPSTREAM CONCLUSION
+PRESERVED - NOT DETERMINED BY DDC
+```
+
+None of these states means that DDC has determined the substantive truth of upstream content.
+
+### 21.6 DDC epistemic boundary
+
+Even when content integrity, source provenance and DDC registration are all VERIFIED, DDC proves only that the specific payload, attributable to the verified source according to available provenance evidence, was registered in the DDT record at the provable DDC registration time and has not been altered relative to the registered commitment.
+
+DDC does NOT prove that the factual, legal, scientific, institutional or interpretive conclusion contained in the upstream payload is true.
+
+This distinction is a mandatory architectural boundary of DDT.
+
+## 22. Locked integrity decisions
+
+1. Hashing proves integrity, not substantive truth.
+2. `payloadHash` commits to the canonical upstream payload.
+3. Source provenance/authenticity is separate from payload integrity.
+4. DDC registration proof is separate from both payload integrity and source provenance.
+5. `recordHash` and `payloadHash` are distinct commitments.
+6. Successful verification of all available proof layers does not convert an upstream assertion into a DDC conclusion.
+7. DDT verification interfaces MUST communicate these distinctions explicitly.
+8. Canonical serialization and hash algorithms MUST be versioned before production use.
+9. Missing provenance evidence MUST remain unresolved rather than being inferred.
+10. DDC MUST never label upstream substantive truth as verified merely because integrity, provenance and registration proof succeeded.
