@@ -463,3 +463,146 @@ This distinction is a mandatory architectural boundary of DDT.
 8. Canonical serialization and hash algorithms MUST be versioned before production use.
 9. Missing provenance evidence MUST remain unresolved rather than being inferred.
 10. DDC MUST never label upstream substantive truth as verified merely because integrity, provenance and registration proof succeeded.
+## 23. Canonicalization and Payload Hash v0.1
+
+DDT MUST use a deterministic canonical representation before calculating `payloadHash`.
+
+The purpose is to ensure that independent implementations given the same upstream payload produce the same hash.
+
+### 23.1 Payload hash scope
+
+`payloadHash` MUST commit only to the canonical upstream payload represented by the DDT record.
+
+DDC registration metadata MUST NOT be included in `payloadHash`.
+
+For DDT Record Envelope v0.1, the hash input is the `upstream` object of the envelope after application of the canonicalization rules defined by the applicable schema version.
+
+Conceptually:
+
+```text
+DDT envelope
+    |
+    +-- identity
+    |
+    +-- upstream --------------------+
+    |                                |
+    +-- relationships                v
+    |                         canonicalization
+    +-- ddcRegistration              |
+                                     v
+                                UTF-8 bytes
+                                     |
+                                     v
+                                  SHA-256
+                                     |
+                                     v
+                                payloadHash
+```
+
+### 23.2 Canonicalization standard
+
+DDT Record Envelope v0.1 adopts:
+
+`RFC 8785 JSON Canonicalization Scheme (JCS)`
+
+Canonicalization identifier:
+
+`RFC8785-JCS`
+
+The canonicalized JSON output MUST be encoded as UTF-8 bytes before hashing.
+
+DDT implementations MUST NOT rely on ordinary application-specific JSON formatting, whitespace, indentation or object insertion order as the canonical representation.
+
+### 23.3 Payload hash algorithm
+
+DDT Record Envelope v0.1 adopts:
+
+`SHA-256`
+
+The resulting digest MUST be represented as 64 lowercase hexadecimal characters without formatting-dependent whitespace.
+
+The envelope or associated verification metadata SHOULD explicitly identify both:
+
+```text
+payloadCanonicalization: RFC8785-JCS
+payloadHashAlgorithm: SHA-256
+```
+
+This prevents future verifiers from having to infer the canonicalization or hash algorithm.
+
+### 23.4 Null and missing values
+
+For schema-defined fields in DDT Record Envelope v0.1, an explicitly unknown value represented as `null` MUST remain present as `null` in the canonical payload when the schema requires or defines that field for the registered payload structure.
+
+An implementation MUST NOT silently convert between:
+
+```text
+"eventTime": null
+```
+
+and an omitted `eventTime` property when calculating the hash.
+
+The distinction between:
+
+- field present with `null`;
+- field absent because it is not part of the applicable schema or payload;
+
+MUST be preserved according to the schema version.
+
+This rule allows DDT to preserve that a value was explicitly unresolved at registration time rather than allowing later implementations to reconstruct or infer it.
+
+### 23.5 Semantic changes
+
+Canonicalization normalizes representation. It MUST NOT normalize or reinterpret substantive values.
+
+Examples of changes that MUST produce a different `payloadHash` include:
+
+- changing `FAIL` to `PASS`;
+- changing a date;
+- changing an actor identity;
+- changing an authority reference;
+- adding or removing a substantive assertion;
+- changing evidence references;
+- changing any other canonical upstream value.
+
+DDT MUST NOT treat semantically similar but textually or structurally different upstream values as identical unless a future schema explicitly defines such normalization before canonicalization.
+
+### 23.6 Verification procedure
+
+An independent verifier of `payloadHash` MUST be able to:
+
+1. obtain the upstream payload represented by the DDT record;
+2. identify the applicable DDT schema version;
+3. identify the canonicalization algorithm;
+4. canonicalize the payload according to that version;
+5. encode the canonical representation as UTF-8;
+6. calculate SHA-256;
+7. encode the digest as lowercase hexadecimal;
+8. compare the result with the registered `payloadHash`.
+
+Matching hashes establish payload integrity relative to the registered commitment.
+
+They do not establish substantive truth.
+
+### 23.7 Versioning requirement
+
+Canonicalization rules and hash algorithms are consensus-relevant verification rules for DDT records and MUST be explicitly versioned.
+
+A future DDT schema MAY adopt different rules, but old records MUST remain verifiable using the rules associated with the schema version under which they were created.
+
+A future schema MUST NOT retroactively change the canonicalization or hashing rules of DDT Record Envelope v0.1.
+
+## 24. Locked canonicalization decisions
+
+1. `payloadHash` commits to the canonical `upstream` payload, not DDC registration metadata.
+2. DDT Record Envelope v0.1 uses RFC 8785 JSON Canonicalization Scheme (JCS).
+3. Canonical JSON is hashed as UTF-8 bytes.
+4. DDT Record Envelope v0.1 uses SHA-256 for `payloadHash`.
+5. SHA-256 digests are represented as 64 lowercase hexadecimal characters.
+6. Canonicalization and hash algorithm identifiers MUST be available to verifiers.
+7. Schema-defined explicit `null` values MUST NOT be silently converted into omitted properties during hashing.
+8. Canonicalization MUST NOT reinterpret substantive upstream values.
+9. Any change to canonical upstream content MUST produce a different `payloadHash`.
+10. Old DDT records MUST remain verifiable using the canonicalization and hashing rules of their original schema version.
+11. Matching `payloadHash` proves payload integrity relative to the registered commitment, not substantive truth.
+12. DDC MUST NOT invent missing upstream values merely to complete the canonical payload.
