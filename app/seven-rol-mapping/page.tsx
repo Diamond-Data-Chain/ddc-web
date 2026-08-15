@@ -1,6 +1,7 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import canonicalize from "canonicalize";
 
 type MappingStatus =
   | "DEFINED"
@@ -570,6 +571,8 @@ type DDTRecordEnvelopeV01 = {
   ddcRegistration: {
     registeredBy?: string | null;
     registrationTime?: string | null;
+    payloadCanonicalization?: string | null;
+    payloadHashAlgorithm?: string | null;
     payloadHash?: string | null;
     recordHash?: string | null;
     evidenceManifestHash?: string | null;
@@ -876,7 +879,7 @@ export default function SevenRolMappingPage() {
     );
   }, [selectedDdtId]);
 
-  const selectedDdtEnvelope = useMemo<DDTRecordEnvelopeV01 | null>(() => {
+  const selectedDdtEnvelopeBase = useMemo<DDTRecordEnvelopeV01 | null>(() => {
     if (!selectedDdtRecord) return null;
 
     const isPrimarySevenRolEvaluation =
@@ -957,9 +960,12 @@ export default function SevenRolMappingPage() {
       ddcRegistration: {
         registeredBy: null,
         registrationTime:
-          selectedDdtRecord.registeredAt === "LOCAL PROTOTYPE"
+          selectedDdtRecord.registeredAt === "LOCAL PROTOTYPE" ||
+          selectedDdtRecord.isSimulated
             ? null
             : selectedDdtRecord.registeredAt,
+        payloadCanonicalization: "RFC8785-JCS",
+        payloadHashAlgorithm: "SHA-256",
         payloadHash: null,
         recordHash: null,
         evidenceManifestHash: null,
@@ -969,6 +975,81 @@ export default function SevenRolMappingPage() {
       },
     };
   }, [selectedDdtRecord]);
+
+  const [selectedPayloadHash, setSelectedPayloadHash] =
+    useState<string | null>(null);
+
+  const [selectedPayloadHashError, setSelectedPayloadHashError] =
+    useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function calculatePayloadHash() {
+      if (!selectedDdtEnvelopeBase) {
+        setSelectedPayloadHash(null);
+        setSelectedPayloadHashError(null);
+        return;
+      }
+
+      try {
+        setSelectedPayloadHash(null);
+        setSelectedPayloadHashError(null);
+
+        const canonicalPayload = canonicalize(
+          selectedDdtEnvelopeBase.upstream
+        );
+
+        if (typeof canonicalPayload !== "string") {
+          throw new Error("Canonicalization produced no payload.");
+        }
+
+        const bytes = new TextEncoder().encode(canonicalPayload);
+
+        const digest = await window.crypto.subtle.digest(
+          "SHA-256",
+          bytes
+        );
+
+        const hex = Array.from(new Uint8Array(digest))
+          .map((byte) => byte.toString(16).padStart(2, "0"))
+          .join("");
+
+        if (!cancelled) {
+          setSelectedPayloadHash(hex);
+        }
+      } catch (error) {
+        if (!cancelled) {
+          setSelectedPayloadHashError(
+            error instanceof Error
+              ? error.message
+              : "Payload hash calculation failed."
+          );
+        }
+      }
+    }
+
+    calculatePayloadHash();
+
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedDdtEnvelopeBase]);
+
+  const selectedDdtEnvelope =
+    useMemo<DDTRecordEnvelopeV01 | null>(() => {
+      if (!selectedDdtEnvelopeBase) return null;
+
+      return {
+        ...selectedDdtEnvelopeBase,
+        ddcRegistration: {
+          ...selectedDdtEnvelopeBase.ddcRegistration,
+          payloadCanonicalization: "RFC8785-JCS",
+          payloadHashAlgorithm: "SHA-256",
+          payloadHash: selectedPayloadHash,
+        },
+      };
+    }, [selectedDdtEnvelopeBase, selectedPayloadHash]);
 
   const currentRecord = useMemo(
     () => records.find((record) => record.id === selectedRecord)!,
@@ -1671,6 +1752,52 @@ export default function SevenRolMappingPage() {
                     <span className="text-slate-500">Registered: </span>
                     <span className="text-slate-200">
                       {selectedDdtRecord.registeredAt}
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">
+                      Payload canonicalization:{" "}
+                    </span>
+                    <span className="text-slate-200">
+                      RFC8785-JCS
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">
+                      Payload hash algorithm:{" "}
+                    </span>
+                    <span className="text-slate-200">
+                      SHA-256
+                    </span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">Payload hash: </span>
+                    {selectedPayloadHash ? (
+                      <span className="break-all font-mono text-emerald-300">
+                        {selectedPayloadHash}
+                      </span>
+                    ) : selectedPayloadHashError ? (
+                      <span className="text-rose-300">
+                        {selectedPayloadHashError}
+                      </span>
+                    ) : (
+                      <span className="text-amber-300">
+                        Calculating...
+                      </span>
+                    )}
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">
+                      Content integrity:{" "}
+                    </span>
+                    <span className="font-semibold text-emerald-300">
+                      {selectedPayloadHash
+                        ? "LOCAL HASH GENERATED"
+                        : "PENDING"}
                     </span>
                   </div>
 
