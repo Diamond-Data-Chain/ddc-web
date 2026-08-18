@@ -118,8 +118,16 @@ const records: MappingRecord[] = [
       },
       {
         label: "Gazette reference",
-        value: "Gauteng Gazette · 25 December 2014",
+        value: "Gauteng Provincial Gazette No. 377 · 25 December 2014",
         status: "DEFINED",
+      },
+      {
+        label: "Evaluation evidence state",
+        value:
+          "Gazette record as published at evaluation time; a later correction or supplement requires a new evaluation.",
+        status: "DEFINED",
+        note:
+          "The original evaluation remains the record of what the instrument showed at the point of evaluation.",
       },
       {
         label: "Gazette content hash",
@@ -189,13 +197,16 @@ const records: MappingRecord[] = [
       },
       {
         label: "Evaluator identity",
-        value: "Undefined",
-        status: "UPSTREAM_DATA_REQUIRED",
+        value: "Rita Felgate",
+        status: "DEFINED",
       },
       {
         label: "Evaluator role / authority metadata",
-        value: "Undefined",
-        status: "UPSTREAM_DATA_REQUIRED",
+        value:
+          "Independent legal practitioner and governance researcher · ruleoflaw.science",
+        status: "DEFINED",
+        note:
+          "Role and identity supplied upstream. This does not by itself establish DDC-verified authority.",
       },
       {
         label: "Evaluation timestamp",
@@ -209,23 +220,31 @@ const records: MappingRecord[] = [
       },
       {
         label: "Authority",
-        value: "PASS",
-        status: "DEFINED",
+        value: "UNCONFIRMED",
+        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        note:
+          "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Jurisdiction",
-        value: "PASS",
-        status: "DEFINED",
+        value: "UNCONFIRMED",
+        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        note:
+          "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Clarity",
-        value: "PASS",
-        status: "DEFINED",
+        value: "UNCONFIRMED",
+        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        note:
+          "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Public Participation",
-        value: "PASS",
-        status: "DEFINED",
+        value: "UNCONFIRMED",
+        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        note:
+          "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Publication",
@@ -234,8 +253,10 @@ const records: MappingRecord[] = [
       },
       {
         label: "Referent",
-        value: "PASS",
-        status: "DEFINED",
+        value: "UNCONFIRMED",
+        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        note:
+          "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Commencement",
@@ -257,16 +278,23 @@ const records: MappingRecord[] = [
         label: "Asserted failure date",
         value: "25 December 2014",
         status: "DEFINED",
+        note:
+          "Derived from Gauteng Provincial Gazette No. 377, when the Speaker's certified copy entered the public record. The identified failure is the absence of a located Premier assent record for the published Bill, not publication itself.",
       },
       {
         label: "Failure-date derivation rule",
-        value: "Undefined",
-        status: "UPSTREAM_SEMANTICS_REQUIRED",
+        value:
+          "25 December 2014 is the publication date of the Speaker's certified copy in Gauteng Provincial Gazette No. 377, when the instrument entered the public record.",
+        status: "DEFINED",
+        note:
+          "The identified failure is not publication itself. The published instrument was a Bill passed by the Legislature and labelled an Act, while no Premier assent stamp or assent record has been located.",
       },
       {
-        label: "Evaluation signature / provenance proof",
+        label: "Upstream evaluation signature / provenance proof",
         value: "Undefined",
-        status: "DDC_DESIGN_REQUIRED",
+        status: "UPSTREAM_DATA_REQUIRED",
+        note:
+          "No upstream evaluation signature or independent provenance proof has been supplied. This is separate from the local DDC prototype registration signature.",
       },
     ],
   },
@@ -526,13 +554,17 @@ type DdtLifecycleRecord = {
   summary: string;
 };
 
-type DDTRecordEnvelopeV01 = {
+type DDTRecordEnvelopeV02 = {
   identity: {
     ddtId: string;
     ddtFamilyId: string;
     subjectRef: string;
     recordType: string;
-    schemaVersion: "ddt-record-envelope-v0.1";
+    schemaVersion: "ddt-record-envelope-v0.2";
+    previousRecordInFamily?: {
+      ddtRef: string;
+      recordHash: string | null;
+    } | null;
   };
 
   upstream: {
@@ -552,6 +584,7 @@ type DDTRecordEnvelopeV01 = {
       name?: string | null;
       version?: string | null;
       reference?: string | null;
+      versionReference?: string | null;
     };
 
     result?: unknown;
@@ -562,7 +595,14 @@ type DDTRecordEnvelopeV01 = {
   relationships: {
     relatedDDTRefs?: Array<{
       ddtRef: string;
-      relationshipType: string;
+      recordHash: string | null;
+      relationshipType:
+        | "supersedes"
+        | "responds_to"
+        | "disputes"
+        | "corrects"
+        | "remedies"
+        | "references";
       assertedBy?: string | null;
       evidenceRef?: string | null;
     }>;
@@ -572,9 +612,10 @@ type DDTRecordEnvelopeV01 = {
     registeredBy?: string | null;
     registrationTime?: string | null;
     payloadCanonicalization?: string | null;
+    payloadCanonicalizationImplementation?: string | null;
     payloadHashAlgorithm?: string | null;
     payloadHash?: string | null;
-    payloadCommitment?: string | null;
+    registeredPayloadCommitment?: string | null;
     payloadIntegrityStatus?:
       | "VERIFIED"
       | "FAILED"
@@ -583,10 +624,25 @@ type DDTRecordEnvelopeV01 = {
     recordHash?: string | null;
     evidenceManifestHash?: string | null;
 
-    // Registration / provenance proof layer — DDT Envelope v0.1 §29
+    // Registration / provenance proof layer — DDT Envelope v0.2 §29
     signingKeyRef?: string | null;
+    signingKeyId?: string | null;
+    signingKeyStatus?: "ACTIVE" | "ROTATED" | "REVOKED" | "UNRESOLVED" | null;
+    signingKeyValidFrom?: string | null;
+    signingKeyValidUntil?: string | null;
+    signingKeyRegistryRef?: string | null;
     signatureAlgorithm?: string | null;
     signature?: string | null;
+
+    signatureProofs?: Array<{
+      algorithm: string;
+      signingKeyId?: string | null;
+      signingKeyRef?: string | null;
+      signature: string;
+      status: "VERIFIED" | "FAILED" | "NOT AVAILABLE";
+      profile?: string | null;
+    }>;
+
     proofMethod?: string | null;
     proofRef?: string | null;
     trustAnchorRef?: string | null;
@@ -598,7 +654,17 @@ type DDTRecordEnvelopeV01 = {
     registrationTimeStatus?:
       | "PROVEN"
       | "ASSERTED"
+      | "FAILED"
       | "NOT AVAILABLE";
+
+    timeProofs?: Array<{
+      type: "RFC3161" | "REKOR" | "OPENTIMESTAMPS" | "OTHER";
+      proofRef?: string | null;
+      proof?: string | null;
+      anchoredAt?: string | null;
+      verifier?: string | null;
+      status: "PROVEN" | "FAILED" | "NOT AVAILABLE";
+    }>;
     registrantIdentityStatus?:
       | "VERIFIED"
       | "ASSERTED"
@@ -618,9 +684,22 @@ type DDTRecordEnvelopeV01 = {
   };
 };
 
-const PILOT_PAYLOAD_COMMITMENTS: Record<string, string> = {
+// Frozen historical v0.1 prototype commitment.
+const PILOT_PAYLOAD_COMMITMENTS_V01: Record<string, string> = {
   "DDT-gp_2014_005-001":
     "bdda14b00cea6cbc7f653f9025738d3136335c2e4aa866b0af3abdd38b3542f9",
+};
+
+// v0.2 prototype commitment generated from the updated upstream payload.
+const PILOT_PAYLOAD_COMMITMENTS_V02: Record<string, string> = {
+  "DDT-gp_2014_005-001":
+    "44692173f2665c8aeee432a2bf1801072f382f7aeda22b32be6487b76d7ba59e",
+};
+
+// Frozen v0.2 record-level commitment for the first DDT family record.
+const PILOT_RECORD_HASHES_V02: Record<string, string> = {
+  "DDT-gp_2014_005-001":
+    "62ee41042882f82ac8326f2a07bfe6f4abf6468ddce1c4be41755e49aee44dab",
 };
 
 const DDT_LIFECYCLE_DEMO: DdtLifecycleRecord[] = [
@@ -629,7 +708,7 @@ const DDT_LIFECYCLE_DEMO: DdtLifecycleRecord[] = [
     subjectRef: "gp_2014_005",
     recordType: "EXTERNAL_EVALUATION",
     action: "Seven ROL evaluation registered",
-    actor: "Evaluator identity — upstream data required",
+    actor: "Rita Felgate",
     registeredAt: "LOCAL PROTOTYPE",
     verdict: "FAIL",
     summary:
@@ -750,12 +829,12 @@ const DISCOVERY_DEMO: DiscoveryRecord[] = [
 ];
 
 const categoryResults = [
-  ["Authority", "PASS"],
-  ["Jurisdiction", "PASS"],
-  ["Clarity", "PASS"],
-  ["Public Participation", "PASS"],
+  ["Authority", "UNCONFIRMED"],
+  ["Jurisdiction", "UNCONFIRMED"],
+  ["Clarity", "UNCONFIRMED"],
+  ["Public Participation", "UNCONFIRMED"],
   ["Publication", "CONDITIONAL"],
-  ["Referent", "PASS"],
+  ["Referent", "UNCONFIRMED"],
   ["Commencement", "FAIL"],
 ];
 
@@ -1073,7 +1152,7 @@ export default function SevenRolMappingPage() {
     );
   }, [selectedDdtId]);
 
-  const selectedDdtEnvelopeBase = useMemo<DDTRecordEnvelopeV01 | null>(() => {
+  const selectedDdtEnvelopeBase = useMemo<DDTRecordEnvelopeV02 | null>(() => {
     if (!selectedDdtRecord) return null;
 
     const isPrimarySevenRolEvaluation =
@@ -1085,70 +1164,133 @@ export default function SevenRolMappingPage() {
         ddtFamilyId: `DDT-${selectedDdtRecord.subjectRef}`,
         subjectRef: selectedDdtRecord.subjectRef,
         recordType: selectedDdtRecord.recordType,
-        schemaVersion: "ddt-record-envelope-v0.1",
+        schemaVersion: "ddt-record-envelope-v0.2",
+        previousRecordInFamily: (() => {
+          const familyRecords = lifecycleRecords.filter(
+            (record) => record.subjectRef === selectedDdtRecord.subjectRef
+          );
+          const currentIndex = familyRecords.findIndex(
+            (record) => record.ddtId === selectedDdtRecord.ddtId
+          );
+
+          if (currentIndex <= 0) return null;
+
+          const previousRecord = familyRecords[currentIndex - 1];
+
+          return {
+            ddtRef: previousRecord.ddtId,
+            recordHash:
+              PILOT_RECORD_HASHES_V02[previousRecord.ddtId] ?? null,
+          };
+        })(),
       },
 
       upstream: {
-        sourceSystem: "Seven ROL",
+        sourceSystem: selectedDdtRecord.isSimulated
+          ? "SIMULATED"
+          : "Seven ROL",
         sourceRecordId: null,
         eventType: selectedDdtRecord.recordType,
 
         upstreamActor: {
           identity:
-            selectedDdtRecord.actor.includes("required") ||
-            selectedDdtRecord.actor.includes("SIMULATED")
+            selectedDdtRecord.isSimulated ||
+            selectedDdtRecord.actor.includes("required")
               ? null
               : selectedDdtRecord.actor,
-          role: null,
+          role: isPrimarySevenRolEvaluation
+            ? "Independent legal practitioner and governance researcher"
+            : null,
           authorityRef: null,
         },
 
         eventTime: null,
 
-        framework: {
-          name: "Seven ROL Compliance Categories",
-          version: null,
-          reference: "10.5281/zenodo.21134975",
-        },
+        framework: selectedDdtRecord.isSimulated
+          ? {
+              name: null,
+              version: null,
+              reference: null,
+              versionReference: null,
+            }
+          : {
+              name: "Seven ROL Compliance Categories",
+              version: null,
+              reference: "10.5281/zenodo.21134975",
+              versionReference: null,
+            },
 
         result:
-          isPrimarySevenRolEvaluation
-            ? {
-                authority: "PASS",
-                jurisdiction: "PASS",
-                clarity: "PASS",
-                publicParticipation: "PASS",
-                publication: "CONDITIONAL",
-                referent: "PASS",
-                commencement: "FAIL",
-                overallVerdict: "FAIL",
-              }
-            : selectedDdtRecord.verdict
+          selectedDdtRecord.isSimulated
+            ? null
+            : isPrimarySevenRolEvaluation
               ? {
-                  overallVerdict: selectedDdtRecord.verdict,
+                  authority: "UNCONFIRMED",
+                  jurisdiction: "UNCONFIRMED",
+                  clarity: "UNCONFIRMED",
+                  publicParticipation: "UNCONFIRMED",
+                  publication: "CONDITIONAL",
+                  referent: "UNCONFIRMED",
+                  commencement: "FAIL",
+                  overallVerdict: "FAIL",
                 }
-              : null,
+              : selectedDdtRecord.verdict
+                ? {
+                    overallVerdict: selectedDdtRecord.verdict,
+                  }
+                : null,
 
         evidenceStateRef: null,
 
         assertions:
-          isPrimarySevenRolEvaluation
+          selectedDdtRecord.isSimulated
             ? {
-                coordinationDefect: "Category 7",
-                coordinationDefectType: "Executive failure",
-                failureDate: "2014-12-25",
+                simulationNotice:
+                  "Lifecycle demonstration only. Not an actual Seven ROL event or source record.",
               }
-            : {},
+            : isPrimarySevenRolEvaluation
+              ? {
+                  coordinationDefect: "Category 7",
+                  coordinationDefectType: "Executive failure",
+                  failureDate: "2014-12-25",
+                  failureDateBasis:
+                    "Gauteng Provincial Gazette No. 377 · 25 December 2014",
+                  failureSemantics:
+                    "The instrument entered the public record as a Bill passed by the Legislature but was labelled an Act; no Premier assent stamp or assent record has been located.",
+                  lawDaysLostRule:
+                    "Count from 25 December 2014 until a valid Premier assent record under section 121 and consequent gazette publication appear in the documentary record. Backdating does not reduce the count.",
+                  remedyStatus:
+                    "OPEN — no valid assent record and consequent gazette publication located.",
+                }
+              : {},
       },
 
       relationships: {
         relatedDDTRefs:
-          selectedDdtRecord.relatedToRefs?.map((ddtRef) => ({
-            ddtRef,
-            relationshipType: "RELATED_TO",
-            assertedBy: null,
-            evidenceRef: null,
-          })) ?? [],
+          selectedDdtRecord.relatedToRefs?.map((ddtRef) => {
+            let relationshipType:
+              | "supersedes"
+              | "responds_to"
+              | "disputes"
+              | "corrects"
+              | "remedies"
+              | "references" = "references";
+
+            if (
+              selectedDdtRecord.ddtId === "DDT-gp_2014_005-002" &&
+              ddtRef === "DDT-gp_2014_005-001"
+            ) {
+              relationshipType = "responds_to";
+            }
+
+            return {
+              ddtRef,
+              recordHash: PILOT_RECORD_HASHES_V02[ddtRef] ?? null,
+              relationshipType,
+              assertedBy: null,
+              evidenceRef: null,
+            };
+          }) ?? [],
       },
 
       ddcRegistration: {
@@ -1159,6 +1301,7 @@ export default function SevenRolMappingPage() {
             ? null
             : selectedDdtRecord.registeredAt,
         payloadCanonicalization: "RFC8785-JCS",
+        payloadCanonicalizationImplementation: "canonicalize@4.0.0",
         payloadHashAlgorithm: "SHA-256",
         payloadHash: null,
         recordHash: null,
@@ -1181,10 +1324,28 @@ export default function SevenRolMappingPage() {
 
   const [selectedRecordHashError, setSelectedRecordHashError] =
     useState<string | null>(null);
+
+  const expectedRecordHash = useMemo(() => {
+    if (!selectedDdtRecord) return null;
+
+    return PILOT_RECORD_HASHES_V02[selectedDdtRecord.ddtId] ?? null;
+  }, [selectedDdtRecord]);
+
+  const recordIntegrityStatus = useMemo<
+    "VERIFIED" | "FAILED" | "NOT AVAILABLE" | "PENDING"
+  >(() => {
+    if (!selectedDdtRecord) return "NOT AVAILABLE";
+    if (!expectedRecordHash) return "NOT AVAILABLE";
+    if (!selectedRecordHash) return "PENDING";
+
+    return selectedRecordHash === expectedRecordHash
+      ? "VERIFIED"
+      : "FAILED";
+  }, [selectedDdtRecord, expectedRecordHash, selectedRecordHash]);
   const expectedPayloadCommitment = useMemo(() => {
     if (!selectedDdtRecord) return null;
 
-    return PILOT_PAYLOAD_COMMITMENTS[selectedDdtRecord.ddtId] ?? null;
+    return PILOT_PAYLOAD_COMMITMENTS_V02[selectedDdtRecord.ddtId] ?? null;
   }, [selectedDdtRecord]);
 
   const payloadIntegrityStatus = useMemo<
@@ -1274,13 +1435,16 @@ export default function SevenRolMappingPage() {
         setSelectedRecordHash(null);
         setSelectedRecordHashError(null);
 
+        const registeredPayloadCommitment =
+          expectedPayloadCommitment ?? selectedPayloadHash;
+
         const recordCommitment = {
           identity: selectedDdtEnvelopeBase.identity,
 
           payloadCommitment: {
             canonicalization: "RFC8785-JCS",
             hashAlgorithm: "SHA-256",
-            payloadHash: selectedPayloadHash,
+            payloadHash: registeredPayloadCommitment,
           },
 
           relationships: selectedDdtEnvelopeBase.relationships,
@@ -1322,12 +1486,19 @@ export default function SevenRolMappingPage() {
     return () => {
       cancelled = true;
     };
-  }, [selectedDdtEnvelopeBase, selectedPayloadHash]);
+  }, [
+    selectedDdtEnvelopeBase,
+    selectedPayloadHash,
+    expectedPayloadCommitment,
+  ]);
 
   const [registrationSignature, setRegistrationSignature] =
     useState<string | null>(null);
 
   const [registrationSigningKeyRef, setRegistrationSigningKeyRef] =
+    useState<string | null>(null);
+
+  const [registrationSigningKeyId, setRegistrationSigningKeyId] =
     useState<string | null>(null);
 
   const [registrationSignatureStatus, setRegistrationSignatureStatus] =
@@ -1343,6 +1514,7 @@ export default function SevenRolMappingPage() {
       if (!selectedRecordHash) {
         setRegistrationSignature(null);
         setRegistrationSigningKeyRef(null);
+        setRegistrationSigningKeyId(null);
         setRegistrationSignatureStatus("NOT AVAILABLE");
         setRegistrationSignatureError(null);
         return;
@@ -1351,6 +1523,7 @@ export default function SevenRolMappingPage() {
       try {
         setRegistrationSignature(null);
         setRegistrationSigningKeyRef(null);
+        setRegistrationSigningKeyId(null);
         setRegistrationSignatureStatus("NOT AVAILABLE");
         setRegistrationSignatureError(null);
 
@@ -1390,6 +1563,20 @@ export default function SevenRolMappingPage() {
           .map((byte) => byte.toString(16).padStart(2, "0"))
           .join("");
 
+        const publicKeyIdDigest = await window.crypto.subtle.digest(
+          "SHA-256",
+          publicKeyRaw
+        );
+
+        const publicKeyIdHex = Array.from(
+          new Uint8Array(publicKeyIdDigest)
+        )
+          .map((byte) => byte.toString(16).padStart(2, "0"))
+          .join("");
+
+        const signingKeyId =
+          `urn:ddc:key:ed25519-sha256:${publicKeyIdHex}`;
+
         const signatureHex = Array.from(new Uint8Array(signatureBuffer))
           .map((byte) => byte.toString(16).padStart(2, "0"))
           .join("");
@@ -1399,6 +1586,7 @@ export default function SevenRolMappingPage() {
           setRegistrationSigningKeyRef(
             `LOCAL-PROTOTYPE-ED25519:${publicKeyHex}`
           );
+          setRegistrationSigningKeyId(signingKeyId);
           setRegistrationSignatureStatus(
             verified ? "VERIFIED" : "FAILED"
           );
@@ -1425,7 +1613,7 @@ export default function SevenRolMappingPage() {
   }, [selectedRecordHash]);
 
   const selectedDdtEnvelope =
-    useMemo<DDTRecordEnvelopeV01 | null>(() => {
+    useMemo<DDTRecordEnvelopeV02 | null>(() => {
       if (!selectedDdtEnvelopeBase) return null;
 
       return {
@@ -1433,21 +1621,48 @@ export default function SevenRolMappingPage() {
         ddcRegistration: {
           ...selectedDdtEnvelopeBase.ddcRegistration,
           payloadCanonicalization: "RFC8785-JCS",
+          payloadCanonicalizationImplementation: "canonicalize@4.0.0",
           payloadHashAlgorithm: "SHA-256",
           payloadHash: selectedPayloadHash,
-          payloadCommitment: expectedPayloadCommitment,
+          registeredPayloadCommitment: expectedPayloadCommitment,
           payloadIntegrityStatus,
           recordHash: selectedRecordHash,
 
           // Registration / provenance proof layer — §29
           signingKeyRef: registrationSigningKeyRef,
+
+          // Prototype signing-key role identifier.
+          // No production key registry or lifecycle proof exists yet.
+          signingKeyId: registrationSigningKeyId,
+          signingKeyStatus: registrationSigningKeyRef
+            ? "UNRESOLVED"
+            : null,
+          signingKeyValidFrom: null,
+          signingKeyValidUntil: null,
+          signingKeyRegistryRef: null,
+
           signatureAlgorithm: registrationSignature
             ? "Ed25519"
             : null,
           signature: registrationSignature,
+
+          signatureProofs: registrationSignature
+            ? [
+                {
+                  algorithm: "Ed25519",
+                  signingKeyId: registrationSigningKeyId,
+                  signingKeyRef: registrationSigningKeyRef,
+                  signature: registrationSignature,
+                  status: registrationSignatureStatus,
+                  profile: "DDT-V0.2-PROTOTYPE-CLASSICAL",
+                },
+              ]
+            : [],
+
           registrationSignatureStatus,
 
           registrationTimeStatus: "NOT AVAILABLE",
+          timeProofs: [],
           registrantIdentityStatus: "UNRESOLVED",
           registrantAuthorityStatus: "UNRESOLVED",
           independentProvenanceStatus: "NOT AVAILABLE",
@@ -1465,6 +1680,7 @@ export default function SevenRolMappingPage() {
       expectedPayloadCommitment,
       payloadIntegrityStatus,
       registrationSigningKeyRef,
+      registrationSigningKeyId,
       registrationSignature,
       registrationSignatureStatus,
     ]);
@@ -1778,9 +1994,9 @@ export default function SevenRolMappingPage() {
                 Search a DDT record or subject
               </h2>
               <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-400">
-                DDT is the immutable record of a registered event. Each new
-                relevant event can create a new DDT record. DDC preserves the
-                records chronologically without deciding whether the upstream
+                DDT is the record model for a registered event. Each new
+                relevant event can create a new DDT record. This prototype models
+                chronological preservation without deciding whether the upstream
                 content, conclusion or legal interpretation is correct.
               </p>
             </div>
@@ -1827,7 +2043,7 @@ export default function SevenRolMappingPage() {
                 DDT
               </div>
               <div className="mt-2 text-lg font-bold">
-                Immutable event record
+                Registered event record
               </div>
               <div className="mt-2 text-sm leading-6 text-slate-400">
                 A new evaluation, response, correction, dispute, remedy or other
@@ -1840,11 +2056,13 @@ export default function SevenRolMappingPage() {
                 Record history
               </div>
               <div className="mt-2 text-lg font-bold">
-                Chronological and independently attributable
+                Chronological and attribution-aware
               </div>
               <div className="mt-2 text-sm leading-6 text-slate-400">
-                DDC preserves what was recorded, by whom and when. The latest
-                record is the most recently registered DDT for the subject,
+                This prototype models preservation of the available record, actor
+                and time assertions. Asserted attribution remains separate from
+                independently verified identity, authority and registration time.
+                The latest record is the most recently registered DDT for the subject,
                 not a DDC judgment about legal or substantive validity.
               </div>
             </div>
@@ -2328,12 +2546,21 @@ export default function SevenRolMappingPage() {
                 </h2>
 
                 <p className="mt-2 text-sm text-slate-400">
-                  Detailed view of one immutable DDT event record.
+                  Detailed view of one DDT event record in the local prototype.
                 </p>
+
+                {selectedDdtRecord.isSimulated && (
+                  <div className="mt-4 rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-sm leading-6 text-amber-200">
+                    <strong>SIMULATED LIFECYCLE RECORD.</strong>{" "}
+                    This is not an actual Seven ROL event, evaluation, re-evaluation,
+                    source record or historical registration. It exists only to
+                    demonstrate DDT chronological lifecycle behavior.
+                  </div>
+                )}
 
                 <div className="mt-4 flex flex-wrap gap-2 text-xs">
                   <span className="rounded-full border border-sky-500/30 bg-sky-500/10 px-3 py-1 font-semibold text-sky-300">
-                    DDT Record Envelope v0.1
+                    DDT Record Envelope v0.2
                   </span>
                   <span className="rounded-full border border-amber-500/30 bg-amber-500/10 px-3 py-1 font-semibold text-amber-300">
                     DRAFT
@@ -2341,7 +2568,7 @@ export default function SevenRolMappingPage() {
                 </div>
 
                 <p className="mt-3 font-mono text-xs text-slate-500">
-                  Specification: docs/ddt/DDT_RECORD_ENVELOPE_V0.1.md
+                  Specification: docs/ddt/DDT_RECORD_ENVELOPE_V0.2_DRAFT.md
                 </p>
               </div>
 
@@ -2403,23 +2630,65 @@ export default function SevenRolMappingPage() {
 
                   <div>
                     <span className="text-slate-500">Event time: </span>
-                    <span className="text-amber-300">
-                      Upstream data required
-                    </span>
+                    {selectedDdtRecord.isSimulated ? (
+                      <span className="text-slate-500">
+                        Not applicable · simulated lifecycle record
+                      </span>
+                    ) : (
+                      <span className="text-amber-300">
+                        Upstream data required
+                      </span>
+                    )}
                   </div>
 
                   <div>
                     <span className="text-slate-500">Framework version: </span>
-                    <span className="text-amber-300">
-                      Upstream data required
-                    </span>
+                    {selectedDdtRecord.isSimulated ? (
+                      <span className="text-slate-500">
+                        Not asserted · simulated lifecycle record
+                      </span>
+                    ) : (
+                      <span className="text-amber-300">
+                        Upstream data required
+                      </span>
+                    )}
                   </div>
 
                   <div>
                     <span className="text-slate-500">Evidence state: </span>
-                    <span className="text-amber-300">
-                      Upstream data required
-                    </span>
+
+                    {selectedDdtRecord.recordType === "EXTERNAL_EVALUATION" &&
+                    selectedDdtRecord.ddtId === "DDT-gp_2014_005-001" ? (
+                      <>
+                        <span className="text-slate-200">
+                          Gazette record at evaluation time · upstream defined
+                        </span>
+                        <div className="mt-1 text-xs text-amber-300">
+                          Not yet cryptographically sealed or bound to an evidence manifest.
+                        </div>
+                      </>
+                    ) : selectedDdtRecord.recordType === "INSTITUTIONAL_RESPONSE" ? (
+                      <>
+                        <span className="text-amber-300">
+                          Institutional response evidence · case evidence not provided
+                        </span>
+                        <div className="mt-1 text-xs text-slate-500">
+                          The response is represented in the prototype, but the underlying
+                          response document or message has not been supplied as independently
+                          verifiable case evidence.
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <span className="text-amber-300">
+                          Record-specific evidence state · unresolved
+                        </span>
+                        <div className="mt-1 text-xs text-slate-500">
+                          This record type must reference its own evidence state rather than
+                          inheriting the evidence state of another DDT record.
+                        </div>
+                      </>
+                    )}
                   </div>
                 </div>
               </div>
@@ -2435,17 +2704,31 @@ export default function SevenRolMappingPage() {
 
                 <div className="mt-4 space-y-3 text-sm">
                   <div className="flex items-start gap-3">
-                    <span className="mt-0.5 font-bold text-emerald-300">✓</span>
+                    <span
+                      className={`mt-0.5 font-bold ${
+                        payloadIntegrityStatus === "VERIFIED"
+                          ? "text-emerald-300"
+                          : payloadIntegrityStatus === "FAILED"
+                            ? "text-rose-300"
+                            : "text-slate-500"
+                      }`}
+                    >
+                      {payloadIntegrityStatus === "VERIFIED"
+                        ? "✓"
+                        : payloadIntegrityStatus === "FAILED"
+                          ? "✕"
+                          : "?"}
+                    </span>
                     <div>
                       <div className="font-semibold text-slate-200">
                         Record content integrity
                       </div>
                       <div className="mt-1 text-slate-400">
                         {payloadIntegrityStatus === "VERIFIED"
-                          ? "The currently presented upstream content matches the registered payload commitment."
+                          ? "The currently presented upstream content matches the frozen prototype payload commitment."
                           : payloadIntegrityStatus === "FAILED"
-                            ? "The currently presented upstream content does not match the registered payload commitment."
-                            : "A registered payload commitment is not available for this prototype record."}
+                            ? "The currently presented upstream content does not match the frozen prototype payload commitment."
+                            : "A frozen prototype payload commitment is not available for this record."}
                       </div>
                     </div>
                   </div>
@@ -2496,13 +2779,24 @@ export default function SevenRolMappingPage() {
                 </div>
 
                 <div className="mt-4 rounded-xl border border-sky-500/20 bg-sky-500/5 p-4 text-xs leading-5 text-sky-200">
-                  Seven ROL result:{" "}
-                  <span className="font-bold">
-                    {selectedDdtRecord.verdict ?? "UNDEFINED"}
-                  </span>
-                  . This is an upstream result, not a DDC judgment. DDC verifies
-                  the record and the proof layers available to it; it does not
-                  determine whether the upstream conclusion is true.
+                  {selectedDdtRecord.isSimulated ? (
+                    <>
+                      <span className="font-bold">SIMULATED RECORD.</span>{" "}
+                      No actual Seven ROL result is asserted by this lifecycle example.
+                      Local hashing and signature verification apply only to the
+                      simulated prototype record representation.
+                    </>
+                  ) : (
+                    <>
+                      Seven ROL result:{" "}
+                      <span className="font-bold">
+                        {selectedDdtRecord.verdict ?? "UNDEFINED"}
+                      </span>
+                      . This is an upstream result, not a DDC judgment. DDC verifies
+                      the record and the proof layers available to it; it does not
+                      determine whether the upstream conclusion is true.
+                    </>
+                  )}
                 </div>
               </div>
 
@@ -2529,7 +2823,9 @@ export default function SevenRolMappingPage() {
                   <div>
                     <span className="text-slate-500">Registered: </span>
                     <span className="text-slate-200">
-                      {selectedDdtRecord.registeredAt}
+                      {selectedDdtRecord.isSimulated
+                        ? "SIMULATED LOCAL PROTOTYPE · no historical registration asserted"
+                        : selectedDdtRecord.registeredAt}
                     </span>
                   </div>
 
@@ -2621,6 +2917,23 @@ export default function SevenRolMappingPage() {
                   </div>
 
                   <div>
+                    <span className="text-slate-500">Record integrity: </span>
+                    <span
+                      className={`font-semibold ${
+                        recordIntegrityStatus === "VERIFIED"
+                          ? "text-emerald-300"
+                          : recordIntegrityStatus === "FAILED"
+                            ? "text-rose-300"
+                            : recordIntegrityStatus === "PENDING"
+                              ? "text-amber-300"
+                              : "text-slate-400"
+                      }`}
+                    >
+                      {recordIntegrityStatus}
+                    </span>
+                  </div>
+
+                  <div>
                     <span className="text-slate-500">Record hash: </span>
 
                     {selectedRecordHash ? (
@@ -2641,7 +2954,7 @@ export default function SevenRolMappingPage() {
                   <div>
                     <span className="text-slate-500">Schema version: </span>
                     <span className="text-slate-200">
-                      ddt-record-envelope-v0.1
+                      ddt-record-envelope-v0.2
                     </span>
                   </div>
 
@@ -2679,7 +2992,16 @@ export default function SevenRolMappingPage() {
 
                       <div>
                         <span className="text-slate-500">
-                          Signing key reference:{" "}
+                          Signing key ID:{" "}
+                        </span>
+                        <span className="break-all font-mono text-violet-300">
+                          {registrationSigningKeyId ?? "Not available"}
+                        </span>
+                      </div>
+
+                      <div>
+                        <span className="text-slate-500">
+                          Verification key material:{" "}
                         </span>
                         {registrationSigningKeyRef ? (
                           <span className="break-all font-mono text-slate-300">
@@ -2688,6 +3010,15 @@ export default function SevenRolMappingPage() {
                         ) : (
                           <span className="text-slate-500">Not available</span>
                         )}
+                      </div>
+
+                      <div>
+                        <span className="text-slate-500">
+                          Key lifecycle / registry:{" "}
+                        </span>
+                        <span className="text-amber-300">
+                          UNRESOLVED · persistent registry / lifecycle proof not available
+                        </span>
                       </div>
 
                       <div>
@@ -2709,11 +3040,15 @@ export default function SevenRolMappingPage() {
 
                       <div>
                         <span className="text-slate-500">
-                          Registration time proof:{" "}
+                          Independent registration-time proof:{" "}
                         </span>
                         <span className="text-slate-400">
                           NOT AVAILABLE
                         </span>
+                        <div className="mt-1 text-xs text-slate-500">
+                          No RFC 3161, Rekor, OpenTimestamps or other external
+                          record-level time proof is attached to this prototype record.
+                        </div>
                       </div>
 
                       <div>
@@ -2772,39 +3107,91 @@ export default function SevenRolMappingPage() {
                 <div className="mt-4 space-y-3 text-sm">
                   <div>
                     <span className="text-slate-500">Source system: </span>
-                    <span className="text-slate-200">
-                      Seven ROL
+                    <span className={selectedDdtRecord.isSimulated ? "text-amber-300" : "text-slate-200"}>
+                      {selectedDdtRecord.isSimulated
+                        ? "SIMULATED · no actual upstream source event"
+                        : "Seven ROL"}
                     </span>
                   </div>
 
                   <div>
                     <span className="text-slate-500">Source record ID: </span>
                     <span className="text-amber-300">
-                      Upstream data required
+                      {selectedDdtRecord.isSimulated
+                        ? "Not applicable · simulated record"
+                        : "Upstream data required"}
                     </span>
+                  </div>
+
+                  <div>
+                    <span className="text-slate-500">Previous record in family: </span>
+                    {selectedDdtEnvelope?.identity.previousRecordInFamily ? (
+                      <div className="mt-1 text-xs">
+                        <div className="text-slate-300">
+                          {selectedDdtEnvelope.identity.previousRecordInFamily.ddtRef}
+                        </div>
+                        <div className="break-all font-mono text-slate-500">
+                          {selectedDdtEnvelope.identity.previousRecordInFamily.recordHash ??
+                            "Record hash not available"}
+                        </div>
+                      </div>
+                    ) : (
+                      <span className="text-slate-500">None · first family record</span>
+                    )}
                   </div>
 
                   <div>
                     <span className="text-slate-500">Related DDT records: </span>
-                    <span className="text-slate-200">
-                      {selectedDdtRecord.relatedToRefs &&
-                      selectedDdtRecord.relatedToRefs.length > 0
-                        ? selectedDdtRecord.relatedToRefs.join(", ")
-                        : "None"}
-                    </span>
+                    {selectedDdtEnvelope?.relationships.relatedDDTRefs &&
+                    selectedDdtEnvelope.relationships.relatedDDTRefs.length > 0 ? (
+                      <div className="mt-1 space-y-2 text-xs">
+                        {selectedDdtEnvelope.relationships.relatedDDTRefs.map(
+                          (relationship) => (
+                            <div key={`${relationship.relationshipType}-${relationship.ddtRef}`}>
+                              <div className="text-sky-300">
+                                {relationship.relationshipType} → {relationship.ddtRef}
+                              </div>
+                              <div className="break-all font-mono text-slate-500">
+                                {relationship.recordHash ??
+                                  "Target record hash not available"}
+                              </div>
+                            </div>
+                          )
+                        )}
+                      </div>
+                    ) : (
+                      <span className="text-slate-500">None</span>
+                    )}
                   </div>
 
                   <div>
-                    <span className="text-slate-500">Relationship meaning: </span>
+                    <span className="text-slate-500">Relationship assertions: </span>
                     <span className="text-sky-300">
-                      DDC design required
+                      {selectedDdtEnvelope?.relationships.relatedDDTRefs &&
+                      selectedDdtEnvelope.relationships.relatedDDTRefs.length > 0
+                        ? selectedDdtEnvelope.relationships.relatedDDTRefs
+                            .map(
+                              (relationship) =>
+                                `${relationship.relationshipType} → ${relationship.ddtRef}`
+                            )
+                            .join(", ")
+                        : "None"}
                     </span>
+
+                    {selectedDdtEnvelope?.relationships.relatedDDTRefs &&
+                      selectedDdtEnvelope.relationships.relatedDDTRefs.length > 0 && (
+                        <div className="mt-2 text-xs leading-5 text-slate-500">
+                          Relationship types are recorded assertions, not DDC-established facts.
+                          Assertion provenance and supporting evidence remain unresolved unless
+                          explicitly supplied for the relationship.
+                        </div>
+                      )}
                   </div>
 
                   <div>
                     <span className="text-slate-500">Authority reference: </span>
-                    <span className="text-sky-300">
-                      DDC design required
+                    <span className="text-amber-300">
+                      UNRESOLVED · no authority evidence reference available
                     </span>
                   </div>
                 </div>
@@ -2820,7 +3207,7 @@ export default function SevenRolMappingPage() {
                     </p>
 
                     <h3 className="mt-2 text-lg font-bold text-slate-100">
-                      DDT Record Envelope v0.1
+                      DDT Record Envelope v0.2
                     </h3>
                   </div>
 
@@ -2916,8 +3303,10 @@ export default function SevenRolMappingPage() {
               <div className="mt-2 font-semibold">
                 25 December 2014
               </div>
-              <div className="mt-1 text-xs text-amber-300">
-                Derivation rule still required from upstream
+              <div className="mt-1 text-xs leading-5 text-slate-400">
+                Gazette publication date of the Speaker&apos;s certified copy:
+                Gauteng Provincial Gazette No. 377. The identified failure is
+                the missing located Premier assent record, not publication itself.
               </div>
             </div>
 
@@ -2928,8 +3317,10 @@ export default function SevenRolMappingPage() {
               <div className="mt-2 font-semibold">
                 No remedy located
               </div>
-              <div className="mt-1 text-xs text-slate-500">
-                Law-days-lost calculation remains unresolved
+              <div className="mt-1 text-xs leading-5 text-slate-500">
+                Law days lost run from 25 December 2014 until a valid Premier
+                assent record under section 121 and consequent gazette publication
+                appear. Backdating does not reduce the count. No remedy is currently located.
               </div>
             </div>
           </div>
@@ -3052,26 +3443,26 @@ export default function SevenRolMappingPage() {
 
             <div className="rounded-3xl border border-amber-500/20 bg-amber-500/5 p-6">
               <p className="text-xs font-bold uppercase tracking-[0.2em] text-amber-300">
-                Current upstream questions
+                Upstream clarification status
               </p>
 
               <ol className="mt-4 space-y-4 text-sm leading-6 text-slate-300">
                 <li>
-                  <strong>1.</strong> How exactly is the 25 Dec 2014
-                  failure date derived?
+                  <strong>1.</strong> Failure-date derivation — clarified by Seven ROL.
                 </li>
                 <li>
-                  <strong>2.</strong> What is the precise law-days-lost
-                  calculation rule?
+                  <strong>2.</strong> Law-days-lost rule — clarified by Seven ROL;
+                  the count remains open because no remedy has been located.
                 </li>
                 <li>
-                  <strong>3.</strong> Does a Seven ROL evaluation have
-                  a frozen evidence state?
+                  <strong>3.</strong> Evidence-state semantics — clarified:
+                  the gazette record at evaluation time is the upstream evidence
+                  state; a later correction or supplement requires a new evaluation.
                 </li>
                 <li>
-                  <strong>4.</strong> What evaluation ID, timestamp,
-                  evaluator identity, framework version and authority
-                  metadata exist?
+                  <strong>4.</strong> Evaluator identity and role are supplied upstream.
+                  Evaluation ID, evaluation timestamp and a formal framework version
+                  identifier remain unresolved.
                 </li>
               </ol>
             </div>
@@ -3085,7 +3476,7 @@ export default function SevenRolMappingPage() {
                 {[
                   {
                     level: "HIGH",
-                    text: "Evidence state must be sealed before or at evaluation time.",
+                    text: "The evidence state relied upon by an evaluation must be explicitly identified and versioned. DDC can seal that identified historical evidence state at registration, but must not imply retroactive proof that cryptographic sealing existed at the original evaluation time.",
                   },
                   {
                     level: "HIGH",
@@ -3105,7 +3496,7 @@ export default function SevenRolMappingPage() {
                   },
                   {
                     level: "OPEN",
-                    text: "Law-days-lost calculation semantics are not yet defined.",
+                    text: "Law-days-lost semantics are defined upstream; the numerical count remains open until a valid remedy is located.",
                   },
                   {
                     level: "OPEN",
@@ -3153,15 +3544,15 @@ export default function SevenRolMappingPage() {
           <div className="grid gap-3 md:grid-cols-2">
             {[
               ["Instrument identity", "PARTIAL"],
-              ["Seven ROL category results", "SOURCE PROVIDED"],
+              ["Seven ROL category results", "PARTIAL · CODEBOOK VERIFICATION REQUIRED"],
               ["Overall Seven ROL verdict", "SOURCE PROVIDED"],
-              ["Exact evidence state", "NOT YET"],
-              ["Evaluator provenance", "NOT YET"],
-              ["Evaluation timestamp", "NOT YET"],
-              ["Failure-date derivation", "NOT YET"],
+              ["Exact evidence state", "UPSTREAM DEFINED · NOT CRYPTOGRAPHICALLY SEALED"],
+              ["Evaluator provenance", "UPSTREAM SUPPLIED · NOT DDC VERIFIED"],
+              ["Evaluation timestamp", "NOT AVAILABLE"],
+              ["Failure-date derivation", "UPSTREAM DEFINED"],
               ["Institutional response evidence", "PARTIAL"],
               ["Remedy evidence", "OPEN"],
-              ["Law days lost", "NOT CALCULATED"],
+              ["Law days lost", "RULE DEFINED · COUNT OPEN"],
               ["DDC registration proof", "LOCAL ONLY"],
               ["Offline independent verification", "NOT YET"],
             ].map(([label, status]) => (
