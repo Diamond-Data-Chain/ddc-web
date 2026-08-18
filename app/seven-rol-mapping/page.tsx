@@ -585,7 +585,7 @@ type DDTRecordEnvelopeV02 = {
       version?: string | null;
       reference?: string | null;
       versionReference?: string | null;
-    };
+    } | null;
 
     result?: unknown;
     evidenceStateRef?: string | null;
@@ -1206,19 +1206,16 @@ export default function SevenRolMappingPage() {
 
         eventTime: null,
 
-        framework: selectedDdtRecord.isSimulated
-          ? {
-              name: null,
-              version: null,
-              reference: null,
-              versionReference: null,
-            }
-          : {
-              name: "Seven ROL Compliance Categories",
-              version: null,
-              reference: "10.5281/zenodo.21134975",
-              versionReference: null,
-            },
+        framework:
+          selectedDdtRecord.isSimulated ||
+          selectedDdtRecord.recordType === "INSTITUTIONAL_RESPONSE"
+            ? null
+            : {
+                name: "Seven ROL Compliance Categories",
+                version: null,
+                reference: "10.5281/zenodo.21134975",
+                versionReference: null,
+              },
 
         result:
           selectedDdtRecord.isSimulated
@@ -2647,6 +2644,10 @@ export default function SevenRolMappingPage() {
                       <span className="text-slate-500">
                         Not asserted · simulated lifecycle record
                       </span>
+                    ) : selectedDdtRecord.recordType === "INSTITUTIONAL_RESPONSE" ? (
+                      <span className="text-slate-500">
+                        Not applicable · institutional response record
+                      </span>
                     ) : (
                       <span className="text-amber-300">
                         Upstream data required
@@ -2785,6 +2786,22 @@ export default function SevenRolMappingPage() {
                       No actual Seven ROL result is asserted by this lifecycle example.
                       Local hashing and signature verification apply only to the
                       simulated prototype record representation.
+                    </>
+                  ) : selectedDdtRecord.recordType === "INSTITUTIONAL_RESPONSE" ? (
+                    <>
+                      <span className="font-bold">
+                        Upstream result: not applicable.
+                      </span>{" "}
+                      This record preserves an institutional response as a separate
+                      event and does not assert a Seven ROL evaluation result.
+                    </>
+                  ) : selectedDdtRecord.recordType === "INTERPRETATION" ? (
+                    <>
+                      <span className="font-bold">
+                        Upstream result: not applicable.
+                      </span>{" "}
+                      This record preserves an interpretation linked to prior records
+                      and does not assert a new Seven ROL evaluation result.
                     </>
                   ) : (
                     <>
