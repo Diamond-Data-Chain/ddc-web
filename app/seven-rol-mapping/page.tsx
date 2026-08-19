@@ -220,28 +220,28 @@ const records: MappingRecord[] = [
       },
       {
         label: "Authority",
-        value: "UNCONFIRMED",
+        value: "NOT YET VERIFIED",
         status: "UPSTREAM_SEMANTICS_REQUIRED",
         note:
           "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Jurisdiction",
-        value: "UNCONFIRMED",
+        value: "NOT YET VERIFIED",
         status: "UPSTREAM_SEMANTICS_REQUIRED",
         note:
           "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Clarity",
-        value: "UNCONFIRMED",
+        value: "NOT YET VERIFIED",
         status: "UPSTREAM_SEMANTICS_REQUIRED",
         note:
           "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
       },
       {
         label: "Public Participation",
-        value: "UNCONFIRMED",
+        value: "NOT YET VERIFIED",
         status: "UPSTREAM_SEMANTICS_REQUIRED",
         note:
           "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
@@ -253,7 +253,7 @@ const records: MappingRecord[] = [
       },
       {
         label: "Referent",
-        value: "UNCONFIRMED",
+        value: "NOT YET VERIFIED",
         status: "UPSTREAM_SEMANTICS_REQUIRED",
         note:
           "Broadly consistent with the SROL analysis, but formal PASS status requires verification against the published codebook.",
@@ -829,12 +829,12 @@ const DISCOVERY_DEMO: DiscoveryRecord[] = [
 ];
 
 const categoryResults = [
-  ["Authority", "UNCONFIRMED"],
-  ["Jurisdiction", "UNCONFIRMED"],
-  ["Clarity", "UNCONFIRMED"],
-  ["Public Participation", "UNCONFIRMED"],
+  ["Authority", "NOT YET VERIFIED"],
+  ["Jurisdiction", "NOT YET VERIFIED"],
+  ["Clarity", "NOT YET VERIFIED"],
+  ["Public Participation", "NOT YET VERIFIED"],
   ["Publication", "CONDITIONAL"],
-  ["Referent", "UNCONFIRMED"],
+  ["Referent", "NOT YET VERIFIED"],
   ["Commencement", "FAIL"],
 ];
 
