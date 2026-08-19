@@ -52,7 +52,7 @@ export default function ReviewAccessPage() {
               Private review
             </span>
             <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 text-xs font-semibold text-slate-400">
-              Pilot v0.1
+              Pilot v0.2
             </span>
           </div>
 
