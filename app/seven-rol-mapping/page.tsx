@@ -3280,6 +3280,19 @@ export default function SevenRolMappingPage() {
               gp_2014_005 · Gauteng Province, South Africa · Seven
               ROL Compliance Category evaluation
             </p>
+
+            <div className="mt-4 rounded-xl border border-amber-500/20 bg-amber-500/5 p-4 text-xs leading-5 text-amber-100">
+              <span className="font-semibold">Source title note.</span>{" "}
+              The instrument title is preserved exactly as published in Gauteng
+              Provincial Gazette No. 377. Seven ROL identifies that the Gazette
+              labels the instrument as an <span className="font-semibold">Act</span>;
+              however, because no documentary evidence of Premier assent under
+              section 121 of the Constitution has been identified, the legal
+              existence of the instrument as an Act remains unresolved. DDC
+              preserves both the published Gazette title and the upstream
+              institutional assessment without determining the legal validity of
+              either.
+            </div>
           </div>
 
           <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-4">
