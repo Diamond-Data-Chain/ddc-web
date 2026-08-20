@@ -2865,5 +2865,65 @@
     "onChainRecordNumber": 38,
     "publicTokenId": "DDT-2026-08-REG-00016",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
+  },
+  {
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260820-000049",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Kubernetes",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Kubernetes release",
+    "requestedUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "publicUrl": "https://github.com/kubernetes/kubernetes/releases/tag/v1.36.4",
+    "observedAt": "2026-08-20T11:56:10.012Z",
+    "contentLength": 689,
+    "contentType": "application/json",
+    "contentHash": "0x5fe5fd8168e5fd25aa620ce65ee7474585e5ddf218fd68f95fafe8235e2488b4",
+    "previousContentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+    "previousRecordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260801-000009",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260820-000049.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "KUBERNETES-LATEST-RELEASE",
+      "observedAt": "2026-08-20T11:56:10.012Z",
+      "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+      "contentHash": "0x5fe5fd8168e5fd25aa620ce65ee7474585e5ddf218fd68f95fafe8235e2488b4",
+      "previousContentHash": "0x49012dbd16a9a64f5ceb69f7ac79d03c9b8b0c388406d52a9ec7e94eb85b2479",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x5fe5fd8168e5fd25aa620ce65ee7474585e5ddf218fd68f95fafe8235e2488b4"
+        }
+      ]
+    },
+    "verificationReportHash": "0x0e7405c24664bff517288d8e826c28c7b786bece9847ff92179fb4196d1176fd",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000046",
+    "recorderTransactionHash": "0x5e93ae28a546a6469709956994f87661219f331f5f880b3002b8fa9567dece72",
+    "recorderBlockNumber": 117035914,
+    "onChainRecordNumber": 46,
+    "publicTokenId": "DDT-2026-08-SWR-00008",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-20T11:56:13.000Z"
   }
 ]
