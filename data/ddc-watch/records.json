@@ -3761,5 +3761,123 @@
     "publicTokenId": "DDT-2026-08-SEC-00022",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-08-26T16:19:35.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260826-000064",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-08-26T20:12:24.395Z",
+    "contentLength": 1612589,
+    "contentType": "application/json",
+    "contentHash": "0x976a7ed85f6654bb6b080822eb89c3a8980cf948f896fae8509178268461d44a",
+    "previousContentHash": "0x9f234693472e60812b3a6d712d16046acb3b2c3af00d7513df0fe2747daa7701",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260826-000063",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260826-000064.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-08-26T20:12:24.395Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x976a7ed85f6654bb6b080822eb89c3a8980cf948f896fae8509178268461d44a",
+      "previousContentHash": "0x9f234693472e60812b3a6d712d16046acb3b2c3af00d7513df0fe2747daa7701",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x976a7ed85f6654bb6b080822eb89c3a8980cf948f896fae8509178268461d44a"
+        }
+      ]
+    },
+    "verificationReportHash": "0x3ee0fa6aaa0975c8a930dca784236c56f647c23203ac197ed5a0d8e6aa4ef2a0",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000057",
+    "recorderTransactionHash": null,
+    "recorderBlockNumber": null,
+    "onChainRecordNumber": 57,
+    "publicTokenId": "DDT-2026-08-SEC-00023",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
+  },
+  {
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260826-000065",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Kubernetes",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Kubernetes release",
+    "requestedUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+    "publicUrl": "https://github.com/kubernetes/kubernetes/releases/tag/v1.37.0",
+    "observedAt": "2026-08-26T20:12:24.602Z",
+    "contentLength": 689,
+    "contentType": "application/json",
+    "contentHash": "0xf0212b9bd2bfcf60267db261d9d5426c65fa0616e54a404fe3808da38855a881",
+    "previousContentHash": "0x5fe5fd8168e5fd25aa620ce65ee7474585e5ddf218fd68f95fafe8235e2488b4",
+    "previousRecordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260820-000049",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260826-000065.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "KUBERNETES-LATEST-RELEASE",
+      "observedAt": "2026-08-26T20:12:24.602Z",
+      "finalUrl": "https://api.github.com/repos/kubernetes/kubernetes/releases/latest",
+      "contentHash": "0xf0212b9bd2bfcf60267db261d9d5426c65fa0616e54a404fe3808da38855a881",
+      "previousContentHash": "0x5fe5fd8168e5fd25aa620ce65ee7474585e5ddf218fd68f95fafe8235e2488b4",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xf0212b9bd2bfcf60267db261d9d5426c65fa0616e54a404fe3808da38855a881"
+        }
+      ]
+    },
+    "verificationReportHash": "0xafa41759fa6f82e343f306abbf0463de7eb6ae78b2bd70840b27e24464a85ce0",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000058",
+    "recorderTransactionHash": null,
+    "recorderBlockNumber": null,
+    "onChainRecordNumber": 58,
+    "publicTokenId": "DDT-2026-08-SWR-00012",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
   }
 ]
