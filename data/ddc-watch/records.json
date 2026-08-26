@@ -3641,5 +3641,65 @@
     "onChainRecordNumber": 38,
     "publicTokenId": "DDT-2026-08-REG-00020",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
+  },
+  {
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260826-000062",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Node.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Node.js release",
+    "requestedUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "publicUrl": "https://github.com/nodejs/node/releases/tag/v26.8.0",
+    "observedAt": "2026-08-26T14:50:15.532Z",
+    "contentLength": 69460,
+    "contentType": "application/json",
+    "contentHash": "0x02b5ae08a4c15e5fc3d278cf22b98930a028a285d25dc05d9591b700dd6739de",
+    "previousContentHash": "0xde6e19fbe8061c69612aaebc5a060a3584e4bf0c0e03e07743fb2cf0f13e9efb",
+    "previousRecordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260805-000021",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260826-000062.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NODEJS-LATEST-RELEASE",
+      "observedAt": "2026-08-26T14:50:15.532Z",
+      "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+      "contentHash": "0x02b5ae08a4c15e5fc3d278cf22b98930a028a285d25dc05d9591b700dd6739de",
+      "previousContentHash": "0xde6e19fbe8061c69612aaebc5a060a3584e4bf0c0e03e07743fb2cf0f13e9efb",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x02b5ae08a4c15e5fc3d278cf22b98930a028a285d25dc05d9591b700dd6739de"
+        }
+      ]
+    },
+    "verificationReportHash": "0x018d7979a0930314d548b9f52d160f0e797e380b29072ba73c561768d6965ee0",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000055",
+    "recorderTransactionHash": "0xf050d08c82596302c1f7feec90ebf6c848ab625a704d17a690cabee8619ae737",
+    "recorderBlockNumber": 118210645,
+    "onChainRecordNumber": 55,
+    "publicTokenId": "DDT-2026-08-SWR-00011",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-26T14:50:18.000Z"
   }
 ]
