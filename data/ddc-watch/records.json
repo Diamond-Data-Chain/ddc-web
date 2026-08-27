@@ -3939,5 +3939,125 @@
     "publicTokenId": "DDT-2026-08-SWR-00013",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-08-26T23:38:10.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260827-000067",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "category": "Regulation",
+    "sourceName": "United Nations",
+    "sourceDomain": "un.org",
+    "documentTitle": "Global Digital Compact",
+    "requestedUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "publicUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "observedAt": "2026-08-27T23:04:39.965Z",
+    "contentLength": 140064,
+    "contentType": "text/html; charset=utf-8",
+    "contentHash": "0x3b41cd18b2f07cf21c901c3c3212903224709a6188fb74522cdbb494b62d15ad",
+    "previousContentHash": "0x7d46c9ff55e7cd137b36f151af8fc65d8fd39da104036e778cd81ac319233d0f",
+    "previousRecordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260826-000061",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20260827-000067.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+      "observedAt": "2026-08-27T23:04:39.965Z",
+      "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "contentHash": "0x3b41cd18b2f07cf21c901c3c3212903224709a6188fb74522cdbb494b62d15ad",
+      "previousContentHash": "0x7d46c9ff55e7cd137b36f151af8fc65d8fd39da104036e778cd81ac319233d0f",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.un.org"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x3b41cd18b2f07cf21c901c3c3212903224709a6188fb74522cdbb494b62d15ad"
+        }
+      ]
+    },
+    "verificationReportHash": "0xac3f554ed79d12effdd8f44d42aafaa13211ee85b0eb09ee057a89284d15eb4e",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000060",
+    "recorderTransactionHash": "0x563ff4c996cf7e100d7022bca15504c7dd2910cc98fc1bc37f74c962870608a2",
+    "recorderBlockNumber": 118468472,
+    "onChainRecordNumber": 60,
+    "publicTokenId": "DDT-2026-08-REG-00021",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-27T23:04:44.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260827-000068",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-08-27T23:04:40.769Z",
+    "contentLength": 1618253,
+    "contentType": "application/json",
+    "contentHash": "0x25527b196142e9bfe5f3597ea31c302129b86e4240608ef76730b2533b61aae3",
+    "previousContentHash": "0x976a7ed85f6654bb6b080822eb89c3a8980cf948f896fae8509178268461d44a",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260826-000064",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260827-000068.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-08-27T23:04:40.769Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x25527b196142e9bfe5f3597ea31c302129b86e4240608ef76730b2533b61aae3",
+      "previousContentHash": "0x976a7ed85f6654bb6b080822eb89c3a8980cf948f896fae8509178268461d44a",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x25527b196142e9bfe5f3597ea31c302129b86e4240608ef76730b2533b61aae3"
+        }
+      ]
+    },
+    "verificationReportHash": "0x875d838bf5b50178cba43077d336aca4186607aac43dd6d68f2fffda2b1de821",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000061",
+    "recorderTransactionHash": "0x27327e3d610e10405f37043b4b04f4a8f511b5e29ea8b95fe2fe3987c7027a59",
+    "recorderBlockNumber": 118468474,
+    "onChainRecordNumber": 61,
+    "publicTokenId": "DDT-2026-08-SEC-00024",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-08-27T23:04:45.000Z"
   }
 ]
