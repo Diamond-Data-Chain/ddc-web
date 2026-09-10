@@ -5666,5 +5666,65 @@
     "publicTokenId": "DDT-2026-09-SEC-00009",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-09-10T18:01:42.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260910-000096",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-09-10T20:01:32.402Z",
+    "contentLength": 1714060,
+    "contentType": "application/json",
+    "contentHash": "0x30f1fbd6104b59507bbb6ad0ced75c39834fe7bb8962a8f2ef1027d81a996211",
+    "previousContentHash": "0x90bd7059d50a5c48bdce76bde8bd17ad9d408b5b2dfd6c4643481660ae4eed9d",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260910-000095",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260910-000096.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-09-10T20:01:32.402Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x30f1fbd6104b59507bbb6ad0ced75c39834fe7bb8962a8f2ef1027d81a996211",
+      "previousContentHash": "0x90bd7059d50a5c48bdce76bde8bd17ad9d408b5b2dfd6c4643481660ae4eed9d",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x30f1fbd6104b59507bbb6ad0ced75c39834fe7bb8962a8f2ef1027d81a996211"
+        }
+      ]
+    },
+    "verificationReportHash": "0x84902f826495a03be99f6786667d0c6fdafda8d1f9ece0eb0db6af4c4549f8f6",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000076",
+    "recorderTransactionHash": "0xedbe985675470f46ceafa836ca8377de8e40e21394d47a187d62528c60e77b46",
+    "recorderBlockNumber": 121130520,
+    "onChainRecordNumber": 76,
+    "publicTokenId": "DDT-2026-09-SEC-00010",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-10T20:01:36.000Z"
   }
 ]
