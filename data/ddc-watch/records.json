@@ -5846,5 +5846,125 @@
     "publicTokenId": "DDT-2026-09-SEC-00012",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-09-11T19:01:38.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20260911-000099",
+    "sourceId": "NEXTJS-RELEASES",
+    "category": "Software",
+    "sourceName": "Vercel / Next.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Next.js release",
+    "requestedUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "publicUrl": "https://github.com/vercel/next.js/releases/tag/v16.3.5",
+    "observedAt": "2026-09-11T19:36:54.683Z",
+    "contentLength": 816,
+    "contentType": "application/json",
+    "contentHash": "0xc33c7443d05fe540bca8c1c13eba55106f935f350cec73db86962b360ffad42d",
+    "previousContentHash": "0x4338916a52c090d41d04e2f7a3bcea2bda7cb9afb1f72470c8ff1eb97acd10ef",
+    "previousRecordId": "DDC-WATCH-NEXTJS-RELEASES-20260831-000073",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-NEXTJS-RELEASES-20260911-000099.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NEXTJS-RELEASES",
+      "observedAt": "2026-09-11T19:36:54.683Z",
+      "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+      "contentHash": "0xc33c7443d05fe540bca8c1c13eba55106f935f350cec73db86962b360ffad42d",
+      "previousContentHash": "0x4338916a52c090d41d04e2f7a3bcea2bda7cb9afb1f72470c8ff1eb97acd10ef",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xc33c7443d05fe540bca8c1c13eba55106f935f350cec73db86962b360ffad42d"
+        }
+      ]
+    },
+    "verificationReportHash": "0x5e9d3d6023d41732402644ef756746aad8d73928bf805fc14734a33a04dc9a89",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000079",
+    "recorderTransactionHash": "0x0866a68736e6d9c85fa8e1d02f4541d2b94b0a1301240fd2c616be209a977a5f",
+    "recorderBlockNumber": 121319089,
+    "onChainRecordNumber": 79,
+    "publicTokenId": "DDT-2026-09-SWR-00002",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-11T19:36:58.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260911-000100",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-09-11T19:36:55.070Z",
+    "contentLength": 1719349,
+    "contentType": "application/json",
+    "contentHash": "0x5486ec994fa2b0ea52db8801c44f8b0e7c6857444b8577375bd91fb8fc8bb3b1",
+    "previousContentHash": "0xb3d4578487127e10778d5ed793e9c48eb329578d3163621a38b2246e108d0c3f",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260911-000098",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260911-000100.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-09-11T19:36:55.070Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x5486ec994fa2b0ea52db8801c44f8b0e7c6857444b8577375bd91fb8fc8bb3b1",
+      "previousContentHash": "0xb3d4578487127e10778d5ed793e9c48eb329578d3163621a38b2246e108d0c3f",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x5486ec994fa2b0ea52db8801c44f8b0e7c6857444b8577375bd91fb8fc8bb3b1"
+        }
+      ]
+    },
+    "verificationReportHash": "0xb6ef9930d3b9c14805049d12cbfc9221b0ce19843b96181962cb08780858ede0",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000080",
+    "recorderTransactionHash": "0x6687abc3b844187079378f3e88cfcd11df663a6ea5eef5665719d8f302a7ed94",
+    "recorderBlockNumber": 121319091,
+    "onChainRecordNumber": 80,
+    "publicTokenId": "DDT-2026-09-SEC-00013",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-11T19:36:59.000Z"
   }
 ]
