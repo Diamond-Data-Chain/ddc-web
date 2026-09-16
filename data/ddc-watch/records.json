@@ -6324,5 +6324,125 @@
     "publicTokenId": "DDT-2026-09-SEC-00017",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-09-16T15:01:38.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260916-000107",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-09-16T19:01:31.739Z",
+    "contentLength": 1726377,
+    "contentType": "application/json",
+    "contentHash": "0xc428987838a710e2008907331da65f74241e0f580bd8e42bb1c32145d0e1d40f",
+    "previousContentHash": "0xe853dd8a45ae7035c292751079283541eeda039ab2df5921b747b5af6f3d711e",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260916-000106",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260916-000107.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-09-16T19:01:31.739Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0xc428987838a710e2008907331da65f74241e0f580bd8e42bb1c32145d0e1d40f",
+      "previousContentHash": "0xe853dd8a45ae7035c292751079283541eeda039ab2df5921b747b5af6f3d711e",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xc428987838a710e2008907331da65f74241e0f580bd8e42bb1c32145d0e1d40f"
+        }
+      ]
+    },
+    "verificationReportHash": "0x77175576706baf465af73a576867252f720cc3b1086340fb48cc772f8fd1989c",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000085",
+    "recorderTransactionHash": "0x3b9a0a7ca26f7a2ebf8880df746c6b84a9880068675ddc2d6aaaaf5f9dad4e12",
+    "recorderBlockNumber": 122274003,
+    "onChainRecordNumber": 85,
+    "publicTokenId": "DDT-2026-09-SEC-00018",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-16T19:01:35.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260916-000108",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "category": "Software",
+    "sourceName": "Node.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Node.js release",
+    "requestedUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+    "publicUrl": "https://github.com/nodejs/node/releases/tag/v26.9.0",
+    "observedAt": "2026-09-16T19:01:31.857Z",
+    "contentLength": 43499,
+    "contentType": "application/json",
+    "contentHash": "0x55472fac6783a8536b91a58674b5da48b25d87806bae58e3f1652f1e3c557f92",
+    "previousContentHash": "0xda6113f8d0cf5c59dd03ee265a40b3d4ce6d0e972694af53f0bbf5748754ff56",
+    "previousRecordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260909-000093",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-NODEJS-LATEST-RELEASE-20260916-000108.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NODEJS-LATEST-RELEASE",
+      "observedAt": "2026-09-16T19:01:31.857Z",
+      "finalUrl": "https://api.github.com/repos/nodejs/node/releases/latest",
+      "contentHash": "0x55472fac6783a8536b91a58674b5da48b25d87806bae58e3f1652f1e3c557f92",
+      "previousContentHash": "0xda6113f8d0cf5c59dd03ee265a40b3d4ce6d0e972694af53f0bbf5748754ff56",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x55472fac6783a8536b91a58674b5da48b25d87806bae58e3f1652f1e3c557f92"
+        }
+      ]
+    },
+    "verificationReportHash": "0x1ad92cda1bc50a9d90a23296584550f9f147e43b2a0910cfb3bb72e38421c938",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000086",
+    "recorderTransactionHash": "0x21613c81be227fbf26c93b2fddc01b3eafcab18dbf287c1107227cc9e314687d",
+    "recorderBlockNumber": 122274005,
+    "onChainRecordNumber": 86,
+    "publicTokenId": "DDT-2026-09-SWR-00003",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-16T19:01:36.000Z"
   }
 ]
