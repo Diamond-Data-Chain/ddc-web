@@ -78,6 +78,15 @@ export default function Hero() {
                 Live
               </span>
             </a>
+
+<a
+                href="https://ddt-recorder-pilot.vercel.app/recorder"
+              target="_blank"
+              rel="noreferrer"
+                className="inline-flex items-center rounded-2xl border border-cyan-200/70 bg-gradient-to-r from-blue-500 to-cyan-400 px-7 py-3.5 text-base font-extrabold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.2)] transition hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(34,211,238,0.32)]"
+              >
+                Test Your System →
+              </a>
           </motion.div>
 
           <motion.div
