@@ -79,15 +79,85 @@ export default function Hero() {
               </span>
             </a>
 
-<a
-                href="https://ddt-recorder-pilot.vercel.app/recorder"
-              target="_blank"
-              rel="noreferrer"
-                className="inline-flex items-center rounded-2xl border border-cyan-200/70 bg-gradient-to-r from-blue-500 to-cyan-400 px-7 py-3.5 text-base font-extrabold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.2)] transition hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(34,211,238,0.32)]"
-              >
-                Test Your System →
-              </a>
+
           </motion.div>
+
+          <motion.div
+                      className="relative mt-8 max-w-4xl overflow-hidden rounded-[2rem] border border-cyan-300/50 bg-slate-950/95 p-7 shadow-[0_0_55px_rgba(34,211,238,0.18)] sm:p-8"
+                      initial={{ opacity: 0, y: 18 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ delay: 0.5, duration: 0.55 }}
+                    >
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_12%_10%,rgba(34,211,238,0.18),transparent_32%),radial-gradient(circle_at_88%_15%,rgba(251,191,36,0.14),transparent_30%),linear-gradient(135deg,rgba(59,130,246,0.08),transparent_55%)]"
+                      />
+
+                      <div
+                        aria-hidden="true"
+                        className="pointer-events-none absolute inset-x-12 top-0 h-px bg-gradient-to-r from-transparent via-cyan-200/80 to-transparent"
+                      />
+
+                      <div className="relative">
+                        <div className="flex flex-wrap items-center gap-3">
+                          <p className="bg-gradient-to-r from-cyan-300 via-blue-100 to-amber-300 bg-clip-text text-xs font-bold uppercase tracking-[0.28em] text-transparent">
+                            DDT Recorder • Pilot Program
+                          </p>
+
+                          <span className="inline-flex items-center gap-2 rounded-full border border-cyan-300/40 bg-cyan-400/10 px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.18em] text-cyan-100 shadow-[0_0_18px_rgba(34,211,238,0.12)]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 shadow-[0_0_10px_rgba(103,232,249,0.9)]" />
+                            Test Your System
+                          </span>
+                        </div>
+
+                        <h3 className="mt-4 max-w-3xl bg-gradient-to-r from-white via-cyan-100 to-amber-200 bg-clip-text text-3xl font-bold leading-tight text-transparent sm:text-4xl">
+                          Turn one real event from your system into a verifiable DDT record.
+                        </h3>
+
+                        <p className="mt-4 max-w-3xl text-base leading-relaxed text-slate-200">
+                          Use an event from your ERP, MES, SIEM, AI system, industrial
+                          equipment or another source and follow the complete DDT flow
+                          from source data and evidence to registration, retrieval and
+                          independent verification.
+                        </p>
+
+                        <div className="mt-5 grid max-w-3xl gap-3 text-sm text-slate-300 sm:grid-cols-3">
+                          <div className="rounded-2xl border border-slate-700/80 bg-black/25 px-4 py-3">
+                            <span className="font-semibold text-cyan-200">01</span>
+                            <span className="ml-2">Enter or map an event</span>
+                          </div>
+
+                          <div className="rounded-2xl border border-slate-700/80 bg-black/25 px-4 py-3">
+                            <span className="font-semibold text-cyan-200">02</span>
+                            <span className="ml-2">Register evidence</span>
+                          </div>
+
+                          <div className="rounded-2xl border border-slate-700/80 bg-black/25 px-4 py-3">
+                            <span className="font-semibold text-cyan-200">03</span>
+                            <span className="ml-2">Verify independently</span>
+                          </div>
+                        </div>
+
+                        <p className="mt-4 max-w-3xl text-xs leading-relaxed text-slate-400">
+                          The pilot records what the source reported, the associated
+                          evidence and the resulting history. DDT does not determine the
+                          substantive truth of the underlying event.
+                        </p>
+
+                        <a
+                          href="https://ddt-recorder-pilot.vercel.app/recorder"
+                          className="mt-7 inline-flex items-center rounded-2xl border border-cyan-200/70 bg-gradient-to-r from-blue-500 to-cyan-400 px-7 py-3.5 text-base font-extrabold text-slate-950 shadow-[0_0_30px_rgba(34,211,238,0.2)] transition hover:-translate-y-0.5 hover:shadow-[0_0_38px_rgba(34,211,238,0.32)]"
+                        >
+                          Test Your System →
+                        </a>
+
+                        <span className="ml-4 hidden text-xs text-slate-500 sm:inline">
+                          DDT Recorder functional pilot
+                        </span>
+                      </div>
+                    </motion.div>
+
+
 
           <motion.div
             className="mt-8 max-w-3xl rounded-3xl border border-amber-400/40 bg-gradient-to-r from-amber-500/10 via-slate-900/80 to-blue-500/10 p-6 shadow-[0_0_40px_rgba(251,191,36,0.12)]"
