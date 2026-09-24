@@ -11057,5 +11057,65 @@
     "publicTokenId": "DDT-2026-09-REG-00026",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-09-24T12:01:33.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20260924-000186",
+    "sourceId": "CISA-KEV-CATALOG",
+    "category": "Security",
+    "sourceName": "Cybersecurity and Infrastructure Security Agency",
+    "sourceDomain": "cisa.gov",
+    "documentTitle": "CISA Known Exploited Vulnerabilities Catalog",
+    "requestedUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "publicUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+    "observedAt": "2026-09-24T20:01:35.946Z",
+    "contentLength": 1747749,
+    "contentType": "application/json",
+    "contentHash": "0x39099ffcf82c3f183fa6f7326900a6d82731517b2edb5cecde06dee6e04289d1",
+    "previousContentHash": "0xe4988831e6d3c9036dc4279cdb7f5e369dadf1b245c7136aa719fca169b894fd",
+    "previousRecordId": "DDC-WATCH-CISA-KEV-CATALOG-20260923-000172",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-CISA-KEV-CATALOG-20260924-000186.bin",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "CISA-KEV-CATALOG",
+      "observedAt": "2026-09-24T20:01:35.946Z",
+      "finalUrl": "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json",
+      "contentHash": "0x39099ffcf82c3f183fa6f7326900a6d82731517b2edb5cecde06dee6e04289d1",
+      "previousContentHash": "0xe4988831e6d3c9036dc4279cdb7f5e369dadf1b245c7136aa719fca169b894fd",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.cisa.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x39099ffcf82c3f183fa6f7326900a6d82731517b2edb5cecde06dee6e04289d1"
+        }
+      ]
+    },
+    "verificationReportHash": "0xc29ca42ee95a110874c9b22c76347413563186bc717f8194c6b8e6619a52b8d4",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000157",
+    "recorderTransactionHash": "0x25d4390b6a6b27127fb6c5ee8c803494376b4e13acf67725ebae1600a5fa8866",
+    "recorderBlockNumber": 123817405,
+    "onChainRecordNumber": 157,
+    "publicTokenId": "DDT-2026-09-SEC-00025",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-09-24T20:01:45.000Z"
   }
 ]
