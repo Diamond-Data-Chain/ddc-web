@@ -18780,5 +18780,64 @@
     "onChainRecordNumber": 156,
     "publicTokenId": "DDT-2026-10-REG-00004",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
+  },
+  {
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20261005-000315",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "category": "Regulation",
+    "sourceName": "United Nations",
+    "sourceDomain": "un.org",
+    "documentTitle": "Global Digital Compact",
+    "requestedUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "publicUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+    "observedAt": "2026-10-05T20:07:40.054Z",
+    "contentLength": 141650,
+    "contentType": "text/html; charset=utf-8",
+    "contentHash": "0x7cc62eb8679fc18f64d840209f143d9b9933db21e93aba96920b1328da7b4ff1",
+    "previousContentHash": "0x04ccf49dd41a942308a85e4833c538fe51c12dae3fdf860724cfc164bcbc9dfc",
+    "previousRecordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20261005-000314",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20261005-000315.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+      "observedAt": "2026-10-05T20:07:40.054Z",
+      "finalUrl": "https://www.un.org/pact-for-the-future/en/annex-i-global-digital-compact",
+      "contentHash": "0x7cc62eb8679fc18f64d840209f143d9b9933db21e93aba96920b1328da7b4ff1",
+      "previousContentHash": "0x04ccf49dd41a942308a85e4833c538fe51c12dae3fdf860724cfc164bcbc9dfc",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.un.org"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x7cc62eb8679fc18f64d840209f143d9b9933db21e93aba96920b1328da7b4ff1"
+        }
+      ]
+    },
+    "verificationReportHash": "0xab0f750870b7ac52e7e99c40affc683c6e5189b6b220dbef1077fbe5ad978026",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000184",
+    "recorderTransactionHash": null,
+    "recorderBlockNumber": null,
+    "onChainRecordNumber": 184,
+    "publicTokenId": "DDT-2026-10-REG-00005",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087"
   }
 ]
