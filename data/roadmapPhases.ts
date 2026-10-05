@@ -34,7 +34,7 @@ export const ROADMAP_PHASES = [
   {
     quarter: "Q3 2026",
     title: "Presale Completion & Security Validation",
-    status: "active" as RoadmapStatus,
+    status: "completed" as RoadmapStatus,
     color: "yellow",
     icon: "🛡",
     items: [
@@ -49,7 +49,7 @@ export const ROADMAP_PHASES = [
   {
     quarter: "Q4 2026",
     title: "Mainnet Readiness & Validator Preparation",
-    status: "upcoming" as RoadmapStatus,
+    status: "active" as RoadmapStatus,
     color: "purple",
     icon: "▦",
     items: [
