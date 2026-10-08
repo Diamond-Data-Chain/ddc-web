@@ -248848,5 +248848,140 @@
     "contentHash": "0x2d212bcb5aa7acba0dc53b96af199b0f5d3a3099caadc7b3da7aa9daf97a6a84",
     "recordId": "DDC-WATCH-MICRON-10Q-2026Q3-20261008-000345",
     "error": null
+  },
+  {
+    "scanId": "SCAN-1791482489495-UN-GLOBAL-DIGITAL-COMPACT",
+    "sourceId": "UN-GLOBAL-DIGITAL-COMPACT",
+    "observedAt": "2026-10-08T18:01:29.096Z",
+    "result": "unchanged",
+    "contentHash": "0x04ccf49dd41a942308a85e4833c538fe51c12dae3fdf860724cfc164bcbc9dfc",
+    "recordId": "DDC-WATCH-UN-GLOBAL-DIGITAL-COMPACT-20261006-000326",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482491137-APPLE-10Q-2026Q2",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "observedAt": "2026-10-08T18:01:29.495Z",
+    "result": "unchanged",
+    "contentHash": "0xd54cffdda0bf920aa4c86be26586db24dbf6e048635f79e0940dc94c92e54b64",
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20261008-000337",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482491405-NEXTJS-RELEASES",
+    "sourceId": "NEXTJS-RELEASES",
+    "observedAt": "2026-10-08T18:01:31.137Z",
+    "result": "unchanged",
+    "contentHash": "0xdac5a586233a10a046458cabcb957469c9fbac8853504ea047f0f85e83151354",
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20261007-000335",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482491661-OPENAI-MODEL-SPEC-2025-10-27",
+    "sourceId": "OPENAI-MODEL-SPEC-2025-10-27",
+    "observedAt": "2026-10-08T18:01:31.405Z",
+    "result": "unchanged",
+    "contentHash": "0xb502e9640d76a0fa1819303d24c5a41334d5d32fe491027d32fb833967438518",
+    "recordId": "DDC-WATCH-OPENAI-MODEL-SPEC-2025-10-27-20260801-000005",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482491793-ANTHROPIC-RSP-3-4",
+    "sourceId": "ANTHROPIC-RSP-3-4",
+    "observedAt": "2026-10-08T18:01:31.661Z",
+    "result": "unchanged",
+    "contentHash": "0x6247b9e4001fd342827526fabc476c9d4dd6b2041ac00055f0ccda26f4d0b07d",
+    "recordId": "DDC-WATCH-ANTHROPIC-RSP-3-4-20260801-000006",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482491951-CISA-KEV-CATALOG",
+    "sourceId": "CISA-KEV-CATALOG",
+    "observedAt": "2026-10-08T18:01:31.793Z",
+    "result": "changed",
+    "contentHash": "0xb49fc5422131cfd0a8913033525df7408eed94c92765349df0049d5b1ba721e9",
+    "recordId": "DDC-WATCH-CISA-KEV-CATALOG-20261008-000346",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482492100-NODEJS-LATEST-RELEASE",
+    "sourceId": "NODEJS-LATEST-RELEASE",
+    "observedAt": "2026-10-08T18:01:31.951Z",
+    "result": "unchanged",
+    "contentHash": "0x5fda73636b2637f50b87aba62277af246c9a6aed35a6d56261b27e4fc3b3ac06",
+    "recordId": "DDC-WATCH-NODEJS-LATEST-RELEASE-20261008-000338",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482492229-KUBERNETES-LATEST-RELEASE",
+    "sourceId": "KUBERNETES-LATEST-RELEASE",
+    "observedAt": "2026-10-08T18:01:32.100Z",
+    "result": "unchanged",
+    "contentHash": "0xfae07c4c26ae8e81cbd4ce46ca1a446110d280c5ef8fda283c26ce9e94792ed8",
+    "recordId": "DDC-WATCH-KUBERNETES-LATEST-RELEASE-20260923-000173",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482493708-MICROSOFT-10Q-2026Q3",
+    "sourceId": "MICROSOFT-10Q-2026Q3",
+    "observedAt": "2026-10-08T18:01:32.229Z",
+    "result": "unchanged",
+    "contentHash": "0xd417acdafba34d6d0ea59cf46457640227022ef3a2b321ed5a586cffa663a2e6",
+    "recordId": "DDC-WATCH-MICROSOFT-10Q-2026Q3-20261008-000339",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482494083-NVIDIA-10Q-2027Q1",
+    "sourceId": "NVIDIA-10Q-2027Q1",
+    "observedAt": "2026-10-08T18:01:33.708Z",
+    "result": "unchanged",
+    "contentHash": "0xcf396147adf0d9e95b8cc1b9c69306b40817f3fe532b6f4eb863ec28b4a541bd",
+    "recordId": "DDC-WATCH-NVIDIA-10Q-2027Q1-20261008-000340",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482494732-AMD-10Q-2026Q1",
+    "sourceId": "AMD-10Q-2026Q1",
+    "observedAt": "2026-10-08T18:01:34.083Z",
+    "result": "unchanged",
+    "contentHash": "0x63484f9886963f44acd128230f488187ef246c17807064384c7bb0c3893837a0",
+    "recordId": "DDC-WATCH-AMD-10Q-2026Q1-20261008-000341",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482495235-INTEL-10Q-2026Q1",
+    "sourceId": "INTEL-10Q-2026Q1",
+    "observedAt": "2026-10-08T18:01:34.732Z",
+    "result": "unchanged",
+    "contentHash": "0xcb36176269624ddf91bc499ffce5615a2e450894013f2084d9a063f12ac096ae",
+    "recordId": "DDC-WATCH-INTEL-10Q-2026Q1-20261008-000342",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482495776-AMAZON-10Q-2026Q1",
+    "sourceId": "AMAZON-10Q-2026Q1",
+    "observedAt": "2026-10-08T18:01:35.235Z",
+    "result": "unchanged",
+    "contentHash": "0x5f6b36777647abe9b8f16d785e1ef14f3d7935fdd6d1f8433908074db9052f3f",
+    "recordId": "DDC-WATCH-AMAZON-10Q-2026Q1-20261008-000343",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482496394-META-10Q-2026Q1",
+    "sourceId": "META-10Q-2026Q1",
+    "observedAt": "2026-10-08T18:01:35.776Z",
+    "result": "unchanged",
+    "contentHash": "0x3105dc9887799e6ac16113082e398e86f072a4ede66a7479392086b5364e5671",
+    "recordId": "DDC-WATCH-META-10Q-2026Q1-20261008-000344",
+    "error": null
+  },
+  {
+    "scanId": "SCAN-1791482496629-MICRON-10Q-2026Q3",
+    "sourceId": "MICRON-10Q-2026Q3",
+    "observedAt": "2026-10-08T18:01:36.394Z",
+    "result": "unchanged",
+    "contentHash": "0x2d212bcb5aa7acba0dc53b96af199b0f5d3a3099caadc7b3da7aa9daf97a6a84",
+    "recordId": "DDC-WATCH-MICRON-10Q-2026Q3-20261008-000345",
+    "error": null
   }
 ]
