@@ -24056,5 +24056,65 @@
     "publicTokenId": "DDT-2026-10-SWR-00004",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-10-14T16:01:44.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NEXTJS-RELEASES-20261014-000403",
+    "sourceId": "NEXTJS-RELEASES",
+    "category": "Software",
+    "sourceName": "Vercel / Next.js",
+    "sourceDomain": "api.github.com",
+    "documentTitle": "Latest stable Next.js release",
+    "requestedUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+    "publicUrl": "https://github.com/vercel/next.js/releases/tag/v16.4.1",
+    "observedAt": "2026-10-14T18:01:25.874Z",
+    "contentLength": 893,
+    "contentType": "application/json",
+    "contentHash": "0x347b2c9cfa12c4f24fabc418bbd0acd071090fd4f7e0d06974b69ed54c80f9eb",
+    "previousContentHash": "0xdac5a586233a10a046458cabcb957469c9fbac8853504ea047f0f85e83151354",
+    "previousRecordId": "DDC-WATCH-NEXTJS-RELEASES-20261007-000335",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-NEXTJS-RELEASES-20261014-000403.json",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NEXTJS-RELEASES",
+      "observedAt": "2026-10-14T18:01:25.874Z",
+      "finalUrl": "https://api.github.com/repos/vercel/next.js/releases/latest",
+      "contentHash": "0x347b2c9cfa12c4f24fabc418bbd0acd071090fd4f7e0d06974b69ed54c80f9eb",
+      "previousContentHash": "0xdac5a586233a10a046458cabcb957469c9fbac8853504ea047f0f85e83151354",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: api.github.com"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x347b2c9cfa12c4f24fabc418bbd0acd071090fd4f7e0d06974b69ed54c80f9eb"
+        }
+      ]
+    },
+    "verificationReportHash": "0x852276e9c3008d005073b7e490b00b30c533fefde82a72911fc56a8713948c2d",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000353",
+    "recorderTransactionHash": "0x26513f6ee04cfbf624a4f288eeb6d736dfd47554d9b55177d4e3e1df387ebbe0",
+    "recorderBlockNumber": 127639085,
+    "onChainRecordNumber": 353,
+    "publicTokenId": "DDT-2026-10-SWR-00005",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-10-14T18:01:32.000Z"
   }
 ]
