@@ -3,7 +3,7 @@ name: DDC Token Records
 on:
   workflow_dispatch:
   schedule:
-    - cron: "7,22,37,52 * * * *"
+    -  cron: "0 9 * * *" # Once daily at 09:00 UTC
 
 permissions:
   contents: write
