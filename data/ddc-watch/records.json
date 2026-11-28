@@ -48834,5 +48834,485 @@
     "publicTokenId": "DDT-2026-11-SEC-00016",
     "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
     "registeredAt": "2026-11-27T18:32:28.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-APPLE-10Q-2026Q2-20261128-000816",
+    "sourceId": "APPLE-10Q-2026Q2",
+    "category": "Corporate",
+    "sourceName": "U.S. Securities and Exchange Commission",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Apple Inc. Form 10-Q — period ended March 28, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+    "observedAt": "2026-11-28T08:01:15.728Z",
+    "contentLength": 999926,
+    "contentType": "text/html",
+    "contentHash": "0x22e8edb3a2915f0954f533e39851ef50a6b07c79dc6f86423319e62f65407cb5",
+    "previousContentHash": "0xf4110e59003493378210b9514b227c8100245823b78ebf19a5d1bd52b3889dda",
+    "previousRecordId": "DDC-WATCH-APPLE-10Q-2026Q2-20261127-000807",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-APPLE-10Q-2026Q2-20261128-000816.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "APPLE-10Q-2026Q2",
+      "observedAt": "2026-11-28T08:01:15.728Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000013/aapl-20260328.htm",
+      "contentHash": "0x22e8edb3a2915f0954f533e39851ef50a6b07c79dc6f86423319e62f65407cb5",
+      "previousContentHash": "0xf4110e59003493378210b9514b227c8100245823b78ebf19a5d1bd52b3889dda",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x22e8edb3a2915f0954f533e39851ef50a6b07c79dc6f86423319e62f65407cb5"
+        }
+      ]
+    },
+    "verificationReportHash": "0xd6e3f830b136d17f9e3d1e6ec537332472b218a8202605e1033ae5dd58614297",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000764",
+    "recorderTransactionHash": "0xf3cb7a902ba5b1285a23b855fd42a47ca86e11b36c02fd5d3fa279dad5547ef4",
+    "recorderBlockNumber": 136194935,
+    "onChainRecordNumber": 764,
+    "publicTokenId": "DDT-2026-11-FIN-00217",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:20.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-MICROSOFT-10Q-2026Q3-20261128-000817",
+    "sourceId": "MICROSOFT-10Q-2026Q3",
+    "category": "Corporate",
+    "sourceName": "Microsoft Corporation / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Microsoft Form 10-Q — quarter ended March 31, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+    "observedAt": "2026-11-28T08:01:16.990Z",
+    "contentLength": 7732064,
+    "contentType": "text/html",
+    "contentHash": "0x933892b458d57bbb25df447073b12fcfe4e594dcc5803432ef1a1bb58b4c7dfe",
+    "previousContentHash": "0x9534e984b84374d809706e3a892da8a2661b3796ca7515ecda846c0f238812f0",
+    "previousRecordId": "DDC-WATCH-MICROSOFT-10Q-2026Q3-20261127-000808",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-MICROSOFT-10Q-2026Q3-20261128-000817.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "MICROSOFT-10Q-2026Q3",
+      "observedAt": "2026-11-28T08:01:16.990Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/789019/000119312526191507/msft-20260331.htm",
+      "contentHash": "0x933892b458d57bbb25df447073b12fcfe4e594dcc5803432ef1a1bb58b4c7dfe",
+      "previousContentHash": "0x9534e984b84374d809706e3a892da8a2661b3796ca7515ecda846c0f238812f0",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x933892b458d57bbb25df447073b12fcfe4e594dcc5803432ef1a1bb58b4c7dfe"
+        }
+      ]
+    },
+    "verificationReportHash": "0xb91bbda040453bb2d424bc62f64ad9b9dbb8901a1d533c38b2ab46b522ea6aaf",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000765",
+    "recorderTransactionHash": "0x803e5febcf2be2e1a21131b5238f0738e7a9cd725d529dfc590ae291fa2ca3da",
+    "recorderBlockNumber": 136194938,
+    "onChainRecordNumber": 765,
+    "publicTokenId": "DDT-2026-11-FIN-00218",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:21.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-NVIDIA-10Q-2027Q1-20261128-000818",
+    "sourceId": "NVIDIA-10Q-2027Q1",
+    "category": "Corporate",
+    "sourceName": "NVIDIA Corporation / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "NVIDIA Form 10-Q — quarter ended April 26, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+    "observedAt": "2026-11-28T08:01:17.148Z",
+    "contentLength": 1167169,
+    "contentType": "text/html",
+    "contentHash": "0x1804dfc17b9447381b4447e2be6d31c47e58d37718d7ea702345641e1f68fdbe",
+    "previousContentHash": "0x3bc5d40751fc608c1ba89496b7cb50626131d6a8d21ebbf7594c87aa7dbfa820",
+    "previousRecordId": "DDC-WATCH-NVIDIA-10Q-2027Q1-20261127-000809",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-NVIDIA-10Q-2027Q1-20261128-000818.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "NVIDIA-10Q-2027Q1",
+      "observedAt": "2026-11-28T08:01:17.148Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1045810/000104581026000052/nvda-20260426.htm",
+      "contentHash": "0x1804dfc17b9447381b4447e2be6d31c47e58d37718d7ea702345641e1f68fdbe",
+      "previousContentHash": "0x3bc5d40751fc608c1ba89496b7cb50626131d6a8d21ebbf7594c87aa7dbfa820",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x1804dfc17b9447381b4447e2be6d31c47e58d37718d7ea702345641e1f68fdbe"
+        }
+      ]
+    },
+    "verificationReportHash": "0x010a043617ecbe2fa56ceba5f51e72b3fa97c8f496e8be3f3c034f0c145d944f",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000766",
+    "recorderTransactionHash": "0xfca4a0c26d738535ec6934723e99a50b2329ea04d409022cc70a4110691cf963",
+    "recorderBlockNumber": 136194940,
+    "onChainRecordNumber": 766,
+    "publicTokenId": "DDT-2026-11-FIN-00219",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:22.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-AMD-10Q-2026Q1-20261128-000819",
+    "sourceId": "AMD-10Q-2026Q1",
+    "category": "Corporate",
+    "sourceName": "Advanced Micro Devices / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "AMD Form 10-Q — quarter ended March 28, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
+    "observedAt": "2026-11-28T08:01:17.211Z",
+    "contentLength": 1142412,
+    "contentType": "text/html",
+    "contentHash": "0x96ae89cfa4d640852727202349e64342d0b54c9d86ce21c48053cb26e66c1002",
+    "previousContentHash": "0x26482f71c235e28e0f7ef47a71fd22b82a3f315689a81a907c84e080d01d553d",
+    "previousRecordId": "DDC-WATCH-AMD-10Q-2026Q1-20261127-000810",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-AMD-10Q-2026Q1-20261128-000819.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "AMD-10Q-2026Q1",
+      "observedAt": "2026-11-28T08:01:17.211Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/2488/000000248826000076/amd-20260328.htm",
+      "contentHash": "0x96ae89cfa4d640852727202349e64342d0b54c9d86ce21c48053cb26e66c1002",
+      "previousContentHash": "0x26482f71c235e28e0f7ef47a71fd22b82a3f315689a81a907c84e080d01d553d",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x96ae89cfa4d640852727202349e64342d0b54c9d86ce21c48053cb26e66c1002"
+        }
+      ]
+    },
+    "verificationReportHash": "0x34aeb954a8dcd27bd05a16d2dbf71d500ce64754748a1b520c4f78ac31fc4857",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000767",
+    "recorderTransactionHash": "0xcba52b5ef70d020a418e8737da89786494296afdf08408e098a90e23e3ca7465",
+    "recorderBlockNumber": 136194943,
+    "onChainRecordNumber": 767,
+    "publicTokenId": "DDT-2026-11-FIN-00220",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:23.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-INTEL-10Q-2026Q1-20261128-000820",
+    "sourceId": "INTEL-10Q-2026Q1",
+    "category": "Corporate",
+    "sourceName": "Intel Corporation / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Intel Form 10-Q — quarter ended March 28, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
+    "observedAt": "2026-11-28T08:01:17.282Z",
+    "contentLength": 1486379,
+    "contentType": "text/html",
+    "contentHash": "0x1f365f753810f0b9c97befecc75d41487af630b75f5f48aa23d9347ed4ce8c6c",
+    "previousContentHash": "0x21766c655bbefe8ae544db720c56e1c695a7bfa22c691b536e97313d6a52f251",
+    "previousRecordId": "DDC-WATCH-INTEL-10Q-2026Q1-20261127-000811",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-INTEL-10Q-2026Q1-20261128-000820.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "INTEL-10Q-2026Q1",
+      "observedAt": "2026-11-28T08:01:17.282Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/50863/000005086326000079/intc-20260328.htm",
+      "contentHash": "0x1f365f753810f0b9c97befecc75d41487af630b75f5f48aa23d9347ed4ce8c6c",
+      "previousContentHash": "0x21766c655bbefe8ae544db720c56e1c695a7bfa22c691b536e97313d6a52f251",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x1f365f753810f0b9c97befecc75d41487af630b75f5f48aa23d9347ed4ce8c6c"
+        }
+      ]
+    },
+    "verificationReportHash": "0x8e778e7aebfd16b5a41ae450bf9cf554bff9347ed87828a3b15abe2873500999",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000768",
+    "recorderTransactionHash": "0x0657296b678923e81e858034f9a3d2ae18deecc410923447bd9c3309dd93eaec",
+    "recorderBlockNumber": 136194947,
+    "onChainRecordNumber": 768,
+    "publicTokenId": "DDT-2026-11-FIN-00221",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:25.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-AMAZON-10Q-2026Q1-20261128-000821",
+    "sourceId": "AMAZON-10Q-2026Q1",
+    "category": "Corporate",
+    "sourceName": "Amazon.com, Inc. / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Amazon Form 10-Q — quarter ended March 31, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+    "observedAt": "2026-11-28T08:01:17.349Z",
+    "contentLength": 1241360,
+    "contentType": "text/html",
+    "contentHash": "0x7caa3be27d831807c27d100666d3c208eb428dcc0981b8de852668167e77deff",
+    "previousContentHash": "0xa8335a29fc721e9082fec18d22a582bc312bdc59231c66a96ede6b7256f05924",
+    "previousRecordId": "DDC-WATCH-AMAZON-10Q-2026Q1-20261127-000812",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-AMAZON-10Q-2026Q1-20261128-000821.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "AMAZON-10Q-2026Q1",
+      "observedAt": "2026-11-28T08:01:17.349Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000014/amzn-20260331.htm",
+      "contentHash": "0x7caa3be27d831807c27d100666d3c208eb428dcc0981b8de852668167e77deff",
+      "previousContentHash": "0xa8335a29fc721e9082fec18d22a582bc312bdc59231c66a96ede6b7256f05924",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0x7caa3be27d831807c27d100666d3c208eb428dcc0981b8de852668167e77deff"
+        }
+      ]
+    },
+    "verificationReportHash": "0x8b886e2536266bdb05122a06fec5b79f73bec939942ffd47895475daaf87dc8f",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000769",
+    "recorderTransactionHash": "0xd0f586bba5feff693ee92d84107e8e489fea8954562ac28f39e5a4a9404a152d",
+    "recorderBlockNumber": 136194950,
+    "onChainRecordNumber": 769,
+    "publicTokenId": "DDT-2026-11-FIN-00222",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:27.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-META-10Q-2026Q1-20261128-000822",
+    "sourceId": "META-10Q-2026Q1",
+    "category": "Corporate",
+    "sourceName": "Meta Platforms, Inc. / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Meta Form 10-Q — quarter ended March 31, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+    "observedAt": "2026-11-28T08:01:17.422Z",
+    "contentLength": 1486022,
+    "contentType": "text/html",
+    "contentHash": "0xdee055cd59fff2ebe5a1e1d44a9f33473d9e0e279aaed21310556865fd072067",
+    "previousContentHash": "0x081032078d012b7cc1471c720177816e2894daf62fa1a74582188c6af4b51ec6",
+    "previousRecordId": "DDC-WATCH-META-10Q-2026Q1-20261127-000813",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-META-10Q-2026Q1-20261128-000822.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "META-10Q-2026Q1",
+      "observedAt": "2026-11-28T08:01:17.422Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026028526/meta-20260331.htm",
+      "contentHash": "0xdee055cd59fff2ebe5a1e1d44a9f33473d9e0e279aaed21310556865fd072067",
+      "previousContentHash": "0x081032078d012b7cc1471c720177816e2894daf62fa1a74582188c6af4b51ec6",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xdee055cd59fff2ebe5a1e1d44a9f33473d9e0e279aaed21310556865fd072067"
+        }
+      ]
+    },
+    "verificationReportHash": "0xe6264eca431bb91207d5dd2e2861d548c7f87c41669146598058041ee1e36d59",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000770",
+    "recorderTransactionHash": "0x7c05ab4a0a5afae85139e50282031ec2e0bec52f164def78e1668ab1f1680329",
+    "recorderBlockNumber": 136194953,
+    "onChainRecordNumber": 770,
+    "publicTokenId": "DDT-2026-11-FIN-00223",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:28.000Z"
+  },
+  {
+    "recordId": "DDC-WATCH-MICRON-10Q-2026Q3-20261128-000823",
+    "sourceId": "MICRON-10Q-2026Q3",
+    "category": "Corporate",
+    "sourceName": "Micron Technology, Inc. / SEC",
+    "sourceDomain": "sec.gov",
+    "documentTitle": "Micron Form 10-Q — quarter ended May 28, 2026",
+    "requestedUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+    "finalUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+    "publicUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+    "observedAt": "2026-11-28T08:01:17.498Z",
+    "contentLength": 1531824,
+    "contentType": "text/html",
+    "contentHash": "0xafeb563bd3e7c7533545707d73c6dee962f42cc2716a099fb2b0ef9ae57931b7",
+    "previousContentHash": "0xd0b9ec9e7bf7553d4403d2e990a532e25188112c06afbc045690f6e961897d67",
+    "previousRecordId": "DDC-WATCH-MICRON-10Q-2026Q3-20261127-000814",
+    "changeDetected": true,
+    "snapshotFile": "DDC-WATCH-MICRON-10Q-2026Q3-20261128-000823.html",
+    "verificationPolicyVersion": "DDC-WATCH-VERIFY-1.0",
+    "verificationReport": {
+      "policyVersion": "DDC-WATCH-VERIFY-1.0",
+      "sourceId": "MICRON-10Q-2026Q3",
+      "observedAt": "2026-11-28T08:01:17.498Z",
+      "finalUrl": "https://www.sec.gov/Archives/edgar/data/723125/000072312526000015/mu-20260528.htm",
+      "contentHash": "0xafeb563bd3e7c7533545707d73c6dee962f42cc2716a099fb2b0ef9ae57931b7",
+      "previousContentHash": "0xd0b9ec9e7bf7553d4403d2e990a532e25188112c06afbc045690f6e961897d67",
+      "changed": true,
+      "checks": [
+        {
+          "label": "Official source domain",
+          "status": "pass",
+          "result": "Verified: www.sec.gov"
+        },
+        {
+          "label": "HTTPS transport",
+          "status": "pass",
+          "result": "https:"
+        },
+        {
+          "label": "Source response",
+          "status": "pass",
+          "result": "HTTP 200"
+        },
+        {
+          "label": "Content hash",
+          "status": "pass",
+          "result": "0xafeb563bd3e7c7533545707d73c6dee962f42cc2716a099fb2b0ef9ae57931b7"
+        }
+      ]
+    },
+    "verificationReportHash": "0xdbb2e689770cd3a078127b13af5036004e8e1bf9e78f332ef54cd558d32835c6",
+    "ddcTokenRegistrationStatus": "registered",
+    "ddcTokenRecordNumber": "DDT-00000771",
+    "recorderTransactionHash": "0xd1a2715538b3de4c7400bb80b62c96e673f1e7586440b6c961002e289642229c",
+    "recorderBlockNumber": 136194955,
+    "onChainRecordNumber": 771,
+    "publicTokenId": "DDT-2026-11-FIN-00224",
+    "recorderAddress": "0x9AC7562Cea9D60864bAB9086F825Bb470a666087",
+    "registeredAt": "2026-11-28T08:01:29.000Z"
   }
 ]
